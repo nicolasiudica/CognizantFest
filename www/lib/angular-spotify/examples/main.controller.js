@@ -1,22 +1,11 @@
-angular.module('app.controllers', [])
-
-.controller('homeCtrl', function($scope) {
-
-})
-
-.controller('gamesCtrl', function($scope) {
-
-})
-
-.controller('drinksCtrl', function($scope) {
-
-})
-
-.controller('signupCtrl', function($scope) {
-
-})
-
-.controller('playListCtrl', ['$scope', 'Spotify', function ($scope, Spotify) {
+angular
+  .module('exampleApp', ['spotify'])
+  .config(function (SpotifyProvider) {
+    SpotifyProvider.setClientId('123456789123456789');
+    SpotifyProvider.setRedirectUri('http://example.com/callback.html');
+    SpotifyProvider.setScope('playlist-read-private');
+  })
+  .controller('MainController', ['$scope', 'Spotify', function ($scope, Spotify) {
 
     $scope.searchArtist = function () {
       Spotify.search($scope.searchartist, 'artist').then(function (data) {
@@ -113,12 +102,4 @@ angular.module('app.controllers', [])
       console.log(data);
     });
 
-  }])
-
-.controller('mapCtrl', function($scope) {
-
-})
-
-.controller('cameraPhotosCtrl', function($scope) {
-
-})
+  }]);
