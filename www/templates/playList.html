@@ -1,8 +1,23 @@
-<ion-view title="Playlist" id="page5" class=" ">
+<ion-view title="Cognizant Fest Playlist" id="page5" class=" ">
     <ion-content padding="true" class="has-header">
 
 
-  <button  class="button button-balanced" ng-click="login()">Login with Spotify</button>
+  <!--<button  class="button button-balanced" ng-click="login()">Login with Spotify</button>-->
+
+
+  <div class="list">
+
+          <a ng-repeat="track in tracks"
+             href="#/{{item.id}}"
+             class="item">
+
+          <!--  <img ng-src="{{ artist.image }}"> -->
+            <h2>{{ track.name }}</h2>
+            <p>{{ track.artists[0].name }}</p>
+          </a>
+
+  </div>
+
 
     </ion-content>
 

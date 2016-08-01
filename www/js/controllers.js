@@ -58,6 +58,7 @@ angular.module('app.controllers', [])
     Spotify.getAlbumTracks('41MnTivkwTO3UUJ8DrqEJJ').then(function (data) {
       console.log('=================== Album Tracks - ID ===================');
       console.log(data);
+      $scope.tracks = data.items;
     });
     Spotify.getAlbumTracks('spotify:album:41MnTivkwTO3UUJ8DrqEJJ').then(function (data) {
       console.log('=================== Album Tracks - Spotify URI ===================');
@@ -112,6 +113,15 @@ angular.module('app.controllers', [])
       console.log('=================== Tracks - Array ===================');
       console.log(data);
     });
+
+
+
+
+    //playList
+    Spotify.getPlaylistTracks('11100513684', 'CognizantFest').then(function (data) {
+      console.log('=================== Playlist Tracks - Array ===================');
+      console.log(data);
+    })
 
   }])
 
