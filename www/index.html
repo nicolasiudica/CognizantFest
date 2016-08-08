@@ -156,7 +156,7 @@
     <script src="js/jquery.js"></script>
 
        <!-- Google Map -->
-     <script src="https://maps.googleapis.com/maps/api/js?sensor=true&libraries=places&signed_in=true&key=AIzaSyD8IC0_oxURp1fYgih2leKIbjGr_O5xX3w" async defer> </script>
+     <script src="https://maps.googleapis.com/maps/api/js?sensor=true&libraries=places&signed_in=true&key=AIzaSyBrhSIPymyVA2ZHlIWWNYKx_7U9iaIKH1E" async defer> </script>
   
 
     <!-- Only required for Tab projects w/ pages in multiple tabs 
@@ -165,17 +165,21 @@
 
   </head>
   <body ng-app="app" animation="slide-left-right-ios7">
-  
-  <div>
-  
-
     <div>
-        <ion-nav-bar class="bar-stable">
-            <ion-nav-back-button class="button-icon icon ion-ios-arrow-back">Back</ion-nav-back-button>
-
-        </ion-nav-bar>
-        <ion-nav-view></ion-nav-view>
+      <div>
+          <ion-nav-view></ion-nav-view>
+      </div>
     </div>
-</div>
+  <!--
+  -->
+    <div class="bar bar-footer">
+     <div class="button-bar">
+       <a class="button icon icon-top ion-home" ui-sref="menu.drinks"></a>
+       <a class="button" ui-sref="menu.games">2</a>
+       <a class="button" ui-sref="menu.cameraPhotos">3</a>
+       <a class="button" ui-sref="menu.playList">4</a>
+       <a class="button" ui-sref="menu.map">5</a>
+      </div>
+    </div>
   </body>
 </html>
