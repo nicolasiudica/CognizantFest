@@ -23,6 +23,15 @@
    
 
     <style type="text/css">
+
+        .no-padding{
+          padding: 0px!important;
+        }
+
+        .new-height{
+          height: 60px!important;
+          padding-top: 8px;
+        }
     /******************************************************Mapa**************************************/
         #map {
           width: 100%;
@@ -170,16 +179,38 @@
         <ion-nav-view></ion-nav-view>
     </div>
     
-  <!--
-  -->
-    <div class="bar bar-footer">
-     <div class="button-bar">
-       <a class="button icon icon-top ion-home" ui-sref="menu.drinks"></a>
-       <a class="button" ui-sref="menu.games">2</a>
-       <a class="button" ui-sref="menu.cameraPhotos">3</a>
-       <a class="button" ui-sref="menu.playList">4</a>
-       <a class="button" ui-sref="menu.map">5</a>
+    <div class="bar bar-footer no-padding">
+      <div class="tabs tabs-icon-top new-height">
+        <a class="tab-item" ui-sref="menu.map">
+          <i class="icon ion-location"></i>
+          Mapa
+        </a>
+        <a class="tab-item" ui-sref="menu.drinks">
+          <i class="icon icon ion-wineglass"></i>
+          Tragos
+        </a>
+        <a class="tab-item" ui-sref="menu.cameraPhotos">
+          <i class="icon ion-camera"></i>
+          Foto
+        </a>
+        <a class="tab-item" ui-sref="menu.games">
+          <i class="icon ion-ios-game-controller-b"></i>
+          Juego
+        </a>
+        <a class="tab-item" ui-sref="menu.playList">
+          <i class="icon ion-music-note"></i>
+          Playlist
+        </a>
       </div>
+  <!--
+     <div class="button-bar tabs tabs-icon-top">
+       <a class="button icon ion-location" ui-sref="menu.map">Mapa</a>
+       <a class="button icon icon ion-wineglass" ui-sref="menu.drinks"></a>
+       <a class="button icon ion-camera" ui-sref="menu.cameraPhotos"></a>
+       <a class="button icon ion-paper-airplane" ui-sref="menu.games"></a>
+       <a class="button icon ion-music-note" ui-sref="menu.playList"></a>
+      </div>
+  -->
     </div>
   </body>
 </html>
