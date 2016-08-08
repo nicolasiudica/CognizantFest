@@ -7,8 +7,8 @@ angular.module('app.routes', [])
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
-    
-  
+
+
 
       .state('menu.home', {
     url: '/index',
@@ -35,7 +35,7 @@ angular.module('app.routes', [])
     views: {
       'side-menu21': {
         templateUrl: 'templates/drinks.html',
-        controller: 'drinksCtrl'
+        controller: 'MotionController'
       }
     }
   })
@@ -46,47 +46,36 @@ angular.module('app.routes', [])
     abstract:true
   })
 
-  .state('menu.cameraPhotos', {
-    url: '/camera',
-    views: {
-      'side-menu21': {
-    templateUrl: 'templates/cameraPhotos.html',
-    controller: 'cameraPhotosCtrl'
-      }
-    }
-  })
-
-  .state('menu.playList', {
-    url: '/playlist',
-    views: {
-      'side-menu21': {
-    templateUrl: 'templates/playList.html',
-    controller: 'playListCtrl'
-      }
-    }
-  })
-
-  .state('menu.map', {
-    url: '/map',
-     views: {
-      'side-menu21': {
-      templateUrl: 'templates/map.html',
-      controller: 'mapCtrl'
-      }
-    }
-  })
-
   .state('signup', {
     url: '/page4',
     templateUrl: 'templates/signup.html',
     controller: 'signupCtrl'
   })
 
+  .state('menu.playlist', {
+    url: '/playlist',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/playlist.html',
+        controller: 'playListCtrl'
+      }
+    }
+  })
 
+  .state('map', {
+    url: '/map',
+    templateUrl: 'templates/map.html',
+    controller: 'mapCtrl'
+  })
 
+  .state('cameraPhotos', {
+    url: '/camera',
+    templateUrl: 'templates/cameraPhotos.html',
+    controller: 'cameraPhotosCtrl'
+  })
 
 $urlRouterProvider.otherwise('/side-menu21/index')
 
-  
+
 
 });

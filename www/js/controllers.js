@@ -1,329 +1,279 @@
 angular.module('app.controllers', [])
-  
+
 .controller('homeCtrl', function($scope) {
 
 })
-   
+
 .controller('gamesCtrl', function($scope) {
 
 })
-   
-.controller('drinksCtrl', function($scope) {
+
+.controller('drinksCtrl', function($scope, $ionicBackdrop, $ionicModal, $ionicSlideBoxDelegate, $ionicScrollDelegate) {
+ 
+  $scope.allImages = [{
+    src: 'drinks/images/cerveza.jpg'
+  }, {
+    src: 'drinks/images/daikiri.jpg'
+  }, {
+    src: 'drinks/images/fernet.jpg'
+  }, {
+    src: 'drinks/images/gintonic.jpg'
+  }, {
+    src: 'drinks/images/tequilaSunrise.jpg'
+  }];
+ 
+  $scope.zoomMin = 2;
+
+  $scope.showImages = function(index) {
+    $scope.activeSlide = index;
+    $scope.showModal('templates/gallery-zoomview.html');
+  };
+ 
+  $scope.showModal = function(templateUrl) {
+    $ionicModal.fromTemplateUrl(templateUrl, {
+      scope: $scope
+  }).then(function(modal) {
+      $scope.modal = modal;
+      $scope.modal.show();
+  });
+  }
+ 
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+    $scope.modal.remove()
+  };
+ 
+$scope.updateSlideStatus = function(slide) {
+    var zoomFactor = $ionicScrollDelegate.$getByHandle('scrollHandle' + slide).getScrollPosition().zoom;
+    if (zoomFactor == $scope.zoomMin) {
+      $ionicSlideBoxDelegate.enableSlide(true);
+    } else {
+      $ionicSlideBoxDelegate.enableSlide(false);
+    }
+  };
 
 })
-      
+
+.controller('MotionController', function($scope, $cordovaDeviceMotion, $ionicPlatform) {
+  
+   // watch Acceleration options
+    $scope.options = { 
+        frequency: 100, // Measure every 100ms
+        deviation : 25  // We'll use deviation to determine the shake event, best values in the range between 25 and 30
+    };
+ 
+    // Current measurements
+    $scope.measurements = {
+        x : null,
+        y : null,
+        z : null,
+        timestamp : null
+    }
+ 
+    // Previous measurements    
+    $scope.previousMeasurements = {
+        x : null,
+        y : null,
+        z : null,
+        timestamp : null
+    }   
+ 
+    // Watcher object
+    $scope.watch = null;
+ 
+    // Start measurements when Cordova device is ready
+    $ionicPlatform.ready(function() {
+ 
+        //Start Watching method
+        $scope.startWatching = function() {     
+ 
+            // Device motion configuration
+            $scope.watch = $cordovaDeviceMotion.watchAcceleration($scope.options);
+ 
+            // Device motion initilaization
+            $scope.watch.then(null, function(error) {
+                console.log('Error');
+            },function(result) {
+ 
+                // Set current data  
+                $scope.measurements.x = result.x;
+                $scope.measurements.y = result.y;
+                $scope.measurements.z = result.z;
+                $scope.measurements.timestamp = result.timestamp;                 
+ 
+                // Detecta shake  
+                $scope.detectShake(result);  
+ 
+            });     
+        };      
+ 
+        // Stop watching method
+        $scope.stopWatching = function() {  
+            $scope.watch.clearWatch();
+        }       
+ 
+        // Detect shake method      
+        $scope.detectShake = function(result) { 
+ 
+            //Object to hold measurement difference between current and old data
+            var measurementsChange = {};
+ 
+            // Calculate measurement change only if we have two sets of data, current and old
+            if ($scope.previousMeasurements.x !== null) {
+                measurementsChange.x = Math.abs($scope.previousMeasurements.x, result.x);
+                measurementsChange.y = Math.abs($scope.previousMeasurements.y, result.y);
+                measurementsChange.z = Math.abs($scope.previousMeasurements.z, result.z);
+            }
+ 
+            // If measurement change is bigger then predefined deviation
+            if (measurementsChange.x + measurementsChange.y + measurementsChange.z > $scope.options.deviation) {
+                $scope.stopWatching();  // Stop watching because it will start triggering like hell
+                console.log('Shake detected'); // shake detected
+                setTimeout($scope.startWatching(), 1000);  // Again start watching after 1 sex
+ 
+                // Clean previous measurements after succesfull shake detection, so we can do it next time
+                $scope.previousMeasurements = { 
+                    x: null, 
+                    y: null, 
+                    z: null
+                }               
+ 
+            } else {
+                // On first measurements set it as the previous one
+                $scope.previousMeasurements = {
+                    x: result.x,
+                    y: result.y,
+                    z: result.z
+                }
+            }           
+ 
+        }       
+ 
+    });
+ 
+    $scope.$on('$ionicView.beforeLeave', function(){
+        $scope.watch.clearWatch(); // Turn off motion detection watcher
+    });
+
+})
+
 .controller('signupCtrl', function($scope) {
 
 })
-   
-.controller('playListCtrl', function($scope) {
 
-})
-   
-.controller('mapCtrl', function($scope,$state,$cordovaGeolocation) {
-    
-  initMap();
+.controller('playListCtrl', ['$scope', 'Spotify', function ($scope, Spotify) {
 
-  var map = $scope.map;
-
- /************************Inicializo el Mapa********************************/
- function initMap(){
-    
-    var options = {timeout: 10000, enableHighAccuracy: true};
-  
-
-    $cordovaGeolocation.getCurrentPosition(options).then(function(position){
-  //Declaro las opciones
-    
-
-    var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-    
-    var styles =[
-        {
-          "featureType": "poi",
-          "elementType": "labels.icon",
-          "stylers": [
-            { "visibility": "off" }
-          ]
-        },{
-          "featureType": "landscape",
-          "stylers": [
-            { "visibility": "off" }
-          ]
-        },{
-          "featureType": "transit",
-          "stylers": [
-            { "visibility": "off" }
-          ]
-        },{
-          "featureType": "road",
-          "elementType": "labels.text",
-          "stylers": [
-            { "invert_lightness": true },
-            { "saturation": 100 },
-            { "lightness": -1 },
-            { "visibility": "on" },
-            { "weight": 0.8 },
-            { "hue": "#0077ff" }
-          ]
-        }
-      ];
-
-    var mapOptions = {
-          mapTypeId: google.maps.MapTypeId.ROADMAP,
-          center: latLng,
-          zoom: 18,
-          mapTypeControlOptions: {
-            mapTypeIds: [
-              google.maps.MapTypeId.ROADMAP
-            ],
-            position: google.maps.ControlPosition.BOTTOM_LEFT
-            }
+    $scope.searchArtist = function () {
+      Spotify.search($scope.searchartist, 'artist').then(function (data) {
+        $scope.artists = data.artists.items;
+      });
     };
 
-    map = new google.maps.Map(document.getElementById("map"), mapOptions);
-    
-    map.setOptions({styles: styles});
-
-    var directionsDisplay = new google.maps.DirectionsRenderer();
-        directionsDisplay.setMap(map);
-        directionsDisplay.setPanel(document.getElementById('right-panel'));
-
-    initGeo(directionsDisplay); 
-
-
-  }, function(error){
-    console.log("Could not get location");
-  });
-}
-
-/***********************************Geolocalización******************************************************/
-
-  function initGeo(directionsDisplay){   
-    
-     var infoWindow = new google.maps.InfoWindow({map: map});
-     var directionsService = new google.maps.DirectionsService();
-
-        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-            pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
-
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Estas aquí');
-            map.setCenter(pos);
-            
-            getDirection(pos, directionsDisplay);
-            setMarkers(pos, map);
-            
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
-        }
-        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-      }
-  }
-/*******************************************Ruta por defecto*************************************************/
-
-  function getDirection(origin, directionsDisplay){
-
-
-    var directionsService = new google.maps.DirectionsService();
-    
-    var destination = {lat: -34.546284, lng: -58.452251};
-
-    var selectedMode = document.getElementById('mode').value;
-
-    var origin_input = document.getElementById('origin-input');
-
-    var destination_input = document.getElementById('destination-input');
-   
-    var modes = document.getElementById('mode');
-
-    var switchButton = document.getElementById('switch-inputs');
-
-    var destination_place_id = null;
-
-    var request = {
-      origin: origin,
-      destination: destination,
-      travelMode: google.maps.TravelMode[selectedMode]
+    $scope.login = function () {
+      Spotify.login().then(function (data) {
+        console.log(data);
+        alert("You are now logged in");
+      }, function () {
+        console.log('didn\'t log in');
+      })
     };
-     
-    directionsService.route(request, function(result, status) {
-        if (status == google.maps.DirectionsStatus.OK) {
-          directionsDisplay.setDirections(result);
-        }
+
+    // Gets an album
+    Spotify.getAlbum('0sNOF9WDwhWunNAHPD3Baj').then(function (data){
+      console.log('=================== Album - ID ===================');
+      console.log(data);
+    });
+    // Works with Spotify uri too
+    Spotify.getAlbum('spotify:album:0sNOF9WDwhWunNAHPD3Baj').then(function (data){
+      console.log('=================== Album - Spotify URI ===================');
+      console.log(data);
     });
 
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(origin_input);
-    map.controls[google.maps.ControlPosition.LEFT].push(destination_input);
-    map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(modes);
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(switchButton);
-  
-/************************************AutoComplete**************************************/
-     
-   
-
-    var origin_autocomplete = new google.maps.places.Autocomplete(origin_input);
-    origin_autocomplete.bindTo('bounds', map);
-
-    var destination_autocomplete =
-        new google.maps.places.Autocomplete(destination_input);
-    destination_autocomplete.bindTo('bounds', map);
-
-    
-    function expandViewportToFitPlace(map, place) {
-      if (place.geometry.viewport) {
-        map.fitBounds(place.geometry.viewport);
-      } else {
-        map.setCenter(place.geometry.location);
-        map.setZoom(17);
-      }
-    }
-
-    
-    origin_autocomplete.addListener('place_changed', function() {
-      var place = origin_autocomplete.getPlace();
-      if (!place.geometry) {
-        window.alert("Autocomplete's returned place contains no geometry");
-        return;
-      }
-
-      expandViewportToFitPlace(map, place);
-
-
-      // If the place has a geometry, store its place ID and route if we have
-      // the other place ID
-      origin_place_id = place.place_id;
-      route(origin_place_id, destination_place_id,
-            directionsService, directionsDisplay);
-    
+    //Get multiple Albums
+    Spotify.getAlbums('41MnTivkwTO3UUJ8DrqEJJ,6JWc4iAiJ9FjyK0B59ABb4,6UXCm6bOO4gFlDQZV5yL37').then(function (data) {
+      console.log('=================== Albums - Ids ===================');
+      console.log(data);
     });
-   
-    
-    destination_autocomplete.addListener('place_changed', function() {
-      
-      var place = destination_autocomplete.getPlace();
-      if (!place.geometry) {
-        window.alert("Autocomplete's returned place contains no geometry");
-        return;
-      }
-      expandViewportToFitPlace(map, place);
-
-      // If the place has a geometry, store its place ID and route if we have
-      // the other place ID
-      destination_place_id = place.place_id;
-      route(origin_place_id, destination_place_id, directionsService, directionsDisplay);
-  });    
-
-/*************************************************Trazar Ruta **********************************************/
-    function route(origin_place_id, destination_place_id, directionsService, directionsDisplay){
-     
-     //Se traza la ruta automaticamente
-      if (!origin_place_id || !destination_place_id) {
-      
-       directionsService.route({
-        destination: destination,  
-        travelMode: google.maps.TravelMode[selectedMode]
-        }, function(response, status) {
-            if (status == google.maps.DirectionsStatus.OK) {
-              directionsDisplay.setDirections(response);
-            } else {
-              window.alert('Directions request failed due to ' + status);
-            }
-          });
-        return
-      }
-
-      //Se traza la ruta elegida por el From y el To.
-      directionsService.route({
-        origin: {'placeId': origin_place_id},
-        destination: {'placeId': destination_place_id},
-        travelMode: google.maps.TravelMode[selectedMode]
-      }, function(response, status) {
-        if (status === google.maps.DirectionsStatus.OK) {
-          directionsDisplay.setDirections(response);
-        } else {
-          window.alert('Directions request failed due to ' + status);
-        }
-      });
-    }
-/********************************TRAVEL MODE LISTENER******************/   
-    document.getElementById('mode').addEventListener('change', function() {
-    calculateAndDisplayRoute(directionsService, directionsDisplay);
+    Spotify.getAlbums(['41MnTivkwTO3UUJ8DrqEJJ','6JWc4iAiJ9FjyK0B59ABb4','6UXCm6bOO4gFlDQZV5yL37']).then(function (data) {
+      console.log('=================== Albums - Array ===================');
+      console.log(data);
     });
 
 
-/*********************Modo de transporte*****************************/
-   function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-      var selectedMode = document.getElementById('mode').value;
-      directionsService.route({
-        origin: origin,  // Haight.
-        destination: destination,  // Ocean Beach.
-        // Note that Javascript allows us to access the constant
-        // using square brackets and a string value as its
-        // "property."
-        travelMode: google.maps.TravelMode[selectedMode]
-      }, function(response, status) {
-        if (status == google.maps.DirectionsStatus.OK) {
-          directionsDisplay.setDirections(response);
-        } else {
-          window.alert('Directions request failed due to ' + status);
-        }
-      });
-   }  
-  
-}
+    Spotify.getAlbumTracks('41MnTivkwTO3UUJ8DrqEJJ').then(function (data) {
+      console.log('=================== Album Tracks - ID ===================');
+      console.log(data);
+      $scope.tracks = data.items;
+    });
+    Spotify.getAlbumTracks('spotify:album:41MnTivkwTO3UUJ8DrqEJJ').then(function (data) {
+      console.log('=================== Album Tracks - Spotify URI ===================');
+      console.log(data);
+    });
 
 
- 
-/********************************************MARKERS*****************************************************/
-      
-  function setMarkers(pos){
-    var destination = {lat: -34.546284, lng: -58.452251};
-    var image = "img/cognizantLogo30x30.png";
-        var markerCognizant = new google.maps.Marker({
-          animation: google.maps.Animation.DROP,
-          position: destination,
-          map: map,
-          icon:image,
-          title: 'Cognizant Technology Solutions'
-      });
 
-      var contentString = '<div id="content">'+
-          '<div id="siteNotice">'+
-          '</div>'+
-          '<h4 id="firstHeading" class="firstHeading">Ubicación de la empresa</h4>'+
-          '<div id="bodyContent">'+
-          '<p><b>Cognizant Technology Solutions</b>'+
-          '</p>'+
-          '</div>'+
-          '</div>';
+    //Artist
+    Spotify.getArtist('0LcJLqbBmaGUft1e9Mm8HV').then(function (data) {
+      console.log('=================== Artist - Id ===================');
+      console.log(data);
+    });
+    Spotify.getArtist('spotify:artist:0LcJLqbBmaGUft1e9Mm8HV').then(function (data) {
+      console.log('=================== Artist - Spotify URI ===================');
+      console.log(data);
+    });
 
-       var infowindow = new google.maps.InfoWindow({
-        content: contentString
-      });
+    Spotify.getArtistAlbums('0LcJLqbBmaGUft1e9Mm8HV').then(function (data) {
+      console.log('=================== Artist Albums - Id ===================');
+      console.log(data);
+    });
 
-        markerCognizant.addListener('click', function() {
-          infowindow.open(map, markerCognizant);
-        });
+    Spotify.getArtistAlbums('spotify:artist:0LcJLqbBmaGUft1e9Mm8HV').then(function (data) {
+      console.log('=================== Artist Albums - Spotify URI ===================');
+      console.log(data);
+    });
 
-  } 
+    Spotify.getArtistTopTracks('0LcJLqbBmaGUft1e9Mm8HV', 'AU').then(function (data) {
+      console.log('=================== Artist Top Tracks Australia ===================');
+      console.log(data);
+    });
+
+    Spotify.getRelatedArtists('0LcJLqbBmaGUft1e9Mm8HV').then(function (data) {
+      console.log('=================== Get Releated Artists ===================');
+      console.log(data);
+    });
+
+
+    //Tracks
+    Spotify.getTrack('0eGsygTp906u18L0Oimnem').then(function (data) {
+      console.log('=================== Track ===================');
+      console.log(data);
+    });
+
+    Spotify.getTracks('0eGsygTp906u18L0Oimnem,1lDWb6b6ieDQ2xT7ewTC3G').then(function (data) {
+      console.log('=================== Tracks - String ===================');
+      console.log(data);
+    });
+
+    Spotify.getTracks(['0eGsygTp906u18L0Oimnem','1lDWb6b6ieDQ2xT7ewTC3G']).then(function (data) {
+      console.log('=================== Tracks - Array ===================');
+      console.log(data);
+    });
+
+
+
+
+    //playList
+    Spotify.getPlaylistTracks('11100513684', 'CognizantFest').then(function (data) {
+      console.log('=================== Playlist Tracks - Array ===================');
+      console.log(data);
+    })
+
+  }])
+
+.controller('mapCtrl', function($scope) {
+
 })
-   
+
 .controller('cameraPhotosCtrl', function($scope) {
 
 })
- 
