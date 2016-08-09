@@ -1,0 +1,134 @@
+/***************************  Custom app UI  **************************************/
+
+.no-padding{
+padding: 0px!important;
+}
+
+.new-height{
+height: 60px!important;
+padding-top: 8px!important;
+}
+
+/********************************  Mapa  **************************************/
+
+#map {
+  width: 100%;
+  height: 80%;
+  position: relative;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.controls {
+margin-top: 5px;
+border: 1px solid transparent;
+border-radius: 2px 0 0 2px;
+box-sizing: border-box;
+-moz-box-sizing: border-box;
+height: 32px;
+outline: none;
+box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#origin-input,
+#destination-input {
+background-color: #fff;
+font-family: Roboto;
+font-size: 15px;
+font-weight: 300;
+margin-left: 12px;
+padding: 0 11px 0 13px;
+text-overflow: ellipsis;
+width: 200px;
+}
+
+#origin-input:focus,
+#destination-input:focus {
+border-color: #4d90fe;
+}
+
+#mode {
+color: #fff;
+background-color: #4d90fe;
+margin-bottom: 5%;
+}
+
+#mode label {
+font-family: Roboto;
+font-size: 13px;
+font-weight: 300;
+}
+
+#switch-inputs{
+height: 5%; 
+width:20%; 
+margin-left: 2%; 
+margin-top: 10%;
+}
+/*************************************   MAP Right Panel   *******************************************/
+
+#right-panel {
+font-family: 'Roboto','sans-serif';
+line-height: 30px;
+padding-left: 10px;
+}
+
+#right-panel select, #right-panel input {
+font-size: 10px;
+}
+
+#right-panel select {
+width: 100%;
+}
+
+#right-panel i {
+font-size: 10px;
+}
+
+#right-panel {
+height: 100%;
+float: right;
+width: 100%;
+overflow: auto;
+}
+
+#map {
+margin-right: 400px;
+}
+
+@media print {
+#map {
+  height: 70%;
+  margin: 0;
+}
+
+#right-panel {
+  float: none;
+  width: auto;
+}
+}
+
+/*************************************************************************************/
+
+.platform-ios .manual-ios-statusbar-padding{
+padding-top:20px;
+}
+.manual-remove-top-padding{
+padding-top:0px; 
+}
+.manual-remove-top-padding .scroll{
+padding-top:0px !important;
+}
+ion-list.manual-list-fullwidth div.list, .list.card.manual-card-fullwidth {
+margin-left:-10px;
+margin-right:-10px;
+}
+ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidth > .item {
+border-radius:0px;
+border-left:0px;
+border-right: 0px;
+}
