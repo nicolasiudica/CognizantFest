@@ -1,0 +1,156 @@
+
+/*************************************  
+
+Custom app UI styles 
+
+**************************************/
+
+/* BACKGROUND GRADIENT */
+
+.scroll-content{
+	background: #3ad58f; /* Old browsers */
+	background: -moz-linear-gradient(top,  #3ad58f 0%, #1b3061 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3ad58f), color-stop(100%,#1b3061)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #3ad58f 0%, #1b3061 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #3ad58f 0%, #1b3061 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #3ad58f 0%, #1b3061 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #3ad58f 0%, #1b3061 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3ad58f', endColorstr='#1b3061',GradientType=0 ); /* IE6-9 */
+}
+
+.no-padding{
+	padding: 0px!important;
+}
+
+.no-padding i{
+	color: #22546b;
+}
+
+.new-height{
+	height: 60px!important;
+	padding-top: 8px!important;
+}
+
+/********************************  Mapa  **************************************/
+
+#map {
+	width: 100%;
+	height: 80%;
+	position: relative;
+}
+
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.controls {
+	margin-top: 5px;
+	border: 1px solid transparent;
+	border-radius: 2px 0 0 2px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	height: 32px;
+	outline: none;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#origin-input,
+#destination-input {
+	background-color: #fff;
+	font-family: Roboto;
+	font-size: 15px;
+	font-weight: 300;
+	margin-left: 12px;
+	padding: 0 11px 0 13px;
+	text-overflow: ellipsis;
+	width: 200px;
+}
+
+#origin-input:focus,
+#destination-input:focus {
+	border-color: #4d90fe;
+}
+
+#mode {
+	color: #fff;
+	background-color: #4d90fe;
+	margin-bottom: 5%;
+}
+
+#mode label {
+	font-family: Roboto;
+	font-size: 13px;
+	font-weight: 300;
+}
+
+#switch-inputs{
+	height: 5%; 
+	width:20%; 
+	margin-left: 2%; 
+	margin-top: 10%;
+}
+/*************************************   MAP Right Panel   *******************************************/
+
+#right-panel {
+	font-family: 'Roboto','sans-serif';
+	line-height: 30px;
+	padding-left: 10px;
+}
+
+#right-panel select, #right-panel input {
+	font-size: 10px;
+}
+
+#right-panel select {
+	width: 100%;
+}
+
+#right-panel i {
+	font-size: 10px;
+}
+
+#right-panel {
+	height: 100%;
+	float: right;
+	width: 100%;
+	overflow: auto;
+}
+
+#map {
+	margin-right: 400px;
+}
+
+@media print {
+	#map {
+		height: 70%;
+		margin: 0;
+	}
+
+	#right-panel {
+		float: none;
+		width: auto;
+	}
+}
+
+/*************************************************************************************/
+
+.platform-ios .manual-ios-statusbar-padding{
+	padding-top:20px;
+}
+.manual-remove-top-padding{
+	padding-top:0px; 
+}
+.manual-remove-top-padding .scroll{
+	padding-top:0px !important;
+}
+ion-list.manual-list-fullwidth div.list, .list.card.manual-card-fullwidth {
+	margin-left:-10px;
+	margin-right:-10px;
+}
+ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidth > .item {
+	border-radius:0px;
+	border-left:0px;
+	border-right: 0px;
+}
