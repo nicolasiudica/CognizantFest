@@ -1,8 +1,6 @@
 angular.module('app.controllers', [])
 
-.controller('homeCtrl', function($scope) {
 
-})
 
 .controller('gamesCtrl', function($scope) {
 
@@ -118,12 +116,46 @@ angular.module('app.controllers', [])
 
 
     //playList
-    Spotify.getPlaylistTracks('11100513684', 'CognizantFest').then(function (data) {
+    Spotify.getPlaylistTracks('11100513684', '5jJXIb8FmjXok9dRTeumpP').then(function (data) {
       console.log('=================== Playlist Tracks - Array ===================');
       console.log(data);
     })
 
   }])
+
+
+
+  .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+  })
+  .controller('homeCtrl', function($scope, $ionicPopup, $auth) {
+
+    $scope.authenticate = function(provider) {
+      $auth.authenticate(provider)
+        .then(function() {
+          $ionicPopup.alert({
+            title: 'Success',
+            content: 'You have successfully logged in!'
+          })
+        })
+        .catch(function(response) {
+          $ionicPopup.alert({
+            title: 'Error',
+            content: response.data ? response.data || response.data.message : response
+          })
+
+        });
+    };
+
+
+    $scope.logout = function() {
+      $auth.logout();
+    };
+
+    $scope.isAuthenticated = function() {
+      return $auth.isAuthenticated();
+    };
+
+  })
 
 .controller('mapCtrl', function($scope) {
 

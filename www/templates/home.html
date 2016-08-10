@@ -1,3 +1,21 @@
-<ion-view title="Home" id="page1" class=" ">
-    <ion-content padding="true" class="has-header"></ion-content>
+<ion-view title="Log In">
+  <ion-content class="padding">
+    <div ng-if="!isAuthenticated()">
+
+      <button ng-click="authenticate('google')" class="button button-block icon-left ion-social-googleplus">
+        Sign in with Google
+      </button>
+      <button ng-click="authenticate('spotify')"class="button button-block icon-left ion-social-spotify">Sign in with Spotify</button>
+    </div>
+    <div ng-if="isAuthenticated()">
+      <div class="card">
+        <div class="item item-text-wrap">
+          You are currently logged in.
+        </div>
+      </div>
+      <button ng-click="logout()" class="button button-block">
+        Log Out
+      </button>
+    </div>
+  </ion-content>
 </ion-view>
