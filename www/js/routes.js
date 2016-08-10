@@ -82,11 +82,6 @@ angular.module('app.routes', [])
     controller: 'signupCtrl'
   })
 
-
-
-
 $urlRouterProvider.otherwise('/side-menu21/index')
-
-  
 
 });
