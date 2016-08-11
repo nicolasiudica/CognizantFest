@@ -49,23 +49,23 @@
 		
 		<div class="bar bar-footer no-padding tabs-striped">
 			<div class="tabs tabs-icon-top new-height">
-				<a class="tab-item" ui-sref="menu.map">
+				<a class="tab-item" ui-sref="menu.map" ng-click="activeButton = 'map'" ng-class="{ 'active': activeButton === 'map' }">
 					<i class="icon ion-location"></i>
 					Location
 				</a>
-				<a class="tab-item" ui-sref="menu.drinks">
+				<a class="tab-item" ui-sref="menu.drinks" ng-click="activeButton = 'drinks'" ng-class="{ 'active': activeButton === 'drinks' }">
 					<i class="icon icon ion-wineglass"></i>
 					Drinks
 				</a>
-				<a class="tab-item" ui-sref="menu.cameraPhotos">
+				<a class="tab-item" ui-sref="menu.cameraPhotos" ng-click="activeButton = 'cameraPhotos'" ng-class="{ 'active': activeButton === 'cameraPhotos' }">
 					<i class="icon ion-camera"></i>
 					Photo
 				</a>
-				<a class="tab-item" ui-sref="menu.games">
+				<a class="tab-item" ui-sref="menu.games" ng-click="activeButton = 'games'" ng-class="{ 'active': activeButton === 'games' }">
 					<i class="icon ion-ios-game-controller-b"></i>
 					Game
 				</a>
-				<a class="tab-item" ui-sref="menu.playList">
+				<a class="tab-item" ui-sref="menu.playList" ng-click="activeButton = 'playlist'" ng-class="{ 'active': activeButton === 'playlist' }">
 					<i class="icon ion-music-note"></i>
 					Playlist
 				</a>
@@ -83,3 +83,4 @@
 		</script>
 	</body>
 </html>
+ ng-class="{'active': cliked, '': !cliked}" ng-click="cliked=!cliked"
