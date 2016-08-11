@@ -84,10 +84,5 @@ angular.module('app.routes', [])
 
 $urlRouterProvider.otherwise('/side-menu21/index')
 
-<<<<<<< HEAD
-
 
 });
-=======
-});
->>>>>>> ac26837cd0618f553075cfe2627a2b3d9e8c35e3

@@ -119,27 +119,29 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('cameraPhotosCtrl', function($scope, $cordovaCamera) {
+.controller('cameraPhotosCtrl', function($scope, $cordovaCamera) { //Camera controller
   
-                $scope.takePhoto = function () {
+                $scope.takePhoto = function () { //Function that takes care of opening the camera and the settings that it will be using to take the pictures
                   var options = {
                     quality: 100,
                     destinationType: Camera.DestinationType.DATA_URL,
                     sourceType: Camera.PictureSourceType.CAMERA,
                     allowEdit: false,
                     encodingType: Camera.EncodingType.JPEG,
-                    targetWidth: 300,
-                    targetHeight: 300,
-                    popoverOptions: CameraPopoverOptions,
+                    targetWidth: 300, //Here you can change the size of the image shown in the <img> tag
+                    targetHeight: 300, //Here you can change the size of the image shown in the <img> tag
+                    popoverOptions: CameraPopoverOptions, //This is only for iOS, to show the Confirm/Reject buttons in a popup. Android does show that popup automatically thanks to the Cordova plugin
                     saveToPhotoAlbum: true
                 };
    
-                    $cordovaCamera.getPicture(options).then(function (imageData) {
+                    $cordovaCamera.getPicture(options).then(function (imageData) { //Function that gets the picture encoded in base64 that will be shown in the <img> tag
                         $scope.imgURI = "data:image/jpeg;base64," + imageData;
                     }, function (err) {
                         // An error occured. Show a message to the user
                     });
                 }
+                
+                /* To open the photo gallery
                 
                 $scope.choosePhoto = function () {
                   var options = {
@@ -159,6 +161,6 @@ angular.module('app.controllers', [])
                     }, function (err) {
                         // An error occured. Show a message to the user
                     });
-                }
+                }*/
 
 })
