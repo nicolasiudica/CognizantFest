@@ -22,13 +22,18 @@ Custom app UI styles
 	padding: 0px!important;
 }
 
+.no-padding a{
+	color: #22546b;
+	line-height: 21px!important;
+}
+
 .no-padding i{
 	color: #22546b;
+	line-height: 39px!important;
 }
 
 .new-height{
 	height: 60px!important;
-	padding-top: 8px!important;
 }
 
 /********************************  Mapa  **************************************/
