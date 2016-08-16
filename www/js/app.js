@@ -31,8 +31,9 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
    });
 
    $authProvider.google(angular.extend({}, commonConfig, {
-     clientId: '631036554609-v5hm2amv4pvico3asfi97f54sc51ji4o.apps.googleusercontent.com',
-     url: 'http://localhost:3000/auth/google'
+     clientId: '670295000649-nh0fhbhe4kb31qbvf4a3sel04sa75g57.apps.googleusercontent.com',
+     redirectUri: 'https://oauth.io/auth',
+     scope: ['profile', 'email']
    }));
 
 })

@@ -2,18 +2,24 @@
     <ion-content padding="true" class="has-header">
 
 
-  <button  class="button button-balanced" ng-click="login()">Login with Spotify</button>
+  <!--<button  class="button button-balanced" ng-click="login()">Login with Spotify</button>-->
 
 
   <div class="list">
 
-          <a ng-repeat="track in tracks"
+          <a class="item" ng-repeat="track in tracks"
              href="#/{{item.id}}"
              class="item">
 
           <!--  <img ng-src="{{ artist.image }}"> -->
             <h2>{{ track.name }}</h2>
             <p>{{ track.artists[0].name }}</p>
+            <span class="item-note" style="position:absolute; top:40px; right:27px;">Votos</span>
+
+            <span class="badge badge-balanced">0</span>
+
+
+
           </a>
 
   </div>
