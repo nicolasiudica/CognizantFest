@@ -13,7 +13,7 @@ angular.module('app.routes', [])
       .state('menu.home', {
     url: '/index',
     views: {
-      'side-menu21': {
+      'cognifest': {
         templateUrl: 'templates/home.html',
         controller: 'homeCtrl'
       }
@@ -23,7 +23,7 @@ angular.module('app.routes', [])
   .state('menu.games', {
     url: '/games',
     views: {
-      'side-menu21': {
+      'cognifest': {
         templateUrl: 'templates/games.html',
         controller: 'gamesCtrl'
       }
@@ -33,7 +33,7 @@ angular.module('app.routes', [])
   .state('menu.drinks', {
     url: '/drinks',
     views: {
-      'side-menu21': {
+      'cognifest': {
         templateUrl: 'templates/drinks.html',
         controller: 'drinksCtrl'
       }
@@ -41,7 +41,7 @@ angular.module('app.routes', [])
   })
 
   .state('menu', {
-    url: '/side-menu21',
+    url: '/cognifest',
     templateUrl: 'templates/menu.html',
     abstract:true
   })
@@ -49,7 +49,7 @@ angular.module('app.routes', [])
   .state('menu.cameraPhotos', {
     url: '/camera',
     views: {
-      'side-menu21': {
+      'cognifest': {
     templateUrl: 'templates/cameraPhotos.html',
     controller: 'cameraPhotosCtrl'
       }
@@ -59,7 +59,7 @@ angular.module('app.routes', [])
   .state('menu.playList', {
     url: '/playlist',
     views: {
-      'side-menu21': {
+      'cognifest': {
     templateUrl: 'templates/playList.html',
     controller: 'playListCtrl'
       }
@@ -69,7 +69,7 @@ angular.module('app.routes', [])
   .state('menu.map', {
     url: '/map',
      views: {
-      'side-menu21': {
+      'cognifest': {
       templateUrl: 'templates/map.html',
       controller: 'mapCtrl'
       }
@@ -82,6 +82,6 @@ angular.module('app.routes', [])
     controller: 'signupCtrl'
   })
 
-$urlRouterProvider.otherwise('/side-menu21/index')
+$urlRouterProvider.otherwise('/cognifest/index')
 
 });
