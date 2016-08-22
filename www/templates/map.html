@@ -1,7 +1,26 @@
 <ion-view title="Map" id="page5" class=" ">
-    <ion-content padding="true" class="has-header">
+    <ion-content padding="false" class="has-header">
 	
-    Map content
+    <div id="controls-container">
+        <div class="left">
+            <input id="origin-input" class="controls" type="text" placeholder="Origin Location">
+            <input id="destination-input" class="controls" type="text" placeholder="Destination location" >
+        </div>
+        <button id="switch-btn" class="left" value="" ng-click="onSwitch()" >Switch</button>
+        <div class="right">            
+            <select id="mode" class="controls">
+              <option value="DRIVING">Driving</option>
+              <option value="WALKING">Walking</option>
+              <option value="TRANSIT">Transit</option>
+            </select>
+        </div>
+    </div>    
+        
+    <div id="map"></div>
+    <div id="right-panel"></div>    
 	
     </ion-content>
+</ion-view>
+
+</ion-content>
 </ion-view>
