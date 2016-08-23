@@ -267,13 +267,11 @@ function initGeo(directionsDisplay){
 }
 
 //TRAVEL MODE LISTENER
-var buttons = document.getElementsByClassName('option-button');
+var travelMethodButtons = document.getElementsByClassName('option-button');
 
-for (var i = 0; i < buttons.length; i++) {
-    console.log(buttons[i]);
-    buttons[i].addEventListener('click', function(){
+for (var i = 0; i < travelMethodButtons.length; i++) {
+    travelMethodButtons[i].addEventListener('click', function(){
         var travelMethod = this.getAttribute('method');
-        console.log(this.getAttribute('value'));
         calculateAndDisplayRoute(directionsService, directionsDisplay, travelMethod);
     });
 };
