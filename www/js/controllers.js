@@ -267,9 +267,21 @@ function initGeo(directionsDisplay){
 }
 
 //TRAVEL MODE LISTENER
+var buttons = document.getElementsByClassName('option-button');
+
+for (var i = 0; i < buttons.length; i++) {
+    console.log(buttons[i]);
+    buttons[i].addEventListener('click', function(){
+        var travelMethod = this.getAttribute('method');
+        console.log(this.getAttribute('value'));
+        calculateAndDisplayRoute(directionsService, directionsDisplay, travelMethod);
+    });
+};
+
+/*
 document.getElementById('mode').addEventListener('change', function() {
-    calculateAndDisplayRoute(directionsService, directionsDisplay);
 });
+*/
     
 //GET NEW DIRECTION
 function getDirection(directionsDisplay){
@@ -290,11 +302,25 @@ function getDirection(directionsDisplay){
 }
 
 //Travel TYPE
-function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+function calculateAndDisplayRoute(directionsService, directionsDisplay, travelMethod) {
     console.log("---> calculateAndDisplayRoute()");
-    var selectedMode = document.getElementById('mode').value;
+    var selectedMode = travelMethod;
+    //var selectedMode = document.getElementById('mode').value;
     console.log("selected mode:", selectedMode);
-    
+/*
+    var selecBtn = document.getElementsByClassName('option-button');
+    for (var i = 0; i < selecBtn.length; i++) {
+        var theSelected = selecBtn[i]
+        console.log(theSelected);
+        selecBtn[i].addEventListener('click', function(){
+            
+            console.log("selected button:" + theSelected);
+            
+        });
+    };
+*/
+
+
     directionsService.route({
         origin: origin,
         destination: destination,

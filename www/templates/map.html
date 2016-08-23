@@ -6,13 +6,18 @@
             <input id="origin-input" class="controls" type="text" placeholder="Origin Location">
             <input id="destination-input" class="controls" type="text" placeholder="Destination location" >
         </div>
-        <button id="switch-btn" class="left" value="" ng-click="onSwitch()" >Switch</button>
-        <div class="right">            
+        <button id="switch-btn" class="button icon ion-loop left" value="" ng-click="onSwitch()"></button>
+        <div class="right">
+            <div id="mode" class="controls button-bar">
+                <a class="option-button button icon ion-android-bus" ng-click="selectTransport()" method="TRANSIT"></a><a class="option-button button icon ion-android-car" ng-click="selectTransport()" method="DRIVING"></a><a class="option-button button icon ion-android-walk" ng-click="selectTransport()" method="WALKING"></a>         
+            </div>
+            <!--
             <select id="mode" class="controls">
-              <option value="DRIVING">Driving</option>
-              <option value="WALKING">Walking</option>
-              <option value="TRANSIT">Transit</option>
+              <option value="asd">Public Transportation</option>
+              <option value="DRdsdsIVING">Driving</option>
+              <option value="WALasdKING">Walking</option>
             </select>
+        -->
         </div>
     </div>    
         

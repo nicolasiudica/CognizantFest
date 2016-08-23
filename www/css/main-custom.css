@@ -37,26 +37,34 @@ Custom app UI styles
 }
 
 /********************************  Mapa  **************************************/
+
 .scroll {
     height: 100%;
 }
 
 #controls-container {
-   height: 80px;
+   height: 120px;
 }
 
 #switch-btn{
-    height: 25px;
-    margin-top: 30px;
+    height: 74px;
     float: left;
+    margin-top: 5px;
 }
-
+/*
+*/
 .right{
     float: right;
+    width: 100%;
+    margin: 0 5px 5px 5px;
 }
 
 .left{
     float: left;
+}
+
+.option-button{
+  width: 31%;
 }
 
 #map {
@@ -67,6 +75,7 @@ Custom app UI styles
     width: 300px;
     height: 500px;
 }
+/*
 .controls {
   margin-top: 5px;
   border: 1px solid transparent;
@@ -77,6 +86,7 @@ Custom app UI styles
   outline: none;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
+*/
 
 #origin-input,
 #destination-input {
@@ -87,7 +97,7 @@ Custom app UI styles
   margin: 5px;
   padding: 0 11px 0 13px;
   text-overflow: ellipsis;
-  width: 200px;
+  width: 250px;
 }
 
 #origin-input:focus,
@@ -97,8 +107,15 @@ Custom app UI styles
 
 #mode {
   color: #fff;
-  background-color: #4d90fe;
-    display: block;
+  /*background-color: #4d90fe;*/
+  display: block;
+  width: 100%;
+  margin-left: 10px;
+}
+
+#mode a{
+  display: inline-block;
+  width: 32%;
 }
 
 #mode label {
