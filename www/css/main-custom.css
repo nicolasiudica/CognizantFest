@@ -43,19 +43,18 @@ Custom app UI styles
 }
 
 #controls-container {
-   height: 120px;
+   height: 140px;
 }
 
 #switch-btn{
     height: 74px;
     float: left;
     margin-top: 5px;
+    width: 55px;
 }
 /*
 */
 .right{
-    float: right;
-    width: 100%;
     margin: 0 5px 5px 5px;
 }
 
@@ -69,7 +68,7 @@ Custom app UI styles
 
 #map {
     width: 100%;
-    height: 70%;
+    height: 65%;
 }
 #dvPanel {
     width: 300px;
@@ -130,6 +129,7 @@ Custom app UI styles
     width: 100%;
     overflow: auto;
     background-color: #FFFFFF;
+    padding: 10px;
 }
 
 #right-panel select, #right-panel input {

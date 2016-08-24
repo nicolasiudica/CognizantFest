@@ -8,8 +8,10 @@
         </div>
         <button id="switch-btn" class="button icon ion-loop left" value="" ng-click="onSwitch()"></button>
         <div class="right">
-            <div id="mode" class="controls button-bar">
-                <a class="option-button button icon ion-android-bus" ng-click="selectTransport()" method="TRANSIT"></a><a class="option-button button icon ion-android-car" ng-click="selectTransport()" method="DRIVING"></a><a class="option-button button icon ion-android-walk" ng-click="selectTransport()" method="WALKING"></a>         
+            <div class="button-bar">
+                <a class="option-button button icon ion-android-bus" method="TRANSIT"></a>
+                <a class="option-button button icon ion-android-car" method="DRIVING"></a>
+                <a class="option-button button icon ion-android-walk" method="WALKING"></a>
             </div>
             <!--
             <select id="mode" class="controls">
