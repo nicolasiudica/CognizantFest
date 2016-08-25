@@ -92,7 +92,7 @@ angular.module('app.controllers', [])
 				}
 			});
 		}        
-	};    
+	};  
 
 	destination_input.value = partyLocation;    
 	initMap();
