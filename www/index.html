@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
-
-
-
+    
     <script src="lib/ionic/js/ionic.bundle.js"></script>
     <script src="lib/angular-spotify/dist/angular-spotify.min.js"></script>
-    
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
+        
     <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>  
 
     <!-- cordova script (this will be a 404 during development) -->
@@ -18,12 +18,12 @@
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
+      
+    <link href="lib/ion-gallery/dist/ion-gallery.css" rel="stylesheet">
+    <script src="lib/ion-gallery/dist/ion-gallery.min.js"></script>
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-      
     
-
-
     <style type="text/css">
       .platform-ios .manual-ios-statusbar-padding{
         padding-top:20px;
@@ -53,10 +53,10 @@
     <script src="js/directives.js"></script>
     <!-- Only required for Tab projects w/ pages in multiple tabs
         <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    
 
        <!-- Google Map -->
-     <script src="https://maps.googleapis.com/maps/api/js?sensor=true&libraries=places&signed_in=true&key=AIzaSyBrhSIPymyVA2ZHlIWWNYKx_7U9iaIKH1E" async defer> </script>
+     <script src="https://maps.googleapis.com/maps/api/js?libraries=places&signed_in=true&key=AIzaSyBrhSIPymyVA2ZHlIWWNYKx_7U9iaIKH1E" async defer> </script>
   
 
     <!-- Only required for Tab projects w/ pages in multiple tabs 
@@ -65,12 +65,12 @@
 
   </head>
   <body ng-app="app" animation="slide-left-right-ios7">
-  <div>
     <div>
         <ion-nav-bar class="bar-stable">
             <ion-nav-back-button class="button-icon icon ion-ios-arrow-back">Back</ion-nav-back-button>
         </ion-nav-bar>
-    
+    </div>
+      
     <div>
         <ion-nav-view></ion-nav-view>
     </div>
