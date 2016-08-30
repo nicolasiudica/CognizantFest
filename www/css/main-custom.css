@@ -43,14 +43,7 @@ Custom app UI styles
 }
 
 .instructions-button{
-  background: #3ad58f; /* Old browsers */
-  background: -moz-linear-gradient(top,  #29707b 0%, #25425a 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#29707b), color-stop(100%,#25425a)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  #29707b 0%, #25425a 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  #29707b 0%, #25425a 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  #29707b 0%, #25425a 100%); /* IE10+ */
-  background: linear-gradient(to bottom,  #29707b 0%, #25425a 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#29707b', endColorstr='#25425a',GradientType=0 ); /* IE6-9 */
+  background: #01bd68;
   text-align: center;
   color: #fff;
   height: 33px;
