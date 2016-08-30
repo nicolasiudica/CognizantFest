@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 
 // Initialize Firebase
-var config = {
+/*var config = {
     apiKey: "AIzaSyDZIu415zgIsM1K6g25lsTEMLAjdxmsMe4",
     authDomain: "cognizantfest.firebaseapp.com",
     databaseURL: "https://cognizantfest.firebaseio.com",
@@ -22,7 +22,7 @@ firebase.auth().signInAnonymously().catch(function(error) {
   // ...
 });
 
-var ref = firebase.database().ref("gallery/items");
+var ref = firebase.database().ref("gallery/items");*/
 
 ///////////////////////////////////////////////////////////
 

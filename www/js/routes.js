@@ -7,82 +7,88 @@ angular.module('app.routes', [])
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
-
-
-
-      .state('menu.home', {
-    url: '/index',
-    views: {
-      'side-menu21': {
-        templateUrl: 'templates/home.html',
-        controller: 'homeCtrl'
-      }
-    }
-  })
-
-  .state('menu.games', {
-    url: '/games',
-    views: {
-      'side-menu21': {
-        templateUrl: 'templates/games.html',
-        controller: 'gamesCtrl'
-      }
-    }
-  })
-
-  .state('menu.drinks', {
-    url: '/drinks',
-    views: {
-      'side-menu21': {
-        templateUrl: 'templates/drinks.html',
-        controller: 'drinksCtrl'
-      }
-    }
-  })
-
-  .state('menu', {
-    url: '/side-menu21',
-    templateUrl: 'templates/menu.html',
-    abstract:true
-  })
-
+  
   .state('signup', {
-    url: '/page4',
-    templateUrl: 'templates/signup.html',
-    controller: 'signupCtrl'
+        url: '/signup',
+        templateUrl: 'templates/signup.html',
+        controller: 'WelcomeCtrl'
   })
 
-  .state('menu.playlist', {
-    url: '/playlist',
+  .state('app.home', {
+    url: "/home",
     views: {
-      'side-menu21': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'playListCtrl'
+      'menuContent': {
+        templateUrl: "templates/home.html",
+        controller: 'HomeCtrl'
       }
     }
   })
 
-  .state('menu.map', {
-    url: '/map',
-    views: {
-        'side-menu21': {
-        templateUrl: 'templates/map.html',
-        controller: 'mapCtrl'
-      }
-    }
-  })
+    .state('menu.home', {
+        url: '/index',
+        views: {
+          'side-menu21': {
+            templateUrl: 'templates/home.html',
+            controller: 'homeCtrl'
+          }
+        }
+      })
 
-  .state('menu.cameraPhotos', {
-    url: '/camera',
-    views: {
-        'side-menu21': {
-        templateUrl: 'templates/cameraPhotos.html',
-        controller: 'cameraPhotosCtrl'
-      }
-    }
-  })
+    .state('menu.games', {
+        url: '/games',
+        views: {
+          'side-menu21': {
+            templateUrl: 'templates/games.html',
+            controller: 'gamesCtrl'
+          }
+        }
+      })
 
-$urlRouterProvider.otherwise('/side-menu21/index')
+    .state('menu.drinks', {
+        url: '/drinks',
+        views: {
+          'side-menu21': {
+            templateUrl: 'templates/drinks.html',
+            controller: 'drinksCtrl'
+          }
+        }
+      })
 
+    .state('menu', {
+        url: '/side-menu21',
+        templateUrl: 'templates/menu.html',
+        abstract:true
+      })
 
+    .state('menu.playList', {
+        url: '/playlist',
+        views: {
+          'side-menu21': {
+            templateUrl: 'templates/playlist.html',
+            controller: 'playListCtrl'
+          }
+        }
+      })
+
+    .state('menu.map', {
+        url: '/map',
+        views: {
+            'side-menu21': {
+            templateUrl: 'templates/map.html',
+            controller: 'mapCtrl'
+          }
+        }
+      })
+
+    .state('menu.cameraPhotos', {
+        url: '/camera',
+        views: {
+            'side-menu21': {
+            templateUrl: 'templates/cameraPhotos.html',
+            controller: 'cameraPhotosCtrl'
+          }
+        }
+      })
+
+    $urlRouterProvider.otherwise('/signup');
 });
