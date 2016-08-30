@@ -134,7 +134,7 @@ angular.module('app.controllers', [])
 		geocoder = new google.maps.Geocoder();
 		directionsDisplay = new google.maps.DirectionsRenderer();
 		directionsDisplay.setMap(map);
-			
+		directionsDisplay.setOptions( { suppressMarkers: true } );
 		placesService = new google.maps.places.PlacesService(map);
 		
 		//AutoComplete
@@ -201,9 +201,9 @@ angular.module('app.controllers', [])
 		
 		var icon = {
 			url: markerImage,
-			scaledSize: new google.maps.Size(30, 30),
+			scaledSize: new google.maps.Size(30, 50),
 			origin: new google.maps.Point(0, 0),
-			anchor: new google.maps.Point(20, 62)
+			anchor: new google.maps.Point(20, 40)
 		};
 			
 		markerCognizant = new google.maps.Marker({
