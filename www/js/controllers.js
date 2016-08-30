@@ -45,6 +45,7 @@ angular.module('app.controllers', [])
 	var destination_autocomplete;
 	var placesService;
 	var directionsPanel = document.getElementById('right-panel');
+	var travelMethodButtons = document.getElementsByClassName('option-button');
 	
 	destination_input.disabled = true;
 	
@@ -200,7 +201,7 @@ angular.module('app.controllers', [])
 		
 		var icon = {
 			url: markerImage,
-			scaledSize: new google.maps.Size(40, 40),
+			scaledSize: new google.maps.Size(30, 30),
 			origin: new google.maps.Point(0, 0),
 			anchor: new google.maps.Point(20, 62)
 		};
@@ -267,7 +268,6 @@ angular.module('app.controllers', [])
 	}
 
 	//TRAVEL MODE LISTENER
-	var travelMethodButtons = document.getElementsByClassName('option-button');
 
 	for (var i = 0; i < travelMethodButtons.length; i++) {
 		travelMethodButtons[i].addEventListener('click', function(){
@@ -304,37 +304,24 @@ angular.module('app.controllers', [])
 		console.log("---> calculateAndDisplayRoute()");
 		var selectedMode = travelMethod;
 		//var selectedMode = document.getElementById('mode').value;
-		console.log("selected mode:", selectedMode);
-	/*
-		var selecBtn = document.getElementsByClassName('option-button');
-		for (var i = 0; i < selecBtn.length; i++) {
-			var theSelected = selecBtn[i]
-			console.log(theSelected);
-			selecBtn[i].addEventListener('click', function(){
-				
-				console.log("selected button:" + theSelected);
-				
-			});
-		};
-	*/
+		//console.log("selected mode:", selectedMode);
 
-
-	directionsService.route({
-		origin: origin,
-		destination: destination,
-		// **transitOptions** agregar las opciones de transporte publico para hacer una mejor ruta
-		transitOptions: { modes: [google.maps.TransitMode.SUBWAY] },
-		travelMode: google.maps.TravelMode[selectedMode]
-	}, function(response, status) {
-		if (status == google.maps.DirectionsStatus.OK) {
-			directionsDisplay.setPanel(null);
-			directionsDisplay.setPanel(directionsPanel);
-			directionsDisplay.setDirections(response);
-		} else {
-			console.log('***** calculateAndDisplayRoute Directions request failed due to ' + status);
+		directionsService.route({
+			origin: origin,
+			destination: destination,
+			// **transitOptions** agregar las opciones de transporte publico para hacer una mejor ruta
+			transitOptions: { modes: [google.maps.TransitMode.SUBWAY,google.maps.TransitMode.BUS] },
+			travelMode: google.maps.TravelMode[selectedMode]
+		}, function(response, status) {
+			if (status == google.maps.DirectionsStatus.OK) {
+				directionsDisplay.setPanel(null);
+				directionsDisplay.setPanel(directionsPanel);
+				directionsDisplay.setDirections(response);
+			} else {
+				console.log('***** calculateAndDisplayRoute Directions request failed due to ' + status);
+		}
+	  	});
 	}
-  	});
-}
 
 //Draw route
 function route(origin_place_id, destination_place_id, directionsService, directionsDisplay){
@@ -344,6 +331,7 @@ function route(origin_place_id, destination_place_id, directionsService, directi
 		directionsService.route({
 			origin: origin,
 			destination: destination,
+			transitOptions: { modes: [google.maps.TransitMode.SUBWAY,google.maps.TransitMode.BUS] },
 			travelMode: google.maps.TravelMode[selectedMode]
 		}, function(response, status) {
 			if (status == google.maps.DirectionsStatus.OK) {
