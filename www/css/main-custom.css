@@ -37,6 +37,7 @@ Custom app UI styles
 	line-height: 39px!important;
 }
 
+/* Bottom menu background color gradient */
 .new-height{
 	height: 60px!important;
 	background: #9195aa; /* Old browsers */
@@ -179,6 +180,14 @@ ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidt
 
 .drinks-list-title{
 	margin-bottom: 0px!important;
+	text-align: center;
+	padding: 5px;
+}
+
+.drinks-list-title p{
+	width: 100%;
+	text-align: center;
+	margin: 0px!important;
 }
 
 .image-container{
@@ -189,6 +198,7 @@ ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidt
 
 .image-container img{
 	width: 100%!important;
+	height: auto!important;
 }
 
 .row{
@@ -200,12 +210,19 @@ ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidt
 	display: flex;
 }
 
+.shake-text-container{
+	width: 70%;
+}
+
 .shake-text{
-	text-align: center;
+	text-align: left;
+	font-size: 17px;
+	margin: 40px auto;
+	width: 90%;
 }
 
 .shake-icon{
-	width: 100px;
+	width: 30%;
 	height: 100px;
 	margin: 10px;
 	background: url("../img/shake-icon-img.png") no-repeat center center;
