@@ -68,7 +68,7 @@
     this.config = {
       action_label: 'Done',
       toggle: true,
-      row_size: 3,
+      row_size: 1,
       fixed_row_size: true
     };
 

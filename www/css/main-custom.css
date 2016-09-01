@@ -7,6 +7,11 @@ Custom app UI styles
 
 /* BACKGROUND GRADIENT */
 
+
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#9195aa+0,d3dbff+52,49515e+100 */
+
+
+
 .scroll-content{
 	background: #3ad58f; /* Old browsers */
 	background: -moz-linear-gradient(top,  #3ad58f 0%, #1b3061 100%); /* FF3.6+ */
@@ -34,6 +39,11 @@ Custom app UI styles
 
 .new-height{
 	height: 60px!important;
+	background: #9195aa; /* Old browsers */
+	background: -moz-linear-gradient(top,  #efefef 0%, #cacaca 100%)!important; /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #efefef 0%, #cacaca 100%)!important; /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #efefef 0%, #cacaca 100%)!important; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efefef', endColorstr='#49515e',GradientType=0 )!important; /* IE6-9 */
 }
 
 /********************************  Mapa  **************************************/
@@ -158,4 +168,50 @@ ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidt
 	border-radius:0px;
 	border-left:0px;
 	border-right: 0px;
+}
+
+
+/*************************************   Drinks gallery   *******************************************/
+
+.no-margin-top{
+	margin-top: 0px!important;
+}
+
+.drinks-list-title{
+	margin-bottom: 0px!important;
+}
+
+.image-container{
+	border: none!important;
+	margin: 7px 0!important;
+	border-radius: 3px;
+}
+
+.image-container img{
+	width: 100%!important;
+}
+
+.row{
+	height: 160px!important;
+	padding: 0px!important;
+}
+
+.card{
+	display: flex;
+}
+
+.shake-text{
+	text-align: center;
+}
+
+.shake-icon{
+	width: 100px;
+	height: 100px;
+	margin: 10px;
+	background: url("../img/shake-icon-img.png") no-repeat center center;
+	background-size: 100px 100px;
+}
+
+.gallery-view{
+	margin-bottom: 55px!important;
 }
