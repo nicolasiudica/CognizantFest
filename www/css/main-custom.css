@@ -8,14 +8,7 @@ Custom app UI styles
 /* BACKGROUND GRADIENT */
 
 .scroll-content{
-	background: #163548; /* Old browsers */
-	background: -moz-linear-gradient(top,  #163548 0%, #2a5a77 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#163548), color-stop(100%,#2a5a77)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #163548 0%, #2a5a77 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #163548 0%, #2a5a77 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #163548 0%, #2a5a77 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #163548 0%, #2a5a77 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#163548', endColorstr='#2a5a77',GradientType=0 ); /* IE6-9 */
+	background: #163548;
 }
 
 .no-padding{
