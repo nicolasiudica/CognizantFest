@@ -7,11 +7,6 @@ Custom app UI styles
 
 /* BACKGROUND GRADIENT */
 
-
-/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#9195aa+0,d3dbff+52,49515e+100 */
-
-
-
 .scroll-content{
 	background: #3ad58f; /* Old browsers */
 	background: -moz-linear-gradient(top,  #3ad58f 0%, #1b3061 100%); /* FF3.6+ */
@@ -207,11 +202,11 @@ ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidt
 }
 
 .card{
-	display: flex;
-}
+	}
 
 .shake-text-container{
-	width: 70%;
+	width: 64%;
+	float: left;
 }
 
 .shake-text{
@@ -227,6 +222,7 @@ ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidt
 	margin: 10px;
 	background: url("../img/shake-icon-img.png") no-repeat center center;
 	background-size: 100px 100px;
+	float: left;
 }
 
 .gallery-view{
