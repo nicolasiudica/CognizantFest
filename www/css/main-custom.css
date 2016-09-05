@@ -37,105 +37,140 @@ Custom app UI styles
 
 /********************************  Mapa  **************************************/
 
+.gm-style-mtc{
+  display: none;
+}
+
+.instructions-button{
+  background: #01bd68;
+  text-align: center;
+  color: #fff;
+  height: 33px;
+  line-height: 34px;
+}
+
+.scroll {
+    height: 100%;
+}
+
+#controls-container {
+   
+}
+
+#controls-container .button-bar .button{
+  min-height: 35px!important;
+  height: 35px!important;
+}
+
+#controls-container .button-bar .button:before{
+  min-height: 37px!important;
+  height: 37px!important;
+  line-height: 29px;
+  font-size: 19px;
+}
+
+#switch-btn{
+  background: #ffffff url("../img/flip-512.png") no-repeat center center;
+  background-size: 20px 20px;
+  height: 66px;
+  float: right;
+  margin-top: 5px;
+  margin-right: 5px;
+  width: 17%;
+}
+/*
+*/
+.right{
+    margin: 0 5px 5px 5px;
+}
+
+.left{
+    float: left;
+    width: 81%;
+}
+
+.option-button{
+  width: 31%;
+}
+
 #map {
-	width: 100%;
-	height: 80%;
-	position: relative;
+    width: 100%;
+    height: 61%;
 }
-
-html, body {
-	height: 100%;
-	margin: 0;
-	padding: 0;
+#dvPanel {
+    width: 300px;
+    height: 500px;
 }
-
+/*
 .controls {
-	margin-top: 5px;
-	border: 1px solid transparent;
-	border-radius: 2px 0 0 2px;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	height: 32px;
-	outline: none;
-	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  margin-top: 5px;
+  border: 1px solid transparent;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
+*/
 
 #origin-input,
 #destination-input {
-	background-color: #fff;
-	font-family: Roboto;
-	font-size: 15px;
-	font-weight: 300;
-	margin-left: 12px;
-	padding: 0 11px 0 13px;
-	text-overflow: ellipsis;
-	width: 200px;
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+  margin: 5px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  height: 30px;
+  width: 96%;
 }
 
 #origin-input:focus,
 #destination-input:focus {
-	border-color: #4d90fe;
+  border-color: #4d90fe;
 }
 
 #mode {
-	color: #fff;
-	background-color: #4d90fe;
-	margin-bottom: 5%;
+  color: #fff;
+  /*background-color: #4d90fe;*/
+  display: block;
+  width: 100%;
+  margin-left: 10px;
+}
+
+#mode a{
+  display: inline-block;
+  width: 32%;
 }
 
 #mode label {
-	font-family: Roboto;
-	font-size: 13px;
-	font-weight: 300;
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
 }
-
-#switch-inputs{
-	height: 5%; 
-	width:20%; 
-	margin-left: 2%; 
-	margin-top: 10%;
-}
-/*************************************   MAP Right Panel   *******************************************/
 
 #right-panel {
-	font-family: 'Roboto','sans-serif';
-	line-height: 30px;
-	padding-left: 10px;
+    font-family: 'Roboto','sans-serif';
+    line-height: 30px;
+    width: 100%;
+    overflow: auto;
+    background-color: #FFFFFF;
+    padding: 10px;
+    margin-bottom: 50px;
 }
 
 #right-panel select, #right-panel input {
-	font-size: 10px;
+    font-size: 10px;
 }
 
 #right-panel select {
-	width: 100%;
+    width: 100%;
 }
 
 #right-panel i {
-	font-size: 10px;
-}
-
-#right-panel {
-	height: 100%;
-	float: right;
-	width: 100%;
-	overflow: auto;
-}
-
-#map {
-	margin-right: 400px;
-}
-
-@media print {
-	#map {
-		height: 70%;
-		margin: 0;
-	}
-
-	#right-panel {
-		float: none;
-		width: auto;
-	}
+    font-size: 10px;
 }
 
 /*************************************************************************************/
