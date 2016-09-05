@@ -25,8 +25,14 @@ Custom app UI styles
 	line-height: 39px!important;
 }
 
+/* Bottom menu background color gradient */
 .new-height{
 	height: 60px!important;
+	background: #9195aa; /* Old browsers */
+	background: -moz-linear-gradient(top,  #efefef 0%, #cacaca 100%)!important; /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #efefef 0%, #cacaca 100%)!important; /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #efefef 0%, #cacaca 100%)!important; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efefef', endColorstr='#49515e',GradientType=0 )!important; /* IE6-9 */
 }
 
 /********************************  Mapa  **************************************/
@@ -151,4 +157,67 @@ ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidt
 	border-radius:0px;
 	border-left:0px;
 	border-right: 0px;
+}
+
+
+/*************************************   Drinks gallery   *******************************************/
+
+.no-margin-top{
+	margin-top: 0px!important;
+}
+
+.drinks-list-title{
+	margin-bottom: 0px!important;
+	text-align: center;
+	padding: 5px;
+}
+
+.drinks-list-title p{
+	width: 100%;
+	text-align: center;
+	margin: 0px!important;
+}
+
+.image-container{
+	border: none!important;
+	margin: 7px 0!important;
+	border-radius: 3px;
+}
+
+.image-container img{
+	width: 100%!important;
+	height: auto!important;
+}
+
+.row{
+	height: 160px!important;
+	padding: 0px!important;
+}
+
+.card{
+	}
+
+.shake-text-container{
+	width: 64%;
+	float: left;
+}
+
+.shake-text{
+	text-align: left;
+	font-size: 17px;
+	margin: 40px auto;
+	width: 90%;
+}
+
+.shake-icon{
+	width: 30%;
+	height: 100px;
+	margin: 10px;
+	background: url("../img/shake-icon-img.png") no-repeat center center;
+	background-size: 100px 100px;
+	float: left;
+}
+
+.gallery-view{
+	margin-bottom: 55px!important;
 }
