@@ -1,3 +1,27 @@
 <ion-view title="Home" id="page1" class=" ">
-    <ion-content padding="true" class="has-header" on-swipe-left="onSwipeLeft()">This is the home section of the app</ion-content>
+    <ion-content padding="true" class="has-header" on-swipe-left="onSwipeLeft()">
+		<div class="countdown">
+    		<p class="countdown-par01">Welcome to the Cognizant Fest App</p>
+    		<p class="countdown-par02"><b>{{ daysLeft }}</b> DAYS LEFT</p>
+    		<p class="countdown-par03">to the party!</p>
+    	</div>
+    	<div class="card">
+    		<div class="item item-icon-left item-diveder">
+    			<i class="icon ion-home"></i>
+    			<span class="card-title">Party Location</span>
+    		</div>
+    		<div class="item item-text-wrap">
+    			<span class="card-title">Find the way to get to the party place</span>
+    		</div>
+		</div>
+		<div class="card">
+    		<span class="card-title">See the drinks available at the bar counter</span>
+		</div>
+		<div class="card">
+			<span class="card-title">Take and share your photos of the party</span>
+		</div>
+		<div class="card extra-margin-bottom">
+    		<span class="card-title">Play games</span>
+		</div>
+	</ion-content>
 </ion-view>
