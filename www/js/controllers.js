@@ -38,6 +38,10 @@ angular.module('app.controllers', [])
   {
     src: 'img/margarita.png',
     sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
+  }, 
+  {
+    src: '',
+    sub: ''
   }];
 
 })
@@ -353,63 +357,63 @@ angular.module('app.controllers', [])
 	  	});
 	}
 
-//Draw route
-function route(origin_place_id, destination_place_id, directionsService, directionsDisplay){
-	//Draws the route automatically
-	console.log("---> route()");
-	if (!origin_place_id || !destination_place_id) {
+	//Draw route
+	function route(origin_place_id, destination_place_id, directionsService, directionsDisplay){
+		//Draws the route automatically
+		console.log("---> route()");
+		if (!origin_place_id || !destination_place_id) {
+			directionsService.route({
+				origin: origin,
+				destination: destination,
+				transitOptions: { modes: [google.maps.TransitMode.SUBWAY,google.maps.TransitMode.BUS] },
+				travelMode: google.maps.TravelMode[selectedMode]
+			}, function(response, status) {
+				if (status == google.maps.DirectionsStatus.OK) {
+					directionsDisplay.setDirections(response);
+				} else {
+					console.log('***** route Directions request failed due to ' + status);
+				}
+			});
+			return;
+		}
+
+		//Draws teh chosen route from From and To.
 		directionsService.route({
-			origin: origin,
-			destination: destination,
-			transitOptions: { modes: [google.maps.TransitMode.SUBWAY,google.maps.TransitMode.BUS] },
+			origin: {'placeId': origin_place_id},
+			destination: {'placeId': destination_place_id},
 			travelMode: google.maps.TravelMode[selectedMode]
 		}, function(response, status) {
-			if (status == google.maps.DirectionsStatus.OK) {
+			if (status === google.maps.DirectionsStatus.OK) {
 				directionsDisplay.setDirections(response);
 			} else {
 				console.log('***** route Directions request failed due to ' + status);
 			}
 		});
-		return;
 	}
+	 
+	//MARKERS      
+	function setMarker(pos){
+		markerCognizant.setPosition(pos);
+		markerCognizant.setZIndex(99999);
 
-	//Draws teh chosen route from From and To.
-	directionsService.route({
-		origin: {'placeId': origin_place_id},
-		destination: {'placeId': destination_place_id},
-		travelMode: google.maps.TravelMode[selectedMode]
-	}, function(response, status) {
-		if (status === google.maps.DirectionsStatus.OK) {
-			directionsDisplay.setDirections(response);
-		} else {
-			console.log('***** route Directions request failed due to ' + status);
-		}
-	});
-}
- 
-//MARKERS      
-function setMarker(pos){
-	markerCognizant.setPosition(pos);
-	markerCognizant.setZIndex(99999);
+		var contentString = '<div id="content">'+
+		  '<div id="siteNotice">'+
+		  '</div>'+
+		  '<h4 id="firstHeading" class="firstHeading">Ubicación de la empresa</h4>'+
+		  '<div id="bodyContent">'+
+		  '<p><b>Cognizant Technology Solutions</b>'+
+		  '</p>'+
+		  '</div>'+
+		  '</div>';
 
-	var contentString = '<div id="content">'+
-	  '<div id="siteNotice">'+
-	  '</div>'+
-	  '<h4 id="firstHeading" class="firstHeading">Ubicación de la empresa</h4>'+
-	  '<div id="bodyContent">'+
-	  '<p><b>Cognizant Technology Solutions</b>'+
-	  '</p>'+
-	  '</div>'+
-	  '</div>';
+		var infowindow = new google.maps.InfoWindow({
+			//content: contentString
+		});
 
-	var infowindow = new google.maps.InfoWindow({
-		//content: contentString
-	});
-
-	markerCognizant.addListener('click', function() {
-		//infowindow.open(map, markerCognizant);
-	});
-}
+		markerCognizant.addListener('click', function() {
+			//infowindow.open(map, markerCognizant);
+		});
+	}
 
 })
 	 
