@@ -1,91 +1,2270 @@
 0 info it worked if it ends with ok
-1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
-1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli [ 'C:\\nodejs\\node.exe',
+1 verbose cli   'C:\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
 1 verbose cli   'install',
-1 verbose cli   'ngCordova' ]
-2 info using npm@2.14.20
-3 info using node@v4.4.0
-4 verbose install initial load of C:\ctsfest\CognizantFest-master\package.json
-5 warn package.json cognifest@1.1.1 No repository field.
-6 warn package.json cognifest@1.1.1 No license field.
-7 verbose readDependencies loading dependencies from C:\ctsfest\CognizantFest-master\package.json
-8 silly cache add args [ 'ngCordova', null ]
-9 verbose cache add spec ngCordova
-10 silly cache add parsed spec Result {
-10 silly cache add   raw: 'ngCordova',
-10 silly cache add   scope: null,
-10 silly cache add   name: 'ngCordova',
-10 silly cache add   rawSpec: '',
-10 silly cache add   spec: 'latest',
-10 silly cache add   type: 'tag' }
-11 silly addNamed ngCordova@latest
-12 verbose addNamed "latest" is being treated as a dist-tag for ngCordova
-13 info addNameTag [ 'ngCordova', 'latest' ]
-14 silly mapToRegistry name ngCordova
-15 silly mapToRegistry using default registry
-16 silly mapToRegistry registry https://registry.npmjs.org/
-17 silly mapToRegistry uri https://registry.npmjs.org/ngCordova
-18 verbose addNameTag registry:https://registry.npmjs.org/ngCordova not in flight; fetching
-19 verbose request uri https://registry.npmjs.org/ngCordova
-20 verbose request no auth needed
-21 info attempt registry request try #1 at 12:10:07
-22 verbose request id b0ec9a90e0b6ecf4
-23 http request GET https://registry.npmjs.org/ngCordova
-24 http 404 https://registry.npmjs.org/ngCordova
-25 verbose headers { 'content-type': 'application/json',
-25 verbose headers   'cache-control': 'max-age=0',
-25 verbose headers   'content-length': '2',
-25 verbose headers   'accept-ranges': 'bytes',
-25 verbose headers   date: 'Wed, 03 Aug 2016 15:10:09 GMT',
-25 verbose headers   via: '1.1 varnish',
-25 verbose headers   age: '0',
-25 verbose headers   connection: 'close',
-25 verbose headers   'x-served-by': 'cache-mia1327-MIA',
-25 verbose headers   'x-cache': 'MISS',
-25 verbose headers   'x-cache-hits': '0',
-25 verbose headers   'x-timer': 'S1470237009.440554,VS0,VE193',
-25 verbose headers   vary: 'Accept-Encoding' }
-26 silly get cb [ 404,
-26 silly get   { 'content-type': 'application/json',
-26 silly get     'cache-control': 'max-age=0',
-26 silly get     'content-length': '2',
-26 silly get     'accept-ranges': 'bytes',
-26 silly get     date: 'Wed, 03 Aug 2016 15:10:09 GMT',
-26 silly get     via: '1.1 varnish',
-26 silly get     age: '0',
-26 silly get     connection: 'close',
-26 silly get     'x-served-by': 'cache-mia1327-MIA',
-26 silly get     'x-cache': 'MISS',
-26 silly get     'x-cache-hits': '0',
-26 silly get     'x-timer': 'S1470237009.440554,VS0,VE193',
-26 silly get     vary: 'Accept-Encoding' } ]
-27 verbose stack Error: Registry returned 404 for GET on https://registry.npmjs.org/ngCordova
-27 verbose stack     at makeError (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:264:12)
-27 verbose stack     at CachingRegistryClient.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:242:14)
-27 verbose stack     at Request._callback (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:172:14)
-27 verbose stack     at Request.self.callback (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:199:22)
-27 verbose stack     at emitTwo (events.js:87:13)
-27 verbose stack     at Request.emit (events.js:172:7)
-27 verbose stack     at Request.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:1036:10)
-27 verbose stack     at emitOne (events.js:82:20)
-27 verbose stack     at Request.emit (events.js:169:7)
-27 verbose stack     at IncomingMessage.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:963:12)
-28 verbose statusCode 404
-29 verbose pkgid ngCordova
-30 verbose cwd C:\ctsfest\CognizantFest-master
-31 error Windows_NT 6.1.7601
-32 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "ngCordova"
-33 error node v4.4.0
-34 error npm  v2.14.20
-35 error code E404
-36 error 404 Registry returned 404 for GET on https://registry.npmjs.org/ngCordova
-36 error 404
-36 error 404 'ngCordova' is not in the npm registry.
-36 error 404 Your package name is not valid, because
-36 error 404
-36 error 404  1. name can no longer contain capital letters
-36 error 404 It was specified as a dependency of 'cognifest'
-36 error 404
-36 error 404 Note that you can also install from a
-36 error 404 tarball, folder, http url, or git url.
-37 verbose exit [ 1, true ]
+1 verbose cli   '--save',
+1 verbose cli   'angular-chart.js' ]
+2 info using npm@3.10.3
+3 info using node@v6.3.1
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData angular-chart.js
+8 silly fetchNamedPackageData angular-chart.js
+9 silly mapToRegistry name angular-chart.js
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'angular-chart.js',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   escapedName: 'angular-chart.js',
+12 silly mapToRegistry   name: 'angular-chart.js',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri https://registry.npmjs.org/angular-chart.js
+14 verbose request uri https://registry.npmjs.org/angular-chart.js
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 15:33:41
+17 verbose request id e736609337c60938
+18 verbose etag "64G1BHGQZXJ2EU1HZG4QFFHHT"
+19 http request GET https://registry.npmjs.org/angular-chart.js
+20 http 304 https://registry.npmjs.org/angular-chart.js
+21 verbose headers { date: 'Mon, 05 Sep 2016 18:33:43 GMT',
+21 verbose headers   via: '1.1 varnish',
+21 verbose headers   'cache-control': 'max-age=300',
+21 verbose headers   etag: '"64G1BHGQZXJ2EU1HZG4QFFHHT"',
+21 verbose headers   age: '0',
+21 verbose headers   connection: 'keep-alive',
+21 verbose headers   'x-served-by': 'cache-jfk8146-JFK',
+21 verbose headers   'x-cache': 'MISS',
+21 verbose headers   'x-cache-hits': '0',
+21 verbose headers   'x-timer': 'S1473100423.057173,VS0,VE396',
+21 verbose headers   vary: 'Accept-Encoding' }
+22 silly get cb [ 304,
+22 silly get   { date: 'Mon, 05 Sep 2016 18:33:43 GMT',
+22 silly get     via: '1.1 varnish',
+22 silly get     'cache-control': 'max-age=300',
+22 silly get     etag: '"64G1BHGQZXJ2EU1HZG4QFFHHT"',
+22 silly get     age: '0',
+22 silly get     connection: 'keep-alive',
+22 silly get     'x-served-by': 'cache-jfk8146-JFK',
+22 silly get     'x-cache': 'MISS',
+22 silly get     'x-cache-hits': '0',
+22 silly get     'x-timer': 'S1473100423.057173,VS0,VE396',
+22 silly get     vary: 'Accept-Encoding' } ]
+23 verbose etag https://registry.npmjs.org/angular-chart.js from cache
+24 verbose get saving angular-chart.js to C:\Users\534677\AppData\Roaming\npm-cache\registry.npmjs.org\angular-chart.js\.cache.json
+25 verbose correctMkdir C:\Users\534677\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+26 silly install normalizeTree
+27 silly loadCurrentTree Finishing
+28 silly loadIdealTree Starting
+29 silly install loadIdealTree
+30 silly cloneCurrentTree Starting
+31 silly install cloneCurrentTreeToIdealTree
+32 silly cloneCurrentTree Finishing
+33 silly loadShrinkwrap Starting
+34 silly install loadShrinkwrap
+35 silly loadShrinkwrap Finishing
+36 silly loadAllDepsIntoIdealTree Starting
+37 silly install loadAllDepsIntoIdealTree
+38 silly resolveWithNewModule angular-chart.js@1.0.2 checking installable status
+39 silly cache add args [ 'angular-chart.js', null ]
+40 verbose cache add spec angular-chart.js
+41 silly cache add parsed spec Result {
+41 silly cache add   raw: 'angular-chart.js',
+41 silly cache add   scope: null,
+41 silly cache add   escapedName: 'angular-chart.js',
+41 silly cache add   name: 'angular-chart.js',
+41 silly cache add   rawSpec: '',
+41 silly cache add   spec: 'latest',
+41 silly cache add   type: 'tag' }
+42 silly addNamed angular-chart.js@latest
+43 verbose addNamed "latest" is being treated as a dist-tag for angular-chart.js
+44 info addNameTag [ 'angular-chart.js', 'latest' ]
+45 silly mapToRegistry name angular-chart.js
+46 silly mapToRegistry using default registry
+47 silly mapToRegistry registry https://registry.npmjs.org/
+48 silly mapToRegistry data Result {
+48 silly mapToRegistry   raw: 'angular-chart.js',
+48 silly mapToRegistry   scope: null,
+48 silly mapToRegistry   escapedName: 'angular-chart.js',
+48 silly mapToRegistry   name: 'angular-chart.js',
+48 silly mapToRegistry   rawSpec: '',
+48 silly mapToRegistry   spec: 'latest',
+48 silly mapToRegistry   type: 'tag' }
+49 silly mapToRegistry uri https://registry.npmjs.org/angular-chart.js
+50 verbose addNameTag registry:https://registry.npmjs.org/angular-chart.js not in flight; fetching
+51 verbose get https://registry.npmjs.org/angular-chart.js not expired, no request
+52 silly addNameTag next cb for angular-chart.js with tag latest
+53 silly addNamed angular-chart.js@1.0.2
+54 verbose addNamed "1.0.2" is a plain semver version for angular-chart.js
+55 silly cache afterAdd angular-chart.js@1.0.2
+56 verbose afterAdd C:\Users\534677\AppData\Roaming\npm-cache\angular-chart.js\1.0.2\package\package.json not in flight; writing
+57 verbose correctMkdir C:\Users\534677\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+58 verbose afterAdd C:\Users\534677\AppData\Roaming\npm-cache\angular-chart.js\1.0.2\package\package.json written
+59 silly fetchNamedPackageData angular
+60 silly mapToRegistry name angular
+61 silly mapToRegistry using default registry
+62 silly mapToRegistry registry https://registry.npmjs.org/
+63 silly mapToRegistry data Result {
+63 silly mapToRegistry   raw: 'angular',
+63 silly mapToRegistry   scope: null,
+63 silly mapToRegistry   escapedName: 'angular',
+63 silly mapToRegistry   name: 'angular',
+63 silly mapToRegistry   rawSpec: '',
+63 silly mapToRegistry   spec: 'latest',
+63 silly mapToRegistry   type: 'tag' }
+64 silly mapToRegistry uri https://registry.npmjs.org/angular
+65 silly fetchNamedPackageData chart.js
+66 silly mapToRegistry name chart.js
+67 silly mapToRegistry using default registry
+68 silly mapToRegistry registry https://registry.npmjs.org/
+69 silly mapToRegistry data Result {
+69 silly mapToRegistry   raw: 'chart.js',
+69 silly mapToRegistry   scope: null,
+69 silly mapToRegistry   escapedName: 'chart.js',
+69 silly mapToRegistry   name: 'chart.js',
+69 silly mapToRegistry   rawSpec: '',
+69 silly mapToRegistry   spec: 'latest',
+69 silly mapToRegistry   type: 'tag' }
+70 silly mapToRegistry uri https://registry.npmjs.org/chart.js
+71 verbose request uri https://registry.npmjs.org/angular
+72 verbose request no auth needed
+73 info attempt registry request try #1 at 15:33:44
+74 verbose etag "778FBQ0YYAF5QSO0D02LIYOT0"
+75 http request GET https://registry.npmjs.org/angular
+76 verbose request uri https://registry.npmjs.org/chart.js
+77 verbose request no auth needed
+78 info attempt registry request try #1 at 15:33:44
+79 verbose etag "4E1D30UQNVAE9XHZMJM5Y1C33"
+80 http request GET https://registry.npmjs.org/chart.js
+81 http 200 https://registry.npmjs.org/angular
+82 verbose headers { server: 'CouchDB/1.6.1 (Erlang OTP/R16B03)',
+82 verbose headers   etag: '"EEKYOVVY3I6OMD6TDW1BGKTKG"',
+82 verbose headers   'content-type': 'application/json',
+82 verbose headers   'content-encoding': 'gzip',
+82 verbose headers   'cache-control': 'max-age=300',
+82 verbose headers   'content-length': '16217',
+82 verbose headers   'accept-ranges': 'bytes',
+82 verbose headers   date: 'Mon, 05 Sep 2016 18:33:44 GMT',
+82 verbose headers   via: '1.1 varnish',
+82 verbose headers   age: '20',
+82 verbose headers   connection: 'keep-alive',
+82 verbose headers   'x-served-by': 'cache-jfk8146-JFK',
+82 verbose headers   'x-cache': 'HIT',
+82 verbose headers   'x-cache-hits': '20',
+82 verbose headers   'x-timer': 'S1473100424.295380,VS0,VE0',
+82 verbose headers   vary: 'Accept-Encoding' }
+83 silly get cb [ 200,
+83 silly get   { server: 'CouchDB/1.6.1 (Erlang OTP/R16B03)',
+83 silly get     etag: '"EEKYOVVY3I6OMD6TDW1BGKTKG"',
+83 silly get     'content-type': 'application/json',
+83 silly get     'content-encoding': 'gzip',
+83 silly get     'cache-control': 'max-age=300',
+83 silly get     'content-length': '16217',
+83 silly get     'accept-ranges': 'bytes',
+83 silly get     date: 'Mon, 05 Sep 2016 18:33:44 GMT',
+83 silly get     via: '1.1 varnish',
+83 silly get     age: '20',
+83 silly get     connection: 'keep-alive',
+83 silly get     'x-served-by': 'cache-jfk8146-JFK',
+83 silly get     'x-cache': 'HIT',
+83 silly get     'x-cache-hits': '20',
+83 silly get     'x-timer': 'S1473100424.295380,VS0,VE0',
+83 silly get     vary: 'Accept-Encoding' } ]
+84 verbose get saving angular to C:\Users\534677\AppData\Roaming\npm-cache\registry.npmjs.org\angular\.cache.json
+85 verbose correctMkdir C:\Users\534677\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+86 silly resolveWithNewModule angular@1.5.8 checking installable status
+87 silly cache add args [ 'angular@1.x', null ]
+88 verbose cache add spec angular@1.x
+89 silly cache add parsed spec Result {
+89 silly cache add   raw: 'angular@1.x',
+89 silly cache add   scope: null,
+89 silly cache add   escapedName: 'angular',
+89 silly cache add   name: 'angular',
+89 silly cache add   rawSpec: '1.x',
+89 silly cache add   spec: '>=1.0.0 <2.0.0',
+89 silly cache add   type: 'range' }
+90 silly addNamed angular@>=1.0.0 <2.0.0
+91 verbose addNamed ">=1.0.0 <2.0.0" is a valid semver range for angular
+92 silly addNameRange { name: 'angular', range: '>=1.0.0 <2.0.0', hasData: false }
+93 silly mapToRegistry name angular
+94 silly mapToRegistry using default registry
+95 silly mapToRegistry registry https://registry.npmjs.org/
+96 silly mapToRegistry data Result {
+96 silly mapToRegistry   raw: 'angular',
+96 silly mapToRegistry   scope: null,
+96 silly mapToRegistry   escapedName: 'angular',
+96 silly mapToRegistry   name: 'angular',
+96 silly mapToRegistry   rawSpec: '',
+96 silly mapToRegistry   spec: 'latest',
+96 silly mapToRegistry   type: 'tag' }
+97 silly mapToRegistry uri https://registry.npmjs.org/angular
+98 verbose addNameRange registry:https://registry.npmjs.org/angular not in flight; fetching
+99 verbose get https://registry.npmjs.org/angular not expired, no request
+100 silly addNameRange number 2 { name: 'angular', range: '>=1.0.0 <2.0.0', hasData: true }
+101 silly addNameRange versions [ 'angular',
+101 silly addNameRange   [ '0.0.1',
+101 silly addNameRange     '0.0.1-1',
+101 silly addNameRange     '0.0.1-2',
+101 silly addNameRange     '0.0.2',
+101 silly addNameRange     '0.0.3',
+101 silly addNameRange     '0.0.4',
+101 silly addNameRange     '1.0.0',
+101 silly addNameRange     '1.0.1',
+101 silly addNameRange     '1.0.2',
+101 silly addNameRange     '1.0.3',
+101 silly addNameRange     '1.0.4',
+101 silly addNameRange     '1.0.5',
+101 silly addNameRange     '1.0.6',
+101 silly addNameRange     '1.0.7',
+101 silly addNameRange     '1.0.8',
+101 silly addNameRange     '1.1.0',
+101 silly addNameRange     '1.1.1',
+101 silly addNameRange     '1.1.2',
+101 silly addNameRange     '1.1.3',
+101 silly addNameRange     '1.1.4',
+101 silly addNameRange     '1.1.5',
+101 silly addNameRange     '1.2.0',
+101 silly addNameRange     '1.2.1',
+101 silly addNameRange     '1.2.2',
+101 silly addNameRange     '1.2.3',
+101 silly addNameRange     '1.2.4',
+101 silly addNameRange     '1.2.5',
+101 silly addNameRange     '1.2.6',
+101 silly addNameRange     '1.2.7',
+101 silly addNameRange     '1.2.8',
+101 silly addNameRange     '1.2.9',
+101 silly addNameRange     '1.2.10',
+101 silly addNameRange     '1.2.11',
+101 silly addNameRange     '1.2.12',
+101 silly addNameRange     '1.2.13',
+101 silly addNameRange     '1.2.14',
+101 silly addNameRange     '1.2.15',
+101 silly addNameRange     '1.2.16',
+101 silly addNameRange     '1.2.17',
+101 silly addNameRange     '1.2.18',
+101 silly addNameRange     '1.2.19',
+101 silly addNameRange     '1.2.20',
+101 silly addNameRange     '1.2.21',
+101 silly addNameRange     '1.2.22',
+101 silly addNameRange     '1.2.23',
+101 silly addNameRange     '1.3.0-rc.5',
+101 silly addNameRange     '1.3.0',
+101 silly addNameRange     '1.3.1',
+101 silly addNameRange     '1.3.2',
+101 silly addNameRange     '1.3.3',
+101 silly addNameRange     '1.3.4-build.3588',
+101 silly addNameRange     '1.2.27',
+101 silly addNameRange     '1.3.4',
+101 silly addNameRange     '1.3.5',
+101 silly addNameRange     '1.3.6',
+101 silly addNameRange     '1.3.7',
+101 silly addNameRange     '1.2.28',
+101 silly addNameRange     '1.3.8',
+101 silly addNameRange     '1.4.0-beta.0',
+101 silly addNameRange     '1.3.9',
+101 silly addNameRange     '1.3.10',
+101 silly addNameRange     '1.4.0-beta.1',
+101 silly addNameRange     '1.4.0-beta.2',
+101 silly addNameRange     '1.3.11',
+101 silly addNameRange     '1.4.0-beta.3',
+101 silly addNameRange     '1.3.12',
+101 silly addNameRange     '1.3.13',
+101 silly addNameRange     '1.4.0-beta.4',
+101 silly addNameRange     '1.3.14',
+101 silly addNameRange     '1.4.0-beta.5',
+101 silly addNameRange     '1.4.0-beta.6',
+101 silly addNameRange     '1.3.15',
+101 silly addNameRange     '1.4.0-rc.0',
+101 silly addNameRange     '1.4.0-rc.1',
+101 silly addNameRange     '1.4.0-rc.2',
+101 silly addNameRange     '1.4.0',
+101 silly addNameRange     '1.3.16',
+101 silly addNameRange     '1.4.1',
+101 silly addNameRange     '1.4.2',
+101 silly addNameRange     '1.3.17',
+101 silly addNameRange     '1.4.3',
+101 silly addNameRange     '1.4.4',
+101 silly addNameRange     '1.3.18',
+101 silly addNameRange     '1.4.5',
+101 silly addNameRange     '1.3.19',
+101 silly addNameRange     '1.4.6',
+101 silly addNameRange     '1.5.0-beta.0',
+101 silly addNameRange     '1.2.29',
+101 silly addNameRange     '1.3.20',
+101 silly addNameRange     '1.4.7',
+101 silly addNameRange     '1.5.0-beta.2',
+101 silly addNameRange     '1.4.8',
+101 silly addNameRange     '1.5.0-rc.0',
+101 silly addNameRange     '1.5.0-rc.1',
+101 silly addNameRange     '1.4.9',
+101 silly addNameRange     '1.5.0-rc.2',
+101 silly addNameRange     '1.5.0',
+101 silly addNameRange     '1.5.1',
+101 silly addNameRange     '1.4.10',
+101 silly addNameRange     '1.5.2',
+101 silly addNameRange     ... 8 more items ] ]
+102 silly addNamed angular@1.5.8
+103 verbose addNamed "1.5.8" is a plain semver version for angular
+104 http 200 https://registry.npmjs.org/chart.js
+105 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+105 verbose headers   etag: '"C4W3IFEKF7EVABEGBRN5O3FCG"',
+105 verbose headers   'content-type': 'application/json',
+105 verbose headers   'content-encoding': 'gzip',
+105 verbose headers   'cache-control': 'max-age=300',
+105 verbose headers   'content-length': '5625',
+105 verbose headers   'accept-ranges': 'bytes',
+105 verbose headers   date: 'Mon, 05 Sep 2016 18:33:44 GMT',
+105 verbose headers   via: '1.1 varnish',
+105 verbose headers   age: '0',
+105 verbose headers   connection: 'keep-alive',
+105 verbose headers   'x-served-by': 'cache-jfk8147-JFK',
+105 verbose headers   'x-cache': 'HIT',
+105 verbose headers   'x-cache-hits': '1',
+105 verbose headers   'x-timer': 'S1473100424.631503,VS0,VE19',
+105 verbose headers   vary: 'Accept-Encoding' }
+106 silly get cb [ 200,
+106 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+106 silly get     etag: '"C4W3IFEKF7EVABEGBRN5O3FCG"',
+106 silly get     'content-type': 'application/json',
+106 silly get     'content-encoding': 'gzip',
+106 silly get     'cache-control': 'max-age=300',
+106 silly get     'content-length': '5625',
+106 silly get     'accept-ranges': 'bytes',
+106 silly get     date: 'Mon, 05 Sep 2016 18:33:44 GMT',
+106 silly get     via: '1.1 varnish',
+106 silly get     age: '0',
+106 silly get     connection: 'keep-alive',
+106 silly get     'x-served-by': 'cache-jfk8147-JFK',
+106 silly get     'x-cache': 'HIT',
+106 silly get     'x-cache-hits': '1',
+106 silly get     'x-timer': 'S1473100424.631503,VS0,VE19',
+106 silly get     vary: 'Accept-Encoding' } ]
+107 verbose get saving chart.js to C:\Users\534677\AppData\Roaming\npm-cache\registry.npmjs.org\chart.js\.cache.json
+108 verbose correctMkdir C:\Users\534677\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+109 silly resolveWithNewModule chart.js@2.2.2 checking installable status
+110 silly cache add args [ 'chart.js@2.x', null ]
+111 verbose cache add spec chart.js@2.x
+112 silly cache add parsed spec Result {
+112 silly cache add   raw: 'chart.js@2.x',
+112 silly cache add   scope: null,
+112 silly cache add   escapedName: 'chart.js',
+112 silly cache add   name: 'chart.js',
+112 silly cache add   rawSpec: '2.x',
+112 silly cache add   spec: '>=2.0.0 <3.0.0',
+112 silly cache add   type: 'range' }
+113 silly addNamed chart.js@>=2.0.0 <3.0.0
+114 verbose addNamed ">=2.0.0 <3.0.0" is a valid semver range for chart.js
+115 silly addNameRange { name: 'chart.js', range: '>=2.0.0 <3.0.0', hasData: false }
+116 silly mapToRegistry name chart.js
+117 silly mapToRegistry using default registry
+118 silly mapToRegistry registry https://registry.npmjs.org/
+119 silly mapToRegistry data Result {
+119 silly mapToRegistry   raw: 'chart.js',
+119 silly mapToRegistry   scope: null,
+119 silly mapToRegistry   escapedName: 'chart.js',
+119 silly mapToRegistry   name: 'chart.js',
+119 silly mapToRegistry   rawSpec: '',
+119 silly mapToRegistry   spec: 'latest',
+119 silly mapToRegistry   type: 'tag' }
+120 silly mapToRegistry uri https://registry.npmjs.org/chart.js
+121 verbose addNameRange registry:https://registry.npmjs.org/chart.js not in flight; fetching
+122 verbose get https://registry.npmjs.org/chart.js not expired, no request
+123 silly addNameRange number 2 { name: 'chart.js', range: '>=2.0.0 <3.0.0', hasData: true }
+124 silly addNameRange versions [ 'chart.js',
+124 silly addNameRange   [ '1.0.1-beta.2',
+124 silly addNameRange     '1.0.1',
+124 silly addNameRange     '1.0.2',
+124 silly addNameRange     '1.1.0',
+124 silly addNameRange     '1.1.1',
+124 silly addNameRange     '2.0.0',
+124 silly addNameRange     '2.0.1',
+124 silly addNameRange     '2.0.2',
+124 silly addNameRange     '2.1.0',
+124 silly addNameRange     '2.1.1',
+124 silly addNameRange     '2.1.2',
+124 silly addNameRange     '2.1.3',
+124 silly addNameRange     '2.1.4',
+124 silly addNameRange     '2.1.5',
+124 silly addNameRange     '2.1.6',
+124 silly addNameRange     '2.2.0-rc.1',
+124 silly addNameRange     '2.2.0-rc.2',
+124 silly addNameRange     '2.2.0',
+124 silly addNameRange     '2.2.1',
+124 silly addNameRange     '2.2.2' ] ]
+125 silly addNamed chart.js@2.2.2
+126 verbose addNamed "2.2.2" is a plain semver version for chart.js
+127 silly cache afterAdd angular@1.5.8
+128 verbose afterAdd C:\Users\534677\AppData\Roaming\npm-cache\angular\1.5.8\package\package.json not in flight; writing
+129 verbose correctMkdir C:\Users\534677\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+130 silly cache afterAdd chart.js@2.2.2
+131 verbose afterAdd C:\Users\534677\AppData\Roaming\npm-cache\chart.js\2.2.2\package\package.json not in flight; writing
+132 verbose correctMkdir C:\Users\534677\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+133 verbose afterAdd C:\Users\534677\AppData\Roaming\npm-cache\angular\1.5.8\package\package.json written
+134 verbose afterAdd C:\Users\534677\AppData\Roaming\npm-cache\chart.js\2.2.2\package\package.json written
+135 silly fetchNamedPackageData chartjs-color
+136 silly mapToRegistry name chartjs-color
+137 silly mapToRegistry using default registry
+138 silly mapToRegistry registry https://registry.npmjs.org/
+139 silly mapToRegistry data Result {
+139 silly mapToRegistry   raw: 'chartjs-color',
+139 silly mapToRegistry   scope: null,
+139 silly mapToRegistry   escapedName: 'chartjs-color',
+139 silly mapToRegistry   name: 'chartjs-color',
+139 silly mapToRegistry   rawSpec: '',
+139 silly mapToRegistry   spec: 'latest',
+139 silly mapToRegistry   type: 'tag' }
+140 silly mapToRegistry uri https://registry.npmjs.org/chartjs-color
+141 silly fetchNamedPackageData moment
+142 silly mapToRegistry name moment
+143 silly mapToRegistry using default registry
+144 silly mapToRegistry registry https://registry.npmjs.org/
+145 silly mapToRegistry data Result {
+145 silly mapToRegistry   raw: 'moment',
+145 silly mapToRegistry   scope: null,
+145 silly mapToRegistry   escapedName: 'moment',
+145 silly mapToRegistry   name: 'moment',
+145 silly mapToRegistry   rawSpec: '',
+145 silly mapToRegistry   spec: 'latest',
+145 silly mapToRegistry   type: 'tag' }
+146 silly mapToRegistry uri https://registry.npmjs.org/moment
+147 verbose request uri https://registry.npmjs.org/moment
+148 verbose request no auth needed
+149 info attempt registry request try #1 at 15:33:45
+150 verbose etag "AITDFYQRPAYEVD1IE6B642OJ8"
+151 http request GET https://registry.npmjs.org/moment
+152 verbose request uri https://registry.npmjs.org/chartjs-color
+153 verbose request no auth needed
+154 info attempt registry request try #1 at 15:33:45
+155 verbose etag "DOBAZ2P3ZGHAJGHNULUOWLAPE"
+156 http request GET https://registry.npmjs.org/chartjs-color
+157 http 304 https://registry.npmjs.org/chartjs-color
+158 verbose headers { date: 'Mon, 05 Sep 2016 18:33:45 GMT',
+158 verbose headers   via: '1.1 varnish',
+158 verbose headers   'cache-control': 'max-age=300',
+158 verbose headers   etag: '"DOBAZ2P3ZGHAJGHNULUOWLAPE"',
+158 verbose headers   age: '0',
+158 verbose headers   connection: 'keep-alive',
+158 verbose headers   'x-served-by': 'cache-jfk8147-JFK',
+158 verbose headers   'x-cache': 'HIT',
+158 verbose headers   'x-cache-hits': '1',
+158 verbose headers   'x-timer': 'S1473100425.357583,VS0,VE99',
+158 verbose headers   vary: 'Accept-Encoding' }
+159 silly get cb [ 304,
+159 silly get   { date: 'Mon, 05 Sep 2016 18:33:45 GMT',
+159 silly get     via: '1.1 varnish',
+159 silly get     'cache-control': 'max-age=300',
+159 silly get     etag: '"DOBAZ2P3ZGHAJGHNULUOWLAPE"',
+159 silly get     age: '0',
+159 silly get     connection: 'keep-alive',
+159 silly get     'x-served-by': 'cache-jfk8147-JFK',
+159 silly get     'x-cache': 'HIT',
+159 silly get     'x-cache-hits': '1',
+159 silly get     'x-timer': 'S1473100425.357583,VS0,VE99',
+159 silly get     vary: 'Accept-Encoding' } ]
+160 verbose etag https://registry.npmjs.org/chartjs-color from cache
+161 verbose get saving chartjs-color to C:\Users\534677\AppData\Roaming\npm-cache\registry.npmjs.org\chartjs-color\.cache.json
+162 verbose correctMkdir C:\Users\534677\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+163 silly resolveWithNewModule chartjs-color@2.0.0 checking installable status
+164 silly cache add args [ 'chartjs-color@^2.0.0', null ]
+165 verbose cache add spec chartjs-color@^2.0.0
+166 silly cache add parsed spec Result {
+166 silly cache add   raw: 'chartjs-color@^2.0.0',
+166 silly cache add   scope: null,
+166 silly cache add   escapedName: 'chartjs-color',
+166 silly cache add   name: 'chartjs-color',
+166 silly cache add   rawSpec: '^2.0.0',
+166 silly cache add   spec: '>=2.0.0 <3.0.0',
+166 silly cache add   type: 'range' }
+167 silly addNamed chartjs-color@>=2.0.0 <3.0.0
+168 verbose addNamed ">=2.0.0 <3.0.0" is a valid semver range for chartjs-color
+169 silly addNameRange { name: 'chartjs-color',
+169 silly addNameRange   range: '>=2.0.0 <3.0.0',
+169 silly addNameRange   hasData: false }
+170 silly mapToRegistry name chartjs-color
+171 silly mapToRegistry using default registry
+172 silly mapToRegistry registry https://registry.npmjs.org/
+173 silly mapToRegistry data Result {
+173 silly mapToRegistry   raw: 'chartjs-color',
+173 silly mapToRegistry   scope: null,
+173 silly mapToRegistry   escapedName: 'chartjs-color',
+173 silly mapToRegistry   name: 'chartjs-color',
+173 silly mapToRegistry   rawSpec: '',
+173 silly mapToRegistry   spec: 'latest',
+173 silly mapToRegistry   type: 'tag' }
+174 silly mapToRegistry uri https://registry.npmjs.org/chartjs-color
+175 verbose addNameRange registry:https://registry.npmjs.org/chartjs-color not in flight; fetching
+176 verbose get https://registry.npmjs.org/chartjs-color not expired, no request
+177 silly addNameRange number 2 { name: 'chartjs-color', range: '>=2.0.0 <3.0.0', hasData: true }
+178 silly addNameRange versions [ 'chartjs-color',
+178 silly addNameRange   [ '0.8.2', '1.0.2', '1.0.21', '1.0.22', '2.0.0' ] ]
+179 silly addNamed chartjs-color@2.0.0
+180 verbose addNamed "2.0.0" is a plain semver version for chartjs-color
+181 http 200 https://registry.npmjs.org/moment
+182 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+182 verbose headers   etag: '"DDPO4GGJ95EUUQ84H9BTED20J"',
+182 verbose headers   'content-type': 'application/json',
+182 verbose headers   'content-encoding': 'gzip',
+182 verbose headers   'cache-control': 'max-age=300',
+182 verbose headers   'content-length': '12609',
+182 verbose headers   'accept-ranges': 'bytes',
+182 verbose headers   date: 'Mon, 05 Sep 2016 18:33:45 GMT',
+182 verbose headers   via: '1.1 varnish',
+182 verbose headers   age: '98',
+182 verbose headers   connection: 'keep-alive',
+182 verbose headers   'x-served-by': 'cache-jfk8146-JFK',
+182 verbose headers   'x-cache': 'HIT',
+182 verbose headers   'x-cache-hits': '2',
+182 verbose headers   'x-timer': 'S1473100425.316265,VS0,VE0',
+182 verbose headers   vary: 'Accept-Encoding' }
+183 silly get cb [ 200,
+183 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+183 silly get     etag: '"DDPO4GGJ95EUUQ84H9BTED20J"',
+183 silly get     'content-type': 'application/json',
+183 silly get     'content-encoding': 'gzip',
+183 silly get     'cache-control': 'max-age=300',
+183 silly get     'content-length': '12609',
+183 silly get     'accept-ranges': 'bytes',
+183 silly get     date: 'Mon, 05 Sep 2016 18:33:45 GMT',
+183 silly get     via: '1.1 varnish',
+183 silly get     age: '98',
+183 silly get     connection: 'keep-alive',
+183 silly get     'x-served-by': 'cache-jfk8146-JFK',
+183 silly get     'x-cache': 'HIT',
+183 silly get     'x-cache-hits': '2',
+183 silly get     'x-timer': 'S1473100425.316265,VS0,VE0',
+183 silly get     vary: 'Accept-Encoding' } ]
+184 verbose get saving moment to C:\Users\534677\AppData\Roaming\npm-cache\registry.npmjs.org\moment\.cache.json
+185 verbose correctMkdir C:\Users\534677\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+186 silly resolveWithNewModule moment@2.14.1 checking installable status
+187 silly cache add args [ 'moment@^2.10.6', null ]
+188 verbose cache add spec moment@^2.10.6
+189 silly cache add parsed spec Result {
+189 silly cache add   raw: 'moment@^2.10.6',
+189 silly cache add   scope: null,
+189 silly cache add   escapedName: 'moment',
+189 silly cache add   name: 'moment',
+189 silly cache add   rawSpec: '^2.10.6',
+189 silly cache add   spec: '>=2.10.6 <3.0.0',
+189 silly cache add   type: 'range' }
+190 silly addNamed moment@>=2.10.6 <3.0.0
+191 verbose addNamed ">=2.10.6 <3.0.0" is a valid semver range for moment
+192 silly addNameRange { name: 'moment', range: '>=2.10.6 <3.0.0', hasData: false }
+193 silly mapToRegistry name moment
+194 silly mapToRegistry using default registry
+195 silly mapToRegistry registry https://registry.npmjs.org/
+196 silly mapToRegistry data Result {
+196 silly mapToRegistry   raw: 'moment',
+196 silly mapToRegistry   scope: null,
+196 silly mapToRegistry   escapedName: 'moment',
+196 silly mapToRegistry   name: 'moment',
+196 silly mapToRegistry   rawSpec: '',
+196 silly mapToRegistry   spec: 'latest',
+196 silly mapToRegistry   type: 'tag' }
+197 silly mapToRegistry uri https://registry.npmjs.org/moment
+198 verbose addNameRange registry:https://registry.npmjs.org/moment not in flight; fetching
+199 silly cache afterAdd chartjs-color@2.0.0
+200 verbose afterAdd C:\Users\534677\AppData\Roaming\npm-cache\chartjs-color\2.0.0\package\package.json not in flight; writing
+201 verbose correctMkdir C:\Users\534677\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+202 verbose get https://registry.npmjs.org/moment not expired, no request
+203 silly addNameRange number 2 { name: 'moment', range: '>=2.10.6 <3.0.0', hasData: true }
+204 silly addNameRange versions [ 'moment',
+204 silly addNameRange   [ '1.0.0',
+204 silly addNameRange     '1.0.1',
+204 silly addNameRange     '1.1.0',
+204 silly addNameRange     '1.1.1',
+204 silly addNameRange     '1.2.0',
+204 silly addNameRange     '1.3.0',
+204 silly addNameRange     '1.4.0',
+204 silly addNameRange     '1.5.0',
+204 silly addNameRange     '1.5.1',
+204 silly addNameRange     '1.6.0',
+204 silly addNameRange     '1.6.1',
+204 silly addNameRange     '1.6.2',
+204 silly addNameRange     '1.7.0',
+204 silly addNameRange     '1.7.1',
+204 silly addNameRange     '1.7.2',
+204 silly addNameRange     '2.0.0',
+204 silly addNameRange     '2.1.0',
+204 silly addNameRange     '2.2.1',
+204 silly addNameRange     '2.3.0',
+204 silly addNameRange     '2.3.1',
+204 silly addNameRange     '2.4.0',
+204 silly addNameRange     '2.5.0',
+204 silly addNameRange     '2.5.1',
+204 silly addNameRange     '2.6.0',
+204 silly addNameRange     '2.7.0',
+204 silly addNameRange     '2.8.1',
+204 silly addNameRange     '2.8.2',
+204 silly addNameRange     '2.8.3',
+204 silly addNameRange     '2.8.4',
+204 silly addNameRange     '2.9.0',
+204 silly addNameRange     '2.10.2',
+204 silly addNameRange     '2.10.3',
+204 silly addNameRange     '2.10.5',
+204 silly addNameRange     '2.10.6',
+204 silly addNameRange     '2.11.0',
+204 silly addNameRange     '2.11.1',
+204 silly addNameRange     '2.11.2',
+204 silly addNameRange     '2.12.0',
+204 silly addNameRange     '2.13.0',
+204 silly addNameRange     '2.14.0',
+204 silly addNameRange     '2.14.1' ] ]
+205 silly addNamed moment@2.14.1
+206 verbose addNamed "2.14.1" is a plain semver version for moment
+207 verbose afterAdd C:\Users\534677\AppData\Roaming\npm-cache\chartjs-color\2.0.0\package\package.json written
+208 silly cache afterAdd moment@2.14.1
+209 verbose afterAdd C:\Users\534677\AppData\Roaming\npm-cache\moment\2.14.1\package\package.json not in flight; writing
+210 verbose correctMkdir C:\Users\534677\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+211 verbose afterAdd C:\Users\534677\AppData\Roaming\npm-cache\moment\2.14.1\package\package.json written
+212 silly fetchNamedPackageData color-convert
+213 silly mapToRegistry name color-convert
+214 silly mapToRegistry using default registry
+215 silly mapToRegistry registry https://registry.npmjs.org/
+216 silly mapToRegistry data Result {
+216 silly mapToRegistry   raw: 'color-convert',
+216 silly mapToRegistry   scope: null,
+216 silly mapToRegistry   escapedName: 'color-convert',
+216 silly mapToRegistry   name: 'color-convert',
+216 silly mapToRegistry   rawSpec: '',
+216 silly mapToRegistry   spec: 'latest',
+216 silly mapToRegistry   type: 'tag' }
+217 silly mapToRegistry uri https://registry.npmjs.org/color-convert
+218 silly fetchNamedPackageData chartjs-color-string
+219 silly mapToRegistry name chartjs-color-string
+220 silly mapToRegistry using default registry
+221 silly mapToRegistry registry https://registry.npmjs.org/
+222 silly mapToRegistry data Result {
+222 silly mapToRegistry   raw: 'chartjs-color-string',
+222 silly mapToRegistry   scope: null,
+222 silly mapToRegistry   escapedName: 'chartjs-color-string',
+222 silly mapToRegistry   name: 'chartjs-color-string',
+222 silly mapToRegistry   rawSpec: '',
+222 silly mapToRegistry   spec: 'latest',
+222 silly mapToRegistry   type: 'tag' }
+223 silly mapToRegistry uri https://registry.npmjs.org/chartjs-color-string
+224 verbose request uri https://registry.npmjs.org/color-convert
+225 verbose request no auth needed
+226 info attempt registry request try #1 at 15:33:45
+227 verbose etag "B372RQ22G5ISBL1VWFQIG5OPG"
+228 http request GET https://registry.npmjs.org/color-convert
+229 verbose request uri https://registry.npmjs.org/chartjs-color-string
+230 verbose request no auth needed
+231 info attempt registry request try #1 at 15:33:45
+232 verbose etag "4Z2R1EDX411FVZW0QDF3M3ZZU"
+233 http request GET https://registry.npmjs.org/chartjs-color-string
+234 http 200 https://registry.npmjs.org/color-convert
+235 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+235 verbose headers   etag: '"4SHFZYHZ94R6RZ3DQXV0PTRQA"',
+235 verbose headers   'content-type': 'application/json',
+235 verbose headers   'content-encoding': 'gzip',
+235 verbose headers   'cache-control': 'max-age=300',
+235 verbose headers   'content-length': '5500',
+235 verbose headers   'accept-ranges': 'bytes',
+235 verbose headers   date: 'Mon, 05 Sep 2016 18:33:46 GMT',
+235 verbose headers   via: '1.1 varnish',
+235 verbose headers   age: '220',
+235 verbose headers   connection: 'keep-alive',
+235 verbose headers   'x-served-by': 'cache-jfk8147-JFK',
+235 verbose headers   'x-cache': 'HIT',
+235 verbose headers   'x-cache-hits': '3',
+235 verbose headers   'x-timer': 'S1473100426.055818,VS0,VE0',
+235 verbose headers   vary: 'Accept-Encoding' }
+236 silly get cb [ 200,
+236 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+236 silly get     etag: '"4SHFZYHZ94R6RZ3DQXV0PTRQA"',
+236 silly get     'content-type': 'application/json',
+236 silly get     'content-encoding': 'gzip',
+236 silly get     'cache-control': 'max-age=300',
+236 silly get     'content-length': '5500',
+236 silly get     'accept-ranges': 'bytes',
+236 silly get     date: 'Mon, 05 Sep 2016 18:33:46 GMT',
+236 silly get     via: '1.1 varnish',
+236 silly get     age: '220',
+236 silly get     connection: 'keep-alive',
+236 silly get     'x-served-by': 'cache-jfk8147-JFK',
+236 silly get     'x-cache': 'HIT',
+236 silly get     'x-cache-hits': '3',
+236 silly get     'x-timer': 'S1473100426.055818,VS0,VE0',
+236 silly get     vary: 'Accept-Encoding' } ]
+237 verbose get saving color-convert to C:\Users\534677\AppData\Roaming\npm-cache\registry.npmjs.org\color-convert\.cache.json
+238 verbose correctMkdir C:\Users\534677\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+239 silly resolveWithNewModule color-convert@0.5.3 checking installable status
+240 silly cache add args [ 'color-convert@^0.5.3', null ]
+241 verbose cache add spec color-convert@^0.5.3
+242 silly cache add parsed spec Result {
+242 silly cache add   raw: 'color-convert@^0.5.3',
+242 silly cache add   scope: null,
+242 silly cache add   escapedName: 'color-convert',
+242 silly cache add   name: 'color-convert',
+242 silly cache add   rawSpec: '^0.5.3',
+242 silly cache add   spec: '>=0.5.3 <0.6.0',
+242 silly cache add   type: 'range' }
+243 silly addNamed color-convert@>=0.5.3 <0.6.0
+244 verbose addNamed ">=0.5.3 <0.6.0" is a valid semver range for color-convert
+245 silly addNameRange { name: 'color-convert',
+245 silly addNameRange   range: '>=0.5.3 <0.6.0',
+245 silly addNameRange   hasData: false }
+246 silly mapToRegistry name color-convert
+247 silly mapToRegistry using default registry
+248 silly mapToRegistry registry https://registry.npmjs.org/
+249 silly mapToRegistry data Result {
+249 silly mapToRegistry   raw: 'color-convert',
+249 silly mapToRegistry   scope: null,
+249 silly mapToRegistry   escapedName: 'color-convert',
+249 silly mapToRegistry   name: 'color-convert',
+249 silly mapToRegistry   rawSpec: '',
+249 silly mapToRegistry   spec: 'latest',
+249 silly mapToRegistry   type: 'tag' }
+250 silly mapToRegistry uri https://registry.npmjs.org/color-convert
+251 verbose addNameRange registry:https://registry.npmjs.org/color-convert not in flight; fetching
+252 verbose get https://registry.npmjs.org/color-convert not expired, no request
+253 silly addNameRange number 2 { name: 'color-convert', range: '>=0.5.3 <0.6.0', hasData: true }
+254 silly addNameRange versions [ 'color-convert',
+254 silly addNameRange   [ '0.1.0',
+254 silly addNameRange     '0.2.0',
+254 silly addNameRange     '0.2.1',
+254 silly addNameRange     '0.3.0',
+254 silly addNameRange     '0.3.1',
+254 silly addNameRange     '0.3.4',
+254 silly addNameRange     '0.4.0',
+254 silly addNameRange     '0.5.0',
+254 silly addNameRange     '0.5.1',
+254 silly addNameRange     '0.5.2',
+254 silly addNameRange     '0.5.3',
+254 silly addNameRange     '0.6.0',
+254 silly addNameRange     '0.7.0',
+254 silly addNameRange     '1.0.0',
+254 silly addNameRange     '1.1.0',
+254 silly addNameRange     '1.1.1',
+254 silly addNameRange     '1.1.2',
+254 silly addNameRange     '1.2.0',
+254 silly addNameRange     '1.2.1',
+254 silly addNameRange     '1.2.2',
+254 silly addNameRange     '1.3.0',
+254 silly addNameRange     '1.3.1',
+254 silly addNameRange     '1.4.0',
+254 silly addNameRange     '1.5.0' ] ]
+255 silly addNamed color-convert@0.5.3
+256 verbose addNamed "0.5.3" is a plain semver version for color-convert
+257 silly cache afterAdd color-convert@0.5.3
+258 verbose afterAdd C:\Users\534677\AppData\Roaming\npm-cache\color-convert\0.5.3\package\package.json not in flight; writing
+259 verbose correctMkdir C:\Users\534677\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+260 http 304 https://registry.npmjs.org/chartjs-color-string
+261 verbose headers { date: 'Mon, 05 Sep 2016 18:33:46 GMT',
+261 verbose headers   via: '1.1 varnish',
+261 verbose headers   'cache-control': 'max-age=300',
+261 verbose headers   etag: '"4Z2R1EDX411FVZW0QDF3M3ZZU"',
+261 verbose headers   age: '0',
+261 verbose headers   connection: 'keep-alive',
+261 verbose headers   'x-served-by': 'cache-jfk8146-JFK',
+261 verbose headers   'x-cache': 'HIT',
+261 verbose headers   'x-cache-hits': '1',
+261 verbose headers   'x-timer': 'S1473100426.119292,VS0,VE27',
+261 verbose headers   vary: 'Accept-Encoding' }
+262 silly get cb [ 304,
+262 silly get   { date: 'Mon, 05 Sep 2016 18:33:46 GMT',
+262 silly get     via: '1.1 varnish',
+262 silly get     'cache-control': 'max-age=300',
+262 silly get     etag: '"4Z2R1EDX411FVZW0QDF3M3ZZU"',
+262 silly get     age: '0',
+262 silly get     connection: 'keep-alive',
+262 silly get     'x-served-by': 'cache-jfk8146-JFK',
+262 silly get     'x-cache': 'HIT',
+262 silly get     'x-cache-hits': '1',
+262 silly get     'x-timer': 'S1473100426.119292,VS0,VE27',
+262 silly get     vary: 'Accept-Encoding' } ]
+263 verbose etag https://registry.npmjs.org/chartjs-color-string from cache
+264 verbose get saving chartjs-color-string to C:\Users\534677\AppData\Roaming\npm-cache\registry.npmjs.org\chartjs-color-string\.cache.json
+265 verbose correctMkdir C:\Users\534677\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+266 silly resolveWithNewModule chartjs-color-string@0.4.0 checking installable status
+267 silly cache add args [ 'chartjs-color-string@^0.4.0', null ]
+268 verbose cache add spec chartjs-color-string@^0.4.0
+269 silly cache add parsed spec Result {
+269 silly cache add   raw: 'chartjs-color-string@^0.4.0',
+269 silly cache add   scope: null,
+269 silly cache add   escapedName: 'chartjs-color-string',
+269 silly cache add   name: 'chartjs-color-string',
+269 silly cache add   rawSpec: '^0.4.0',
+269 silly cache add   spec: '>=0.4.0 <0.5.0',
+269 silly cache add   type: 'range' }
+270 silly addNamed chartjs-color-string@>=0.4.0 <0.5.0
+271 verbose addNamed ">=0.4.0 <0.5.0" is a valid semver range for chartjs-color-string
+272 silly addNameRange { name: 'chartjs-color-string',
+272 silly addNameRange   range: '>=0.4.0 <0.5.0',
+272 silly addNameRange   hasData: false }
+273 silly mapToRegistry name chartjs-color-string
+274 silly mapToRegistry using default registry
+275 silly mapToRegistry registry https://registry.npmjs.org/
+276 silly mapToRegistry data Result {
+276 silly mapToRegistry   raw: 'chartjs-color-string',
+276 silly mapToRegistry   scope: null,
+276 silly mapToRegistry   escapedName: 'chartjs-color-string',
+276 silly mapToRegistry   name: 'chartjs-color-string',
+276 silly mapToRegistry   rawSpec: '',
+276 silly mapToRegistry   spec: 'latest',
+276 silly mapToRegistry   type: 'tag' }
+277 silly mapToRegistry uri https://registry.npmjs.org/chartjs-color-string
+278 verbose addNameRange registry:https://registry.npmjs.org/chartjs-color-string not in flight; fetching
+279 verbose get https://registry.npmjs.org/chartjs-color-string not expired, no request
+280 silly addNameRange number 2 { name: 'chartjs-color-string',
+280 silly addNameRange   range: '>=0.4.0 <0.5.0',
+280 silly addNameRange   hasData: true }
+281 silly addNameRange versions [ 'chartjs-color-string', [ '0.4.0' ] ]
+282 silly addNamed chartjs-color-string@0.4.0
+283 verbose addNamed "0.4.0" is a plain semver version for chartjs-color-string
+284 verbose afterAdd C:\Users\534677\AppData\Roaming\npm-cache\color-convert\0.5.3\package\package.json written
+285 silly cache afterAdd chartjs-color-string@0.4.0
+286 verbose afterAdd C:\Users\534677\AppData\Roaming\npm-cache\chartjs-color-string\0.4.0\package\package.json not in flight; writing
+287 verbose correctMkdir C:\Users\534677\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+288 verbose afterAdd C:\Users\534677\AppData\Roaming\npm-cache\chartjs-color-string\0.4.0\package\package.json written
+289 silly fetchNamedPackageData color-name
+290 silly mapToRegistry name color-name
+291 silly mapToRegistry using default registry
+292 silly mapToRegistry registry https://registry.npmjs.org/
+293 silly mapToRegistry data Result {
+293 silly mapToRegistry   raw: 'color-name',
+293 silly mapToRegistry   scope: null,
+293 silly mapToRegistry   escapedName: 'color-name',
+293 silly mapToRegistry   name: 'color-name',
+293 silly mapToRegistry   rawSpec: '',
+293 silly mapToRegistry   spec: 'latest',
+293 silly mapToRegistry   type: 'tag' }
+294 silly mapToRegistry uri https://registry.npmjs.org/color-name
+295 verbose request uri https://registry.npmjs.org/color-name
+296 verbose request no auth needed
+297 info attempt registry request try #1 at 15:33:46
+298 verbose etag "9XAYPUAP978784IWZSSO4BOH6"
+299 http request GET https://registry.npmjs.org/color-name
+300 http 304 https://registry.npmjs.org/color-name
+301 verbose headers { date: 'Mon, 05 Sep 2016 18:33:46 GMT',
+301 verbose headers   via: '1.1 varnish',
+301 verbose headers   'cache-control': 'max-age=300',
+301 verbose headers   etag: '"9XAYPUAP978784IWZSSO4BOH6"',
+301 verbose headers   age: '21',
+301 verbose headers   connection: 'keep-alive',
+301 verbose headers   'x-served-by': 'cache-jfk8147-JFK',
+301 verbose headers   'x-cache': 'HIT',
+301 verbose headers   'x-cache-hits': '1',
+301 verbose headers   'x-timer': 'S1473100426.631134,VS0,VE0',
+301 verbose headers   vary: 'Accept-Encoding' }
+302 silly get cb [ 304,
+302 silly get   { date: 'Mon, 05 Sep 2016 18:33:46 GMT',
+302 silly get     via: '1.1 varnish',
+302 silly get     'cache-control': 'max-age=300',
+302 silly get     etag: '"9XAYPUAP978784IWZSSO4BOH6"',
+302 silly get     age: '21',
+302 silly get     connection: 'keep-alive',
+302 silly get     'x-served-by': 'cache-jfk8147-JFK',
+302 silly get     'x-cache': 'HIT',
+302 silly get     'x-cache-hits': '1',
+302 silly get     'x-timer': 'S1473100426.631134,VS0,VE0',
+302 silly get     vary: 'Accept-Encoding' } ]
+303 verbose etag https://registry.npmjs.org/color-name from cache
+304 verbose get saving color-name to C:\Users\534677\AppData\Roaming\npm-cache\registry.npmjs.org\color-name\.cache.json
+305 verbose correctMkdir C:\Users\534677\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+306 silly resolveWithNewModule color-name@1.1.1 checking installable status
+307 silly cache add args [ 'color-name@^1.0.0', null ]
+308 verbose cache add spec color-name@^1.0.0
+309 silly cache add parsed spec Result {
+309 silly cache add   raw: 'color-name@^1.0.0',
+309 silly cache add   scope: null,
+309 silly cache add   escapedName: 'color-name',
+309 silly cache add   name: 'color-name',
+309 silly cache add   rawSpec: '^1.0.0',
+309 silly cache add   spec: '>=1.0.0 <2.0.0',
+309 silly cache add   type: 'range' }
+310 silly addNamed color-name@>=1.0.0 <2.0.0
+311 verbose addNamed ">=1.0.0 <2.0.0" is a valid semver range for color-name
+312 silly addNameRange { name: 'color-name', range: '>=1.0.0 <2.0.0', hasData: false }
+313 silly mapToRegistry name color-name
+314 silly mapToRegistry using default registry
+315 silly mapToRegistry registry https://registry.npmjs.org/
+316 silly mapToRegistry data Result {
+316 silly mapToRegistry   raw: 'color-name',
+316 silly mapToRegistry   scope: null,
+316 silly mapToRegistry   escapedName: 'color-name',
+316 silly mapToRegistry   name: 'color-name',
+316 silly mapToRegistry   rawSpec: '',
+316 silly mapToRegistry   spec: 'latest',
+316 silly mapToRegistry   type: 'tag' }
+317 silly mapToRegistry uri https://registry.npmjs.org/color-name
+318 verbose addNameRange registry:https://registry.npmjs.org/color-name not in flight; fetching
+319 verbose get https://registry.npmjs.org/color-name not expired, no request
+320 silly addNameRange number 2 { name: 'color-name', range: '>=1.0.0 <2.0.0', hasData: true }
+321 silly addNameRange versions [ 'color-name',
+321 silly addNameRange   [ '0.0.1', '0.0.2', '1.0.0', '1.0.1', '1.1.0', '1.1.1' ] ]
+322 silly addNamed color-name@1.1.1
+323 verbose addNamed "1.1.1" is a plain semver version for color-name
+324 silly cache afterAdd color-name@1.1.1
+325 verbose afterAdd C:\Users\534677\AppData\Roaming\npm-cache\color-name\1.1.1\package\package.json not in flight; writing
+326 verbose correctMkdir C:\Users\534677\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+327 verbose afterAdd C:\Users\534677\AppData\Roaming\npm-cache\color-name\1.1.1\package\package.json written
+328 silly loadAllDepsIntoIdealTree Finishing
+329 silly loadIdealTree Finishing
+330 silly currentTree cognifest@1.1.1
+331 silly idealTree cognifest@1.1.1
+331 silly idealTree +-- angular-chart.js@1.0.2
+331 silly idealTree +-- angular@1.5.8
+331 silly idealTree +-- chart.js@2.2.2
+331 silly idealTree +-- chartjs-color-string@0.4.0
+331 silly idealTree +-- chartjs-color@2.0.0
+331 silly idealTree +-- color-convert@0.5.3
+331 silly idealTree +-- color-name@1.1.1
+331 silly idealTree `-- moment@2.14.1
+332 silly generateActionsToTake Starting
+333 silly install generateActionsToTake
+334 silly generateActionsToTake Finishing
+335 silly diffTrees action count 8
+336 silly diffTrees add color-convert@0.5.3
+337 silly diffTrees add color-name@1.1.1
+338 silly diffTrees add chartjs-color-string@0.4.0
+339 silly diffTrees add chartjs-color@2.0.0
+340 silly diffTrees add moment@2.14.1
+341 silly diffTrees add angular@1.5.8
+342 silly diffTrees add chart.js@2.2.2
+343 silly diffTrees add angular-chart.js@1.0.2
+344 silly decomposeActions action count 64
+345 silly decomposeActions fetch color-convert@0.5.3
+346 silly decomposeActions extract color-convert@0.5.3
+347 silly decomposeActions test color-convert@0.5.3
+348 silly decomposeActions preinstall color-convert@0.5.3
+349 silly decomposeActions build color-convert@0.5.3
+350 silly decomposeActions install color-convert@0.5.3
+351 silly decomposeActions postinstall color-convert@0.5.3
+352 silly decomposeActions finalize color-convert@0.5.3
+353 silly decomposeActions fetch color-name@1.1.1
+354 silly decomposeActions extract color-name@1.1.1
+355 silly decomposeActions test color-name@1.1.1
+356 silly decomposeActions preinstall color-name@1.1.1
+357 silly decomposeActions build color-name@1.1.1
+358 silly decomposeActions install color-name@1.1.1
+359 silly decomposeActions postinstall color-name@1.1.1
+360 silly decomposeActions finalize color-name@1.1.1
+361 silly decomposeActions fetch chartjs-color-string@0.4.0
+362 silly decomposeActions extract chartjs-color-string@0.4.0
+363 silly decomposeActions test chartjs-color-string@0.4.0
+364 silly decomposeActions preinstall chartjs-color-string@0.4.0
+365 silly decomposeActions build chartjs-color-string@0.4.0
+366 silly decomposeActions install chartjs-color-string@0.4.0
+367 silly decomposeActions postinstall chartjs-color-string@0.4.0
+368 silly decomposeActions finalize chartjs-color-string@0.4.0
+369 silly decomposeActions fetch chartjs-color@2.0.0
+370 silly decomposeActions extract chartjs-color@2.0.0
+371 silly decomposeActions test chartjs-color@2.0.0
+372 silly decomposeActions preinstall chartjs-color@2.0.0
+373 silly decomposeActions build chartjs-color@2.0.0
+374 silly decomposeActions install chartjs-color@2.0.0
+375 silly decomposeActions postinstall chartjs-color@2.0.0
+376 silly decomposeActions finalize chartjs-color@2.0.0
+377 silly decomposeActions fetch moment@2.14.1
+378 silly decomposeActions extract moment@2.14.1
+379 silly decomposeActions test moment@2.14.1
+380 silly decomposeActions preinstall moment@2.14.1
+381 silly decomposeActions build moment@2.14.1
+382 silly decomposeActions install moment@2.14.1
+383 silly decomposeActions postinstall moment@2.14.1
+384 silly decomposeActions finalize moment@2.14.1
+385 silly decomposeActions fetch angular@1.5.8
+386 silly decomposeActions extract angular@1.5.8
+387 silly decomposeActions test angular@1.5.8
+388 silly decomposeActions preinstall angular@1.5.8
+389 silly decomposeActions build angular@1.5.8
+390 silly decomposeActions install angular@1.5.8
+391 silly decomposeActions postinstall angular@1.5.8
+392 silly decomposeActions finalize angular@1.5.8
+393 silly decomposeActions fetch chart.js@2.2.2
+394 silly decomposeActions extract chart.js@2.2.2
+395 silly decomposeActions test chart.js@2.2.2
+396 silly decomposeActions preinstall chart.js@2.2.2
+397 silly decomposeActions build chart.js@2.2.2
+398 silly decomposeActions install chart.js@2.2.2
+399 silly decomposeActions postinstall chart.js@2.2.2
+400 silly decomposeActions finalize chart.js@2.2.2
+401 silly decomposeActions fetch angular-chart.js@1.0.2
+402 silly decomposeActions extract angular-chart.js@1.0.2
+403 silly decomposeActions test angular-chart.js@1.0.2
+404 silly decomposeActions preinstall angular-chart.js@1.0.2
+405 silly decomposeActions build angular-chart.js@1.0.2
+406 silly decomposeActions install angular-chart.js@1.0.2
+407 silly decomposeActions postinstall angular-chart.js@1.0.2
+408 silly decomposeActions finalize angular-chart.js@1.0.2
+409 silly executeActions Starting
+410 silly install executeActions
+411 silly doSerial global-install 0
+412 silly doParallel fetch 8
+413 verbose correctMkdir C:\Users\534677\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+414 verbose lock using C:\Users\534677\AppData\Roaming\npm-cache\_locks\staging-0328ff7fb6062d03.lock for C:\ctsfest\ctsFest\node_modules\.staging
+415 silly doParallel extract 8
+416 silly extract color-convert@0.5.3
+417 silly extract color-name@1.1.1
+418 silly extract chartjs-color-string@0.4.0
+419 silly extract chartjs-color@2.0.0
+420 silly extract moment@2.14.1
+421 silly extract angular@1.5.8
+422 silly extract chart.js@2.2.2
+423 silly extract angular-chart.js@1.0.2
+424 verbose unbuild node_modules\.staging\color-name-34b9be49
+425 verbose unbuild node_modules\.staging\chartjs-color-78a52cdb
+426 verbose unbuild node_modules\.staging\angular-fd287644
+427 verbose unbuild node_modules\.staging\moment-cb0cce27
+428 verbose unbuild node_modules\.staging\chart.js-434b66f4
+429 verbose unbuild node_modules\.staging\angular-chart.js-c85dc7cf
+430 verbose unbuild node_modules\.staging\color-convert-8a2b6db0
+431 verbose unbuild node_modules\.staging\chartjs-color-string-1c8bf9a3
+432 silly gentlyRm C:\ctsfest\ctsFest\node_modules\.staging\color-name-34b9be49 is being purged from base C:\ctsfest\ctsFest
+433 verbose gentlyRm don't care about contents; nuking C:\ctsfest\ctsFest\node_modules\.staging\color-name-34b9be49
+434 silly gentlyRm C:\ctsfest\ctsFest\node_modules\.staging\moment-cb0cce27 is being purged from base C:\ctsfest\ctsFest
+435 verbose gentlyRm don't care about contents; nuking C:\ctsfest\ctsFest\node_modules\.staging\moment-cb0cce27
+436 silly gentlyRm C:\ctsfest\ctsFest\node_modules\.staging\angular-fd287644 is being purged from base C:\ctsfest\ctsFest
+437 verbose gentlyRm don't care about contents; nuking C:\ctsfest\ctsFest\node_modules\.staging\angular-fd287644
+438 silly gentlyRm C:\ctsfest\ctsFest\node_modules\.staging\chartjs-color-78a52cdb is being purged from base C:\ctsfest\ctsFest
+439 verbose gentlyRm don't care about contents; nuking C:\ctsfest\ctsFest\node_modules\.staging\chartjs-color-78a52cdb
+440 verbose tar unpack C:\Users\534677\AppData\Roaming\npm-cache\color-name\1.1.1\package.tgz
+441 verbose tar unpacking to C:\ctsfest\ctsFest\node_modules\.staging\color-name-34b9be49
+442 silly gentlyRm C:\ctsfest\ctsFest\node_modules\.staging\color-name-34b9be49 is being purged
+443 verbose gentlyRm don't care about contents; nuking C:\ctsfest\ctsFest\node_modules\.staging\color-name-34b9be49
+444 silly gentlyRm C:\ctsfest\ctsFest\node_modules\.staging\chart.js-434b66f4 is being purged from base C:\ctsfest\ctsFest
+445 verbose gentlyRm don't care about contents; nuking C:\ctsfest\ctsFest\node_modules\.staging\chart.js-434b66f4
+446 silly gentlyRm C:\ctsfest\ctsFest\node_modules\.staging\angular-chart.js-c85dc7cf is being purged from base C:\ctsfest\ctsFest
+447 verbose gentlyRm don't care about contents; nuking C:\ctsfest\ctsFest\node_modules\.staging\angular-chart.js-c85dc7cf
+448 verbose tar unpack C:\Users\534677\AppData\Roaming\npm-cache\moment\2.14.1\package.tgz
+449 verbose tar unpacking to C:\ctsfest\ctsFest\node_modules\.staging\moment-cb0cce27
+450 silly gentlyRm C:\ctsfest\ctsFest\node_modules\.staging\moment-cb0cce27 is being purged
+451 verbose gentlyRm don't care about contents; nuking C:\ctsfest\ctsFest\node_modules\.staging\moment-cb0cce27
+452 silly gentlyRm C:\ctsfest\ctsFest\node_modules\.staging\color-convert-8a2b6db0 is being purged from base C:\ctsfest\ctsFest
+453 verbose gentlyRm don't care about contents; nuking C:\ctsfest\ctsFest\node_modules\.staging\color-convert-8a2b6db0
+454 verbose tar unpack C:\Users\534677\AppData\Roaming\npm-cache\angular\1.5.8\package.tgz
+455 verbose tar unpacking to C:\ctsfest\ctsFest\node_modules\.staging\angular-fd287644
+456 silly gentlyRm C:\ctsfest\ctsFest\node_modules\.staging\angular-fd287644 is being purged
+457 verbose gentlyRm don't care about contents; nuking C:\ctsfest\ctsFest\node_modules\.staging\angular-fd287644
+458 verbose tar unpack C:\Users\534677\AppData\Roaming\npm-cache\chartjs-color\2.0.0\package.tgz
+459 verbose tar unpacking to C:\ctsfest\ctsFest\node_modules\.staging\chartjs-color-78a52cdb
+460 silly gentlyRm C:\ctsfest\ctsFest\node_modules\.staging\chartjs-color-78a52cdb is being purged
+461 verbose gentlyRm don't care about contents; nuking C:\ctsfest\ctsFest\node_modules\.staging\chartjs-color-78a52cdb
+462 silly gunzTarPerm modes [ '777', '666' ]
+463 verbose tar unpack C:\Users\534677\AppData\Roaming\npm-cache\chart.js\2.2.2\package.tgz
+464 verbose tar unpacking to C:\ctsfest\ctsFest\node_modules\.staging\chart.js-434b66f4
+465 silly gentlyRm C:\ctsfest\ctsFest\node_modules\.staging\chart.js-434b66f4 is being purged
+466 verbose gentlyRm don't care about contents; nuking C:\ctsfest\ctsFest\node_modules\.staging\chart.js-434b66f4
+467 silly gentlyRm C:\ctsfest\ctsFest\node_modules\.staging\chartjs-color-string-1c8bf9a3 is being purged from base C:\ctsfest\ctsFest
+468 verbose gentlyRm don't care about contents; nuking C:\ctsfest\ctsFest\node_modules\.staging\chartjs-color-string-1c8bf9a3
+469 verbose tar unpack C:\Users\534677\AppData\Roaming\npm-cache\angular-chart.js\1.0.2\package.tgz
+470 verbose tar unpacking to C:\ctsfest\ctsFest\node_modules\.staging\angular-chart.js-c85dc7cf
+471 silly gentlyRm C:\ctsfest\ctsFest\node_modules\.staging\angular-chart.js-c85dc7cf is being purged
+472 verbose gentlyRm don't care about contents; nuking C:\ctsfest\ctsFest\node_modules\.staging\angular-chart.js-c85dc7cf
+473 silly gunzTarPerm modes [ '777', '666' ]
+474 verbose tar unpack C:\Users\534677\AppData\Roaming\npm-cache\color-convert\0.5.3\package.tgz
+475 verbose tar unpacking to C:\ctsfest\ctsFest\node_modules\.staging\color-convert-8a2b6db0
+476 silly gentlyRm C:\ctsfest\ctsFest\node_modules\.staging\color-convert-8a2b6db0 is being purged
+477 verbose gentlyRm don't care about contents; nuking C:\ctsfest\ctsFest\node_modules\.staging\color-convert-8a2b6db0
+478 silly gunzTarPerm modes [ '777', '666' ]
+479 silly gunzTarPerm modes [ '777', '666' ]
+480 verbose tar unpack C:\Users\534677\AppData\Roaming\npm-cache\chartjs-color-string\0.4.0\package.tgz
+481 verbose tar unpacking to C:\ctsfest\ctsFest\node_modules\.staging\chartjs-color-string-1c8bf9a3
+482 silly gentlyRm C:\ctsfest\ctsFest\node_modules\.staging\chartjs-color-string-1c8bf9a3 is being purged
+483 verbose gentlyRm don't care about contents; nuking C:\ctsfest\ctsFest\node_modules\.staging\chartjs-color-string-1c8bf9a3
+484 silly gunzTarPerm modes [ '777', '666' ]
+485 silly gunzTarPerm modes [ '777', '666' ]
+486 silly gunzTarPerm modes [ '777', '666' ]
+487 silly gunzTarPerm modes [ '777', '666' ]
+488 silly gunzTarPerm extractEntry package.json
+489 silly gunzTarPerm extractEntry package.json
+490 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+491 silly gunzTarPerm extractEntry package.json
+492 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+493 silly gunzTarPerm extractEntry package.json
+494 silly gunzTarPerm extractEntry package.json
+495 silly gunzTarPerm modified mode [ 'package.json', 436, 438 ]
+496 silly gunzTarPerm extractEntry package.json
+497 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+498 silly gunzTarPerm extractEntry package.json
+499 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+500 silly gunzTarPerm extractEntry package.json
+501 silly gunzTarPerm extractEntry .npmignore
+502 silly gunzTarPerm modified mode [ '.npmignore', 420, 438 ]
+503 silly gunzTarPerm extractEntry README.md
+504 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+505 silly gunzTarPerm extractEntry README.md
+506 silly gunzTarPerm extractEntry LICENSE
+507 silly gunzTarPerm extractEntry README.md
+508 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+509 silly gunzTarPerm extractEntry angular.js
+510 silly gunzTarPerm modified mode [ 'angular.js', 420, 438 ]
+511 silly gunzTarPerm extractEntry .npmignore
+512 silly gunzTarPerm modified mode [ '.npmignore', 436, 438 ]
+513 silly gunzTarPerm extractEntry README.md
+514 silly gunzTarPerm modified mode [ 'README.md', 436, 438 ]
+515 silly gunzTarPerm extractEntry README.md
+516 silly gunzTarPerm extractEntry LICENSE
+517 silly gunzTarPerm extractEntry README.md
+518 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+519 silly gunzTarPerm extractEntry LICENSE
+520 silly gunzTarPerm modified mode [ 'LICENSE', 420, 438 ]
+521 silly gunzTarPerm extractEntry .npmignore
+522 silly gunzTarPerm modified mode [ '.npmignore', 420, 438 ]
+523 silly gunzTarPerm extractEntry README.md
+524 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+525 silly gunzTarPerm extractEntry README.md
+526 silly gunzTarPerm extractEntry LICENSE
+527 silly gunzTarPerm extractEntry index.js
+528 silly gunzTarPerm extractEntry LICENSE
+529 silly gunzTarPerm modified mode [ 'LICENSE', 420, 438 ]
+530 silly gunzTarPerm extractEntry ender.js
+531 silly gunzTarPerm modified mode [ 'ender.js', 420, 438 ]
+532 silly gunzTarPerm extractEntry conversions.js
+533 silly gunzTarPerm modified mode [ 'conversions.js', 420, 438 ]
+534 silly gunzTarPerm extractEntry index.js
+535 silly gunzTarPerm modified mode [ 'index.js', 420, 438 ]
+536 silly gunzTarPerm extractEntry .travis.yml
+537 silly gunzTarPerm modified mode [ '.travis.yml', 420, 438 ]
+538 silly gunzTarPerm extractEntry CHANGELOG.md
+539 silly gunzTarPerm modified mode [ 'CHANGELOG.md', 420, 438 ]
+540 silly gunzTarPerm extractEntry component.json
+541 silly gunzTarPerm modified mode [ 'component.json', 420, 438 ]
+542 silly gunzTarPerm extractEntry test/basic.js
+543 silly gunzTarPerm modified mode [ 'test/basic.js', 420, 438 ]
+544 silly gunzTarPerm extractEntry test/speed.js
+545 silly gunzTarPerm modified mode [ 'test/speed.js', 420, 438 ]
+546 silly gunzTarPerm extractEntry index.js
+547 silly gunzTarPerm extractEntry CHANGELOG.md
+548 silly gunzTarPerm extractEntry LICENSE
+549 silly gunzTarPerm modified mode [ 'LICENSE', 420, 438 ]
+550 silly gunzTarPerm extractEntry angular-chart.js
+551 silly gunzTarPerm modified mode [ 'angular-chart.js', 420, 438 ]
+552 silly gunzTarPerm extractEntry color-string.js
+553 silly gunzTarPerm extractEntry .travis.yml
+554 silly gunzTarPerm extractEntry gulpfile.js
+555 silly gunzTarPerm modified mode [ 'gulpfile.js', 436, 438 ]
+556 silly gunzTarPerm extractEntry karma.conf.ci.js
+557 silly gunzTarPerm modified mode [ 'karma.conf.ci.js', 436, 438 ]
+558 silly gunzTarPerm extractEntry moment.js
+559 silly gunzTarPerm modified mode [ 'moment.js', 420, 438 ]
+560 silly gunzTarPerm extractEntry karma.conf.js
+561 silly gunzTarPerm modified mode [ 'karma.conf.js', 436, 438 ]
+562 silly gunzTarPerm extractEntry karma.coverage.conf.js
+563 silly gunzTarPerm modified mode [ 'karma.coverage.conf.js', 436, 438 ]
+564 silly gunzTarPerm extractEntry gulpfile.js
+565 silly gunzTarPerm modified mode [ 'gulpfile.js', 420, 438 ]
+566 silly gunzTarPerm extractEntry package.js
+567 silly gunzTarPerm modified mode [ 'package.js', 420, 438 ]
+568 silly gunzTarPerm extractEntry CHANGELOG.md
+569 silly gunzTarPerm extractEntry test/basic.js
+570 silly gunzTarPerm extractEntry ISSUE_TEMPLATE.md
+571 silly gunzTarPerm modified mode [ 'ISSUE_TEMPLATE.md', 420, 438 ]
+572 silly gunzTarPerm extractEntry .jscsrc
+573 silly gunzTarPerm modified mode [ '.jscsrc', 420, 438 ]
+574 silly gunzTarPerm extractEntry moment.d.ts
+575 silly gunzTarPerm modified mode [ 'moment.d.ts', 420, 438 ]
+576 silly gunzTarPerm extractEntry src/moment.js
+577 silly gunzTarPerm modified mode [ 'src/moment.js', 420, 438 ]
+578 silly gunzTarPerm extractEntry config.jshintrc
+579 silly gunzTarPerm modified mode [ 'config.jshintrc', 436, 438 ]
+580 silly gunzTarPerm extractEntry .jshintignore
+581 silly gunzTarPerm modified mode [ '.jshintignore', 420, 438 ]
+582 silly gunzTarPerm extractEntry .jshintrc
+583 silly gunzTarPerm modified mode [ '.jshintrc', 420, 438 ]
+584 silly gunzTarPerm extractEntry src/lib/create/check-overflow.js
+585 silly gunzTarPerm modified mode [ 'src/lib/create/check-overflow.js', 420, 438 ]
+586 silly gunzTarPerm extractEntry src/lib/create/from-anything.js
+587 silly gunzTarPerm modified mode [ 'src/lib/create/from-anything.js', 420, 438 ]
+588 silly gunzTarPerm extractEntry CONTRIBUTING.md
+589 silly gunzTarPerm modified mode [ 'CONTRIBUTING.md', 436, 438 ]
+590 silly gunzTarPerm extractEntry LICENSE.md
+591 silly gunzTarPerm modified mode [ 'LICENSE.md', 436, 438 ]
+592 silly gunzTarPerm extractEntry .node-version
+593 silly gunzTarPerm modified mode [ '.node-version', 420, 438 ]
+594 silly gunzTarPerm extractEntry .travis.yml
+595 silly gunzTarPerm modified mode [ '.travis.yml', 420, 438 ]
+596 silly gunzTarPerm extractEntry .editorconfig
+597 silly gunzTarPerm modified mode [ '.editorconfig', 436, 438 ]
+598 silly gunzTarPerm extractEntry composer.json
+599 silly gunzTarPerm modified mode [ 'composer.json', 436, 438 ]
+600 silly gunzTarPerm extractEntry src/lib/create/from-array.js
+601 silly gunzTarPerm modified mode [ 'src/lib/create/from-array.js', 420, 438 ]
+602 silly gunzTarPerm extractEntry src/lib/create/from-object.js
+603 silly gunzTarPerm modified mode [ 'src/lib/create/from-object.js', 420, 438 ]
+604 silly gunzTarPerm extractEntry src/lib/create/from-string-and-array.js
+605 silly gunzTarPerm modified mode [ 'src/lib/create/from-string-and-array.js', 420, 438 ]
+606 silly gunzTarPerm extractEntry src/lib/create/date-from-array.js
+607 silly gunzTarPerm modified mode [ 'src/lib/create/date-from-array.js', 420, 438 ]
+608 silly gunzTarPerm extractEntry src/lib/create/from-string.js
+609 silly gunzTarPerm modified mode [ 'src/lib/create/from-string.js', 420, 438 ]
+610 silly gunzTarPerm extractEntry dist/Chart.bundle.js
+611 silly gunzTarPerm modified mode [ 'dist/Chart.bundle.js', 436, 438 ]
+612 silly gunzTarPerm extractEntry CONTRIBUTING.md
+613 silly gunzTarPerm modified mode [ 'CONTRIBUTING.md', 420, 438 ]
+614 silly gunzTarPerm extractEntry Dockerfile
+615 silly gunzTarPerm modified mode [ 'Dockerfile', 420, 438 ]
+616 silly gunzTarPerm extractEntry dist/Chart.bundle.min.js
+617 silly gunzTarPerm modified mode [ 'dist/Chart.bundle.min.js', 436, 438 ]
+618 silly gunzTarPerm extractEntry src/lib/create/local.js
+619 silly gunzTarPerm modified mode [ 'src/lib/create/local.js', 420, 438 ]
+620 silly gunzTarPerm extractEntry src/lib/create/parsing-flags.js
+621 silly gunzTarPerm modified mode [ 'src/lib/create/parsing-flags.js', 420, 438 ]
+622 silly gunzTarPerm extractEntry src/lib/create/utc.js
+623 silly gunzTarPerm modified mode [ 'src/lib/create/utc.js', 420, 438 ]
+624 silly gunzTarPerm extractEntry dist/Chart.js
+625 silly gunzTarPerm modified mode [ 'dist/Chart.js', 436, 438 ]
+626 silly gunzTarPerm extractEntry src/lib/create/valid.js
+627 silly gunzTarPerm modified mode [ 'src/lib/create/valid.js', 420, 438 ]
+628 silly gunzTarPerm extractEntry .codeclimate.yml
+629 silly gunzTarPerm modified mode [ '.codeclimate.yml', 420, 438 ]
+630 silly gunzTarPerm extractEntry .dockerignore
+631 silly gunzTarPerm modified mode [ '.dockerignore', 420, 438 ]
+632 silly gunzTarPerm extractEntry src/lib/create/from-string-and-format.js
+633 silly gunzTarPerm modified mode [ 'src/lib/create/from-string-and-format.js', 420, 438 ]
+634 silly gunzTarPerm extractEntry src/lib/duration/abs.js
+635 silly gunzTarPerm modified mode [ 'src/lib/duration/abs.js', 420, 438 ]
+636 silly gunzTarPerm extractEntry PULL_REQUEST_TEMPLATE.md
+637 silly gunzTarPerm modified mode [ 'PULL_REQUEST_TEMPLATE.md', 420, 438 ]
+638 silly gunzTarPerm extractEntry .editorconfig
+639 silly gunzTarPerm modified mode [ '.editorconfig', 420, 438 ]
+640 silly gunzTarPerm extractEntry src/lib/duration/as.js
+641 silly gunzTarPerm modified mode [ 'src/lib/duration/as.js', 420, 438 ]
+642 silly gunzTarPerm extractEntry src/lib/duration/bubble.js
+643 silly gunzTarPerm modified mode [ 'src/lib/duration/bubble.js', 420, 438 ]
+644 silly gunzTarPerm extractEntry angular.min.js
+645 silly gunzTarPerm modified mode [ 'angular.min.js', 420, 438 ]
+646 silly gunzTarPerm extractEntry bower.json
+647 silly gunzTarPerm modified mode [ 'bower.json', 420, 438 ]
+648 silly gunzTarPerm extractEntry dist/angular-chart.js
+649 silly gunzTarPerm modified mode [ 'dist/angular-chart.js', 420, 438 ]
+650 silly gunzTarPerm extractEntry dist/Chart.min.js
+651 silly gunzTarPerm modified mode [ 'dist/Chart.min.js', 436, 438 ]
+652 silly gunzTarPerm extractEntry src/lib/duration/constructor.js
+653 silly gunzTarPerm modified mode [ 'src/lib/duration/constructor.js', 420, 438 ]
+654 silly gunzTarPerm extractEntry src/lib/duration/add-subtract.js
+655 silly gunzTarPerm modified mode [ 'src/lib/duration/add-subtract.js', 420, 438 ]
+656 silly gunzTarPerm extractEntry src/lib/duration/duration.js
+657 silly gunzTarPerm modified mode [ 'src/lib/duration/duration.js', 420, 438 ]
+658 silly gentlyRm C:\ctsfest\ctsFest\node_modules\.staging\chartjs-color-string-1c8bf9a3\node_modules is being purged
+659 verbose gentlyRm don't care about contents; nuking C:\ctsfest\ctsFest\node_modules\.staging\chartjs-color-string-1c8bf9a3\node_modules
+660 silly gunzTarPerm extractEntry dist/angular-chart.min.js
+661 silly gunzTarPerm modified mode [ 'dist/angular-chart.min.js', 420, 438 ]
+662 silly gunzTarPerm extractEntry dist/angular-chart.js.tar.gz
+663 silly gunzTarPerm modified mode [ 'dist/angular-chart.js.tar.gz', 420, 438 ]
+664 silly gunzTarPerm extractEntry index.js
+665 silly gunzTarPerm modified mode [ 'index.js', 420, 438 ]
+666 silly gunzTarPerm extractEntry src/lib/duration/get.js
+667 silly gunzTarPerm modified mode [ 'src/lib/duration/get.js', 420, 438 ]
+668 silly gunzTarPerm extractEntry src/lib/duration/humanize.js
+669 silly gunzTarPerm modified mode [ 'src/lib/duration/humanize.js', 420, 438 ]
+670 silly gunzTarPerm extractEntry docs/05-Radar-Chart.md
+671 silly gunzTarPerm modified mode [ 'docs/05-Radar-Chart.md', 436, 438 ]
+672 silly gunzTarPerm extractEntry LICENSE.md
+673 silly gunzTarPerm modified mode [ 'LICENSE.md', 420, 438 ]
+674 silly gunzTarPerm extractEntry docs/00-Getting-Started.md
+675 silly gunzTarPerm modified mode [ 'docs/00-Getting-Started.md', 436, 438 ]
+676 silly gunzTarPerm extractEntry docs/02-Scales.md
+677 silly gunzTarPerm modified mode [ 'docs/02-Scales.md', 436, 438 ]
+678 silly gunzTarPerm extractEntry angular-csp.css
+679 silly gunzTarPerm modified mode [ 'angular-csp.css', 420, 438 ]
+680 silly gunzTarPerm extractEntry dist/angular-chart.min.js.map
+681 silly gunzTarPerm modified mode [ 'dist/angular-chart.min.js.map', 420, 438 ]
+682 silly gunzTarPerm extractEntry examples/xy.js
+683 silly gunzTarPerm modified mode [ 'examples/xy.js', 420, 438 ]
+684 silly gunzTarPerm extractEntry angular.min.js.gzip
+685 silly gunzTarPerm modified mode [ 'angular.min.js.gzip', 420, 438 ]
+686 silly gunzTarPerm extractEntry docs/03-Line-Chart.md
+687 silly gunzTarPerm modified mode [ 'docs/03-Line-Chart.md', 436, 438 ]
+688 silly gunzTarPerm extractEntry docs/04-Bar-Chart.md
+689 silly gunzTarPerm modified mode [ 'docs/04-Bar-Chart.md', 436, 438 ]
+690 silly gunzTarPerm extractEntry src/lib/duration/iso-string.js
+691 silly gunzTarPerm modified mode [ 'src/lib/duration/iso-string.js', 420, 438 ]
+692 silly gunzTarPerm extractEntry src/lib/duration/prototype.js
+693 silly gunzTarPerm modified mode [ 'src/lib/duration/prototype.js', 420, 438 ]
+694 silly gunzTarPerm extractEntry angular.min.js.map
+695 silly gunzTarPerm modified mode [ 'angular.min.js.map', 420, 438 ]
+696 silly gunzTarPerm extractEntry docs/01-Chart-Configuration.md
+697 silly gunzTarPerm modified mode [ 'docs/01-Chart-Configuration.md', 436, 438 ]
+698 silly gunzTarPerm extractEntry examples/app.js
+699 silly gunzTarPerm modified mode [ 'examples/app.js', 420, 438 ]
+700 silly gunzTarPerm extractEntry examples/bubble.js
+701 silly gunzTarPerm modified mode [ 'examples/bubble.js', 420, 438 ]
+702 silly gunzTarPerm extractEntry docs/06-Polar-Area-Chart.md
+703 silly gunzTarPerm modified mode [ 'docs/06-Polar-Area-Chart.md', 436, 438 ]
+704 silly gentlyRm C:\ctsfest\ctsFest\node_modules\.staging\color-name-34b9be49\node_modules is being purged
+705 verbose gentlyRm don't care about contents; nuking C:\ctsfest\ctsFest\node_modules\.staging\color-name-34b9be49\node_modules
+706 silly gunzTarPerm extractEntry docs/07-Pie-Doughnut-Chart.md
+707 silly gunzTarPerm modified mode [ 'docs/07-Pie-Doughnut-Chart.md', 436, 438 ]
+708 silly gunzTarPerm extractEntry docs/08-Bubble-Chart.md
+709 silly gunzTarPerm modified mode [ 'docs/08-Bubble-Chart.md', 436, 438 ]
+710 silly gunzTarPerm extractEntry examples/commonjs.js
+711 silly gunzTarPerm modified mode [ 'examples/commonjs.js', 420, 438 ]
+712 silly gunzTarPerm extractEntry examples/amd.js
+713 silly gunzTarPerm modified mode [ 'examples/amd.js', 420, 438 ]
+714 silly gunzTarPerm extractEntry docs/09-Advanced.md
+715 silly gunzTarPerm modified mode [ 'docs/09-Advanced.md', 436, 438 ]
+716 silly gunzTarPerm extractEntry docs/10-Notes.md
+717 silly gunzTarPerm modified mode [ 'docs/10-Notes.md', 436, 438 ]
+718 silly gunzTarPerm extractEntry src/lib/duration/create.js
+719 silly gunzTarPerm modified mode [ 'src/lib/duration/create.js', 420, 438 ]
+720 silly gunzTarPerm extractEntry src/lib/format/format.js
+721 silly gunzTarPerm modified mode [ 'src/lib/format/format.js', 420, 438 ]
+722 silly gunzTarPerm extractEntry .eslintignore
+723 silly gunzTarPerm modified mode [ '.eslintignore', 436, 438 ]
+724 silly gunzTarPerm extractEntry examples/dataset-override.js
+725 silly gunzTarPerm modified mode [ 'examples/dataset-override.js', 420, 438 ]
+726 silly gunzTarPerm extractEntry examples/smoothscroll.min.js
+727 silly gunzTarPerm modified mode [ 'examples/smoothscroll.min.js', 420, 438 ]
+728 silly gentlyRm C:\ctsfest\ctsFest\node_modules\.staging\chartjs-color-78a52cdb\node_modules is being purged
+729 verbose gentlyRm don't care about contents; nuking C:\ctsfest\ctsFest\node_modules\.staging\chartjs-color-78a52cdb\node_modules
+730 silly gunzTarPerm extractEntry .eslintrc
+731 silly gunzTarPerm modified mode [ '.eslintrc', 436, 438 ]
+732 silly gunzTarPerm extractEntry test/controller.bar.tests.js
+733 silly gunzTarPerm modified mode [ 'test/controller.bar.tests.js', 436, 438 ]
+734 silly gunzTarPerm extractEntry test/core.legend.tests.js
+735 silly gunzTarPerm modified mode [ 'test/core.legend.tests.js', 436, 438 ]
+736 silly gunzTarPerm extractEntry src/lib/locale/base-config.js
+737 silly gunzTarPerm modified mode [ 'src/lib/locale/base-config.js', 420, 438 ]
+738 silly gunzTarPerm extractEntry src/lib/locale/en.js
+739 silly gunzTarPerm modified mode [ 'src/lib/locale/en.js', 420, 438 ]
+740 silly gunzTarPerm extractEntry test/core.plugin.tests.js
+741 silly gunzTarPerm modified mode [ 'test/core.plugin.tests.js', 436, 438 ]
+742 silly gunzTarPerm extractEntry examples/webpack.commonjs.js
+743 silly gunzTarPerm modified mode [ 'examples/webpack.commonjs.js', 420, 438 ]
+744 silly gunzTarPerm extractEntry examples/webpack.config.js
+745 silly gunzTarPerm modified mode [ 'examples/webpack.config.js', 420, 438 ]
+746 silly gunzTarPerm extractEntry test/core.scaleService.tests.js
+747 silly gunzTarPerm modified mode [ 'test/core.scaleService.tests.js', 436, 438 ]
+748 silly gunzTarPerm extractEntry test/core.layoutService.tests.js
+749 silly gunzTarPerm modified mode [ 'test/core.layoutService.tests.js', 436, 438 ]
+750 silly gunzTarPerm extractEntry examples/commonjs.html
+751 silly gunzTarPerm modified mode [ 'examples/commonjs.html', 420, 438 ]
+752 silly gunzTarPerm extractEntry examples/amd.html
+753 silly gunzTarPerm modified mode [ 'examples/amd.html', 420, 438 ]
+754 silly gunzTarPerm extractEntry src/lib/locale/formats.js
+755 silly gunzTarPerm modified mode [ 'src/lib/locale/formats.js', 420, 438 ]
+756 silly gunzTarPerm extractEntry src/lib/locale/invalid.js
+757 silly gunzTarPerm modified mode [ 'src/lib/locale/invalid.js', 420, 438 ]
+758 silly gunzTarPerm extractEntry bower.json
+759 silly gunzTarPerm modified mode [ 'bower.json', 420, 438 ]
+760 silly gunzTarPerm extractEntry test/core.tooltip.tests.js
+761 silly gunzTarPerm modified mode [ 'test/core.tooltip.tests.js', 509, 511 ]
+762 silly gunzTarPerm extractEntry test/defaultConfig.tests.js
+763 silly gunzTarPerm modified mode [ 'test/defaultConfig.tests.js', 436, 438 ]
+764 silly gunzTarPerm extractEntry test/element.arc.tests.js
+765 silly gunzTarPerm modified mode [ 'test/element.arc.tests.js', 436, 438 ]
+766 silly gunzTarPerm extractEntry src/lib/locale/lists.js
+767 silly gunzTarPerm modified mode [ 'src/lib/locale/lists.js', 420, 438 ]
+768 silly gunzTarPerm extractEntry src/lib/locale/constructor.js
+769 silly gunzTarPerm modified mode [ 'src/lib/locale/constructor.js', 420, 438 ]
+770 silly gunzTarPerm extractEntry examples/bootstrap.css
+771 silly gunzTarPerm modified mode [ 'examples/bootstrap.css', 420, 438 ]
+772 silly gunzTarPerm extractEntry examples/bubble.html
+773 silly gunzTarPerm modified mode [ 'examples/bubble.html', 420, 438 ]
+774 silly gunzTarPerm extractEntry test/element.line.tests.js
+775 silly gunzTarPerm modified mode [ 'test/element.line.tests.js', 436, 438 ]
+776 silly gunzTarPerm extractEntry test/element.point.tests.js
+777 silly gunzTarPerm modified mode [ 'test/element.point.tests.js', 436, 438 ]
+778 silly gunzTarPerm extractEntry test/core.helpers.tests.js
+779 silly gunzTarPerm modified mode [ 'test/core.helpers.tests.js', 436, 438 ]
+780 silly gunzTarPerm extractEntry test/element.rectangle.tests.js
+781 silly gunzTarPerm modified mode [ 'test/element.rectangle.tests.js', 436, 438 ]
+782 silly gunzTarPerm extractEntry examples/app.css
+783 silly gunzTarPerm modified mode [ 'examples/app.css', 420, 438 ]
+784 silly gunzTarPerm extractEntry examples/stacked-bars.html
+785 silly gunzTarPerm modified mode [ 'examples/stacked-bars.html', 420, 438 ]
+786 silly gunzTarPerm extractEntry src/lib/locale/locales.js
+787 silly gunzTarPerm modified mode [ 'src/lib/locale/locales.js', 420, 438 ]
+788 silly gunzTarPerm extractEntry src/lib/locale/ordinal.js
+789 silly gunzTarPerm modified mode [ 'src/lib/locale/ordinal.js', 420, 438 ]
+790 silly gunzTarPerm extractEntry test/core.element.tests.js
+791 silly gunzTarPerm modified mode [ 'test/core.element.tests.js', 436, 438 ]
+792 silly gunzTarPerm extractEntry test/mockContext.js
+793 silly gunzTarPerm modified mode [ 'test/mockContext.js', 436, 438 ]
+794 silly gunzTarPerm extractEntry test/controller.radar.tests.js
+795 silly gunzTarPerm modified mode [ 'test/controller.radar.tests.js', 436, 438 ]
+796 silly gunzTarPerm extractEntry test/scale.category.tests.js
+797 silly gunzTarPerm modified mode [ 'test/scale.category.tests.js', 436, 438 ]
+798 silly gunzTarPerm extractEntry examples/tables.html
+799 silly gunzTarPerm modified mode [ 'examples/tables.html', 420, 438 ]
+800 silly gunzTarPerm extractEntry examples/tabs.html
+801 silly gunzTarPerm modified mode [ 'examples/tabs.html', 420, 438 ]
+802 silly gunzTarPerm extractEntry src/lib/locale/pre-post-format.js
+803 silly gunzTarPerm modified mode [ 'src/lib/locale/pre-post-format.js', 420, 438 ]
+804 silly gunzTarPerm extractEntry src/lib/locale/prototype.js
+805 silly gunzTarPerm modified mode [ 'src/lib/locale/prototype.js', 420, 438 ]
+806 silly gunzTarPerm extractEntry test/controller.polarArea.tests.js
+807 silly gunzTarPerm modified mode [ 'test/controller.polarArea.tests.js', 436, 438 ]
+808 silly gunzTarPerm extractEntry test/scale.linear.tests.js
+809 silly gunzTarPerm modified mode [ 'test/scale.linear.tests.js', 436, 438 ]
+810 silly gunzTarPerm extractEntry src/lib/locale/relative.js
+811 silly gunzTarPerm modified mode [ 'src/lib/locale/relative.js', 420, 438 ]
+812 silly gunzTarPerm extractEntry src/lib/locale/calendar.js
+813 silly gunzTarPerm modified mode [ 'src/lib/locale/calendar.js', 420, 438 ]
+814 silly gunzTarPerm extractEntry examples/ticks.html
+815 silly gunzTarPerm modified mode [ 'examples/ticks.html', 420, 438 ]
+816 silly gunzTarPerm extractEntry examples/charts.html
+817 silly gunzTarPerm modified mode [ 'examples/charts.html', 420, 438 ]
+818 silly gunzTarPerm extractEntry test/controller.line.tests.js
+819 silly gunzTarPerm modified mode [ 'test/controller.line.tests.js', 436, 438 ]
+820 silly gunzTarPerm extractEntry test/scale.logarithmic.tests.js
+821 silly gunzTarPerm modified mode [ 'test/scale.logarithmic.tests.js', 436, 438 ]
+822 silly gunzTarPerm extractEntry test/controller.doughnut.tests.js
+823 silly gunzTarPerm modified mode [ 'test/controller.doughnut.tests.js', 436, 438 ]
+824 silly gentlyRm C:\ctsfest\ctsFest\node_modules\.staging\color-convert-8a2b6db0\node_modules is being purged
+825 verbose gentlyRm don't care about contents; nuking C:\ctsfest\ctsFest\node_modules\.staging\color-convert-8a2b6db0\node_modules
+826 silly gunzTarPerm extractEntry test/scale.radialLinear.tests.js
+827 silly gunzTarPerm modified mode [ 'test/scale.radialLinear.tests.js', 436, 438 ]
+828 silly gunzTarPerm extractEntry src/lib/locale/set.js
+829 silly gunzTarPerm modified mode [ 'src/lib/locale/set.js', 420, 438 ]
+830 silly gunzTarPerm extractEntry src/lib/locale/locale.js
+831 silly gunzTarPerm modified mode [ 'src/lib/locale/locale.js', 420, 438 ]
+832 silly gunzTarPerm extractEntry test/controller.bubble.tests.js
+833 silly gunzTarPerm modified mode [ 'test/controller.bubble.tests.js', 436, 438 ]
+834 silly gunzTarPerm extractEntry examples/charts.template.html
+835 silly gunzTarPerm modified mode [ 'examples/charts.template.html', 420, 438 ]
+836 silly gunzTarPerm extractEntry examples/xy.html
+837 silly gunzTarPerm modified mode [ 'examples/xy.html', 420, 438 ]
+838 silly gunzTarPerm extractEntry test/scale.time.tests.js
+839 silly gunzTarPerm modified mode [ 'test/scale.time.tests.js', 509, 511 ]
+840 silly gunzTarPerm extractEntry test/core.title.tests.js
+841 silly gunzTarPerm modified mode [ 'test/core.title.tests.js', 436, 438 ]
+842 silly gunzTarPerm extractEntry src/lib/moment/add-subtract.js
+843 silly gunzTarPerm modified mode [ 'src/lib/moment/add-subtract.js', 420, 438 ]
+844 silly gunzTarPerm extractEntry src/lib/moment/diff.js
+845 silly gunzTarPerm modified mode [ 'src/lib/moment/diff.js', 420, 438 ]
+846 silly gunzTarPerm extractEntry samples/line-non-numeric-y.html
+847 silly gunzTarPerm modified mode [ 'samples/line-non-numeric-y.html', 436, 438 ]
+848 silly gunzTarPerm extractEntry examples/dataset-override.html
+849 silly gunzTarPerm modified mode [ 'examples/dataset-override.html', 420, 438 ]
+850 silly gunzTarPerm extractEntry test/test.integration.js
+851 silly gunzTarPerm modified mode [ 'test/test.integration.js', 420, 438 ]
+852 silly gunzTarPerm extractEntry test/test.unit.js
+853 silly gunzTarPerm modified mode [ 'test/test.unit.js', 420, 438 ]
+854 silly gunzTarPerm extractEntry samples/AnimationCallbacks/progress-bar.html
+855 silly gunzTarPerm modified mode [ 'samples/AnimationCallbacks/progress-bar.html', 436, 438 ]
+856 silly gunzTarPerm extractEntry test/fixtures/charts.js
+857 silly gunzTarPerm modified mode [ 'test/fixtures/charts.js', 420, 438 ]
+858 silly gunzTarPerm extractEntry samples/bar-multi-axis.html
+859 silly gunzTarPerm modified mode [ 'samples/bar-multi-axis.html', 436, 438 ]
+860 silly gunzTarPerm extractEntry src/lib/moment/format.js
+861 silly gunzTarPerm modified mode [ 'src/lib/moment/format.js', 420, 438 ]
+862 silly gunzTarPerm extractEntry src/lib/moment/from.js
+863 silly gunzTarPerm modified mode [ 'src/lib/moment/from.js', 420, 438 ]
+864 silly gunzTarPerm extractEntry samples/bar-stacked.html
+865 silly gunzTarPerm modified mode [ 'samples/bar-stacked.html', 436, 438 ]
+866 silly gunzTarPerm extractEntry samples/bar.html
+867 silly gunzTarPerm modified mode [ 'samples/bar.html', 436, 438 ]
+868 silly gunzTarPerm extractEntry test/fixtures/54-not-enough-colours.js
+869 silly gunzTarPerm modified mode [ 'test/fixtures/54-not-enough-colours.js', 420, 438 ]
+870 silly gunzTarPerm extractEntry test/fixtures/57-hex-colours.js
+871 silly gunzTarPerm modified mode [ 'test/fixtures/57-hex-colours.js', 420, 438 ]
+872 silly gunzTarPerm extractEntry samples/bubble.html
+873 silly gunzTarPerm modified mode [ 'samples/bubble.html', 436, 438 ]
+874 silly gunzTarPerm extractEntry src/lib/moment/creation-data.js
+875 silly gunzTarPerm modified mode [ 'src/lib/moment/creation-data.js', 420, 438 ]
+876 silly gunzTarPerm extractEntry src/lib/moment/locale.js
+877 silly gunzTarPerm modified mode [ 'src/lib/moment/locale.js', 420, 438 ]
+878 silly gunzTarPerm extractEntry test/fixtures/bubble.js
+879 silly gunzTarPerm modified mode [ 'test/fixtures/bubble.js', 420, 438 ]
+880 silly gunzTarPerm extractEntry test/fixtures/51-pie-update-colours.js
+881 silly gunzTarPerm modified mode [ 'test/fixtures/51-pie-update-colours.js', 420, 438 ]
+882 silly gunzTarPerm extractEntry samples/combo-bar-line.html
+883 silly gunzTarPerm modified mode [ 'samples/combo-bar-line.html', 436, 438 ]
+884 silly gunzTarPerm extractEntry samples/data_label_combo-bar-line.html
+885 silly gunzTarPerm modified mode [ 'samples/data_label_combo-bar-line.html', 436, 438 ]
+886 silly gunzTarPerm extractEntry samples/different-point-sizes.html
+887 silly gunzTarPerm modified mode [ 'samples/different-point-sizes.html', 436, 438 ]
+888 silly gunzTarPerm extractEntry samples/doughnut.html
+889 silly gunzTarPerm modified mode [ 'samples/doughnut.html', 436, 438 ]
+890 silly gunzTarPerm extractEntry samples/line-cubicInterpolationMode.html
+891 silly gunzTarPerm modified mode [ 'samples/line-cubicInterpolationMode.html', 436, 438 ]
+892 silly gunzTarPerm extractEntry src/lib/moment/min-max.js
+893 silly gunzTarPerm modified mode [ 'src/lib/moment/min-max.js', 420, 438 ]
+894 silly gunzTarPerm extractEntry src/lib/moment/moment.js
+895 silly gunzTarPerm modified mode [ 'src/lib/moment/moment.js', 420, 438 ]
+896 silly gunzTarPerm extractEntry samples/line-customTooltips.html
+897 silly gunzTarPerm modified mode [ 'samples/line-customTooltips.html', 436, 438 ]
+898 silly gunzTarPerm extractEntry test/fixtures/configure-line-chart.js
+899 silly gunzTarPerm modified mode [ 'test/fixtures/configure-line-chart.js', 420, 438 ]
+900 silly gunzTarPerm extractEntry test/fixtures/coverage.js
+901 silly gunzTarPerm modified mode [ 'test/fixtures/coverage.js', 420, 438 ]
+902 silly gunzTarPerm extractEntry samples/line-legend.html
+903 silly gunzTarPerm modified mode [ 'samples/line-legend.html', 436, 438 ]
+904 silly gunzTarPerm extractEntry samples/line-logarithmic.html
+905 silly gunzTarPerm modified mode [ 'samples/line-logarithmic.html', 436, 438 ]
+906 silly gunzTarPerm extractEntry samples/line-multi-axis.html
+907 silly gunzTarPerm modified mode [ 'samples/line-multi-axis.html', 436, 438 ]
+908 silly gunzTarPerm extractEntry samples/line-multiline-labels.html
+909 silly gunzTarPerm modified mode [ 'samples/line-multiline-labels.html', 436, 438 ]
+910 silly gunzTarPerm extractEntry src/lib/moment/now.js
+911 silly gunzTarPerm modified mode [ 'src/lib/moment/now.js', 420, 438 ]
+912 silly gunzTarPerm extractEntry src/lib/moment/prototype.js
+913 silly gunzTarPerm modified mode [ 'src/lib/moment/prototype.js', 420, 438 ]
+914 silly gunzTarPerm extractEntry test/fixtures/custom-directive.js
+915 silly gunzTarPerm modified mode [ 'test/fixtures/custom-directive.js', 420, 438 ]
+916 silly gunzTarPerm extractEntry test/fixtures/dataset-override.js
+917 silly gunzTarPerm modified mode [ 'test/fixtures/dataset-override.js', 420, 438 ]
+918 silly gunzTarPerm extractEntry samples/bar-horizontal.html
+919 silly gunzTarPerm modified mode [ 'samples/bar-horizontal.html', 436, 438 ]
+920 silly gunzTarPerm extractEntry samples/line-skip-points.html
+921 silly gunzTarPerm modified mode [ 'samples/line-skip-points.html', 436, 438 ]
+922 silly gunzTarPerm extractEntry samples/line-stacked-area.html
+923 silly gunzTarPerm modified mode [ 'samples/line-stacked-area.html', 436, 438 ]
+924 silly gunzTarPerm extractEntry samples/line-stepped.html
+925 silly gunzTarPerm modified mode [ 'samples/line-stepped.html', 436, 438 ]
+926 silly gunzTarPerm extractEntry test/fixtures/horizontal-bar-chart.js
+927 silly gunzTarPerm modified mode [ 'test/fixtures/horizontal-bar-chart.js', 420, 438 ]
+928 silly gunzTarPerm extractEntry test/fixtures/29-tabs.js
+929 silly gunzTarPerm modified mode [ 'test/fixtures/29-tabs.js', 420, 438 ]
+930 silly gunzTarPerm extractEntry src/lib/moment/constructor.js
+931 silly gunzTarPerm modified mode [ 'src/lib/moment/constructor.js', 420, 438 ]
+932 silly gunzTarPerm extractEntry src/lib/moment/start-end-of.js
+933 silly gunzTarPerm modified mode [ 'src/lib/moment/start-end-of.js', 420, 438 ]
+934 silly gunzTarPerm extractEntry samples/line-x-axis-filter.html
+935 silly gunzTarPerm modified mode [ 'samples/line-x-axis-filter.html', 436, 438 ]
+936 silly gunzTarPerm extractEntry samples/line.html
+937 silly gunzTarPerm modified mode [ 'samples/line.html', 436, 438 ]
+938 silly gunzTarPerm extractEntry samples/pie-customTooltips.html
+939 silly gunzTarPerm modified mode [ 'samples/pie-customTooltips.html', 436, 438 ]
+940 silly gunzTarPerm extractEntry samples/pie.html
+941 silly gunzTarPerm modified mode [ 'samples/pie.html', 436, 438 ]
+942 silly gunzTarPerm extractEntry src/lib/moment/compare.js
+943 silly gunzTarPerm modified mode [ 'src/lib/moment/compare.js', 420, 438 ]
+944 silly gunzTarPerm extractEntry src/lib/moment/to-type.js
+945 silly gunzTarPerm modified mode [ 'src/lib/moment/to-type.js', 420, 438 ]
+946 silly gunzTarPerm extractEntry test/fixtures/57-hex-colours.png
+947 silly gunzTarPerm modified mode [ 'test/fixtures/57-hex-colours.png', 420, 438 ]
+948 silly gunzTarPerm extractEntry test/fixtures/bubble.html
+949 silly gunzTarPerm modified mode [ 'test/fixtures/bubble.html', 420, 438 ]
+950 silly gunzTarPerm extractEntry samples/polar-area.html
+951 silly gunzTarPerm modified mode [ 'samples/polar-area.html', 436, 438 ]
+952 silly gunzTarPerm extractEntry samples/radar-skip-points.html
+953 silly gunzTarPerm modified mode [ 'samples/radar-skip-points.html', 436, 438 ]
+954 silly gunzTarPerm extractEntry samples/radar.html
+955 silly gunzTarPerm modified mode [ 'samples/radar.html', 436, 438 ]
+956 silly gunzTarPerm extractEntry src/lib/moment/clone.js
+957 silly gunzTarPerm modified mode [ 'src/lib/moment/clone.js', 420, 438 ]
+958 silly gunzTarPerm extractEntry src/lib/moment/to.js
+959 silly gunzTarPerm modified mode [ 'src/lib/moment/to.js', 420, 438 ]
+960 silly gunzTarPerm extractEntry samples/scatter-logX.html
+961 silly gunzTarPerm modified mode [ 'samples/scatter-logX.html', 436, 438 ]
+962 silly gunzTarPerm extractEntry test/fixtures/29-tabs.html
+963 silly gunzTarPerm modified mode [ 'test/fixtures/29-tabs.html', 420, 438 ]
+964 silly gunzTarPerm extractEntry test/fixtures/bubble.png
+965 silly gunzTarPerm modified mode [ 'test/fixtures/bubble.png', 420, 438 ]
+966 silly gunzTarPerm extractEntry test/fixtures/charts.html
+967 silly gunzTarPerm modified mode [ 'test/fixtures/charts.html', 420, 438 ]
+968 silly gunzTarPerm extractEntry test/fixtures/51-pie-update-colours.png
+969 silly gunzTarPerm modified mode [ 'test/fixtures/51-pie-update-colours.png', 420, 438 ]
+970 silly gunzTarPerm extractEntry src/lib/moment/calendar.js
+971 silly gunzTarPerm modified mode [ 'src/lib/moment/calendar.js', 420, 438 ]
+972 silly gunzTarPerm extractEntry src/lib/moment/valid.js
+973 silly gunzTarPerm modified mode [ 'src/lib/moment/valid.js', 420, 438 ]
+974 silly gunzTarPerm extractEntry samples/scatter-multi-axis.html
+975 silly gunzTarPerm modified mode [ 'samples/scatter-multi-axis.html', 436, 438 ]
+976 silly gunzTarPerm extractEntry samples/scatter.html
+977 silly gunzTarPerm modified mode [ 'samples/scatter.html', 436, 438 ]
+978 silly gunzTarPerm extractEntry samples/timeScale/combo-time-scale.html
+979 silly gunzTarPerm modified mode [ 'samples/timeScale/combo-time-scale.html', 436, 438 ]
+980 silly gunzTarPerm extractEntry samples/timeScale/line-time-point-data.html
+981 silly gunzTarPerm modified mode [ 'samples/timeScale/line-time-point-data.html', 436, 438 ]
+982 silly gunzTarPerm extractEntry test/fixtures/charts.png
+983 silly gunzTarPerm modified mode [ 'test/fixtures/charts.png', 420, 438 ]
+984 silly gunzTarPerm extractEntry src/lib/moment/get-set.js
+985 silly gunzTarPerm modified mode [ 'src/lib/moment/get-set.js', 420, 438 ]
+986 silly gunzTarPerm extractEntry src/lib/parse/regex.js
+987 silly gunzTarPerm modified mode [ 'src/lib/parse/regex.js', 420, 438 ]
+988 silly gunzTarPerm extractEntry samples/timeScale/line-time-scale.html
+989 silly gunzTarPerm modified mode [ 'samples/timeScale/line-time-scale.html', 436, 438 ]
+990 silly gunzTarPerm extractEntry samples/tooltip-hooks.html
+991 silly gunzTarPerm modified mode [ 'samples/tooltip-hooks.html', 436, 438 ]
+992 silly gunzTarPerm extractEntry src/chart.js
+993 silly gunzTarPerm modified mode [ 'src/chart.js', 436, 438 ]
+994 silly gunzTarPerm extractEntry src/charts/Chart.Bar.js
+995 silly gunzTarPerm modified mode [ 'src/charts/Chart.Bar.js', 436, 438 ]
+996 silly gunzTarPerm extractEntry test/fixtures/configure-line-chart.html
+997 silly gunzTarPerm modified mode [ 'test/fixtures/configure-line-chart.html', 420, 438 ]
+998 silly gunzTarPerm extractEntry src/lib/parse/token.js
+999 silly gunzTarPerm modified mode [ 'src/lib/parse/token.js', 420, 438 ]
+1000 silly gunzTarPerm extractEntry src/lib/units/aliases.js
+1001 silly gunzTarPerm modified mode [ 'src/lib/units/aliases.js', 420, 438 ]
+1002 silly gunzTarPerm extractEntry src/charts/Chart.Bubble.js
+1003 silly gunzTarPerm modified mode [ 'src/charts/Chart.Bubble.js', 436, 438 ]
+1004 silly gunzTarPerm extractEntry src/charts/Chart.Doughnut.js
+1005 silly gunzTarPerm modified mode [ 'src/charts/Chart.Doughnut.js', 436, 438 ]
+1006 silly gunzTarPerm extractEntry src/charts/Chart.Line.js
+1007 silly gunzTarPerm modified mode [ 'src/charts/Chart.Line.js', 436, 438 ]
+1008 silly gunzTarPerm extractEntry test/fixtures/54-not-enough-colours.html
+1009 silly gunzTarPerm modified mode [ 'test/fixtures/54-not-enough-colours.html', 420, 438 ]
+1010 silly gunzTarPerm extractEntry test/fixtures/configure-line-chart.png
+1011 silly gunzTarPerm modified mode [ 'test/fixtures/configure-line-chart.png', 420, 438 ]
+1012 silly gunzTarPerm extractEntry src/lib/units/millisecond.js
+1013 silly gunzTarPerm modified mode [ 'src/lib/units/millisecond.js', 420, 438 ]
+1014 silly gunzTarPerm extractEntry src/lib/units/minute.js
+1015 silly gunzTarPerm modified mode [ 'src/lib/units/minute.js', 420, 438 ]
+1016 silly gunzTarPerm extractEntry src/charts/Chart.PolarArea.js
+1017 silly gunzTarPerm modified mode [ 'src/charts/Chart.PolarArea.js', 436, 438 ]
+1018 silly gunzTarPerm extractEntry src/charts/Chart.Radar.js
+1019 silly gunzTarPerm modified mode [ 'src/charts/Chart.Radar.js', 436, 438 ]
+1020 silly gunzTarPerm extractEntry src/lib/units/month.js
+1021 silly gunzTarPerm modified mode [ 'src/lib/units/month.js', 420, 438 ]
+1022 silly gunzTarPerm extractEntry src/lib/units/offset.js
+1023 silly gunzTarPerm modified mode [ 'src/lib/units/offset.js', 420, 438 ]
+1024 silly gunzTarPerm extractEntry test/fixtures/29-tabs.png
+1025 silly gunzTarPerm modified mode [ 'test/fixtures/29-tabs.png', 420, 438 ]
+1026 silly gunzTarPerm extractEntry test/fixtures/custom-directive.html
+1027 silly gunzTarPerm modified mode [ 'test/fixtures/custom-directive.html', 420, 438 ]
+1028 silly gunzTarPerm extractEntry test/fixtures/54-not-enough-colours.png
+1029 silly gunzTarPerm modified mode [ 'test/fixtures/54-not-enough-colours.png', 420, 438 ]
+1030 silly gunzTarPerm extractEntry test/fixtures/custom-directive.png
+1031 silly gunzTarPerm modified mode [ 'test/fixtures/custom-directive.png', 420, 438 ]
+1032 silly gunzTarPerm extractEntry src/charts/Chart.Scatter.js
+1033 silly gunzTarPerm modified mode [ 'src/charts/Chart.Scatter.js', 436, 438 ]
+1034 silly gunzTarPerm extractEntry src/controllers/controller.bar.js
+1035 silly gunzTarPerm modified mode [ 'src/controllers/controller.bar.js', 436, 438 ]
+1036 silly gunzTarPerm extractEntry src/lib/units/hour.js
+1037 silly gunzTarPerm modified mode [ 'src/lib/units/hour.js', 420, 438 ]
+1038 silly gunzTarPerm extractEntry src/lib/units/quarter.js
+1039 silly gunzTarPerm modified mode [ 'src/lib/units/quarter.js', 420, 438 ]
+1040 silly gunzTarPerm extractEntry test/fixtures/dataset-override.html
+1041 silly gunzTarPerm modified mode [ 'test/fixtures/dataset-override.html', 420, 438 ]
+1042 silly gunzTarPerm extractEntry test/fixtures/57-hex-colours.html
+1043 silly gunzTarPerm modified mode [ 'test/fixtures/57-hex-colours.html', 420, 438 ]
+1044 silly gunzTarPerm extractEntry test/fixtures/dataset-override.png
+1045 silly gunzTarPerm modified mode [ 'test/fixtures/dataset-override.png', 420, 438 ]
+1046 silly gunzTarPerm extractEntry src/controllers/controller.bubble.js
+1047 silly gunzTarPerm modified mode [ 'src/controllers/controller.bubble.js', 436, 438 ]
+1048 silly gunzTarPerm extractEntry src/controllers/controller.doughnut.js
+1049 silly gunzTarPerm modified mode [ 'src/controllers/controller.doughnut.js', 436, 438 ]
+1050 silly gunzTarPerm extractEntry src/controllers/controller.line.js
+1051 silly gunzTarPerm modified mode [ 'src/controllers/controller.line.js', 436, 438 ]
+1052 silly gunzTarPerm extractEntry test/fixtures/horizontal-bar-chart.html
+1053 silly gunzTarPerm modified mode [ 'test/fixtures/horizontal-bar-chart.html', 420, 438 ]
+1054 silly gunzTarPerm extractEntry test/fixtures/51-pie-update-colours.html
+1055 silly gunzTarPerm modified mode [ 'test/fixtures/51-pie-update-colours.html', 420, 438 ]
+1056 silly gunzTarPerm extractEntry test/fixtures/horizontal-bar-chart.png
+1057 silly gunzTarPerm modified mode [ 'test/fixtures/horizontal-bar-chart.png', 420, 438 ]
+1058 silly gunzTarPerm extractEntry test/index.html
+1059 silly gunzTarPerm modified mode [ 'test/index.html', 420, 438 ]
+1060 silly gunzTarPerm extractEntry test/mocha.opts
+1061 silly gunzTarPerm modified mode [ 'test/mocha.opts', 420, 438 ]
+1062 silly gunzTarPerm extractEntry test/support/setup.js
+1063 silly gunzTarPerm modified mode [ 'test/support/setup.js', 420, 438 ]
+1064 silly gunzTarPerm extractEntry tmp/gradient.js
+1065 silly gunzTarPerm modified mode [ 'tmp/gradient.js', 420, 438 ]
+1066 silly gunzTarPerm extractEntry tmp/Dockerfile-alpine
+1067 silly gunzTarPerm modified mode [ 'tmp/Dockerfile-alpine', 420, 438 ]
+1068 silly gunzTarPerm extractEntry tmp/gradient.html
+1069 silly gunzTarPerm modified mode [ 'tmp/gradient.html', 420, 438 ]
+1070 silly gunzTarPerm extractEntry src/controllers/controller.polarArea.js
+1071 silly gunzTarPerm modified mode [ 'src/controllers/controller.polarArea.js', 436, 438 ]
+1072 silly gunzTarPerm extractEntry src/lib/units/second.js
+1073 silly gunzTarPerm modified mode [ 'src/lib/units/second.js', 420, 438 ]
+1074 silly gunzTarPerm extractEntry src/lib/units/timestamp.js
+1075 silly gunzTarPerm modified mode [ 'src/lib/units/timestamp.js', 420, 438 ]
+1076 silly gunzTarPerm extractEntry src/controllers/controller.radar.js
+1077 silly gunzTarPerm modified mode [ 'src/controllers/controller.radar.js', 436, 438 ]
+1078 silly gunzTarPerm extractEntry src/core/core.animation.js
+1079 silly gunzTarPerm modified mode [ 'src/core/core.animation.js', 436, 438 ]
+1080 silly gunzTarPerm extractEntry src/lib/units/timezone.js
+1081 silly gunzTarPerm modified mode [ 'src/lib/units/timezone.js', 420, 438 ]
+1082 silly gunzTarPerm extractEntry src/lib/units/units.js
+1083 silly gunzTarPerm modified mode [ 'src/lib/units/units.js', 420, 438 ]
+1084 silly gunzTarPerm extractEntry src/core/core.datasetController.js
+1085 silly gunzTarPerm modified mode [ 'src/core/core.datasetController.js', 436, 438 ]
+1086 silly gunzTarPerm extractEntry src/core/core.element.js
+1087 silly gunzTarPerm modified mode [ 'src/core/core.element.js', 436, 438 ]
+1088 silly gunzTarPerm extractEntry src/lib/units/day-of-year.js
+1089 silly gunzTarPerm modified mode [ 'src/lib/units/day-of-year.js', 420, 438 ]
+1090 silly gunzTarPerm extractEntry src/lib/units/week-calendar-utils.js
+1091 silly gunzTarPerm modified mode [ 'src/lib/units/week-calendar-utils.js', 420, 438 ]
+1092 silly gunzTarPerm extractEntry src/core/core.helpers.js
+1093 silly gunzTarPerm modified mode [ 'src/core/core.helpers.js', 436, 438 ]
+1094 silly gunzTarPerm extractEntry src/core/core.js
+1095 silly gunzTarPerm modified mode [ 'src/core/core.js', 509, 511 ]
+1096 silly gunzTarPerm extractEntry src/core/core.controller.js
+1097 silly gunzTarPerm modified mode [ 'src/core/core.controller.js', 436, 438 ]
+1098 silly gunzTarPerm extractEntry src/core/core.legend.js
+1099 silly gunzTarPerm modified mode [ 'src/core/core.legend.js', 436, 438 ]
+1100 silly gunzTarPerm extractEntry src/lib/units/day-of-week.js
+1101 silly gunzTarPerm modified mode [ 'src/lib/units/day-of-week.js', 420, 438 ]
+1102 silly gunzTarPerm extractEntry src/lib/units/week-year.js
+1103 silly gunzTarPerm modified mode [ 'src/lib/units/week-year.js', 420, 438 ]
+1104 silly gunzTarPerm extractEntry src/core/core.plugin.js
+1105 silly gunzTarPerm modified mode [ 'src/core/core.plugin.js', 436, 438 ]
+1106 silly gunzTarPerm extractEntry src/core/core.scale.js
+1107 silly gunzTarPerm modified mode [ 'src/core/core.scale.js', 436, 438 ]
+1108 silly gunzTarPerm extractEntry src/lib/units/day-of-month.js
+1109 silly gunzTarPerm modified mode [ 'src/lib/units/day-of-month.js', 420, 438 ]
+1110 silly gunzTarPerm extractEntry src/lib/units/week.js
+1111 silly gunzTarPerm modified mode [ 'src/lib/units/week.js', 420, 438 ]
+1112 silly gunzTarPerm extractEntry src/lib/units/constants.js
+1113 silly gunzTarPerm modified mode [ 'src/lib/units/constants.js', 420, 438 ]
+1114 silly gunzTarPerm extractEntry src/core/core.scaleService.js
+1115 silly gunzTarPerm modified mode [ 'src/core/core.scaleService.js', 436, 438 ]
+1116 silly gunzTarPerm extractEntry src/core/core.title.js
+1117 silly gunzTarPerm modified mode [ 'src/core/core.title.js', 436, 438 ]
+1118 silly gunzTarPerm extractEntry src/core/core.canvasHelpers.js
+1119 silly gunzTarPerm modified mode [ 'src/core/core.canvasHelpers.js', 436, 438 ]
+1120 silly gunzTarPerm extractEntry src/core/core.tooltip.js
+1121 silly gunzTarPerm modified mode [ 'src/core/core.tooltip.js', 509, 511 ]
+1122 silly gunzTarPerm extractEntry src/lib/units/year.js
+1123 silly gunzTarPerm modified mode [ 'src/lib/units/year.js', 420, 438 ]
+1124 silly gunzTarPerm extractEntry src/lib/units/priorities.js
+1125 silly gunzTarPerm modified mode [ 'src/lib/units/priorities.js', 420, 438 ]
+1126 silly gunzTarPerm extractEntry src/lib/utils/abs-ceil.js
+1127 silly gunzTarPerm modified mode [ 'src/lib/utils/abs-ceil.js', 420, 438 ]
+1128 silly gunzTarPerm extractEntry src/lib/utils/has-own-prop.js
+1129 silly gunzTarPerm modified mode [ 'src/lib/utils/has-own-prop.js', 420, 438 ]
+1130 silly gunzTarPerm extractEntry src/core/core.layoutService.js
+1131 silly gunzTarPerm modified mode [ 'src/core/core.layoutService.js', 436, 438 ]
+1132 silly gunzTarPerm extractEntry src/elements/element.arc.js
+1133 silly gunzTarPerm modified mode [ 'src/elements/element.arc.js', 436, 438 ]
+1134 silly gunzTarPerm extractEntry src/lib/utils/hooks.js
+1135 silly gunzTarPerm modified mode [ 'src/lib/utils/hooks.js', 420, 438 ]
+1136 silly gunzTarPerm extractEntry src/lib/utils/index-of.js
+1137 silly gunzTarPerm modified mode [ 'src/lib/utils/index-of.js', 420, 438 ]
+1138 silly gunzTarPerm extractEntry src/elements/element.line.js
+1139 silly gunzTarPerm modified mode [ 'src/elements/element.line.js', 436, 438 ]
+1140 silly gunzTarPerm extractEntry src/elements/element.point.js
+1141 silly gunzTarPerm modified mode [ 'src/elements/element.point.js', 436, 438 ]
+1142 silly gunzTarPerm extractEntry src/lib/utils/extend.js
+1143 silly gunzTarPerm modified mode [ 'src/lib/utils/extend.js', 420, 438 ]
+1144 silly gunzTarPerm extractEntry src/lib/utils/is-date.js
+1145 silly gunzTarPerm modified mode [ 'src/lib/utils/is-date.js', 420, 438 ]
+1146 silly gunzTarPerm extractEntry src/elements/element.rectangle.js
+1147 silly gunzTarPerm modified mode [ 'src/elements/element.rectangle.js', 436, 438 ]
+1148 silly gunzTarPerm extractEntry src/scales/scale.category.js
+1149 silly gunzTarPerm modified mode [ 'src/scales/scale.category.js', 436, 438 ]
+1150 silly gunzTarPerm extractEntry src/lib/utils/is-function.js
+1151 silly gunzTarPerm modified mode [ 'src/lib/utils/is-function.js', 420, 438 ]
+1152 silly gunzTarPerm extractEntry src/lib/utils/is-object-empty.js
+1153 silly gunzTarPerm modified mode [ 'src/lib/utils/is-object-empty.js', 420, 438 ]
+1154 silly gunzTarPerm extractEntry src/scales/scale.linear.js
+1155 silly gunzTarPerm modified mode [ 'src/scales/scale.linear.js', 436, 438 ]
+1156 silly gunzTarPerm extractEntry src/scales/scale.linearbase.js
+1157 silly gunzTarPerm modified mode [ 'src/scales/scale.linearbase.js', 436, 438 ]
+1158 silly gunzTarPerm extractEntry src/scales/scale.logarithmic.js
+1159 silly gunzTarPerm modified mode [ 'src/scales/scale.logarithmic.js', 436, 438 ]
+1160 silly gunzTarPerm extractEntry src/scales/scale.radialLinear.js
+1161 silly gunzTarPerm modified mode [ 'src/scales/scale.radialLinear.js', 436, 438 ]
+1162 silly gunzTarPerm extractEntry src/scales/scale.time.js
+1163 silly gunzTarPerm modified mode [ 'src/scales/scale.time.js', 509, 511 ]
+1164 silly gunzTarPerm extractEntry thankyou.md
+1165 silly gunzTarPerm modified mode [ 'thankyou.md', 436, 438 ]
+1166 silly gunzTarPerm extractEntry src/lib/utils/is-object.js
+1167 silly gunzTarPerm modified mode [ 'src/lib/utils/is-object.js', 420, 438 ]
+1168 silly gunzTarPerm extractEntry src/lib/utils/is-undefined.js
+1169 silly gunzTarPerm modified mode [ 'src/lib/utils/is-undefined.js', 420, 438 ]
+1170 silly gunzTarPerm extractEntry src/lib/utils/deprecate.js
+1171 silly gunzTarPerm modified mode [ 'src/lib/utils/deprecate.js', 420, 438 ]
+1172 silly gunzTarPerm extractEntry src/lib/utils/keys.js
+1173 silly gunzTarPerm modified mode [ 'src/lib/utils/keys.js', 420, 438 ]
+1174 silly gunzTarPerm extractEntry src/lib/utils/defaults.js
+1175 silly gunzTarPerm modified mode [ 'src/lib/utils/defaults.js', 420, 438 ]
+1176 silly gunzTarPerm extractEntry src/lib/utils/map.js
+1177 silly gunzTarPerm modified mode [ 'src/lib/utils/map.js', 420, 438 ]
+1178 silly gentlyRm C:\ctsfest\ctsFest\node_modules\.staging\angular-fd287644\node_modules is being purged
+1179 verbose gentlyRm don't care about contents; nuking C:\ctsfest\ctsFest\node_modules\.staging\angular-fd287644\node_modules
+1180 silly gunzTarPerm extractEntry src/lib/utils/compare-arrays.js
+1181 silly gunzTarPerm modified mode [ 'src/lib/utils/compare-arrays.js', 420, 438 ]
+1182 silly gunzTarPerm extractEntry src/lib/utils/some.js
+1183 silly gunzTarPerm modified mode [ 'src/lib/utils/some.js', 420, 438 ]
+1184 silly gunzTarPerm extractEntry src/lib/utils/abs-round.js
+1185 silly gunzTarPerm modified mode [ 'src/lib/utils/abs-round.js', 420, 438 ]
+1186 silly gunzTarPerm extractEntry src/lib/utils/to-int.js
+1187 silly gunzTarPerm modified mode [ 'src/lib/utils/to-int.js', 420, 438 ]
+1188 silly gunzTarPerm extractEntry src/lib/utils/abs-floor.js
+1189 silly gunzTarPerm modified mode [ 'src/lib/utils/abs-floor.js', 420, 438 ]
+1190 silly gunzTarPerm extractEntry src/lib/utils/zero-fill.js
+1191 silly gunzTarPerm modified mode [ 'src/lib/utils/zero-fill.js', 420, 438 ]
+1192 silly gunzTarPerm extractEntry src/lib/utils/is-array.js
+1193 silly gunzTarPerm modified mode [ 'src/lib/utils/is-array.js', 420, 438 ]
+1194 silly gunzTarPerm extractEntry src/locale/af.js
+1195 silly gunzTarPerm modified mode [ 'src/locale/af.js', 420, 438 ]
+1196 silly gunzTarPerm extractEntry src/locale/it.js
+1197 silly gunzTarPerm modified mode [ 'src/locale/it.js', 420, 438 ]
+1198 silly gunzTarPerm extractEntry src/locale/ja.js
+1199 silly gunzTarPerm modified mode [ 'src/locale/ja.js', 420, 438 ]
+1200 silly gunzTarPerm extractEntry src/locale/jv.js
+1201 silly gunzTarPerm modified mode [ 'src/locale/jv.js', 420, 438 ]
+1202 silly gunzTarPerm extractEntry src/locale/is.js
+1203 silly gunzTarPerm modified mode [ 'src/locale/is.js', 420, 438 ]
+1204 silly gunzTarPerm extractEntry src/locale/kk.js
+1205 silly gunzTarPerm modified mode [ 'src/locale/kk.js', 420, 438 ]
+1206 silly gunzTarPerm extractEntry src/locale/km.js
+1207 silly gunzTarPerm modified mode [ 'src/locale/km.js', 420, 438 ]
+1208 silly gunzTarPerm extractEntry src/locale/ko.js
+1209 silly gunzTarPerm modified mode [ 'src/locale/ko.js', 420, 438 ]
+1210 silly gunzTarPerm extractEntry src/locale/ky.js
+1211 silly gunzTarPerm modified mode [ 'src/locale/ky.js', 420, 438 ]
+1212 silly gunzTarPerm extractEntry src/locale/lb.js
+1213 silly gunzTarPerm modified mode [ 'src/locale/lb.js', 420, 438 ]
+1214 silly gunzTarPerm extractEntry src/locale/id.js
+1215 silly gunzTarPerm modified mode [ 'src/locale/id.js', 420, 438 ]
+1216 silly gunzTarPerm extractEntry src/locale/lo.js
+1217 silly gunzTarPerm modified mode [ 'src/locale/lo.js', 420, 438 ]
+1218 silly gunzTarPerm extractEntry src/locale/hy-am.js
+1219 silly gunzTarPerm modified mode [ 'src/locale/hy-am.js', 420, 438 ]
+1220 silly gunzTarPerm extractEntry src/locale/lt.js
+1221 silly gunzTarPerm modified mode [ 'src/locale/lt.js', 420, 438 ]
+1222 silly gunzTarPerm extractEntry src/locale/hu.js
+1223 silly gunzTarPerm modified mode [ 'src/locale/hu.js', 420, 438 ]
+1224 silly gunzTarPerm extractEntry src/locale/lv.js
+1225 silly gunzTarPerm modified mode [ 'src/locale/lv.js', 420, 438 ]
+1226 silly gunzTarPerm extractEntry src/locale/hr.js
+1227 silly gunzTarPerm modified mode [ 'src/locale/hr.js', 420, 438 ]
+1228 silly gunzTarPerm extractEntry src/locale/me.js
+1229 silly gunzTarPerm modified mode [ 'src/locale/me.js', 420, 438 ]
+1230 silly gunzTarPerm extractEntry src/locale/hi.js
+1231 silly gunzTarPerm modified mode [ 'src/locale/hi.js', 420, 438 ]
+1232 silly gunzTarPerm extractEntry src/locale/mk.js
+1233 silly gunzTarPerm modified mode [ 'src/locale/mk.js', 420, 438 ]
+1234 silly gunzTarPerm extractEntry src/locale/he.js
+1235 silly gunzTarPerm modified mode [ 'src/locale/he.js', 420, 438 ]
+1236 silly gunzTarPerm extractEntry src/locale/ml.js
+1237 silly gunzTarPerm modified mode [ 'src/locale/ml.js', 420, 438 ]
+1238 silly gunzTarPerm extractEntry src/locale/gl.js
+1239 silly gunzTarPerm modified mode [ 'src/locale/gl.js', 420, 438 ]
+1240 silly gunzTarPerm extractEntry src/locale/mr.js
+1241 silly gunzTarPerm modified mode [ 'src/locale/mr.js', 420, 438 ]
+1242 silly gunzTarPerm extractEntry src/locale/gd.js
+1243 silly gunzTarPerm modified mode [ 'src/locale/gd.js', 420, 438 ]
+1244 silly gunzTarPerm extractEntry src/locale/ms-my.js
+1245 silly gunzTarPerm modified mode [ 'src/locale/ms-my.js', 420, 438 ]
+1246 silly gunzTarPerm extractEntry src/locale/fy.js
+1247 silly gunzTarPerm modified mode [ 'src/locale/fy.js', 420, 438 ]
+1248 silly gunzTarPerm extractEntry src/locale/ms.js
+1249 silly gunzTarPerm modified mode [ 'src/locale/ms.js', 420, 438 ]
+1250 silly gunzTarPerm extractEntry src/locale/fr.js
+1251 silly gunzTarPerm modified mode [ 'src/locale/fr.js', 420, 438 ]
+1252 silly gunzTarPerm extractEntry src/locale/my.js
+1253 silly gunzTarPerm modified mode [ 'src/locale/my.js', 420, 438 ]
+1254 silly gunzTarPerm extractEntry src/locale/fr-ch.js
+1255 silly gunzTarPerm modified mode [ 'src/locale/fr-ch.js', 420, 438 ]
+1256 silly gunzTarPerm extractEntry src/locale/nb.js
+1257 silly gunzTarPerm modified mode [ 'src/locale/nb.js', 420, 438 ]
+1258 silly gunzTarPerm extractEntry src/locale/fr-ca.js
+1259 silly gunzTarPerm modified mode [ 'src/locale/fr-ca.js', 420, 438 ]
+1260 silly gunzTarPerm extractEntry src/locale/ne.js
+1261 silly gunzTarPerm modified mode [ 'src/locale/ne.js', 420, 438 ]
+1262 silly gunzTarPerm extractEntry src/locale/fo.js
+1263 silly gunzTarPerm modified mode [ 'src/locale/fo.js', 420, 438 ]
+1264 silly gunzTarPerm extractEntry src/locale/nl.js
+1265 silly gunzTarPerm modified mode [ 'src/locale/nl.js', 420, 438 ]
+1266 silly gunzTarPerm extractEntry src/locale/fi.js
+1267 silly gunzTarPerm modified mode [ 'src/locale/fi.js', 420, 438 ]
+1268 silly gunzTarPerm extractEntry src/locale/nn.js
+1269 silly gunzTarPerm modified mode [ 'src/locale/nn.js', 420, 438 ]
+1270 silly gunzTarPerm extractEntry src/locale/fa.js
+1271 silly gunzTarPerm modified mode [ 'src/locale/fa.js', 420, 438 ]
+1272 silly gunzTarPerm extractEntry src/locale/pa-in.js
+1273 silly gunzTarPerm modified mode [ 'src/locale/pa-in.js', 420, 438 ]
+1274 silly gunzTarPerm extractEntry src/locale/eu.js
+1275 silly gunzTarPerm modified mode [ 'src/locale/eu.js', 420, 438 ]
+1276 silly gunzTarPerm extractEntry src/locale/pl.js
+1277 silly gunzTarPerm modified mode [ 'src/locale/pl.js', 420, 438 ]
+1278 silly gunzTarPerm extractEntry src/locale/et.js
+1279 silly gunzTarPerm modified mode [ 'src/locale/et.js', 420, 438 ]
+1280 silly gunzTarPerm extractEntry src/locale/pt-br.js
+1281 silly gunzTarPerm modified mode [ 'src/locale/pt-br.js', 420, 438 ]
+1282 silly gunzTarPerm extractEntry src/locale/es.js
+1283 silly gunzTarPerm modified mode [ 'src/locale/es.js', 420, 438 ]
+1284 silly gunzTarPerm extractEntry src/locale/pt.js
+1285 silly gunzTarPerm modified mode [ 'src/locale/pt.js', 420, 438 ]
+1286 silly gunzTarPerm extractEntry src/locale/es-do.js
+1287 silly gunzTarPerm modified mode [ 'src/locale/es-do.js', 420, 438 ]
+1288 silly gunzTarPerm extractEntry src/locale/ro.js
+1289 silly gunzTarPerm modified mode [ 'src/locale/ro.js', 420, 438 ]
+1290 silly gunzTarPerm extractEntry src/locale/eo.js
+1291 silly gunzTarPerm modified mode [ 'src/locale/eo.js', 420, 438 ]
+1292 silly gunzTarPerm extractEntry src/locale/ru.js
+1293 silly gunzTarPerm modified mode [ 'src/locale/ru.js', 420, 438 ]
+1294 silly gunzTarPerm extractEntry src/locale/en-nz.js
+1295 silly gunzTarPerm modified mode [ 'src/locale/en-nz.js', 420, 438 ]
+1296 silly gunzTarPerm extractEntry src/locale/se.js
+1297 silly gunzTarPerm modified mode [ 'src/locale/se.js', 420, 438 ]
+1298 silly gunzTarPerm extractEntry src/locale/en-ie.js
+1299 silly gunzTarPerm modified mode [ 'src/locale/en-ie.js', 420, 438 ]
+1300 silly gunzTarPerm extractEntry src/locale/si.js
+1301 silly gunzTarPerm modified mode [ 'src/locale/si.js', 420, 438 ]
+1302 silly gunzTarPerm extractEntry src/locale/en-gb.js
+1303 silly gunzTarPerm modified mode [ 'src/locale/en-gb.js', 420, 438 ]
+1304 silly gunzTarPerm extractEntry src/locale/sk.js
+1305 silly gunzTarPerm modified mode [ 'src/locale/sk.js', 420, 438 ]
+1306 silly gunzTarPerm extractEntry src/locale/en-ca.js
+1307 silly gunzTarPerm modified mode [ 'src/locale/en-ca.js', 420, 438 ]
+1308 silly gunzTarPerm extractEntry src/locale/sl.js
+1309 silly gunzTarPerm modified mode [ 'src/locale/sl.js', 420, 438 ]
+1310 silly gunzTarPerm extractEntry src/locale/en-au.js
+1311 silly gunzTarPerm modified mode [ 'src/locale/en-au.js', 420, 438 ]
+1312 silly gunzTarPerm extractEntry src/locale/sq.js
+1313 silly gunzTarPerm modified mode [ 'src/locale/sq.js', 420, 438 ]
+1314 silly gunzTarPerm extractEntry src/locale/el.js
+1315 silly gunzTarPerm modified mode [ 'src/locale/el.js', 420, 438 ]
+1316 silly gunzTarPerm extractEntry src/locale/sr-cyrl.js
+1317 silly gunzTarPerm modified mode [ 'src/locale/sr-cyrl.js', 420, 438 ]
+1318 silly gunzTarPerm extractEntry src/locale/dv.js
+1319 silly gunzTarPerm modified mode [ 'src/locale/dv.js', 420, 438 ]
+1320 silly gunzTarPerm extractEntry src/locale/sr.js
+1321 silly gunzTarPerm modified mode [ 'src/locale/sr.js', 420, 438 ]
+1322 silly gunzTarPerm extractEntry src/locale/de.js
+1323 silly gunzTarPerm modified mode [ 'src/locale/de.js', 420, 438 ]
+1324 silly gunzTarPerm extractEntry src/locale/ss.js
+1325 silly gunzTarPerm modified mode [ 'src/locale/ss.js', 420, 438 ]
+1326 silly gunzTarPerm extractEntry src/locale/de-at.js
+1327 silly gunzTarPerm modified mode [ 'src/locale/de-at.js', 420, 438 ]
+1328 silly gunzTarPerm extractEntry src/locale/sv.js
+1329 silly gunzTarPerm modified mode [ 'src/locale/sv.js', 420, 438 ]
+1330 silly gunzTarPerm extractEntry src/locale/da.js
+1331 silly gunzTarPerm modified mode [ 'src/locale/da.js', 420, 438 ]
+1332 silly gunzTarPerm extractEntry src/locale/sw.js
+1333 silly gunzTarPerm modified mode [ 'src/locale/sw.js', 420, 438 ]
+1334 silly gunzTarPerm extractEntry src/locale/cy.js
+1335 silly gunzTarPerm modified mode [ 'src/locale/cy.js', 420, 438 ]
+1336 silly gunzTarPerm extractEntry src/locale/ta.js
+1337 silly gunzTarPerm modified mode [ 'src/locale/ta.js', 420, 438 ]
+1338 silly gunzTarPerm extractEntry src/locale/cv.js
+1339 silly gunzTarPerm modified mode [ 'src/locale/cv.js', 420, 438 ]
+1340 silly gunzTarPerm extractEntry src/locale/te.js
+1341 silly gunzTarPerm modified mode [ 'src/locale/te.js', 420, 438 ]
+1342 silly gunzTarPerm extractEntry src/locale/cs.js
+1343 silly gunzTarPerm modified mode [ 'src/locale/cs.js', 420, 438 ]
+1344 silly gunzTarPerm extractEntry src/locale/th.js
+1345 silly gunzTarPerm modified mode [ 'src/locale/th.js', 420, 438 ]
+1346 silly gunzTarPerm extractEntry src/locale/ca.js
+1347 silly gunzTarPerm modified mode [ 'src/locale/ca.js', 420, 438 ]
+1348 silly gunzTarPerm extractEntry src/locale/tl-ph.js
+1349 silly gunzTarPerm modified mode [ 'src/locale/tl-ph.js', 420, 438 ]
+1350 silly gunzTarPerm extractEntry src/locale/bs.js
+1351 silly gunzTarPerm modified mode [ 'src/locale/bs.js', 420, 438 ]
+1352 silly gunzTarPerm extractEntry src/locale/tlh.js
+1353 silly gunzTarPerm modified mode [ 'src/locale/tlh.js', 420, 438 ]
+1354 silly gunzTarPerm extractEntry src/locale/br.js
+1355 silly gunzTarPerm modified mode [ 'src/locale/br.js', 420, 438 ]
+1356 silly gunzTarPerm extractEntry src/locale/tr.js
+1357 silly gunzTarPerm modified mode [ 'src/locale/tr.js', 420, 438 ]
+1358 silly gunzTarPerm extractEntry src/locale/bo.js
+1359 silly gunzTarPerm modified mode [ 'src/locale/bo.js', 420, 438 ]
+1360 silly gunzTarPerm extractEntry src/locale/tzl.js
+1361 silly gunzTarPerm modified mode [ 'src/locale/tzl.js', 420, 438 ]
+1362 silly gunzTarPerm extractEntry src/locale/bn.js
+1363 silly gunzTarPerm modified mode [ 'src/locale/bn.js', 420, 438 ]
+1364 silly gunzTarPerm extractEntry src/locale/tzm-latn.js
+1365 silly gunzTarPerm modified mode [ 'src/locale/tzm-latn.js', 420, 438 ]
+1366 silly gunzTarPerm extractEntry src/locale/bg.js
+1367 silly gunzTarPerm modified mode [ 'src/locale/bg.js', 420, 438 ]
+1368 silly gunzTarPerm extractEntry src/locale/tzm.js
+1369 silly gunzTarPerm modified mode [ 'src/locale/tzm.js', 420, 438 ]
+1370 silly gunzTarPerm extractEntry src/locale/be.js
+1371 silly gunzTarPerm modified mode [ 'src/locale/be.js', 420, 438 ]
+1372 silly gunzTarPerm extractEntry src/locale/uk.js
+1373 silly gunzTarPerm modified mode [ 'src/locale/uk.js', 420, 438 ]
+1374 silly gunzTarPerm extractEntry src/locale/az.js
+1375 silly gunzTarPerm modified mode [ 'src/locale/az.js', 420, 438 ]
+1376 silly gunzTarPerm extractEntry src/locale/uz.js
+1377 silly gunzTarPerm modified mode [ 'src/locale/uz.js', 420, 438 ]
+1378 silly gunzTarPerm extractEntry src/locale/ar.js
+1379 silly gunzTarPerm modified mode [ 'src/locale/ar.js', 420, 438 ]
+1380 silly gunzTarPerm extractEntry src/locale/vi.js
+1381 silly gunzTarPerm modified mode [ 'src/locale/vi.js', 420, 438 ]
+1382 silly gunzTarPerm extractEntry src/locale/ar-tn.js
+1383 silly gunzTarPerm modified mode [ 'src/locale/ar-tn.js', 420, 438 ]
+1384 silly gentlyRm C:\ctsfest\ctsFest\node_modules\.staging\angular-chart.js-c85dc7cf\node_modules is being purged
+1385 verbose gentlyRm don't care about contents; nuking C:\ctsfest\ctsFest\node_modules\.staging\angular-chart.js-c85dc7cf\node_modules
+1386 silly gunzTarPerm extractEntry src/locale/x-pseudo.js
+1387 silly gunzTarPerm modified mode [ 'src/locale/x-pseudo.js', 420, 438 ]
+1388 silly gunzTarPerm extractEntry src/locale/ar-sa.js
+1389 silly gunzTarPerm modified mode [ 'src/locale/ar-sa.js', 420, 438 ]
+1390 silly gunzTarPerm extractEntry src/locale/zh-cn.js
+1391 silly gunzTarPerm modified mode [ 'src/locale/zh-cn.js', 420, 438 ]
+1392 silly gunzTarPerm extractEntry src/locale/ar-ma.js
+1393 silly gunzTarPerm modified mode [ 'src/locale/ar-ma.js', 420, 438 ]
+1394 silly gunzTarPerm extractEntry src/locale/zh-tw.js
+1395 silly gunzTarPerm modified mode [ 'src/locale/zh-tw.js', 420, 438 ]
+1396 silly gunzTarPerm extractEntry src/locale/ka.js
+1397 silly gunzTarPerm modified mode [ 'src/locale/ka.js', 420, 438 ]
+1398 silly gunzTarPerm extractEntry locale/af.js
+1399 silly gunzTarPerm modified mode [ 'locale/af.js', 420, 438 ]
+1400 silly gunzTarPerm extractEntry locale/it.js
+1401 silly gunzTarPerm modified mode [ 'locale/it.js', 420, 438 ]
+1402 silly gunzTarPerm extractEntry locale/ja.js
+1403 silly gunzTarPerm modified mode [ 'locale/ja.js', 420, 438 ]
+1404 silly gunzTarPerm extractEntry locale/jv.js
+1405 silly gunzTarPerm modified mode [ 'locale/jv.js', 420, 438 ]
+1406 silly gunzTarPerm extractEntry locale/is.js
+1407 silly gunzTarPerm modified mode [ 'locale/is.js', 420, 438 ]
+1408 silly gunzTarPerm extractEntry locale/kk.js
+1409 silly gunzTarPerm modified mode [ 'locale/kk.js', 420, 438 ]
+1410 silly gunzTarPerm extractEntry locale/km.js
+1411 silly gunzTarPerm modified mode [ 'locale/km.js', 420, 438 ]
+1412 silly gunzTarPerm extractEntry locale/ko.js
+1413 silly gunzTarPerm modified mode [ 'locale/ko.js', 420, 438 ]
+1414 silly gunzTarPerm extractEntry locale/ky.js
+1415 silly gunzTarPerm modified mode [ 'locale/ky.js', 420, 438 ]
+1416 silly gunzTarPerm extractEntry locale/lb.js
+1417 silly gunzTarPerm modified mode [ 'locale/lb.js', 420, 438 ]
+1418 silly gunzTarPerm extractEntry locale/id.js
+1419 silly gunzTarPerm modified mode [ 'locale/id.js', 420, 438 ]
+1420 silly gunzTarPerm extractEntry locale/lo.js
+1421 silly gunzTarPerm modified mode [ 'locale/lo.js', 420, 438 ]
+1422 silly gunzTarPerm extractEntry locale/hy-am.js
+1423 silly gunzTarPerm modified mode [ 'locale/hy-am.js', 420, 438 ]
+1424 silly gunzTarPerm extractEntry locale/lt.js
+1425 silly gunzTarPerm modified mode [ 'locale/lt.js', 420, 438 ]
+1426 silly gunzTarPerm extractEntry locale/hu.js
+1427 silly gunzTarPerm modified mode [ 'locale/hu.js', 420, 438 ]
+1428 silly gunzTarPerm extractEntry locale/lv.js
+1429 silly gunzTarPerm modified mode [ 'locale/lv.js', 420, 438 ]
+1430 silly gunzTarPerm extractEntry locale/hr.js
+1431 silly gunzTarPerm modified mode [ 'locale/hr.js', 420, 438 ]
+1432 silly gunzTarPerm extractEntry locale/me.js
+1433 silly gunzTarPerm modified mode [ 'locale/me.js', 420, 438 ]
+1434 silly gunzTarPerm extractEntry locale/hi.js
+1435 silly gunzTarPerm modified mode [ 'locale/hi.js', 420, 438 ]
+1436 silly gunzTarPerm extractEntry locale/mk.js
+1437 silly gunzTarPerm modified mode [ 'locale/mk.js', 420, 438 ]
+1438 silly gunzTarPerm extractEntry locale/he.js
+1439 silly gunzTarPerm modified mode [ 'locale/he.js', 420, 438 ]
+1440 silly gunzTarPerm extractEntry locale/ml.js
+1441 silly gunzTarPerm modified mode [ 'locale/ml.js', 420, 438 ]
+1442 silly gunzTarPerm extractEntry locale/gl.js
+1443 silly gunzTarPerm modified mode [ 'locale/gl.js', 420, 438 ]
+1444 silly gunzTarPerm extractEntry locale/mr.js
+1445 silly gunzTarPerm modified mode [ 'locale/mr.js', 420, 438 ]
+1446 silly gunzTarPerm extractEntry locale/gd.js
+1447 silly gunzTarPerm modified mode [ 'locale/gd.js', 420, 438 ]
+1448 silly gunzTarPerm extractEntry locale/ms-my.js
+1449 silly gunzTarPerm modified mode [ 'locale/ms-my.js', 420, 438 ]
+1450 silly gunzTarPerm extractEntry locale/fy.js
+1451 silly gunzTarPerm modified mode [ 'locale/fy.js', 420, 438 ]
+1452 silly gunzTarPerm extractEntry locale/ms.js
+1453 silly gunzTarPerm modified mode [ 'locale/ms.js', 420, 438 ]
+1454 silly gunzTarPerm extractEntry locale/fr.js
+1455 silly gunzTarPerm modified mode [ 'locale/fr.js', 420, 438 ]
+1456 silly gunzTarPerm extractEntry locale/my.js
+1457 silly gunzTarPerm modified mode [ 'locale/my.js', 420, 438 ]
+1458 silly gunzTarPerm extractEntry locale/fr-ch.js
+1459 silly gunzTarPerm modified mode [ 'locale/fr-ch.js', 420, 438 ]
+1460 silly gunzTarPerm extractEntry locale/nb.js
+1461 silly gunzTarPerm modified mode [ 'locale/nb.js', 420, 438 ]
+1462 silly gunzTarPerm extractEntry locale/fr-ca.js
+1463 silly gunzTarPerm modified mode [ 'locale/fr-ca.js', 420, 438 ]
+1464 silly gunzTarPerm extractEntry locale/ne.js
+1465 silly gunzTarPerm modified mode [ 'locale/ne.js', 420, 438 ]
+1466 silly gunzTarPerm extractEntry locale/fo.js
+1467 silly gunzTarPerm modified mode [ 'locale/fo.js', 420, 438 ]
+1468 silly gunzTarPerm extractEntry locale/nl.js
+1469 silly gunzTarPerm modified mode [ 'locale/nl.js', 420, 438 ]
+1470 silly gunzTarPerm extractEntry locale/fi.js
+1471 silly gunzTarPerm modified mode [ 'locale/fi.js', 420, 438 ]
+1472 silly gunzTarPerm extractEntry locale/nn.js
+1473 silly gunzTarPerm modified mode [ 'locale/nn.js', 420, 438 ]
+1474 silly gunzTarPerm extractEntry locale/fa.js
+1475 silly gunzTarPerm modified mode [ 'locale/fa.js', 420, 438 ]
+1476 silly gunzTarPerm extractEntry locale/pa-in.js
+1477 silly gunzTarPerm modified mode [ 'locale/pa-in.js', 420, 438 ]
+1478 silly gunzTarPerm extractEntry locale/eu.js
+1479 silly gunzTarPerm modified mode [ 'locale/eu.js', 420, 438 ]
+1480 silly gunzTarPerm extractEntry locale/pl.js
+1481 silly gunzTarPerm modified mode [ 'locale/pl.js', 420, 438 ]
+1482 silly gunzTarPerm extractEntry locale/et.js
+1483 silly gunzTarPerm modified mode [ 'locale/et.js', 420, 438 ]
+1484 silly gunzTarPerm extractEntry locale/pt-br.js
+1485 silly gunzTarPerm modified mode [ 'locale/pt-br.js', 420, 438 ]
+1486 silly gunzTarPerm extractEntry locale/es.js
+1487 silly gunzTarPerm modified mode [ 'locale/es.js', 420, 438 ]
+1488 silly gunzTarPerm extractEntry locale/pt.js
+1489 silly gunzTarPerm modified mode [ 'locale/pt.js', 420, 438 ]
+1490 silly gunzTarPerm extractEntry locale/es-do.js
+1491 silly gunzTarPerm modified mode [ 'locale/es-do.js', 420, 438 ]
+1492 silly gunzTarPerm extractEntry locale/ro.js
+1493 silly gunzTarPerm modified mode [ 'locale/ro.js', 420, 438 ]
+1494 silly gunzTarPerm extractEntry locale/eo.js
+1495 silly gunzTarPerm modified mode [ 'locale/eo.js', 420, 438 ]
+1496 silly gunzTarPerm extractEntry locale/ru.js
+1497 silly gunzTarPerm modified mode [ 'locale/ru.js', 420, 438 ]
+1498 silly gunzTarPerm extractEntry locale/en-nz.js
+1499 silly gunzTarPerm modified mode [ 'locale/en-nz.js', 420, 438 ]
+1500 silly gunzTarPerm extractEntry locale/se.js
+1501 silly gunzTarPerm modified mode [ 'locale/se.js', 420, 438 ]
+1502 silly gunzTarPerm extractEntry locale/en-ie.js
+1503 silly gunzTarPerm modified mode [ 'locale/en-ie.js', 420, 438 ]
+1504 silly gunzTarPerm extractEntry locale/si.js
+1505 silly gunzTarPerm modified mode [ 'locale/si.js', 420, 438 ]
+1506 silly gunzTarPerm extractEntry locale/en-gb.js
+1507 silly gunzTarPerm modified mode [ 'locale/en-gb.js', 420, 438 ]
+1508 silly gunzTarPerm extractEntry locale/sk.js
+1509 silly gunzTarPerm modified mode [ 'locale/sk.js', 420, 438 ]
+1510 silly gunzTarPerm extractEntry locale/en-ca.js
+1511 silly gunzTarPerm modified mode [ 'locale/en-ca.js', 420, 438 ]
+1512 silly gunzTarPerm extractEntry locale/sl.js
+1513 silly gunzTarPerm modified mode [ 'locale/sl.js', 420, 438 ]
+1514 silly gunzTarPerm extractEntry locale/en-au.js
+1515 silly gunzTarPerm modified mode [ 'locale/en-au.js', 420, 438 ]
+1516 silly gunzTarPerm extractEntry locale/sq.js
+1517 silly gunzTarPerm modified mode [ 'locale/sq.js', 420, 438 ]
+1518 silly gunzTarPerm extractEntry locale/el.js
+1519 silly gunzTarPerm modified mode [ 'locale/el.js', 420, 438 ]
+1520 silly gunzTarPerm extractEntry locale/sr-cyrl.js
+1521 silly gunzTarPerm modified mode [ 'locale/sr-cyrl.js', 420, 438 ]
+1522 silly gunzTarPerm extractEntry locale/dv.js
+1523 silly gunzTarPerm modified mode [ 'locale/dv.js', 420, 438 ]
+1524 silly gunzTarPerm extractEntry locale/sr.js
+1525 silly gunzTarPerm modified mode [ 'locale/sr.js', 420, 438 ]
+1526 silly gunzTarPerm extractEntry locale/de.js
+1527 silly gunzTarPerm modified mode [ 'locale/de.js', 420, 438 ]
+1528 silly gunzTarPerm extractEntry locale/ss.js
+1529 silly gunzTarPerm modified mode [ 'locale/ss.js', 420, 438 ]
+1530 silly gunzTarPerm extractEntry locale/de-at.js
+1531 silly gunzTarPerm modified mode [ 'locale/de-at.js', 420, 438 ]
+1532 silly gunzTarPerm extractEntry locale/sv.js
+1533 silly gunzTarPerm modified mode [ 'locale/sv.js', 420, 438 ]
+1534 silly gunzTarPerm extractEntry locale/da.js
+1535 silly gunzTarPerm modified mode [ 'locale/da.js', 420, 438 ]
+1536 silly gunzTarPerm extractEntry locale/sw.js
+1537 silly gunzTarPerm modified mode [ 'locale/sw.js', 420, 438 ]
+1538 silly gunzTarPerm extractEntry locale/cy.js
+1539 silly gunzTarPerm modified mode [ 'locale/cy.js', 420, 438 ]
+1540 silly gunzTarPerm extractEntry locale/ta.js
+1541 silly gunzTarPerm modified mode [ 'locale/ta.js', 420, 438 ]
+1542 silly gunzTarPerm extractEntry locale/cv.js
+1543 silly gunzTarPerm modified mode [ 'locale/cv.js', 420, 438 ]
+1544 silly gunzTarPerm extractEntry locale/te.js
+1545 silly gunzTarPerm modified mode [ 'locale/te.js', 420, 438 ]
+1546 silly gunzTarPerm extractEntry locale/cs.js
+1547 silly gunzTarPerm modified mode [ 'locale/cs.js', 420, 438 ]
+1548 silly gunzTarPerm extractEntry locale/th.js
+1549 silly gunzTarPerm modified mode [ 'locale/th.js', 420, 438 ]
+1550 silly gunzTarPerm extractEntry locale/ca.js
+1551 silly gunzTarPerm modified mode [ 'locale/ca.js', 420, 438 ]
+1552 silly gunzTarPerm extractEntry locale/tl-ph.js
+1553 silly gunzTarPerm modified mode [ 'locale/tl-ph.js', 420, 438 ]
+1554 silly gunzTarPerm extractEntry locale/bs.js
+1555 silly gunzTarPerm modified mode [ 'locale/bs.js', 420, 438 ]
+1556 silly gunzTarPerm extractEntry locale/tlh.js
+1557 silly gunzTarPerm modified mode [ 'locale/tlh.js', 420, 438 ]
+1558 silly gunzTarPerm extractEntry locale/br.js
+1559 silly gunzTarPerm modified mode [ 'locale/br.js', 420, 438 ]
+1560 silly gunzTarPerm extractEntry locale/tr.js
+1561 silly gunzTarPerm modified mode [ 'locale/tr.js', 420, 438 ]
+1562 silly gunzTarPerm extractEntry locale/bo.js
+1563 silly gunzTarPerm modified mode [ 'locale/bo.js', 420, 438 ]
+1564 silly gunzTarPerm extractEntry locale/tzl.js
+1565 silly gunzTarPerm modified mode [ 'locale/tzl.js', 420, 438 ]
+1566 silly gunzTarPerm extractEntry locale/bn.js
+1567 silly gunzTarPerm modified mode [ 'locale/bn.js', 420, 438 ]
+1568 silly gunzTarPerm extractEntry locale/tzm-latn.js
+1569 silly gunzTarPerm modified mode [ 'locale/tzm-latn.js', 420, 438 ]
+1570 silly gunzTarPerm extractEntry locale/bg.js
+1571 silly gunzTarPerm modified mode [ 'locale/bg.js', 420, 438 ]
+1572 silly gunzTarPerm extractEntry locale/tzm.js
+1573 silly gunzTarPerm modified mode [ 'locale/tzm.js', 420, 438 ]
+1574 silly gunzTarPerm extractEntry locale/be.js
+1575 silly gunzTarPerm modified mode [ 'locale/be.js', 420, 438 ]
+1576 silly gunzTarPerm extractEntry locale/uk.js
+1577 silly gunzTarPerm modified mode [ 'locale/uk.js', 420, 438 ]
+1578 silly gunzTarPerm extractEntry locale/az.js
+1579 silly gunzTarPerm modified mode [ 'locale/az.js', 420, 438 ]
+1580 silly gunzTarPerm extractEntry locale/uz.js
+1581 silly gunzTarPerm modified mode [ 'locale/uz.js', 420, 438 ]
+1582 silly gunzTarPerm extractEntry locale/ar.js
+1583 silly gunzTarPerm modified mode [ 'locale/ar.js', 420, 438 ]
+1584 silly gunzTarPerm extractEntry locale/vi.js
+1585 silly gunzTarPerm modified mode [ 'locale/vi.js', 420, 438 ]
+1586 silly gunzTarPerm extractEntry locale/ar-tn.js
+1587 silly gunzTarPerm modified mode [ 'locale/ar-tn.js', 420, 438 ]
+1588 silly gunzTarPerm extractEntry locale/x-pseudo.js
+1589 silly gunzTarPerm modified mode [ 'locale/x-pseudo.js', 420, 438 ]
+1590 silly gunzTarPerm extractEntry locale/ar-sa.js
+1591 silly gunzTarPerm modified mode [ 'locale/ar-sa.js', 420, 438 ]
+1592 silly gunzTarPerm extractEntry locale/zh-cn.js
+1593 silly gunzTarPerm modified mode [ 'locale/zh-cn.js', 420, 438 ]
+1594 silly gunzTarPerm extractEntry locale/ar-ma.js
+1595 silly gunzTarPerm modified mode [ 'locale/ar-ma.js', 420, 438 ]
+1596 silly gunzTarPerm extractEntry locale/zh-tw.js
+1597 silly gunzTarPerm modified mode [ 'locale/zh-tw.js', 420, 438 ]
+1598 silly gunzTarPerm extractEntry locale/ka.js
+1599 silly gunzTarPerm modified mode [ 'locale/ka.js', 420, 438 ]
+1600 silly gunzTarPerm extractEntry CHANGELOG.md
+1601 silly gunzTarPerm modified mode [ 'CHANGELOG.md', 420, 438 ]
+1602 silly gunzTarPerm extractEntry min/locales.js
+1603 silly gunzTarPerm modified mode [ 'min/locales.js', 420, 438 ]
+1604 silly gunzTarPerm extractEntry min/locales.min.js
+1605 silly gunzTarPerm modified mode [ 'min/locales.min.js', 420, 438 ]
+1606 silly gunzTarPerm extractEntry min/moment-with-locales.js
+1607 silly gunzTarPerm modified mode [ 'min/moment-with-locales.js', 420, 438 ]
+1608 silly gunzTarPerm extractEntry min/moment-with-locales.min.js
+1609 silly gunzTarPerm modified mode [ 'min/moment-with-locales.min.js', 420, 438 ]
+1610 silly gunzTarPerm extractEntry min/moment.min.js
+1611 silly gunzTarPerm modified mode [ 'min/moment.min.js', 420, 438 ]
+1612 silly gentlyRm C:\ctsfest\ctsFest\node_modules\.staging\chart.js-434b66f4\node_modules is being purged
+1613 verbose gentlyRm don't care about contents; nuking C:\ctsfest\ctsFest\node_modules\.staging\chart.js-434b66f4\node_modules
+1614 silly gentlyRm C:\ctsfest\ctsFest\node_modules\.staging\moment-cb0cce27\node_modules is being purged
+1615 verbose gentlyRm don't care about contents; nuking C:\ctsfest\ctsFest\node_modules\.staging\moment-cb0cce27\node_modules
+1616 silly doParallel preinstall 8
+1617 silly preinstall color-convert@0.5.3 C:\ctsfest\ctsFest\node_modules\.staging\color-convert-8a2b6db0
+1618 info lifecycle color-convert@0.5.3~preinstall: color-convert@0.5.3
+1619 silly preinstall color-name@1.1.1 C:\ctsfest\ctsFest\node_modules\.staging\color-name-34b9be49
+1620 info lifecycle color-name@1.1.1~preinstall: color-name@1.1.1
+1621 silly preinstall chartjs-color-string@0.4.0 C:\ctsfest\ctsFest\node_modules\.staging\chartjs-color-string-1c8bf9a3
+1622 info lifecycle chartjs-color-string@0.4.0~preinstall: chartjs-color-string@0.4.0
+1623 silly preinstall chartjs-color@2.0.0 C:\ctsfest\ctsFest\node_modules\.staging\chartjs-color-78a52cdb
+1624 info lifecycle chartjs-color@2.0.0~preinstall: chartjs-color@2.0.0
+1625 silly preinstall moment@2.14.1 C:\ctsfest\ctsFest\node_modules\.staging\moment-cb0cce27
+1626 info lifecycle moment@2.14.1~preinstall: moment@2.14.1
+1627 silly preinstall angular@1.5.8 C:\ctsfest\ctsFest\node_modules\.staging\angular-fd287644
+1628 info lifecycle angular@1.5.8~preinstall: angular@1.5.8
+1629 silly preinstall chart.js@2.2.2 C:\ctsfest\ctsFest\node_modules\.staging\chart.js-434b66f4
+1630 info lifecycle chart.js@2.2.2~preinstall: chart.js@2.2.2
+1631 silly preinstall angular-chart.js@1.0.2 C:\ctsfest\ctsFest\node_modules\.staging\angular-chart.js-c85dc7cf
+1632 info lifecycle angular-chart.js@1.0.2~preinstall: angular-chart.js@1.0.2
+1633 silly lifecycle color-convert@0.5.3~preinstall: no script for preinstall, continuing
+1634 silly lifecycle color-name@1.1.1~preinstall: no script for preinstall, continuing
+1635 silly lifecycle chartjs-color-string@0.4.0~preinstall: no script for preinstall, continuing
+1636 silly lifecycle chartjs-color@2.0.0~preinstall: no script for preinstall, continuing
+1637 silly lifecycle moment@2.14.1~preinstall: no script for preinstall, continuing
+1638 silly lifecycle angular@1.5.8~preinstall: no script for preinstall, continuing
+1639 silly lifecycle chart.js@2.2.2~preinstall: no script for preinstall, continuing
+1640 silly lifecycle angular-chart.js@1.0.2~preinstall: no script for preinstall, continuing
+1641 silly doReverseSerial remove 0
+1642 silly doSerial move 0
+1643 silly doSerial finalize 8
+1644 silly finalize C:\ctsfest\ctsFest\node_modules\color-convert
+1645 silly finalize C:\ctsfest\ctsFest\node_modules\color-name
+1646 silly finalize C:\ctsfest\ctsFest\node_modules\chartjs-color-string
+1647 silly finalize C:\ctsfest\ctsFest\node_modules\chartjs-color
+1648 silly finalize C:\ctsfest\ctsFest\node_modules\moment
+1649 verbose unlock done using C:\Users\534677\AppData\Roaming\npm-cache\_locks\staging-0328ff7fb6062d03.lock for C:\ctsfest\ctsFest\node_modules\.staging
+1650 silly rollbackFailedOptional Starting
+1651 silly rollbackFailedOptional Finishing
+1652 silly runTopLevelLifecycles Starting
+1653 silly runTopLevelLifecycles Finishing
+1654 silly install printInstalled
+1655 warn cognifest@1.1.1 No repository field.
+1656 warn cognifest@1.1.1 No license field.
+1657 verbose stack Error: EPERM: operation not permitted, rename 'C:\ctsfest\ctsFest\node_modules\.staging\moment-cb0cce27' -> 'C:\ctsfest\ctsFest\node_modules\moment'
+1657 verbose stack     at destStatted (C:\nodejs\node_modules\npm\lib\install\action\finalize.js:25:7)
+1657 verbose stack     at FSReqWrap.oncomplete (fs.js:123:15)
+1657 verbose stack
+1657 verbose stack Error: EPERM: operation not permitted, rename 'C:\ctsfest\ctsFest\node_modules\.staging\moment-cb0cce27' -> 'C:\ctsfest\ctsFest\node_modules\moment'
+1657 verbose stack     at Error (native)
+1658 verbose cwd C:\ctsfest\ctsFest
+1659 error Windows_NT 6.1.7601
+1660 error argv "C:\\nodejs\\node.exe" "C:\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "--save" "angular-chart.js"
+1661 error node v6.3.1
+1662 error npm  v3.10.3
+1663 error path C:\ctsfest\ctsFest\node_modules\.staging\moment-cb0cce27
+1664 error code EPERM
+1665 error errno -4048
+1666 error syscall rename
+1667 error Error: EPERM: operation not permitted, rename 'C:\ctsfest\ctsFest\node_modules\.staging\moment-cb0cce27' -> 'C:\ctsfest\ctsFest\node_modules\moment'
+1667 error     at destStatted (C:\nodejs\node_modules\npm\lib\install\action\finalize.js:25:7)
+1667 error     at FSReqWrap.oncomplete (fs.js:123:15)
+1667 error
+1667 error Error: EPERM: operation not permitted, rename 'C:\ctsfest\ctsFest\node_modules\.staging\moment-cb0cce27' -> 'C:\ctsfest\ctsFest\node_modules\moment'
+1667 error     at Error (native)
+1667 error  { Error: EPERM: operation not permitted, rename 'C:\ctsfest\ctsFest\node_modules\.staging\moment-cb0cce27' -> 'C:\ctsfest\ctsFest\node_modules\moment'
+1667 error     at destStatted (C:\nodejs\node_modules\npm\lib\install\action\finalize.js:25:7)
+1667 error     at FSReqWrap.oncomplete (fs.js:123:15)
+1667 error
+1667 error Error: EPERM: operation not permitted, rename 'C:\ctsfest\ctsFest\node_modules\.staging\moment-cb0cce27' -> 'C:\ctsfest\ctsFest\node_modules\moment'
+1667 error     at Error (native) parent: 'cognifest' }
+1668 error Please try running this command again as root/Administrator.
+1669 verbose exit [ -4048, true ]
