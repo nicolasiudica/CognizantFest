@@ -9,11 +9,7 @@ angular.module('app.controllers', [])
 .controller('drinksCtrl', function($scope) {
 })
 
-.controller('signupCtrl', function($scope) {
-})
-
-.controller('WelcomeCtrl', function($scope, $state, UserService, $ionicLoading) {
-
+.controller('SignUpCtrl', function($scope, $state, UserService, $ionicLoading) {
   //This method is executed when the user press the "Login with Google" button
   $scope.googleSignIn = function() {
       $ionicLoading.show({
@@ -36,7 +32,7 @@ angular.module('app.controllers', [])
           });
 
           $ionicLoading.hide();
-          $state.go('app.home');
+          $state.go('menu.logged');
         },
         function (msg) {
           $ionicLoading.hide();
@@ -46,14 +42,14 @@ angular.module('app.controllers', [])
   };
 })
 
-.controller('HomeCtrl', function($scope, UserService, $ionicActionSheet, $state, $ionicLoading){
+.controller('LoggedCtrl', function($scope, UserService, $ionicActionSheet, $state, $ionicLoading){
 
 	$scope.user = UserService.getUser();
 
 	$scope.showLogOutMenu = function() {
 		var hideSheet = $ionicActionSheet.show({
 			destructiveText: 'Logout',
-			titleText: 'Are you sure you want to logout? This app is awsome so I recommend you to stay.',
+			titleText: 'Are you sure you want to logout?',
 			cancelText: 'Cancel',
 			cancel: function() {},
 			buttonClicked: function(index) {
@@ -68,7 +64,7 @@ angular.module('app.controllers', [])
 					function (msg) {
 						console.log(msg);
 						$ionicLoading.hide();
-						$state.go('welcome');
+						$state.go('signup');
 					},
 					function(fail){
 						console.log(fail);
@@ -79,100 +75,91 @@ angular.module('app.controllers', [])
 	};
 })
 
-.controller('playListCtrl', ['$scope', 'Spotify', function ($scope, Spotify) {
-    $scope.searchArtist = function () {
-      Spotify.search($scope.searchartist, 'artist').then(function (data) {
-        $scope.artists = data.artists.items;
-      });
+.controller('TwitterCtrl', function($scope, $ionicPlatform, TwitterService) {//$twitterApi, $cordovaOauth    
+    // 1
+    $scope.correctTimestring = function(string) {
+        return new Date(Date.parse(string));
+    };
+    // 2
+    $scope.showHomeTimeline = function() {
+        $scope.home_timeline = TwitterService.getHomeTimeline();
+    };
+    // 3
+    $scope.doRefresh = function() {
+        $scope.showHomeTimeline();
+        $scope.$broadcast('scroll.refreshComplete');
+    };
+    // 4
+    $ionicPlatform.ready(function() {
+        if (TwitterService.isAuthenticated()) {
+            console.log('showHomeTimeline IS AUTH');
+            $scope.showHomeTimeline();
+        } else {
+            TwitterService.initialize().then(function(result) {
+                if(result === true) {
+                    console.log('showHomeTimeline NO AUTH');
+                    $scope.showHomeTimeline();
+                }
+            });
+        }
+    });
+    
+    alert('isAuthenticated ' + TwitterService.isAuthenticated);
+    
+    /*var twitterKey = 'STORAGE.TWITTER.KEY';
+    var clientId = 'B9NilAbzVeKLaUfCPEljSgWfj';
+    var clientSecret = 'xgy14kMLWmCjm8CH3WpXam95bWHccGU6OPmSiTDIoY2SEOLxVY';
+    var myToken = '';
+
+    $scope.tweet = {};
+
+    // Automatically start the OAuth dialog if no token was found
+    $ionicPlatform.ready(function() {
+        alert('AUTH READY ' + myToken);
+        myToken = JSON.parse(window.localStorage.getItem(twitterKey));
+        if (myToken==='' || myToken===null) {
+            $cordovaOauth.twitter(clientId, clientSecret).then(function (succ) {
+                alert('AUTH SUCCESS ' + succ);
+                myToken = succ;
+                window.localStorage.setItem(twitterKey, JSON.stringify(succ));
+                $twitterApi.configure(clientId, clientSecret, succ);
+                $scope.showHomeTimeline();
+            }, function(error) {
+                console.log(error);
+                alert('ERROR AUTH: ' + error);
+            });
+        } else {
+            alert('SHOW TIMELINE');
+            $twitterApi.configure(clientId, clientSecret, myToken);
+            $scope.showHomeTimeline();
+        }
+    });
+
+    // Load your home timeline
+    $scope.showHomeTimeline = function() {
+        $twitterApi.getHomeTimeline().then(function(data) {
+            $scope.home_timeline = data;
+        });
     };
 
-    $scope.login = function () {
-      Spotify.login().then(function (data) {
-        console.log(data);
-        alert("You are now logged in");
-      }, function () {
-        console.log('didn\'t log in');
-      })
+    // Post a tweet
+    $scope.submitTweet = function() {
+        $twitterApi.postStatusUpdate($scope.tweet.message).then(function(result) {
+            $scope.showHomeTimeline();
+        });
+    }
+
+    // Pull-to-refresh
+    $scope.doRefresh = function() {
+        $scope.showHomeTimeline();
+        $scope.$broadcast('scroll.refreshComplete');
     };
 
-    // Gets an album
-    Spotify.getAlbum('0sNOF9WDwhWunNAHPD3Baj').then(function (data){
-      console.log('=================== Album - ID ===================');
-      console.log(data);
-    });
-    // Works with Spotify uri too
-    Spotify.getAlbum('spotify:album:0sNOF9WDwhWunNAHPD3Baj').then(function (data){
-      console.log('=================== Album - Spotify URI ===================');
-      console.log(data);
-    });
-
-    //Get multiple Albums
-    Spotify.getAlbums('41MnTivkwTO3UUJ8DrqEJJ,6JWc4iAiJ9FjyK0B59ABb4,6UXCm6bOO4gFlDQZV5yL37').then(function (data) {
-      console.log('=================== Albums - Ids ===================');
-      console.log(data);
-    });
-    Spotify.getAlbums(['41MnTivkwTO3UUJ8DrqEJJ','6JWc4iAiJ9FjyK0B59ABb4','6UXCm6bOO4gFlDQZV5yL37']).then(function (data) {
-      console.log('=================== Albums - Array ===================');
-      console.log(data);
-    });
-
-    Spotify.getAlbumTracks('41MnTivkwTO3UUJ8DrqEJJ').then(function (data) {
-      console.log('=================== Album Tracks - ID ===================');
-      console.log(data);
-    });
-    Spotify.getAlbumTracks('spotify:album:41MnTivkwTO3UUJ8DrqEJJ').then(function (data) {
-      console.log('=================== Album Tracks - Spotify URI ===================');
-      console.log(data);
-    });
-
-    //Artist
-    Spotify.getArtist('0LcJLqbBmaGUft1e9Mm8HV').then(function (data) {
-      console.log('=================== Artist - Id ===================');
-      console.log(data);
-    });
-    Spotify.getArtist('spotify:artist:0LcJLqbBmaGUft1e9Mm8HV').then(function (data) {
-      console.log('=================== Artist - Spotify URI ===================');
-      console.log(data);
-    });
-
-    Spotify.getArtistAlbums('0LcJLqbBmaGUft1e9Mm8HV').then(function (data) {
-      console.log('=================== Artist Albums - Id ===================');
-      console.log(data);
-    });
-
-    Spotify.getArtistAlbums('spotify:artist:0LcJLqbBmaGUft1e9Mm8HV').then(function (data) {
-      console.log('=================== Artist Albums - Spotify URI ===================');
-      console.log(data);
-    });
-
-    Spotify.getArtistTopTracks('0LcJLqbBmaGUft1e9Mm8HV', 'AU').then(function (data) {
-      console.log('=================== Artist Top Tracks Australia ===================');
-      console.log(data);
-    });
-
-    Spotify.getRelatedArtists('0LcJLqbBmaGUft1e9Mm8HV').then(function (data) {
-      console.log('=================== Get Releated Artists ===================');
-      console.log(data);
-    });
-
-
-    //Tracks
-    Spotify.getTrack('0eGsygTp906u18L0Oimnem').then(function (data) {
-      console.log('=================== Track ===================');
-      console.log(data);
-    });
-
-    Spotify.getTracks('0eGsygTp906u18L0Oimnem,1lDWb6b6ieDQ2xT7ewTC3G').then(function (data) {
-      console.log('=================== Tracks - String ===================');
-      console.log(data);
-    });
-
-    Spotify.getTracks(['0eGsygTp906u18L0Oimnem','1lDWb6b6ieDQ2xT7ewTC3G']).then(function (data) {
-      console.log('=================== Tracks - Array ===================');
-      console.log(data);
-    });
-
-  }])
+    // Display the correct date from Twitter response
+    $scope.correctTimestring = function(string) {
+        return new Date(Date.parse(string));
+    };*/
+})
 
 .controller('mapCtrl', function($scope) {
     console.log('map controller');

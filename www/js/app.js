@@ -26,13 +26,8 @@ var ref = firebase.database().ref("gallery/items");*/
 
 ///////////////////////////////////////////////////////////
 
-angular.module('app', ['ionic', 'ngCordova', 'firebase', 'app.controllers', 'app.routes', 'app.services', 'app.directives', 'spotify', 'ion-gallery'])
-
-.config(function (SpotifyProvider) {
-    SpotifyProvider.setClientId('7ba63848e95343078565450edf3cda08');
-    SpotifyProvider.setRedirectUri('http://example.com/callback/');
-    SpotifyProvider.setScope('playlist-read-private');
-})
+angular.module('app', ['ionic', 'ngCordova', 'ngResource', 'ngCordovaOauth', 'ngTwitter', 'app.controllers', 'app.routes', 'app.services', 'app.directives', 'ion-gallery'])
+//'firebase'
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {

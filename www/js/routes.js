@@ -2,93 +2,83 @@ angular.module('app.routes', [])
 
 .config(function($stateProvider, $urlRouterProvider) {
 
-  // Ionic uses AngularUI Router which uses the concept of states
-  // Learn more here: https://github.com/angular-ui/ui-router
-  // Set up the various states which the app can be in.
-  // Each state's controller can be found in controllers.js
-  $stateProvider
-  
-  .state('signup', {
+    // Ionic uses AngularUI Router which uses the concept of states
+    // Learn more here: https://github.com/angular-ui/ui-router
+    // Set up the various states which the app can be in.
+    // Each state's controller can be found in controllers.js
+    $stateProvider
+    
+    .state('menu', {
+        url: '/menu',
+        templateUrl: 'templates/menu.html',
+        abstract: true
+    })
+    
+    .state('signup', {
         url: '/signup',
         templateUrl: 'templates/signup.html',
-        controller: 'WelcomeCtrl'
-  })
+        controller: 'TwitterCtrl'        
+    })
 
-  .state('app.home', {
-    url: "/home",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/home.html",
-        controller: 'HomeCtrl'
-      }
-    }
-  })
-
-    .state('menu.home', {
-        url: '/index',
+    .state('menu.logged', {
+        url: '/logged',
         views: {
-          'side-menu21': {
-            templateUrl: 'templates/home.html',
-            controller: 'homeCtrl'
-          }
+            'menu': {
+                templateUrl: 'templates/logged.html',
+                controller: 'LoggedCtrl'
+            }
         }
-      })
-
+    })
+    
     .state('menu.games', {
         url: '/games',
         views: {
-          'side-menu21': {
-            templateUrl: 'templates/games.html',
-            controller: 'gamesCtrl'
+            'menu': {
+                templateUrl: 'templates/games.html',
+                controller: 'gamesCtrl'
           }
         }
-      })
+    })
 
     .state('menu.drinks', {
         url: '/drinks',
         views: {
-          'side-menu21': {
-            templateUrl: 'templates/drinks.html',
-            controller: 'drinksCtrl'
+            'menu': {
+                templateUrl: 'templates/drinks.html',
+                controller: 'drinksCtrl'
           }
         }
-      })
-
-    .state('menu', {
-        url: '/side-menu21',
-        templateUrl: 'templates/menu.html',
-        abstract:true
-      })
+    })
 
     .state('menu.playList', {
         url: '/playlist',
         views: {
-          'side-menu21': {
-            templateUrl: 'templates/playlist.html',
-            controller: 'playListCtrl'
-          }
+            'menu': {
+                templateUrl: 'templates/playlist.html',
+                controller: 'playListCtrl'
+            }
         }
-      })
+    })
 
     .state('menu.map', {
         url: '/map',
         views: {
-            'side-menu21': {
-            templateUrl: 'templates/map.html',
-            controller: 'mapCtrl'
-          }
+            'menu': {
+                templateUrl: 'templates/map.html',
+                controller: 'mapCtrl'
+            }
         }
-      })
+     })
 
     .state('menu.cameraPhotos', {
         url: '/camera',
         views: {
-            'side-menu21': {
-            templateUrl: 'templates/cameraPhotos.html',
-            controller: 'cameraPhotosCtrl'
-          }
+            'menu': {
+                templateUrl: 'templates/cameraPhotos.html',
+                controller: 'cameraPhotosCtrl'
+            }
         }
-      })
+     });
 
-    $urlRouterProvider.otherwise('/signup');
-});
+    $urlRouterProvider.otherwise('/signup')
+})

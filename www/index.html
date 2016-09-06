@@ -6,14 +6,12 @@
     <title></title>
     
     <script src="lib/ionic/js/ionic.bundle.js"></script>
-    <script src="lib/angular-spotify/dist/angular-spotify.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
-    <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
+    <!--script src="lib/angular-spotify/dist/angular-spotify.min.js"></script-->
+    <!--script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script-->
+    <!--script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script-->
         
-    <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>  
-
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
+    <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+    <script src="lib/ng-cordova-oauth/dist/ng-cordova-oauth.min.js"></script>
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
@@ -55,13 +53,21 @@
         <!-- jQuery -->
     
 
-       <!-- Google Map -->
-     <script src="https://maps.googleapis.com/maps/api/js?libraries=places&signed_in=true&key=AIzaSyBrhSIPymyVA2ZHlIWWNYKx_7U9iaIKH1E" async defer> </script>
-  
+    <!-- Google Maps -->
+    <!--script src="https://maps.googleapis.com/maps/api/js?libraries=places&signed_in=true&key=AIzaSyBrhSIPymyVA2ZHlIWWNYKx_7U9iaIKH1E" async defer-->
+    <!-- Google Plus -->
+    <!-- script src="https://apis.google.com/js/platform.js" async defer/-->
+    <!-- ngTwitter -->
+    <script src="lib/ng-twitter-api/dist/ng-twitter-api.min.js"></script>
+    <script src="lib/jsSHA/src/sha1.js"></script>
+    <script src="lib/angular-resource/angular-resource.js"></script>
 
     <!-- Only required for Tab projects w/ pages in multiple tabs 
     <script src="lib/ionicuirouter/ionicUIRouter.js"></script>
     -->
+        
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
 
   </head>
   <body ng-app="app" animation="slide-left-right-ios7">

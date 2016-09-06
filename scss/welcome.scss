@@ -2,18 +2,15 @@
 {
 	background-color: $background-color;
 
-	.top-content
-  {
-    height: 66%;
+	.top-content{
+        height: 66%;
 
-		.app-copy
-		{
+		.app-copy{
 			text-align: center;
 			padding-top: 13vh;
 		}
 
-		.app-logo
-		{
+		.app-logo{
 			font-size: 60px;
 			font-family: sans-serif;
 			font-weight: 600;
@@ -22,8 +19,7 @@
 			text-transform: uppercase;
 		}
 
-		.app-tagline
-		{
+        .app-tagline{
 			font-size: 16px;
 			margin-top: 0px;
 			font-weight: 500;
@@ -31,12 +27,10 @@
 		}
 	}
 
-	.bottom-content
-  {
-    height: 34%;
+	.bottom-content{
+        height: 34%;
 
-		.google-sign-in
-		{
+		.google-sign-in{
 			border-radius: 4px;
 			font-weight: 500;
 			color: $google-red;
