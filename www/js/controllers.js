@@ -34,8 +34,8 @@ angular.module('app.controllers', [])
 			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
 	  	}, 
 		{
-			name: 'Daikiri',
-			src: 'img/daikiri.png',
+			name: 'Daiquiri',
+			src: 'img/daiquiri.png',
 			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
 	  	}, 
 		{
