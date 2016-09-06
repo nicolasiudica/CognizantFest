@@ -96,58 +96,6 @@ angular.module('app.controllers', [])
 	// with a shake sensitivity of 40 (optional, default 30)
 	if(window.shake) shake.startWatch(onShake, 30 , onError);
 
-
-	//defino la cantidad de tragos y los nombres
-	var cantidadTragos = 9;
-	//este es el resultado rel return, puede ser la imagen o una url, o un div, depende de como se haga la interfaz
-	trago1 = "img/cerveza.jpg";
-	trago2 = "img/martini.jpg";
-	trago3 = "img/daikiri.jpg";
-	trago4 = "img/margarita.jpg";
-	trago5 = "img/cubalibre.jpg";
-	trago6 = "img/tequilaSunrise.jpg";
-	trago7 = "img/fernet.jpg";
-	trago8 = "img/gintonic.jpg";
-	trago9 = "img/destornillador.jpg";
-
-	//ejecuto la funcion para elegir el trago luego de que se detecte el shake event
-	function randomDrink(cantidadTragos){
-	  var idTrago = Math.floor((Math.random() * cantidadTragos) + 1);
-	  switch(idTrago) {
-		case 1:
-			tragoAleatorio = trago1;
-			break;
-		case 2:
-			tragoAleatorio = trago2;
-			break;
-		case 3:
-			tragoAleatorio = trago3;
-			break;
-		case 4:
-			tragoAleatorio = trago4;
-			break;
-		case 5:
-			tragoAleatorio = trago5;
-			break;
-		case 6:
-			tragoAleatorio = trago6;
-			break;
-		case 7:
-			tragoAleatorio = trago7;
-			break;
-		case 8:
-			tragoAleatorio = trago8;
-			break;
-		case 9:
-			tragoAleatorio = trago9;
-			break;
-		case 10:
-			tragoAleatorio = trago10;
-			break;
-		}
-	  	return tragoAleatorio;
-	}
-
 })
 			
 .controller('signupCtrl', function($scope, $state) {
