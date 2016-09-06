@@ -61,19 +61,19 @@ angular.module('app.controllers', [])
 	}).then(function(modal){
 		$scope.modal = modal;
 	});
-
+	/*
 	$scope.onShakeTest = function(){
   		console.log('hola soy el shake');
   		var randomNumber = Math.floor((Math.random() * 7));
 		console.log('your random drink is: ' + randomNumber);
 		console.log($scope.items[randomNumber].src)
 
-		//OPEN MODAL WITH RANDOM DRINK
+		//send selected drink object yo the scope
 		$scope.randomDrink = $scope.items[randomNumber];
+		//open modal
 		$scope.modal.show();
-		//return randomNumber;
 	}
-
+	*/
 
 	$scope.closeModal = function(){
 		$scope.modal.hide();
@@ -81,10 +81,11 @@ angular.module('app.controllers', [])
 	}
 
   	var onShake = function () {
-  		$('#pruebaShake').html("<strong>SHAKE DETECTADO</strong>");
-  		$cordovaVibration.vibrate(500);
-  		var url = randomDrink(cantidadTragos);
-  		$('#pruebaShake').html("<strong>URL: " + url + "</strong>");
+  		var randomNumber = Math.floor((Math.random() * 7));
+  		//send selected drink object yo the scope
+		$scope.randomDrink = $scope.items[randomNumber];
+		//open modal
+		$scope.modal.show();
 	};
 
 	var onError = function () {
