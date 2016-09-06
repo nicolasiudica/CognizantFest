@@ -61,8 +61,11 @@ angular.module('app.controllers', [])
 		console.log($scope.items[randomNumber].src)
 
 		//OPEN MODAL WITH RANDOM DRINK
+		$scope.randomDrink = $scope.items[randomNumber].src;
 		$scope.modal.show();
+		//return randomNumber;
 	}
+
 
 	$scope.closeModal = function(){
 		$scope.modal.hide();
@@ -86,7 +89,7 @@ angular.module('app.controllers', [])
 	if(window.shake) shake.startWatch(onShake, 30 , onError);
 
 
-	 //defino la cantidad de tragos y los nombres
+	//defino la cantidad de tragos y los nombres
 	var cantidadTragos = 9;
 	//este es el resultado rel return, puede ser la imagen o una url, o un div, depende de como se haga la interfaz
 	trago1 = "img/cerveza.jpg";
