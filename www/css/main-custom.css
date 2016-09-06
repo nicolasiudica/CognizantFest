@@ -256,3 +256,15 @@ ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidt
 .gallery-view{
 	margin-bottom: 55px!important;
 }
+
+.random-drink-img{
+  border: solid 1px red;
+  width: 70%;
+  height: 60%;
+  margin: auto;
+  border-radius: 4px;
+}
+
+.random-drink-img img{
+  width: 100%;
+}

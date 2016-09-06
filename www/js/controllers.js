@@ -15,41 +15,49 @@ angular.module('app.controllers', [])
 	$scope.items = [
 		{
 			name: 'Beer',
+			largeImg: '',
 			src: 'img/beer.png',
 			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
 	  	}, 
 		{
 			name: 'Cuba Libre',
+			largeImg: '',
 			src: 'img/cubalibre.png',
 			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
 	  	}, 
 		{
 			name: 'Fernet',
+			largeImg: '',
 			src: 'img/fernet.png',
 			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
 	  	}, 
 		{
 			name: 'Gintonic',
+			largeImg: '',
 			src: 'img/gintonic.png',
 			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
 	  	}, 
 		{
 			name: 'Daiquiri',
+			largeImg: '',
 			src: 'img/daiquiri.png',
 			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
 	  	}, 
 		{
 			name: 'Screwdriver',
+			largeImg: '',
 			src: 'img/screwdriver.png',
 			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
 	  	}, 
 		{
 			name: 'Margarita',
+			largeImg: '',
 			src: 'img/margarita.png',
 			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
 	  	}, 
 		{
 			name: '',
+			largeImg: '',
 			src: '',
 			sub: ''
 	  	}
