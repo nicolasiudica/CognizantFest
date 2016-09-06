@@ -14,34 +14,42 @@ angular.module('app.controllers', [])
 
 	$scope.items = [
 		{
+			name: 'Beer',
 			src: 'img/beer.png',
 			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
 	  	}, 
 		{
+			name: 'Cuba Libre',
 			src: 'img/cubalibre.png',
 			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
 	  	}, 
 		{
+			name: 'Fernet',
 			src: 'img/fernet.png',
 			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
 	  	}, 
 		{
+			name: 'Gintonic',
 			src: 'img/gintonic.png',
 			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
 	  	}, 
 		{
+			name: 'Daikiri',
 			src: 'img/daikiri.png',
 			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
 	  	}, 
 		{
+			name: 'Screwdriver',
 			src: 'img/screwdriver.png',
 			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
 	  	}, 
 		{
+			name: 'Margarita',
 			src: 'img/margarita.png',
 			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
 	  	}, 
 		{
+			name: '',
 			src: '',
 			sub: ''
 	  	}
@@ -61,7 +69,7 @@ angular.module('app.controllers', [])
 		console.log($scope.items[randomNumber].src)
 
 		//OPEN MODAL WITH RANDOM DRINK
-		$scope.randomDrink = $scope.items[randomNumber].src;
+		$scope.randomDrink = $scope.items[randomNumber];
 		$scope.modal.show();
 		//return randomNumber;
 	}
