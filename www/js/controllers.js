@@ -54,14 +54,17 @@ angular.module('app.controllers', [])
 			sub: ''
 	  	}
 	];
+	
+	//$ionicModal.fromTemplateUrl('lib\ion-gallery\src\templatesrandomDrinkModal.html', {
 
-	$ionicModal.fromTemplateUrl('randomDrinkModal.html', {
+	$ionicModal.fromTemplateUrl('templates/randomDrinkModal.html', {
 		scope: $scope,
 		animation: 'slide-in-up'
 	}).then(function(modal){
 		$scope.modal = modal;
 	});
 	/*
+	*/
 	$scope.onShakeTest = function(){
   		console.log('hola soy el shake');
   		var randomNumber = Math.floor((Math.random() * 7));
@@ -73,13 +76,12 @@ angular.module('app.controllers', [])
 		//open modal
 		$scope.modal.show();
 	}
-	*/
 
 	$scope.closeModal = function(){
 		$scope.modal.hide();
 		console.log('escondiendo la modal')
 	}
-
+/*
   	var onShake = function () {
   		var randomNumber = Math.floor((Math.random() * 7));
   		//send selected drink object yo the scope
@@ -87,6 +89,7 @@ angular.module('app.controllers', [])
 		//open modal
 		$scope.modal.show();
 	};
+*/
 
 	var onError = function () {
 	  $('#pruebaShake').html("<strong>ERROR DETECTADO</strong>");

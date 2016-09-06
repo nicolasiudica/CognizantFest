@@ -6,6 +6,7 @@
    <ion-content>
       <button class = "button icon icon-left ion-ios-close-outline"
          ng-click = "closeModal()">Close Modal</button>
-         <div>{{ randomDrinkSelected }}</div>
+         <img ng-src="{{ randomDrink.src }}" alt="">
+         {{ randomDrink.name }}
    </ion-content>
 </ion-modal-view>
