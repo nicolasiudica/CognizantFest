@@ -15,43 +15,43 @@ angular.module('app.controllers', [])
 	$scope.items = [
 		{
 			name: 'Beer',
-			largeImg: '',
+			largeImg: 'img/beer_large.png',
 			src: 'img/beer.png',
 			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
 	  	}, 
 		{
 			name: 'Cuba Libre',
-			largeImg: '',
+			largeImg: 'img/cubalibre_large.png',
 			src: 'img/cubalibre.png',
 			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
 	  	}, 
 		{
 			name: 'Fernet',
-			largeImg: '',
+			largeImg: 'img/fernet_large.png',
 			src: 'img/fernet.png',
 			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
 	  	}, 
 		{
 			name: 'Gintonic',
-			largeImg: '',
+			largeImg: 'img/gintonic_large.png',
 			src: 'img/gintonic.png',
 			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
 	  	}, 
 		{
 			name: 'Daiquiri',
-			largeImg: '',
+			largeImg: 'img/daiquiri_large.png',
 			src: 'img/daiquiri.png',
 			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
 	  	}, 
 		{
 			name: 'Screwdriver',
-			largeImg: '',
+			largeImg: 'img/screwdriver_large.png',
 			src: 'img/screwdriver.png',
 			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
 	  	}, 
 		{
 			name: 'Margarita',
-			largeImg: '',
+			largeImg: 'img/margarita_large.png',
 			src: 'img/margarita.png',
 			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
 	  	}, 
@@ -72,7 +72,6 @@ angular.module('app.controllers', [])
 		$scope.modal = modal;
 	});
 	/*
-	*/
 	$scope.onShakeTest = function(){
   		console.log('hola soy el shake');
   		var randomNumber = Math.floor((Math.random() * 7));
@@ -84,12 +83,14 @@ angular.module('app.controllers', [])
 		//open modal
 		$scope.modal.show();
 	}
+	*/
 
 	$scope.closeModal = function(){
 		$scope.modal.hide();
 		console.log('escondiendo la modal')
 	}
 /*
+*/
   	var onShake = function () {
   		var randomNumber = Math.floor((Math.random() * 7));
   		//send selected drink object yo the scope
@@ -97,7 +98,6 @@ angular.module('app.controllers', [])
 		//open modal
 		$scope.modal.show();
 	};
-*/
 
 	var onError = function () {
 	  $('#pruebaShake').html("<strong>ERROR DETECTADO</strong>");

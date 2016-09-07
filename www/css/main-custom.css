@@ -257,14 +257,27 @@ ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidt
 	margin-bottom: 55px!important;
 }
 
+.random-drink-container{
+  padding: 10px;
+  height: 100%;
+}
+
+.random-drink-container .random-drink-title{
+  height: 100px;
+  width: 100%;
+  text-align: center;
+  line-height: 89px;
+  font-size: 20px;
+  color: #fff;
+}
+
 .random-drink-img{
-  border: solid 1px red;
   width: 70%;
   height: 60%;
   margin: auto;
-  border-radius: 4px;
 }
 
 .random-drink-img img{
+  border-radius: 4px;
   width: 100%;
 }
