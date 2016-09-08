@@ -59,12 +59,11 @@ angular.module('app.services', [])
         },
         // 5
         isAuthenticated: function() {
-            console.log('isAuthenticated ' + (getStoredToken()!==null));
             return getStoredToken() !== null;
         },
         // 6
         getHomeTimeline: function() {
-            console.log('getHomeTimeline');
+            alert('getHomeTimeline');
             var home_tl_url = 'https://api.twitter.com/1.1/statuses/home_timeline.json';
             createTwitterSignature('GET', home_tl_url);
             return $resource(home_tl_url).query();

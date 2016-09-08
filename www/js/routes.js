@@ -50,26 +50,6 @@ angular.module('app.routes', [])
         }
     })
 
-    .state('menu.playList', {
-        url: '/playlist',
-        views: {
-            'menu': {
-                templateUrl: 'templates/playlist.html',
-                controller: 'playListCtrl'
-            }
-        }
-    })
-
-    .state('menu.map', {
-        url: '/map',
-        views: {
-            'menu': {
-                templateUrl: 'templates/map.html',
-                controller: 'mapCtrl'
-            }
-        }
-     })
-
     .state('menu.cameraPhotos', {
         url: '/camera',
         views: {

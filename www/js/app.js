@@ -26,7 +26,7 @@ var ref = firebase.database().ref("gallery/items");*/
 
 ///////////////////////////////////////////////////////////
 
-angular.module('app', ['ionic', 'ngCordova', 'ngResource', 'ngCordovaOauth', 'ngTwitter', 'app.controllers', 'app.routes', 'app.services', 'app.directives', 'ion-gallery'])
+angular.module('app', ['ionic', 'ngCordova', 'ngResource', 'ngCordovaOauth', 'app.controllers', 'app.routes', 'app.services', 'app.directives'])
 //'firebase'
 
 .run(function($ionicPlatform) {
