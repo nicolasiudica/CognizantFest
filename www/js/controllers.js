@@ -321,7 +321,7 @@ angular.module('app.controllers', [])
 		
 		},function(error){
 			console.log("Could not get location " + error.code);
-			$('#map').html("Could not get location " + error);
+			$('#map').append("Could not get location " + error);
 	  	});
 	}
 
