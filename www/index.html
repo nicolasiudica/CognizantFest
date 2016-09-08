@@ -38,21 +38,27 @@
 		
 		<div class="bar bar-footer no-padding tabs-striped">
 			<div class="tabs tabs-icon-top new-height">
+				
+				<a class="tab-item active" ui-sref="menu.home" ng-click="activeButton = 'home'" ng-class="{ 'active': activeButton === 'home' }">
+					<i class="icon ion-home"></i>
+					HOME
+				</a>
+
 				<a class="tab-item" ui-sref="menu.map" ng-click="activeButton = 'map'" ng-class="{ 'active': activeButton === 'map' }">
 					<i class="icon ion-location"></i>
-					Location
+					LOCATION
 				</a>
 				<a class="tab-item" ui-sref="menu.drinks" ng-click="activeButton = 'drinks'" ng-class="{ 'active': activeButton === 'drinks' }">
 					<i class="icon icon ion-wineglass"></i>
-					Drinks
+					DRINKS
 				</a>
 				<a class="tab-item" ui-sref="menu.cameraPhotos" ng-click="activeButton = 'cameraPhotos'" ng-class="{ 'active': activeButton === 'cameraPhotos' }">
 					<i class="icon ion-camera"></i>
-					Photo
+					PHOTO
 				</a>
 				<a class="tab-item" ui-sref="menu.games" ng-click="activeButton = 'games'" ng-class="{ 'active': activeButton === 'games' }">
 					<i class="icon ion-ios-game-controller-b"></i>
-					Game
+					GAME
 				</a>
 			</div>
 		</div>
