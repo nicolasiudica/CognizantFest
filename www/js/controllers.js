@@ -4,6 +4,24 @@ angular.module('app.controllers', [])
 	
 	$scope.daysLeft = DaysLeftCounter.day().daysLeft();
 
+	var counter = 1;
+
+	$scope.tapCounter = function(){
+		counter += 1;
+
+		var timer = setTimeout(log, 2000);
+		console.log(timer);
+
+		if(counter >= 10){
+			console.log('mayor que 20');
+			clearTimeout(timer);
+		}
+		function log(){
+			counter = 0;
+		}
+		
+	}
+
 })
 	 
 .controller('gamesCtrl', function($scope, $state) {
