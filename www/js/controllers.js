@@ -76,28 +76,29 @@ angular.module('app.controllers', [])
   		console.log('hola soy el shake');
   		var randomNumber = Math.floor((Math.random() * 7));
 		console.log('your random drink is: ' + randomNumber);
-		console.log($scope.items[randomNumber].src)
+		console.log($scope.items[randomNumber].src);
 
 		//send selected drink object yo the scope
 		$scope.randomDrink = $scope.items[randomNumber];
 		//open modal
 		$scope.modal.show();
-	}
+	};
 	*/
 
 	$scope.closeModal = function(){
 		$scope.modal.hide();
-		console.log('escondiendo la modal')
-	}
-/*
-*/
+		console.log('escondiendo la modal');
+	};
   	var onShake = function () {
   		var randomNumber = Math.floor((Math.random() * 7));
   		//send selected drink object yo the scope
 		$scope.randomDrink = $scope.items[randomNumber];
 		//open modal
+		$cordovaVibration.vibrate(300);
 		$scope.modal.show();
 	};
+/*
+*/
 
 	var onError = function () {
 	  $('#pruebaShake').html("<strong>ERROR DETECTADO</strong>");
@@ -146,7 +147,17 @@ angular.module('app.controllers', [])
 	var travelMethodButtons = document.getElementsByClassName('option-button');
 	
 	destination_input.disabled = true;
-	
+
+	$scope.disableTap = function() {
+        var container = document.getElementsByClassName('pac-container');
+        angular.element(container).attr('data-tap-disabled', 'true');
+        var backdrop = document.getElementsByClassName('backdrop');
+        angular.element(backdrop).attr('data-tap-disabled', 'true');
+        angular.element(container).on("click", function() {
+            document.getElementById('pac-input').blur();
+        });
+    };
+
 	$scope.onSwitch = function(){
 		console.log("SWITCHING ROUTES...");
 		
@@ -198,124 +209,120 @@ angular.module('app.controllers', [])
 	
 	//Initialize map
 	function initMap(){
-		var options = {timeout:1000, enableHighAccuracy:true};
+		var options = {timeout:3000, enableHighAccuracy:true};
 	  
 		$cordovaGeolocation.getCurrentPosition(options).then(function(position){
 		
-		var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-		
-		var mapOptions = {
-			mapTypeId: google.maps.MapTypeId.ROADMAP,
-			center: latLng,
-			zoom: 18,
-			mapTypeControlOptions: {
-			mapTypeIds: [
-					google.maps.MapTypeId.ROADMAP
-				],
-					position: google.maps.ControlPosition.BOTTOM_LEFT
-			}
-		};
-
-		map = new google.maps.Map(document.getElementById("map"), mapOptions);
-		//map.controls[google.maps.ControlPosition.LEFT].push(origin_input);
-		//map.controls[google.maps.ControlPosition.LEFT].push(destination_input);
-		//map.controls[google.maps.ControlPosition.LEFT].push(switchButton);
-		//map.controls[google.maps.ControlPosition.TOP_RIGHT].push(modes);
-		
+			var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 			
-		origin_autocomplete = new google.maps.places.Autocomplete(origin_input);
-		origin_autocomplete.bindTo('bounds', map);
-		destination_autocomplete = new google.maps.places.Autocomplete(destination_input);
-		destination_autocomplete.bindTo('bounds', map);
-			
-		directionsService = new google.maps.DirectionsService();
-		geocoder = new google.maps.Geocoder();
-		directionsDisplay = new google.maps.DirectionsRenderer();
-		directionsDisplay.setMap(map);
-		directionsDisplay.setOptions( { suppressMarkers: true } );
-		placesService = new google.maps.places.PlacesService(map);
-		
-		//AutoComplete
-		origin_autocomplete.addListener('place_changed', function() {
-			var place = origin_autocomplete.getPlace();
-			if (!place.geometry) {
-				console.log("***** Autocomplete's returned place contains no geometry");
-				return;
-			}
-			expandViewportToFitPlace(map, place);
-
-			// If the place has a geometry, store its place ID and route if we have
-			// the other place ID
-			origin_place_id = place.place_id;
-
-			geocoder.geocode({'placeId':origin_place_id}, function(results, status){
-				if (status == 'OK') {
-					origin = results[0].geometry.location;
-					route(origin_place_id, destination_place_id, directionsService, directionsDisplay);
-				} else {
-					console.log('***** origin_autocomplete Geocode was not successful for the following reason: ' + status);
+			var mapOptions = {
+				mapTypeId: google.maps.MapTypeId.ROADMAP,
+				center: latLng,
+				zoom: 18,
+				mapTypeControlOptions: {
+				mapTypeIds: [
+						google.maps.MapTypeId.ROADMAP
+					],
+						position: google.maps.ControlPosition.BOTTOM_LEFT
 				}
-			});
-		});   
+			};
 
-		destination_autocomplete.addListener('place_changed', function() {
-			var place = destination_autocomplete.getPlace();
-			if (!place.geometry) {
-				console.log("***** Autocomplete's returned place contains no geometry");
-				return;
-			}
-			expandViewportToFitPlace(map, place);
+			map = new google.maps.Map(document.getElementById("map"), mapOptions);
+				
+			origin_autocomplete = new google.maps.places.Autocomplete(origin_input);
+			origin_autocomplete.bindTo('bounds', map);
+			destination_autocomplete = new google.maps.places.Autocomplete(destination_input);
+			destination_autocomplete.bindTo('bounds', map);
+				
+			directionsService = new google.maps.DirectionsService();
+			geocoder = new google.maps.Geocoder();
+			directionsDisplay = new google.maps.DirectionsRenderer();
+			directionsDisplay.setMap(map);
+			directionsDisplay.setOptions( { suppressMarkers: true } );
+			placesService = new google.maps.places.PlacesService(map);
 			
-			destination_place_id = place.place_id;
-			
-			if (origin_autocomplete.getPlace()){
-				var placeOrig = origin_autocomplete.getPlace();
-				console.log("place orig", placeOrig);
-				//console.log("origin_autocomplete", origin_autocomplete.getPlace());
-				origin_place_id = placeOrig.place_id;
-				route(origin_place_id, destination_place_id, directionsService, directionsDisplay);
-			}else{
-				//console.log("origin_input.value", origin_input.value)
-				placesService.textSearch({query:origin_input.value}, function(results, status){
-					origin_place_id = results[0].place_id;
-					route(origin_place_id, destination_place_id, directionsService, directionsDisplay);
+			//AutoComplete
+			origin_autocomplete.addListener('place_changed', function() {
+				var place = origin_autocomplete.getPlace();
+				if (!place.geometry) {
+					console.log("***** Autocomplete's returned place contains no geometry");
+					return;
+				}
+				expandViewportToFitPlace(map, place);
+
+				// If the place has a geometry, store its place ID and route if we have
+				// the other place ID
+				origin_place_id = place.place_id;
+
+				geocoder.geocode({'placeId':origin_place_id}, function(results, status){
+					if (status == 'OK') {
+						origin = results[0].geometry.location;
+						route(origin_place_id, destination_place_id, directionsService, directionsDisplay);
+					} else {
+						console.log('***** origin_autocomplete Geocode was not successful for the following reason: ' + status);
+					}
 				});
-			}        
-		});        
-		
-		function expandViewportToFitPlace(map, place) {
-			if (place.geometry.viewport) {
-				map.fitBounds(place.geometry.viewport);
-			} else {
-				map.setCenter(place.geometry.location);
-				map.setZoom(17);
-			}
-		}
-		
-		//map.setOptions({styles: styles});
-			
-		directionsDisplay.setPanel(null);
-		directionsDisplay.setPanel(directionsPanel);
-		
-		var icon = {
-			url: markerImage,
-			scaledSize: new google.maps.Size(30, 50),
-			origin: new google.maps.Point(0, 0),
-			anchor: new google.maps.Point(20, 40)
-		};
-			
-		markerCognizant = new google.maps.Marker({
-			animation: google.maps.Animation.DROP,
-			icon: icon,
-			map: map,
-			title: 'Cognizant Technology Solutions'
-		});
+			});   
 
-		initGeo(directionsDisplay);
+			destination_autocomplete.addListener('place_changed', function() {
+				var place = destination_autocomplete.getPlace();
+				if (!place.geometry) {
+					console.log("***** Autocomplete's returned place contains no geometry");
+					return;
+				}
+				expandViewportToFitPlace(map, place);
+				
+				destination_place_id = place.place_id;
+				
+				if (origin_autocomplete.getPlace()){
+					var placeOrig = origin_autocomplete.getPlace();
+					console.log("place orig", placeOrig);
+					//console.log("origin_autocomplete", origin_autocomplete.getPlace());
+					origin_place_id = placeOrig.place_id;
+					route(origin_place_id, destination_place_id, directionsService, directionsDisplay);
+				}else{
+					//console.log("origin_input.value", origin_input.value)
+					placesService.textSearch({query:origin_input.value}, function(results, status){
+						origin_place_id = results[0].place_id;
+						route(origin_place_id, destination_place_id, directionsService, directionsDisplay);
+					});
+				}        
+			});        
+			
+			function expandViewportToFitPlace(map, place) {
+				if (place.geometry.viewport) {
+					map.fitBounds(place.geometry.viewport);
+				} else {
+					map.setCenter(place.geometry.location);
+					map.setZoom(17);
+				}
+			}
+			
+			//map.setOptions({styles: styles});
+				
+			directionsDisplay.setPanel(null);
+			directionsDisplay.setPanel(directionsPanel);
+			
+			var icon = {
+				url: markerImage,
+				scaledSize: new google.maps.Size(30, 50),
+				origin: new google.maps.Point(0, 0),
+				anchor: new google.maps.Point(20, 40)
+			};
+				
+			markerCognizant = new google.maps.Marker({
+				animation: google.maps.Animation.DROP,
+				icon: icon,
+				map: map,
+				title: 'Cognizant Technology Solutions'
+			});
+
+			initGeo(directionsDisplay);
 		
-	  }, function(error){
-			console.log("Could not get location");
-	  });
+		},function(error){
+			console.log("Could not get location " + error.code);
+			$('#map').html("Could not get location " + error);
+	  	});
 	}
 
 	//Geolocalization
@@ -478,6 +485,8 @@ angular.module('app.controllers', [])
 			//infowindow.open(map, markerCognizant);
 		});
 	}
+
+
 
 })
 	 

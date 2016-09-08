@@ -263,21 +263,37 @@ ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidt
 }
 
 .random-drink-container .random-drink-title{
-  height: 100px;
+  height: 80px;
   width: 100%;
+  margin-top: 60px;
+}
+
+.random-drink-img p{
+  line-height: 40px;
   text-align: center;
-  line-height: 89px;
-  font-size: 20px;
+  font-size: 17px;
   color: #fff;
+  background-color: #f38701;
+  width: 100%;
+  margin: auto;
+  height: 40px;
 }
 
 .random-drink-img{
   width: 70%;
-  height: 60%;
   margin: auto;
+  padding: 0;
+  border-radius: 4px;
+  margin-top: 22%;
 }
 
 .random-drink-img img{
   border-radius: 4px;
   width: 100%;
+}
+
+.gotit{
+  margin: auto;
+  width: 44px;
+  margin-top: 30px;
 }

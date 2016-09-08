@@ -3,7 +3,7 @@
 	
     <div id="controls-container">
         <div class="left">
-            <input id="origin-input" class="controls" type="text" placeholder="Origin Location">
+            <input id="origin-input" class="controls" type="text" placeholder="Origin Location" data-tap-disabled="true" ng-change='disableTap()' ng-model="search">
             <input id="destination-input" class="controls" type="text" placeholder="Destination location" >
         </div>
         <button id="switch-btn" class="button" value="" ng-click="onSwitch()"></button>
@@ -13,13 +13,6 @@
                 <a class="option-button button icon ion-android-car" method="DRIVING"></a>
                 <a class="option-button button icon ion-android-walk" method="WALKING"></a>
             </div>
-            <!--
-            <select id="mode" class="controls">
-              <option value="asd">Public Transportation</option>
-              <option value="DRdsdsIVING">Driving</option>
-              <option value="WALasdKING">Walking</option>
-            </select>
-        -->
         </div>
     </div>    
         
