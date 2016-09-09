@@ -411,7 +411,7 @@ angular.module('app.controllers', [])
 		var request = {
 		  origin: origin,
 		  destination: destination,
-		  transitOptions: { modes: [google.maps.TransitMode.SUBWAY,google.maps.TransitMode.BUS] },
+		  transitOptions: { modes: [google.maps.TransitMode.BUS,google.maps.TransitMode.SUBWAY] },
 		  travelMode: google.maps.TravelMode[selectedMode]
 		};    
 		
