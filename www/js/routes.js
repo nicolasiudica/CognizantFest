@@ -29,12 +29,18 @@ angular.module('app.routes', [])
       }
     }
   })
-  
+
   //bubbles game stand alone view without main app UI
   .state('bubbles', {
     url: '/bubbles',
     templateUrl: 'templates/games/bubbles/welcome.html',
     controller: 'WelcomeCtrl'
+  })
+
+  .state('canvas', {
+    url: '/bubbles/playbubbles',
+    templateUrl: 'templates/games/bubbles/bubbles.html',
+    controller: 'BubbleCtrl'
   })
 
   .state('menu.drinks', {

@@ -136,14 +136,14 @@ angular
 					type: 'button-default',
 					onTap: function (e) {
 						$scope.theOne = null;
-						$state.go('bubbles');
+						$state.go('canvas');
 					}
 				}, {
 					text: 'Back',
 					type: 'button-positive',
 					onTap: function (e) {
 						$scope.theOne = null;
-						$state.go('welcome');
+						$state.go('bubbles');
 					}
 				}]
 			});
