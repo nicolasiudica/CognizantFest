@@ -1,7 +1,7 @@
 <ion-view title="Map" id="page5" class=" ">
     <ion-content padding="false" class="has-header">
 	
-    <div id="controls-container">
+     <div id="controls-container">
         <div class="left">
             <input id="origin-input" class="controls" type="text" placeholder="Origin Location" data-tap-disabled="true" ng-change='disableTap()' ng-model="search">
             <input id="destination-input" class="controls" type="text" placeholder="Destination location" >
@@ -9,7 +9,7 @@
         <button id="switch-btn" class="button" value="" ng-click="onSwitch()"></button>
         <div class="right">
             <div class="button-bar">
-                <a class="option-button button icon ion-android-bus" method="TRANSIT"></a>
+                <a class="option-button button icon ion-android-bus " method="TRANSIT"></a>
                 <a class="option-button button icon ion-android-car" method="DRIVING"></a>
                 <a class="option-button button icon ion-android-walk" method="WALKING"></a>
             </div>
@@ -18,8 +18,7 @@
         
     <div id="map"></div>
     <div class="instructions-button">Travel Instructions</div>
-    <div id="right-panel"></div>    
-	
+    <div id="right-panel"></div> 
     </ion-content>
 </ion-view>
 
