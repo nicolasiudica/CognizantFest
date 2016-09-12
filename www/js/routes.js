@@ -30,13 +30,14 @@ angular.module('app.routes', [])
     }
   })
 
-  //bubbles game stand alone view without main app UI
+  //route to the welcome screen of BUBBLES!
   .state('bubbles', {
     url: '/bubbles',
     templateUrl: 'templates/games/bubbles/welcome.html',
     controller: 'WelcomeCtrl'
   })
 
+  //route to the game screen of BUBBLES!
   .state('canvas', {
     url: '/bubbles/playbubbles',
     templateUrl: 'templates/games/bubbles/bubbles.html',

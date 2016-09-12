@@ -121,7 +121,7 @@ angular
 		};
 
 		createChart();
-		$interval(createChart, 3000);
+		$interval(createChart, 1000);
 		
 		/****  ****/
 		/*********/
@@ -149,8 +149,12 @@ angular
 			});
 		};
 
+		var badClickCounter = 0;
+		var goodClickCounter = 0;
+
 		$scope.whoClicked = function (points, event) {
 
+			createChart();
 			var i = 0,
 				theOne = findTheOne(points, $scope),
 				hitboxX = theOne.x || 0,
@@ -170,14 +174,32 @@ angular
 				validY = (clickY >= hitboxMinY) && (clickY <= hitboxMaxY),
 
 				valid = validX && validY,
-				state = valid ? "YOU FUCKING WIN" : "you loooooser";
+				state = valid ? "YOU FUCKING WINasdasdasd" : "you loooooser";
 
 
 				//console.log("Valid: x = " + validX + " and y = " + validY);
 				//console.log("TheOne: (x,y,r) = (" + theOne.x + "," + theOne.y + "," + theOne.r + ")");
 				//console.log("Valid: ([m < x < M] , [m < y < M]) = ([" + hitboxMinX + " < x < " + hitboxMaxX + "] , [" + hitboxMinY + " < y < " + hitboxMaxY + "])");
 				//console.log("Click: (x,y) = (" + clickX + "," + clickY + ")");
+			
+			if(!valid){
+				badClickCounter += 1;
+				$scope.theOne = createTheOne();
+			}else{
+				goodClickCounter += 1;
+				$scope.theOne = createTheOne();
+			}
+
+			console.log('badClickCounter after click ' + badClickCounter);
+			console.log('goodClickCounter after click ' + goodClickCounter);
+
+
+			console.log('clicked');
+			console.log('valid --->' + valid);
+			console.log('state --->' + state);
 			$scope.message = state;
-			$scope.showPopup();
+			$scope.badClicks = badClickCounter;
+			$scope.goodClicks = goodClickCounter;
+			//$scope.showPopup();
 		};
 	}]);
