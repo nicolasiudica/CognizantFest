@@ -20,7 +20,6 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
-
 .scroll {
     height: 100%;
 }
@@ -136,3 +135,5 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     align-items: center;
   }
 }
+@import "www/scss/base";
+@import "www/scss/games/bubbles/bubbles";
