@@ -29,15 +29,18 @@ angular
 		}
 
 		function createTheOne() {
+			/*
 			var thisx = randomScalingFactor(),
 				thisy = randomScalingFactor(),
 				thisr = randomRadius(),
-				theOne = [{
-					x: thisx,
-					y: thisy,
-					r: thisr
+			*/
+			var theOne = [{
+					x: randomScalingFactor(),
+					y: randomScalingFactor(),
+					r: randomRadius()
 				}];
-			//console.log("The One: (x,y) = (" + x + "," + y + ")");
+			//console.log("The One: (x,y) = (" + thisx + "," + thisy + ")");
+			//console.log(thisr);
 			return theOne;
 		}
 
@@ -121,7 +124,7 @@ angular
 		};
 
 		createChart();
-		$interval(createChart, 1000);
+		$interval(createChart, 3000);
 		
 		/****  ****/
 		/*********/
@@ -155,6 +158,7 @@ angular
 		$scope.whoClicked = function (points, event) {
 
 			createChart();
+
 			var i = 0,
 				theOne = findTheOne(points, $scope),
 				hitboxX = theOne.x || 0,
@@ -176,7 +180,6 @@ angular
 				valid = validX && validY,
 				state = valid ? "YOU FUCKING WINasdasdasd" : "you loooooser";
 
-
 				//console.log("Valid: x = " + validX + " and y = " + validY);
 				//console.log("TheOne: (x,y,r) = (" + theOne.x + "," + theOne.y + "," + theOne.r + ")");
 				//console.log("Valid: ([m < x < M] , [m < y < M]) = ([" + hitboxMinX + " < x < " + hitboxMaxX + "] , [" + hitboxMinY + " < y < " + hitboxMaxY + "])");
@@ -192,14 +195,22 @@ angular
 
 			console.log('badClickCounter after click ' + badClickCounter);
 			console.log('goodClickCounter after click ' + goodClickCounter);
-
-
 			console.log('clicked');
+
 			console.log('valid --->' + valid);
 			console.log('state --->' + state);
+
 			$scope.message = state;
 			$scope.badClicks = badClickCounter;
 			$scope.goodClicks = goodClickCounter;
 			//$scope.showPopup();
+			//clicksCounter(valid, state);
 		};
+
+
+		function clicksCounter(valid, state){
+			
+
+		}
+
 	}]);
