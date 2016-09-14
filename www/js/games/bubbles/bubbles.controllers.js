@@ -29,6 +29,7 @@ angular
 		}
 
 		function createTheOne() {
+			//console.log('====== createTheOne ======');
 			/*
 			var thisx = randomScalingFactor(),
 				thisy = randomScalingFactor(),
@@ -45,6 +46,7 @@ angular
 		}
 
 		function injectTheOne(series, data) {
+			//console.log('====== injectTheOne ======');
 			if ($scope.theOne == null) {
 				$scope.theOne = createTheOne();
 			}
@@ -80,6 +82,7 @@ angular
 		}
 
 		function createChart() {
+			//console.log('====== createChart ======');
 			var howMany = 30,
 				i = 0;
 			$scope.series = [];
@@ -139,6 +142,8 @@ angular
 					type: 'button-default',
 					onTap: function (e) {
 						$scope.theOne = null;
+						$scope.badClicks = 0;
+						$scope.goodClicks = 0;
 						$state.go('canvas');
 					}
 				}, {
@@ -156,8 +161,10 @@ angular
 		var goodClickCounter = 0;
 
 		$scope.whoClicked = function (points, event) {
-
-			createChart();
+			console.log('====== whoClicked ======');
+			console.log('====== event ======' + event.offsetX);
+			console.log('====== event ======' + event.offsetY);
+			//createChart();
 
 			var i = 0,
 				theOne = findTheOne(points, $scope),
@@ -171,39 +178,53 @@ angular
 				hitboxMinY = hitboxY - hitboxR - 1,
 				hitboxMaxY = hitboxY + hitboxR + 1,
 
-				clickX = event.offsetX,
-				clickY = event.offsetY,
+				//clickX = event.offsetX,
+				//clickY = event.offsetY,
 
-				validX = (clickX >= hitboxMinX) && (clickX <= hitboxMaxX),
-				validY = (clickY >= hitboxMinY) && (clickY <= hitboxMaxY),
+				validX = (event.offsetX >= hitboxMinX) && (event.offsetX <= hitboxMaxX),
+				validY = (event.offsetY >= hitboxMinY) && (event.offsetY <= hitboxMaxY),
 
 				valid = validX && validY,
-				state = valid ? "YOU FUCKING WINasdasdasd" : "you loooooser";
+				state = valid ? "YOU FUCKING WIN" : "you loooooser";
 
 				//console.log("Valid: x = " + validX + " and y = " + validY);
 				//console.log("TheOne: (x,y,r) = (" + theOne.x + "," + theOne.y + "," + theOne.r + ")");
 				//console.log("Valid: ([m < x < M] , [m < y < M]) = ([" + hitboxMinX + " < x < " + hitboxMaxX + "] , [" + hitboxMinY + " < y < " + hitboxMaxY + "])");
 				//console.log("Click: (x,y) = (" + clickX + "," + clickY + ")");
-			
+
 			if(!valid){
 				badClickCounter += 1;
-				$scope.theOne = createTheOne();
+				//$scope.theOne = createTheOne();
+				createChart();
+				$state.reload('canvas');
 			}else{
 				goodClickCounter += 1;
 				$scope.theOne = createTheOne();
+				createChart();
+				$state.reload('canvas');
 			}
 
+			var totalClicks = badClickCounter + goodClickCounter;
+			
+			/*
 			console.log('badClickCounter after click ' + badClickCounter);
 			console.log('goodClickCounter after click ' + goodClickCounter);
 			console.log('clicked');
 
 			console.log('valid --->' + valid);
 			console.log('state --->' + state);
+			*/
 
 			$scope.message = state;
 			$scope.badClicks = badClickCounter;
 			$scope.goodClicks = goodClickCounter;
-			//$scope.showPopup();
+			
+			if(totalClicks === 5){
+				totalClicks = 0;
+				badClickCounter = 0;
+				goodClickCounter = 0;
+				$scope.showPopup();
+			}
 			//clicksCounter(valid, state);
 		};
 
