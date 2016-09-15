@@ -137,17 +137,16 @@ angular
 			var popup = $ionicPopup.show({
 				title: $scope.message,
 				scope: $scope,
+				templateUrl: 'templates/games/bubbles/popup.html',
 				buttons: [{
 					text: 'Replay',
 					type: 'button-default',
 					onTap: function (e) {
 						$scope.theOne = null;
-						$scope.badClicks = 0;
-						$scope.goodClicks = 0;
 						$state.go('canvas');
 					}
 				}, {
-					text: 'Back',
+					text: 'Exit',
 					type: 'button-positive',
 					onTap: function (e) {
 						$scope.theOne = null;
@@ -161,10 +160,6 @@ angular
 		var goodClickCounter = 0;
 
 		$scope.whoClicked = function (points, event) {
-			console.log('====== whoClicked ======');
-			console.log('====== event ======' + event.offsetX);
-			console.log('====== event ======' + event.offsetY);
-			//createChart();
 
 			var i = 0,
 				theOne = findTheOne(points, $scope),
@@ -185,16 +180,41 @@ angular
 				validY = (event.offsetY >= hitboxMinY) && (event.offsetY <= hitboxMaxY),
 
 				valid = validX && validY,
-				state = valid ? "YOU FUCKING WIN" : "you loooooser";
+				state = valid ? "YOU F*****G WIN" : "you loooooser";
 
 				//console.log("Valid: x = " + validX + " and y = " + validY);
 				//console.log("TheOne: (x,y,r) = (" + theOne.x + "," + theOne.y + "," + theOne.r + ")");
 				//console.log("Valid: ([m < x < M] , [m < y < M]) = ([" + hitboxMinX + " < x < " + hitboxMaxX + "] , [" + hitboxMinY + " < y < " + hitboxMaxY + "])");
 				//console.log("Click: (x,y) = (" + clickX + "," + clickY + ")");
 
+			clicksCounter(valid);
+
+			var totalClicks = badClickCounter + goodClickCounter;
+
+			sendResult(state);
+
+			if(totalClicks === 5){
+				resetGame();
+			}
+		};
+
+		function resetGame(){
+			badClickCounter = 0;
+			goodClickCounter = 0;
+			$scope.badClicks = 0;
+			$scope.goodClicks = 0;
+			$scope.showPopup();
+		}
+		
+		function sendResult(state){
+			$scope.message = state;
+			$scope.badClicks = badClickCounter;
+			$scope.goodClicks = goodClickCounter;
+		}
+
+		function clicksCounter(valid){
 			if(!valid){
 				badClickCounter += 1;
-				//$scope.theOne = createTheOne();
 				createChart();
 				$state.reload('canvas');
 			}else{
@@ -204,34 +224,30 @@ angular
 				$state.reload('canvas');
 			}
 
-			var totalClicks = badClickCounter + goodClickCounter;
-			
-			/*
-			console.log('badClickCounter after click ' + badClickCounter);
-			console.log('goodClickCounter after click ' + goodClickCounter);
-			console.log('clicked');
-
-			console.log('valid --->' + valid);
-			console.log('state --->' + state);
-			*/
-
-			$scope.message = state;
-			$scope.badClicks = badClickCounter;
-			$scope.goodClicks = goodClickCounter;
-			
-			if(totalClicks === 5){
-				totalClicks = 0;
-				badClickCounter = 0;
-				goodClickCounter = 0;
-				$scope.showPopup();
-			}
-			//clicksCounter(valid, state);
-		};
-
-
-		function clicksCounter(valid, state){
-			
-
 		}
 
 	}]);
+
+
+var bubbleResultMessages = [
+	{
+		message: 'A man´s got to believe in something. I believe I´ll have another drink.',
+		img: ''
+	},
+	{
+		message: '',
+		img: ''
+	},
+	{
+		message: '',
+		img: ''
+	},
+	{
+		message: 'Go show those sweet moves on the dance floor, trust me, you can dance',
+		img: ''
+	},
+	{
+		message: 'One tequila, two tequila, three tequila, floor.',
+		img: ''
+	}
+]

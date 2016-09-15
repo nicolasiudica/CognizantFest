@@ -360,3 +360,19 @@ ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidt
   margin: 15px 5px;
 }
 
+/*************************************   Game   *******************************************/
+
+.click-counter{
+  text-transform: uppercase;
+  margin: 0;
+  font-weight: bold;
+  line-height: 14px;
+}
+
+.bad{
+  color: red;
+}
+
+.good{
+  color: green;
+}
