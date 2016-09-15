@@ -179,8 +179,42 @@ angular
 				validX = (event.offsetX >= hitboxMinX) && (event.offsetX <= hitboxMaxX),
 				validY = (event.offsetY >= hitboxMinY) && (event.offsetY <= hitboxMaxY),
 
-				valid = validX && validY,
-				state = valid ? "YOU F*****G WIN" : "you loooooser";
+				valid = validX && validY;
+
+				var bubbleResultMessages = [
+					{
+						message: 'One tequila, two tequila, three tequila, floor.',
+						img: '',
+						resultID: 0
+					},
+					{
+						message: 'Go show those sweet moves on the dance floor, trust me... you can dance',
+						img: '',
+						resultID: 1
+					},
+					{
+						message: '',
+						img: '',
+						resultID: 2
+					},
+					{
+						message: 'A man´s got to believe in something. I believe you need another drink.',
+						img: '',
+						resultID: 3
+					},
+					{
+						message: '',
+						img: '',
+						resultID: 4
+					},
+					{
+						message: 'Really? All the bubbles? ALL??? put the phone down a go get a drink',
+						img: '',
+						resultID: 5
+					}
+				];
+
+				//state = valid ? "YOU F*****G WIN" : "you loooooser";
 
 				//console.log("Valid: x = " + validX + " and y = " + validY);
 				//console.log("TheOne: (x,y,r) = (" + theOne.x + "," + theOne.y + "," + theOne.r + ")");
@@ -188,15 +222,38 @@ angular
 				//console.log("Click: (x,y) = (" + clickX + "," + clickY + ")");
 
 			clicksCounter(valid);
-
-			var totalClicks = badClickCounter + goodClickCounter;
+			//console.log(goodClickCounter);
+			var state = bubbleResultMessages[goodClickCounter];
 
 			sendResult(state);
+
+			var totalClicks = badClickCounter + goodClickCounter;
 
 			if(totalClicks === 5){
 				resetGame();
 			}
 		};
+
+		function clicksCounter(valid){
+			if(valid){
+				goodClickCounter += 1;
+				$scope.theOne = createTheOne();
+				createChart();
+				$state.reload('canvas');
+			}else{
+				badClickCounter += 1;
+				createChart();
+				$state.reload('canvas');
+			}
+		}
+
+		function sendResult(state){
+			//console.log(state);
+			$scope.message = state;
+			//$scope.resultID = state.resultID;
+			$scope.badClicks = badClickCounter;
+			$scope.goodClicks = goodClickCounter;
+		}
 
 		function resetGame(){
 			badClickCounter = 0;
@@ -205,49 +262,5 @@ angular
 			$scope.goodClicks = 0;
 			$scope.showPopup();
 		}
-		
-		function sendResult(state){
-			$scope.message = state;
-			$scope.badClicks = badClickCounter;
-			$scope.goodClicks = goodClickCounter;
-		}
-
-		function clicksCounter(valid){
-			if(!valid){
-				badClickCounter += 1;
-				createChart();
-				$state.reload('canvas');
-			}else{
-				goodClickCounter += 1;
-				$scope.theOne = createTheOne();
-				createChart();
-				$state.reload('canvas');
-			}
-
-		}
-
 	}]);
 
-
-var bubbleResultMessages = [
-	{
-		message: 'A man´s got to believe in something. I believe I´ll have another drink.',
-		img: ''
-	},
-	{
-		message: '',
-		img: ''
-	},
-	{
-		message: '',
-		img: ''
-	},
-	{
-		message: 'Go show those sweet moves on the dance floor, trust me, you can dance',
-		img: ''
-	},
-	{
-		message: 'One tequila, two tequila, three tequila, floor.',
-		img: ''
-	}
-]
