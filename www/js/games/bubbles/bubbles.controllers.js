@@ -160,7 +160,6 @@ angular
 		var goodClickCounter = 0;
 
 		$scope.whoClicked = function (points, event) {
-
 			var i = 0,
 				theOne = findTheOne(points, $scope),
 				hitboxX = theOne.x || 0,
@@ -188,12 +187,12 @@ angular
 						resultID: 0
 					},
 					{
-						message: 'Go show those sweet moves on the dance floor, trust me... you can dance',
+						message: 'You didn´t fall, the floor just needed a hug',
 						img: '',
 						resultID: 1
 					},
 					{
-						message: '',
+						message: 'Go show those sweet moves on the dance floor, trust me... you can dance',
 						img: '',
 						resultID: 2
 					},
@@ -203,7 +202,7 @@ angular
 						resultID: 3
 					},
 					{
-						message: '',
+						message: 'Yo mama´s so fat, the recursive function used to calculate her mass causes a stack overflow!',
 						img: '',
 						resultID: 4
 					},
@@ -214,15 +213,13 @@ angular
 					}
 				];
 
-				//state = valid ? "YOU F*****G WIN" : "you loooooser";
-
 				//console.log("Valid: x = " + validX + " and y = " + validY);
 				//console.log("TheOne: (x,y,r) = (" + theOne.x + "," + theOne.y + "," + theOne.r + ")");
 				//console.log("Valid: ([m < x < M] , [m < y < M]) = ([" + hitboxMinX + " < x < " + hitboxMaxX + "] , [" + hitboxMinY + " < y < " + hitboxMaxY + "])");
 				//console.log("Click: (x,y) = (" + clickX + "," + clickY + ")");
 
 			clicksCounter(valid);
-			//console.log(goodClickCounter);
+
 			var state = bubbleResultMessages[goodClickCounter];
 
 			sendResult(state);

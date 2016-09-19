@@ -376,3 +376,47 @@ ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidt
 .good{
   color: green;
 }
+
+.bubbles{
+  background-image: url('../img/bubble.png');
+  padding-top: 0px;
+}
+
+.bubble-img{
+  width: 30%;
+  margin: 13px 0 4px 23px;
+}
+
+.bubble-title{ 
+  vertical-align: top;
+  display: block;
+  float: right;
+  width: 61%;
+  line-height: 108px;
+  text-align: center;
+  color: #006b83;
+  font-size: 24px;
+}
+
+.bubbles-menu{
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+
+.bubbles-welcome{
+  position: relative;
+  height: 100%;
+}
+
+.bubbles-instructions{
+  font-size: 13px;
+  color: #777777;
+}
+
+.bubbles-title{
+  color: #0087ff;
+  font-weight: lighter;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}

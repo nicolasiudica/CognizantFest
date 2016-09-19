@@ -1,11 +1,20 @@
 <ion-view view-title="Welcome" class="padding screen-background">
-	<div class="row responsive-sm text-center v-center">
-		<img class="col" src="img/bubble.png" alt="Bubbles! Logo">
+	<div class="bubbles-welcome">
+		<div class="responsive-sm text-center v-center">
+			<img class="col" src="img/bubble.png" alt="Bubbles! Logo">
+		</div>
+		<div class="responsive-sm text-center v-center">
+			<h1 class="col bubbles-title">Bubbles!</h1>
+			<ul class="col bubbles-instructions">
+				<li>- Spot the bubble that doesn't move.</li>
+				<li>- You only have 5 chances.</li>
+				<li>- The bubble that doesn't move is always on top.</li>
+				<li>Have fun!</li>
+			</ul>
+		</div>
+		<div class="bubbles-menu">
+			<a class="button button-large button-block button-positive" ui-sref="canvas">Start!</a>
+			<a class="button button-large button-block button-outline button-positive" ui-sref="menu.games">Exit game</a>
+		</div>
 	</div>
-	<div class="row responsive-sm text-center v-center">
-		<h1 class="col">Bubbles!</h1>
-		<p class="col">Spot the still</p>
-	</div>
-	<a class="button button-large button-block button-positive" ui-sref="canvas">Start!</a>
-	<a class="button button-large button-block button-outline button-positive" ui-sref="menu.games">Exit game</a>
 </ion-view>
