@@ -9,153 +9,105 @@ angular.module('app.controllers', [])
 .controller('drinksCtrl', function($scope) {
 })
 
-.controller('SignUpCtrl', function($scope, $state, UserService, $ionicLoading) {
-    //This method is executed when the user press the "Login with Google" button
-    /*$scope.googleSignIn = function() {
-        $ionicLoading.show({
-            template: 'Logging in...'
-        });
+.controller('LoginCtrl', function($scope, $state, $q, UserService, $ionicLoading){
+    // This is the success callback from the login method
+    var fbLoginSuccess = function(response){
+        if (!response.authResponse){
+            fbLoginError("Cannot find the authResponse");
+            return;
+        }
 
-        window.plugins.googleplus.login(
-            {},
-            function (user_data) {
-            console.log(user_data);
+        var authResponse = response.authResponse;
 
-            //for the purpose of this example I will store user data on local storage
+        getFacebookProfileInfo(authResponse).then(function(profileInfo){
+            // For the purpose of this example I will store user data on local storage
             UserService.setUser({
-                userID: user_data.userId,
-                name: user_data.displayName,
-                email: user_data.email,
-                picture: user_data.imageUrl,
-                accessToken: user_data.accessToken,
-                idToken: user_data.idToken
+                authResponse: authResponse,
+                userID: profileInfo.id,
+                name: profileInfo.name,
+                email: profileInfo.email,
+                picture: "http://graph.facebook.com/" + authResponse.userID + "/picture?type=large"
             });
-
             $ionicLoading.hide();
-            $state.go('menu.logged');
-        },
-        function (msg) {
-            $ionicLoading.hide();
-            console.log(msg);
-        });
-    };*/
-})
-
-.controller('LoggedCtrl', function($scope, UserService, $ionicActionSheet, $state, $ionicLoading){
-
-	/*$scope.user = UserService.getUser();
-
-	$scope.showLogOutMenu = function() {
-		var hideSheet = $ionicActionSheet.show({
-			destructiveText: 'Logout',
-			titleText: 'Are you sure you want to logout?',
-			cancelText: 'Cancel',
-			cancel: function() {},
-			buttonClicked: function(index) {
-				return true;
-			},
-			destructiveButtonClicked: function(){
-				$ionicLoading.show({
-					template: 'Logging out...'
-				});
-				//google logout
-				window.plugins.googleplus.logout(
-					function (msg) {
-						console.log(msg);
-						$ionicLoading.hide();
-						$state.go('signup');
-					},
-					function(fail){
-						console.log(fail);
-					}
-				);
-			}
-		});
-	};*/
-})
-
-.controller('TwitterCtrl', function($scope, $ionicPlatform, TwitterService) {//$twitterApi, $cordovaOauth    
-    // 1
-    $scope.correctTimestring = function(string) {
-        return new Date(Date.parse(string));
+            $state.go('app.home');
+        }, function(fail){
+                // Fail get profile info
+                alert('profile info fail ' + fail);
+            });
     };
-    // 2
-    $scope.showHomeTimeline = function() {
-        $scope.home_timeline = TwitterService.getHomeTimeline();
+
+    // This is the fail callback from the login method
+    var fbLoginError = function(error){
+        alert('fbLoginError ' + error);
+        $ionicLoading.hide();
     };
-    // 3
-    $scope.doRefresh = function() {
-        $scope.showHomeTimeline();
-        $scope.$broadcast('scroll.refreshComplete');
+
+    // This method is to get the user profile info from the facebook api
+    var getFacebookProfileInfo = function (authResponse){
+        var info = $q.defer();
+
+        facebookConnectPlugin.api('/me?fields=email,name&access_token=' + authResponse.accessToken, null,
+            function (response) {
+                console.log(response);
+                info.resolve(response);
+            },
+            function (response) {
+                console.log(response);
+                info.reject(response);
+            }
+        );
+        return info.promise;
     };
-    // 4
-    $ionicPlatform.ready(function() {
-        if (TwitterService.isAuthenticated()) {
-            console.log('showHomeTimeline IS AUTH');
-            $scope.showHomeTimeline();
-        } else {
-            TwitterService.initialize().then(function(result) {
-                if(result === true) {
-                    console.log('showHomeTimeline NO AUTH');
-                    $scope.showHomeTimeline();
+
+    //This method is executed when the user press the "Login with facebook" button
+    $scope.facebookSignIn = function(){
+        facebookConnectPlugin.getLoginStatus(function(success){
+            if (success.status === 'connected'){
+                // The user is logged in and has authenticated your app, and response.authResponse supplies
+                // the user's ID, a valid access token, a signed request, and the time the access token
+                // and signed request each expire
+                alert('getLoginStatus ' + success.status);
+
+                // Check if we have our user saved
+                var user = UserService.getUser('facebook');
+
+                if (!user.userID){
+                    getFacebookProfileInfo(success.authResponse).then(function(profileInfo) {
+                        // For the purpose of this example I will store user data on local storage
+                        UserService.setUser({
+                            authResponse: success.authResponse,
+                            userID: profileInfo.id,
+                            name: profileInfo.name,
+                            email: profileInfo.email,
+                            picture: "http://graph.facebook.com/" + success.authResponse.userID + "/picture?type=large"
+                        });
+
+                        $state.go('app.home');
+                    }, function(fail){
+                            // Fail get profile info
+                            alert('profile info fail ' + fail);
+                       });
+                }else{
+                    $state.go('app.home');
                 }
-            });
-        }
-    });
-    
-    /*var twitterKey = 'STORAGE.TWITTER.KEY';
-    var clientId = 'B9NilAbzVeKLaUfCPEljSgWfj';
-    var clientSecret = 'xgy14kMLWmCjm8CH3WpXam95bWHccGU6OPmSiTDIoY2SEOLxVY';
-    var myToken = '';
+            }else{
+                // If (success.status === 'not_authorized') the user is logged in to Facebook,
+                // but has not authenticated your app
+                // Else the person is not logged into Facebook,
+                // so we're not sure if they are logged into this app or not.
 
-    $scope.tweet = {};
+                alert('getLoginStatus ' + success.status);
 
-    // Automatically start the OAuth dialog if no token was found
-    $ionicPlatform.ready(function() {
-        alert('AUTH READY ' + myToken);
-        myToken = JSON.parse(window.localStorage.getItem(twitterKey));
-        if (myToken==='' || myToken===null) {
-            $cordovaOauth.twitter(clientId, clientSecret).then(function (succ) {
-                alert('AUTH SUCCESS ' + succ);
-                myToken = succ;
-                window.localStorage.setItem(twitterKey, JSON.stringify(succ));
-                $twitterApi.configure(clientId, clientSecret, succ);
-                $scope.showHomeTimeline();
-            }, function(error) {
-                console.log(error);
-                alert('ERROR AUTH: ' + error);
-            });
-        } else {
-            alert('SHOW TIMELINE');
-            $twitterApi.configure(clientId, clientSecret, myToken);
-            $scope.showHomeTimeline();
-        }
-    });
+                $ionicLoading.show({
+                    template: 'Logging in...'
+                });
 
-    // Load your home timeline
-    $scope.showHomeTimeline = function() {
-        $twitterApi.getHomeTimeline().then(function(data) {
-            $scope.home_timeline = data;
+                // Ask the permissions you need. You can learn more about
+                // FB permissions here: https://developers.facebook.com/docs/facebook-login/permissions/v2.4
+                facebookConnectPlugin.login(['email', 'public_profile'], fbLoginSuccess, fbLoginError);
+            }
         });
     };
-
-    // Post a tweet
-    $scope.submitTweet = function() {
-        $twitterApi.postStatusUpdate($scope.tweet.message).then(function(result) {
-            $scope.showHomeTimeline();
-        });
-    }
-
-    // Pull-to-refresh
-    $scope.doRefresh = function() {
-        $scope.showHomeTimeline();
-        $scope.$broadcast('scroll.refreshComplete');
-    };
-
-    // Display the correct date from Twitter response
-    $scope.correctTimestring = function(string) {
-        return new Date(Date.parse(string));
-    };*/
 })
 
 .controller('mapCtrl', function($scope) {
