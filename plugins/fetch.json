@@ -1,0 +1,13 @@
+{
+    "phonegap-facebook-plugin": {
+        "source": {
+            "type": "local",
+            "path": "C:\\ctsnew\\ctsFest\\phonegap-facebook-plugin"
+        },
+        "is_top_level": true,
+        "variables": {
+            "APP_ID": "551371951570061",
+            "APP_NAME": "test_egs_fb"
+        }
+    }
+}
