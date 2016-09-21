@@ -6,9 +6,7 @@ angular.module('app.routes', [])
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
-  $stateProvider
-    
-  
+  $stateProvider 
 
   .state('menu.home', {
     url: '/index',
@@ -91,11 +89,11 @@ angular.module('app.routes', [])
   })
 
   .state('signup', {
-    url: '/page4',
+    url: '/signup',
     templateUrl: 'templates/signup.html',
     controller: 'signupCtrl'
   })
 
-$urlRouterProvider.otherwise('/cognifest/index')
+$urlRouterProvider.otherwise('/cognifest/signup')
 
 });
