@@ -1,0 +1,13 @@
+<ion-modal-view>
+	<ion-content padding="true">
+		<div class="random-drink-container">
+			<div class="card random-drink-img">
+				<p>Drink a {{ randomDrink.name }}!</p>
+				<img ng-src="{{ randomDrink.largeImg }}" alt="">
+			</div>
+			<div class="gotit">
+				<button class="button button-small button-calm" ng-click="closeModal()">Got it!</button>
+			</div>
+		</div>
+	</ion-content>
+</ion-modal-view>
