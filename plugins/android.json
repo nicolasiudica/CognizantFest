@@ -1,0 +1,17 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "phonegap-facebook-plugin": {
+            "APP_ID": "551371951570061",
+            "APP_NAME": "test_egs_fb",
+            "PACKAGE_NAME": "com.ionicframework.cognifest763009"
+        }
+    },
+    "dependent_plugins": {}
+}

@@ -94,6 +94,6 @@ angular.module('app.routes', [])
     controller: 'signupCtrl'
   })
 
-$urlRouterProvider.otherwise('/cognifest/signup')
+$urlRouterProvider.otherwise('/signup')
 
 });
