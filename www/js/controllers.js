@@ -210,6 +210,20 @@ angular.module('app.controllers', [])
                        });
                 }else{
                     $state.go('menu.home');
+                    //184427335315109 album_id
+                    
+                    FB.api('/184427335315109/photos', 'post', {
+                        message:'Holis',
+                        url:'http://images.halloweencostumes.com/products/11628/1-1/sexy-bavarian-girl-costume.jpg'
+                    }, function(response){
+                        if (!response || response.error) {
+                            alert('Error occured');
+                        } else {
+                            alert('Post ID: ' + response.id);
+                        }
+
+                    });
+                    
                 }
             }else{
                 // If (success.status === 'not_authorized') the user is logged in to Facebook,
