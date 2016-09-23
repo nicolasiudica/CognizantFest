@@ -1,0 +1,22 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-shake": {
+            "PACKAGE_NAME": "com.ionicframework.cognifest763009"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "com.ionicframework.cognifest763009"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "com.ionicframework.cognifest763009"
+        }
+    }
+}
