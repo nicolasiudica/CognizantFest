@@ -1,7 +1,7 @@
 angular.module('app.controllers', [])
 	
 .controller('homeCtrl', function($scope, $state, DaysLeftCounter) {
-	
+
 	$scope.daysLeft = DaysLeftCounter.day().daysLeft();
 
 	var counter = 1;
@@ -28,99 +28,89 @@ angular.module('app.controllers', [])
 
 })
 	 
-.controller('drinksCtrl', function($scope, $state, $cordovaVibration) {
+.controller('drinksCtrl', function($scope, $state, $ionicModal, $cordovaVibration) {
 
-$scope.items = [{
-    src: 'img/cerveza.jpg'
-  }, {
-    src: 'img/daikiri.jpg',
-    sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
-  }, {
-    src: 'img/fernet.jpg'
-  }, {
-    src: 'img/gintonic.jpg'
-  }, {
-    src: 'img/cubalibre.jpg'
-  }, {
-    src: 'img/destornillador.jpg'
-  }, {
-    src: 'img/margarita.jpg'
-  }, {
-    src: 'img/martini.jpg'
-  }, {
-    src: 'img/tequilaSunrise.jpg'
-  }];
+	$scope.items = [
+		{
+			name: 'Beer',
+			largeImg: 'img/beer_large.png',
+			src: 'img/beer.png',
+			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
+	  	}, 
+		{
+			name: 'Cuba Libre',
+			largeImg: 'img/cubalibre_large.png',
+			src: 'img/cubalibre.png',
+			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
+	  	}, 
+		{
+			name: 'Fernet',
+			largeImg: 'img/fernet_large.png',
+			src: 'img/fernet.png',
+			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
+	  	}, 
+		{
+			name: 'Gintonic',
+			largeImg: 'img/gintonic_large.png',
+			src: 'img/gintonic.png',
+			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
+	  	}, 
+		{
+			name: 'Daiquiri',
+			largeImg: 'img/daiquiri_large.png',
+			src: 'img/daiquiri.png',
+			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
+	  	}, 
+		{
+			name: 'Screwdriver',
+			largeImg: 'img/screwdriver_large.png',
+			src: 'img/screwdriver.png',
+			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
+	  	}, 
+		{
+			name: 'Margarita',
+			largeImg: 'img/margarita_large.png',
+			src: 'img/margarita.png',
+			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
+	  	}, 
+		{
+			name: '',
+			largeImg: '',
+			src: '',
+			sub: ''
+	  	}
+	];
 
+	$ionicModal.fromTemplateUrl('templates/randomDrinkModal.html', {
+		scope: $scope,
+		animation: 'slide-in-up'
+	}).then(function(modal){
+		$scope.modal = modal;
+	});
+		$scope.closeModal = function(){
+			$scope.modal.hide();
+		//console.log('escondiendo la modal');
+	};
 
-var onShake = function () {
-  $('#pruebaShake').html("<strong>SHAKE DETECTADO</strong>");
-  $cordovaVibration.vibrate(500);
-  var url = randomDrink(cantidadTragos);
-  $('#pruebaShake').html("<strong>URL: " + url + "</strong>");
-};
+	var onShake = function () {
+  		var randomNumber = Math.floor((Math.random() * 7));
+  		//send selected drink object yo the scope
+		$scope.randomDrink = $scope.items[randomNumber];
+		//open modal
+		$cordovaVibration.vibrate(300);
+		$scope.modal.show();
+	};
 
-var onError = function () {
-  $('#pruebaShake').html("<strong>ERROR DETECTADO</strong>");
-  // Fired when there is an accelerometer error (optional)
-};
+	var onError = function () {
+ 		alert('error');
+  		// Fired when there is an accelerometer error (optional)
+	};
 
-// Start watching for shake gestures and call "onShake"
-// with a shake sensitivity of 40 (optional, default 30)
-shake.startWatch(onShake, 30 , onError);
-
-shake.stopWatch();
-
- //defino la cantidad de tragos y los nombres
-var cantidadTragos = 9;
-//este es el resultado rel return, puede ser la imagen o una url, o un div, depende de como se haga la interfaz
-trago1 = "img/cerveza.jpg";
-trago2 = "img/martini.jpg";
-trago3 = "img/daikiri.jpg";
-trago4 = "img/margarita.jpg";
-trago5 = "img/cubalibre.jpg";
-trago6 = "img/tequilaSunrise.jpg";
-trago7 = "img/fernet.jpg";
-trago8 = "img/gintonic.jpg";
-trago9 = "img/destornillador.jpg";
-//ejecuto la funcion para elegir el trago luego de que se detecte el shake event
-function randomDrink(cantidadTragos){
-  var idTrago = Math.floor((Math.random() * cantidadTragos) + 1);
-  switch(idTrago) {
-    case 1:
-    tragoAleatorio = trago1;
-    break;
-    case 2:
-    tragoAleatorio = trago2;
-    break;
-    case 3:
-    tragoAleatorio = trago3;
-    break;
-    case 4:
-    tragoAleatorio = trago4;
-    break;
-    case 5:
-    tragoAleatorio = trago5;
-    break;
-    case 6:
-    tragoAleatorio = trago6;
-    break;
-    case 7:
-    tragoAleatorio = trago7;
-    break;
-    case 8:
-    tragoAleatorio = trago8;
-    break;
-    case 9:
-    tragoAleatorio = trago9;
-    break;
-    case 10:
-    tragoAleatorio = trago10;
-    break;
-    }
-  return tragoAleatorio;
-}
-
-
+	// Start watching for shake gestures and call "onShake"
+	// with a shake sensitivity of 40 (optional, default 30)
+	if(window.shake) {
+		shake.startWatch(onShake, 40 , onError);
+	}
 
 })
 			
@@ -133,6 +123,7 @@ function randomDrink(cantidadTragos){
 })
 	 
 .controller('mapCtrl', function($scope, $state, $cordovaGeolocation){
+
 	var geocoder;
 	var directionsDisplay;
 	var directionsService;
@@ -505,5 +496,6 @@ function randomDrink(cantidadTragos){
 })
 	 
 .controller('cameraPhotosCtrl', function($scope) {
+
 
 });

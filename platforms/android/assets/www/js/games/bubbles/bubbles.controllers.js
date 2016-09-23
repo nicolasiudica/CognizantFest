@@ -20,6 +20,9 @@ angular
 angular
 	.module('bubbles.controllers')
 	.controller('BubbleCtrl', ['$scope', '$interval', '$state', '$ionicPopup', function ($scope, $interval, $state, $ionicPopup) {
+
+		shake.stopWatch();
+
 		function randomScalingFactor() {
 			return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
 		}

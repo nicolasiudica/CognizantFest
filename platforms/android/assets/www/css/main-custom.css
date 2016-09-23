@@ -296,6 +296,11 @@ ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidt
   margin-top: 60px;
 }
 
+.random-drink-container .card{
+  margin: auto;
+  margin-top:22%;
+}
+
 .random-drink-img p{
   line-height: 40px;
   text-align: center;
