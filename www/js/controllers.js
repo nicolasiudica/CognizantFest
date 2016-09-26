@@ -214,7 +214,7 @@ angular.module('app.controllers', [])
 	//Initialize map
 	function initMap(){
 		// new 260916
-		var options = {timeout:10000, enableHighAccuracy:false};
+		var options = {timeout:10000, enableHighAccuracy:true};
 	  
 		$cordovaGeolocation.getCurrentPosition(options).then(function(position){
 		

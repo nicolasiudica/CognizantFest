@@ -39,7 +39,8 @@ module.exports.metadata =
 {
     "cordova-plugin-vibration": "2.1.2",
     "cordova-plugin-device-motion": "1.2.2",
-    "cordova-plugin-shake": "0.5.4"
+    "cordova-plugin-shake": "0.5.4",
+    "cordova-plugin-whitelist": "1.3.0"
 };
 // BOTTOM OF METADATA
 });

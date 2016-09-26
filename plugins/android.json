@@ -12,6 +12,9 @@
         },
         "cordova-plugin-shake": {
             "PACKAGE_NAME": "com.ionicframework.cognifest763009"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.ionicframework.cognifest763009"
         }
     },
     "dependent_plugins": {

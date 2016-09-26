@@ -3,15 +3,19 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+		<meta http-equiv="Content-Security-Policy" content="script-src 'self' https://maps.googleapis.com/ https://maps.gstatic.com/ https://mts0.googleapis.com/ 'unsafe-inline' 'unsafe-eval'">
+
 		<title></title>
+		<!-- Google Map -->
+		<script src="https://maps.googleapis.com/maps/api/js?libraries=places&signed_in=true&key=AIzaSyBrhSIPymyVA2ZHlIWWNYKx_7U9iaIKH1E"></script>
 
 		<script src="lib/ionic/js/ionic.bundle.js"></script>
-
+		<!-- ngCordova for GoogleMap -->
+		<script src="lib/ngCordova/dist/ng-cordova.js"></script>
 		<!-- cordova script (this will be a 404 during development) -->
 		<script src="cordova.js"></script>
 
-		<!-- ngCordova for GoogleMap -->
-		<script src="lib/ngCordova/dist/ng-cordova.js"></script>
+		
 
 		<link href="lib/ionic/css/ionic.css" rel="stylesheet">
 		<link href="css/main-custom.css" rel="stylesheet">
@@ -38,8 +42,7 @@
 		<script src="lib/ion-gallery/dist/ion-gallery.js"></script>
 		<!-- jQuery -->
 		<script src="js/jquery.js"></script>
-		<!-- Google Map -->
-		<script src="https://maps.googleapis.com/maps/api/js?libraries=places&signed_in=true&key=AIzaSyA4qOLsnbJ2U9Dt42hbII_V_wb9OHYgdVs" async defer> </script>
+
 	</head>
 	<body ng-app="app" animation="slide-left-right-ios7">
 		
