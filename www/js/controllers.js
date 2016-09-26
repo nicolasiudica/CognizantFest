@@ -211,12 +211,12 @@ angular.module('app.controllers', [])
                        });
                 }else{
                 	//alert('DOS');
-                    //$state.go('menu.home');
+                    $state.go('menu.home');
                     //184427335315109 album_id
                     //180129755744867 page_id
                     //'http://images.halloweencostumes.com/products/11628/1-1/sexy-bavarian-girl-costume.jpg'
                     
-                    facebookConnectPlugin.api('/me/feed?message=HELLO', ['publish_actions'], 
+                    facebookConnectPlugin.api('/180129755744867/feed?message=HELLO', ['publish_actions'], 
                     	function(response){alert('SUCCESS' + JSON.stringify(response))},
                     	function(response){alert('FAIL' + JSON.stringify(response))}
                     	)
