@@ -213,7 +213,7 @@ angular.module('app.controllers', [])
 	
 	//Initialize map
 	function initMap(){
-		var options = {timeout:3000, enableHighAccuracy:true};
+		var options = {timeout:10000, enableHighAccuracy:false};
 	  
 		$cordovaGeolocation.getCurrentPosition(options).then(function(position){
 		
@@ -325,7 +325,7 @@ angular.module('app.controllers', [])
 		
 		},function(error){
 			console.log("Could not get location " + error.code);
-			$('#map').append("Could not get location " + error);
+			$('#map').append("Could not get the location of tubiega y tu hermana" + error.message + error.code);
 	  	});
 	}
 
