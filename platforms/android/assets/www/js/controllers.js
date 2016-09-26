@@ -149,7 +149,7 @@ angular.module('app.controllers', [])
                 picture: "http://graph.facebook.com/" + authResponse.userID + "/picture?type=large"
             });
             $ionicLoading.hide();
-            $state.go('menu.home');
+            //$state.go('menu.home');
         }, function(fail){
                 // Fail get profile info
                 alert('profile info fail ' + fail);
@@ -187,12 +187,13 @@ angular.module('app.controllers', [])
                 // The user is logged in and has authenticated your app, and response.authResponse supplies
                 // the user's ID, a valid access token, a signed request, and the time the access token
                 // and signed request each expire
-                alert('getLoginStatus ' + success.status);
+                //alert('getLoginStatus ' + success.status);
 
                 // Check if we have our user saved
                 var user = UserService.getUser('facebook');
 
                 if (!user.userID){
+                	alert('UNO');
                     getFacebookProfileInfo(success.authResponse).then(function(profileInfo) {
                         // For the purpose of this example I will store user data on local storage
                         UserService.setUser({
@@ -203,26 +204,36 @@ angular.module('app.controllers', [])
                             picture: "http://graph.facebook.com/" + success.authResponse.userID + "/picture?type=large"
                         });
 
-                        $state.go('menu.home');
+                        //$state.go('menu.home');
                     }, function(fail){
                             // Fail get profile info
                             alert('profile info fail ' + fail);
                        });
                 }else{
-                    $state.go('menu.home');
+                	//alert('DOS');
+                    //$state.go('menu.home');
                     //184427335315109 album_id
+                    //180129755744867 page_id
+                    //'http://images.halloweencostumes.com/products/11628/1-1/sexy-bavarian-girl-costume.jpg'
                     
-                    FB.api('/184427335315109/photos', 'post', {
-                        message:'Holis',
-                        url:'http://images.halloweencostumes.com/products/11628/1-1/sexy-bavarian-girl-costume.jpg'
-                    }, function(response){
-                        if (!response || response.error) {
-                            alert('Error occured');
-                        } else {
-                            alert('Post ID: ' + response.id);
-                        }
+                    facebookConnectPlugin.api('/me/feed?message=HELLO', ['publish_actions'], 
+                    	function(response){alert('SUCCESS' + JSON.stringify(response))},
+                    	function(response){alert('FAIL' + JSON.stringify(response))}
+                    	)
+					
 
-                    });
+						/*facebookConnectPlugin.showDialog( 
+    					{
+					        
+					        method: "feed",
+					        picture:'https://www.google.co.jp/logos/doodles/2014/doodle-4-google-2014-japan-winner-5109465267306496.2-hp.png',
+					        name:'Test Post',
+					        message:'First photo post',    
+					        caption: 'Testing using phonegap plugin',
+					        description: 'Posting photo using phonegap facebook plugin'
+					    }, 
+					    function (response) { alert(JSON.stringify(response)) },
+					    function (response) { alert(JSON.stringify(response)) });*/
                     
                 }
             }else{
