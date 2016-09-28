@@ -131,6 +131,7 @@ angular.module('app.controllers', [])
 			
 .controller('signupCtrl', function($scope, $state, $q, UserService, $ionicLoading){
     // This is the success callback from the login method
+    var accesstoken;
     var fbLoginSuccess = function(response){
         if (!response.authResponse){
             fbLoginError("Cannot find the authResponse");
@@ -138,6 +139,7 @@ angular.module('app.controllers', [])
         }
 
         var authResponse = response.authResponse;
+        accesstoken = authResponse.accessToken;
 
         getFacebookProfileInfo(authResponse).then(function(profileInfo){
             // For the purpose of this example I will store user data on local storage
@@ -215,10 +217,19 @@ angular.module('app.controllers', [])
                     //184427335315109 album_id
                     //180129755744867 page_id
                     //'http://images.halloweencostumes.com/products/11628/1-1/sexy-bavarian-girl-costume.jpg'
-                    
-                    facebookConnectPlugin.api('/180129755744867/feed?message=HELLO', ['publish_actions'], 
-                    	function(response){alert('SUCCESS' + JSON.stringify(response))},
-                    	function(response){alert('FAIL' + JSON.stringify(response))}
+                    var fan_token = 'EAAH1eElPZCI0BADZBlrZCbsZBWF5ig29gZBlmWMXD0I8jtP8fiXBRZCTOaxw0Qdo3haX6vqHlBLQEwRjsvaqTtb2DTCIJoW1jwV1Sn5ABsxH1ZA4xLJNZADarOGxo4kboMhpjZBDfKtD1lfDK1dJLcZBI4gRBOF2XGjOMZD';
+                   	
+                    facebookConnectPlugin.api('/180129755744867/feed', 'POST', {"access_token": fan_token, "message": "hola soy el message"}, 
+                    	function(response){
+                    		//console.log(response);
+                    		//alert(response);
+                    		console.log('todo bien', response);
+                    		alert('todo bien' + response);
+                    	},
+
+                    	function(response){
+                    		console.log('todo mal', response);
+                    		alert('FAIL ' + JSON.stringify(response))}
                     	)
 					
 
@@ -226,7 +237,7 @@ angular.module('app.controllers', [])
     					{
 					        
 					        method: "feed",
-					        picture:'https://www.google.co.jp/logos/doodles/2014/doodle-4-google-2014-japan-winner-5109465267306496.2-hp.png',
+					        picºre:'https://www.google.co.jp/logos/doodles/2014/doodle-4-google-2014-japan-winner-5109465267306496.2-hp.png',
 					        name:'Test Post',
 					        message:'First photo post',    
 					        caption: 'Testing using phonegap plugin',
