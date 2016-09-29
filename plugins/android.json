@@ -11,7 +11,17 @@
             "APP_ID": "551371951570061",
             "APP_NAME": "test_egs_fb",
             "PACKAGE_NAME": "com.ionicframework.cognifest763009"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.ionicframework.cognifest763009"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.ionicframework.cognifest763009"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.ionicframework.cognifest763009"
+        }
+    }
 }

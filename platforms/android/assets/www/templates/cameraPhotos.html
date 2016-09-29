@@ -1,7 +1,21 @@
-<ion-view title="Camera &amp; Photos" id="page7" class=" ">
-    <ion-content padding="true" class="has-header">
-	
-		<div>Camera content</div>
+<ion-view title="Camera &amp; Photos" id="page7" class="">
+    <ion-header-bar class="bar-assertive">
+        <h1 class="title">Photos</h1>
+    </ion-header-bar>
+    <ion-content padding="true">
+        <!-- Take Photo Button -->
+        <button class="button button-full button-assertive" ng-click="takePhoto()">Take Photo</button>
 
-	</ion-content>
+        <!-- Button for Opening the Gallery
+        <button class="button button-full button-assertive" ng-click="choosePhoto()">
+        Choose Photo
+        </button>
+         -->
+        
+        <!-- Show the image taken by the user -->
+        <img ng-show="imgURI !== undefined" ng-src="{{imgURI}}" style="text-align: center">
+        
+        <!-- The users should see their recent photos in the bottom -->
+        
+    </ion-content>
 </ion-view>
