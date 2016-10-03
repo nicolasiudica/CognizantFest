@@ -131,6 +131,8 @@ angular.module('app.controllers', [])
 			
 .controller('signupCtrl', function($scope, $state, $q, UserService, $ionicLoading){
     // This is the success callback from the login method
+    
+    //$state.go('menu.home');
     var accesstoken;
     var fbLoginSuccess = function(response){
         if (!response.authResponse){
@@ -211,7 +213,7 @@ angular.module('app.controllers', [])
                             // Fail get profile info
                             alert('profile info fail ' + fail);
                        });
-                }else{
+                }/*else{
                 	//alert('DOS');
                     $state.go('menu.home');
                     //184427335315109 album_id
@@ -223,7 +225,7 @@ angular.module('app.controllers', [])
                    	var path = $scope.picTakenSrc;
                    	alert(path);
 
-                    facebookConnectPlugin.api('/180129755744867/photos?method=post&url=' + path, ['publish_actions'], 
+                    facebookConnectPlugin.api('/180129755744867/photos?method=post&message=' + message, ['publish_actions'], 
                     	function (response) {
 							if (response && !response.error) {
 								alert('Successful Post');
@@ -233,7 +235,7 @@ angular.module('app.controllers', [])
 							}
 						}
 
-                    	/*
+                    	
 
                     	function(response){
                     		//console.log(response);
@@ -245,7 +247,7 @@ angular.module('app.controllers', [])
                     	function(error){
                     		console.log('todo mal', error);
                     		alert('FAIL ' + JSON.stringify(response))}
-                    		*/
+                    		
                     	)
 					
 
@@ -260,9 +262,9 @@ angular.module('app.controllers', [])
 					        description: 'Posting photo using phonegap facebook plugin'
 					    }, 
 					    function (response) { alert(JSON.stringify(response)) },
-					    function (response) { alert(JSON.stringify(response)) });*/
+					    function (response) { alert(JSON.stringify(response)) });
                     
-                }
+                }*/
             }else{
                 // If (success.status === 'not_authorized') the user is logged in to Facebook,
                 // but has not authenticated your app
@@ -660,8 +662,7 @@ angular.module('app.controllers', [])
 })
 	 
 .controller('cameraPhotosCtrl', function($scope, $cordovaCamera) {
-    $scope.items = [];   
-        
+
     //Opens the camera and the settings that it will be using to take the pictures
     $scope.takePhoto = function () {
         var options = {
@@ -680,138 +681,30 @@ angular.module('app.controllers', [])
 
         $cordovaCamera.getPicture(options).then(function(imageData) {      
             //alert(imageData); 
-            $scope.imgURI = "data:image/jpeg;base64," + imageData;            
+            $scope.imgURI = "data:image/jpeg;base64," + imageData; 
+
+            var imgCanvas = "data:image/jpeg;base64," + imageData;           
             
             var authToken = 'EAAH1eElPZCI0BADZBlrZCbsZBWF5ig29gZBlmWMXD0I8jtP8fiXBRZCTOaxw0Qdo3haX6vqHlBLQEwRjsvaqTtb2DTCIJoW1jwV1Sn5ABsxH1ZA4xLJNZADarOGxo4kboMhpjZBDfKtD1lfDK1dJLcZBI4gRBOF2XGjOMZD';
-		    try {
-		    	alert('dataURItoBlob ---> imageData');
-		        var blob = dataURItoBlob(imageData);
-		    }
-		    catch(e) {
-		        console.log(e);
-		    }
-		    var fd = new FormData();
-		    fd.append("access_token",authToken);
-		    fd.append("source", blob);
-		    fd.append("message","Photo Text");
-		    try {
-		        $.ajax({
-		            url:"https://graph.facebook.com/180129755744867/photos?access_token=" + authToken,
-		            type:"POST",
-		            data:fd,
-		            processData:false,
-		            contentType:false,
-		            cache:false,
-		            success:function(data){
-		                alert("success " + data);
-		            },
-		            error:function(shr,status,data){
-		                alert("error " + data + " Status " + shr.status);
-		            },
-		            complete:function(){
-		                alert("Posted to facebook");
-		            }
-		        });
-		    }
-		    catch(e) {
-		        alert(e + ' ERROR');
-		    }
-		
-
-			function dataURItoBlob(dataURI) {
-			    var byteString = window.atob(dataURI.split(',')[1]);
-			    var ab = new ArrayBuffer(byteString.length);
-			    var ia = new Uint8Array(ab);
-			    for (var i = 0; i < byteString.length; i++) {
-			        ia[i] = byteString.charCodeAt(i);
-			    }
-			    return new Blob([ab], { type: 'image/jpg' });
-			}
-
-
+		    
+		    sendToCanvas(imgCanvas);
+		    
 
         }, function (error) {
             // An error occured. Show a message to the user
-        });        
-        /*
-        //Gets the picture encoded in base64 that will be shown in the <img> tag
-        $cordovaCamera.getPicture(options).then(function(imageData) {
-
-        onImageSuccess(imageData);
- 
-		function onImageSuccess(fileURI) {
-			createFileEntry(fileURI);
-		}
- 
-		function createFileEntry(fileURI) {
-			window.resolveLocalFileSystemURL(fileURI, copyFile, fail);
-		}
- 
-		// 5
-		function copyFile(fileEntry) {
-			var name = fileEntry.fullPath.substr(fileEntry.fullPath.lastIndexOf('/') + 1);
-			var newName = makeid() + name;
-
-			alert(name);
-			alert(fileEntry.fullPath);
- 
-			window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function(fileSystem2) {
-				fileEntry.copyTo(
-					fileSystem2,
-					newName,
-					onCopySuccess,
-					fail
-				);
-			},
-			fail);
-		}
-		
-
-
-            //$scope.imgURI = "data:image/jpeg;base64," + $scope.img;            
-            //ref.push({src:$scope.imgURI, sub:""});            
-        }, function (error) {
-            // An error occured. Show a message to the user
-        });        
-        */
+        }); 
     }
+
+    function sendToCanvas(imgURI){
+		var myCanvas = document.getElementById('canvas').getContext('2d');
+		var img = new Image();
+		img.onload = function(){
+			myCanvas.drawImage(img, 0,0);	
+		}
+
+		img.src = imgURI;
+	}
+
+
     
-    //ref.push({src:$scope.img});
-    /*ref.on('child_added', function(snapshot) {
-        $scope.items = [];
-        console.log(snapshot.key)
-        snapshot.forEach(function(childsnap){
-            $scope.items.push({src:childsnap.child('src').val()});  
-        })
-        console.log("---> Gallery has", $scope.items.length, "images", $scope.items);
-    });*/
-    
-    /*ref.on('value', function(snapshot) {
-        $scope.items = [];
-        console.log(snapshot.key)
-        snapshot.forEach(function(childsnap){
-            $scope.items.push({src:childsnap.child('src').val()});  
-        })
-        console.log("---> Gallery has", $scope.items.length, "images", $scope.items);
-    });*/
-    
-    /* To open the photo gallery
-    $scope.choosePhoto = function () {
-      var options = {
-        quality: 100,
-        destinationType: Camera.DestinationType.DATA_URL,
-        sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-        allowEdit: false,
-        encodingType: Camera.EncodingType.JPEG,
-        targetWidth: 300,
-        targetHeight: 300,
-        popoverOptions: CameraPopoverOptions,
-        saveToPhotoAlbum: true
-    };
-        $cordovaCamera.getPicture(options).then(function (imageData) {
-            $scope.imgURI = "data:image/jpeg;base64," + imageData;
-        }, function (err) {
-            // An error occured. Show a message to the user
-        });
-    }*/
 })
