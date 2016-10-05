@@ -3,6 +3,7 @@
         <h1 class="title">Photos</h1>
     </ion-header-bar>
     <ion-content padding="true">
+
         <!-- Take Photo Button -->
         <button class="button button-full button-assertive" ng-click="takePhoto()">Take Photo</button>
 
@@ -13,11 +14,14 @@
          -->
         
         <!-- Show the image taken by the user -->
-        <img ng-show="imgURI !== undefined" ng-src="{{imgURI}}" style="text-align: center">
-        
+        <!--<img ng-show="imgURI !== undefined" ng-src="{{imgURI}}" style="text-align: center">-->        
         <!-- The users should see their recent photos in the bottom -->
 
-        <canvas id="canvas" width="" height="" style="border:solid 1px red"></canvas>
+        <!--<canvas id="canvas" width="" height="" style="border:solid 1px red"></canvas>-->
+        <div id="fb-root"></div>
+        <canvas id="c" width="" height="" style="border:solid 1px red"></canvas><br><br>
+
+        <a id="poster" href="#" onclick="PostImageToFacebook(window.authToken)">Post Canvas Image To Facebook</a>
         
     </ion-content>
 </ion-view>

@@ -17,6 +17,9 @@
         },
         "cordova-plugin-camera": {
             "PACKAGE_NAME": "com.ionicframework.cognifest763009"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.ionicframework.cognifest763009"
         }
     },
     "dependent_plugins": {

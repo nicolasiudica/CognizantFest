@@ -130,159 +130,7 @@ angular.module('app.controllers', [])
 })
 			
 .controller('signupCtrl', function($scope, $state, $q, UserService, $ionicLoading){
-    // This is the success callback from the login method
-    
-    //$state.go('menu.home');
-    var accesstoken;
-    var fbLoginSuccess = function(response){
-        if (!response.authResponse){
-            fbLoginError("Cannot find the authResponse");
-            return;
-        }
-
-        var authResponse = response.authResponse;
-        accesstoken = authResponse.accessToken;
-
-        getFacebookProfileInfo(authResponse).then(function(profileInfo){
-            // For the purpose of this example I will store user data on local storage
-            UserService.setUser({
-                authResponse: authResponse,
-                userID: profileInfo.id,
-                name: profileInfo.name,
-                email: profileInfo.email,
-                picture: "http://graph.facebook.com/" + authResponse.userID + "/picture?type=large"
-            });
-            $ionicLoading.hide();
-            //$state.go('menu.home');
-        }, function(fail){
-                // Fail get profile info
-                alert('profile info fail ' + fail);
-            });
-    };
-
-    // This is the fail callback from the login method
-    var fbLoginError = function(error){
-        alert('fbLoginError ' + error);
-        $ionicLoading.hide();
-    };
-
-    // This method is to get the user profile info from the facebook api
-    var getFacebookProfileInfo = function (authResponse){
-        var info = $q.defer();
-
-        facebookConnectPlugin.api('/me?fields=email,name&access_token=' + authResponse.accessToken, null,
-            function (response) {
-                console.log(response);
-                info.resolve(response);
-            },
-            function (response) {
-                console.log(response);
-                info.reject(response);
-            }
-        );
-        return info.promise;
-    };
-
-    //This method is executed when the user press the "Login with facebook" button
-    $scope.facebookSignIn = function(){
-        console.log('---> facebookSignIn');
-        facebookConnectPlugin.getLoginStatus(function(success){
-            if (success.status === 'connected'){
-                // The user is logged in and has authenticated your app, and response.authResponse supplies
-                // the user's ID, a valid access token, a signed request, and the time the access token
-                // and signed request each expire
-                //alert('getLoginStatus ' + success.status);
-
-                // Check if we have our user saved
-                var user = UserService.getUser('facebook');
-
-                if (!user.userID){
-                	alert('UNO');
-                    getFacebookProfileInfo(success.authResponse).then(function(profileInfo) {
-                        // For the purpose of this example I will store user data on local storage
-                        UserService.setUser({
-                            authResponse: success.authResponse,
-                            userID: profileInfo.id,
-                            name: profileInfo.name,
-                            email: profileInfo.email,
-                            picture: "http://graph.facebook.com/" + success.authResponse.userID + "/picture?type=large"
-                        });
-
-                        //$state.go('menu.home');
-                    }, function(fail){
-                            // Fail get profile info
-                            alert('profile info fail ' + fail);
-                       });
-                }else{
-                	//alert('DOS');
-                    $state.go('menu.home');
-                    //184427335315109 album_id
-                    //180129755744867 page_id
-                    //'http://images.halloweencostumes.com/products/11628/1-1/sexy-bavarian-girl-costume.jpg'
-                    var fan_token = 'EAAH1eElPZCI0BADZBlrZCbsZBWF5ig29gZBlmWMXD0I8jtP8fiXBRZCTOaxw0Qdo3haX6vqHlBLQEwRjsvaqTtb2DTCIJoW1jwV1Sn5ABsxH1ZA4xLJNZADarOGxo4kboMhpjZBDfKtD1lfDK1dJLcZBI4gRBOF2XGjOMZD';
-                   	var message = 'Hola soy chriss'
-                   	//var path = "file:///storage/sdcard0/Android/data/com.ionicframework.cognifest763009/cache/1475157641096.jpg"
-                   	var path = $scope.picTakenSrc;
-                   	alert(path);
-
-                    facebookConnectPlugin.api('/180129755744867/photos?method=post&message=' + message, ['publish_actions'], 
-                    	function (response) {
-							if (response && !response.error) {
-								alert('Successful Post');
-							}
-							else{
-								alert(JSON.stringify(response));
-							}
-						}
-
-                    	/*
-
-                    	function(response){
-                    		//console.log(response);
-                    		//alert(response);
-                    		console.log('todo bien', response);
-                    		alert('todo bien' + response);
-                    	},
-
-                    	function(error){
-                    		console.log('todo mal', error);
-                    		alert('FAIL ' + JSON.stringify(response))}
-                    		*/
-                    	)
-					
-
-						/*facebookConnectPlugin.showDialog( 
-    					{
-					        
-					        method: "feed",
-					        picºre:'https://www.google.co.jp/logos/doodles/2014/doodle-4-google-2014-japan-winner-5109465267306496.2-hp.png',
-					        name:'Test Post',
-					        message:'First photo post',    
-					        caption: 'Testing using phonegap plugin',
-					        description: 'Posting photo using phonegap facebook plugin'
-					    }, 
-					    function (response) { alert(JSON.stringify(response)) },
-					    function (response) { alert(JSON.stringify(response)) });*/
-                    
-                }
-            }else{
-                // If (success.status === 'not_authorized') the user is logged in to Facebook,
-                // but has not authenticated your app
-                // Else the person is not logged into Facebook,
-                // so we're not sure if they are logged into this app or not.
-
-                alert('getLoginStatus ' + success.status);
-
-                $ionicLoading.show({
-                    template: 'Logging in...'
-                });
-
-                // Ask the permissions you need. You can learn more about
-                // FB permissions here: https://developers.facebook.com/docs/facebook-login/permissions/v2.4
-                facebookConnectPlugin.login(['email', 'public_profile'], fbLoginSuccess, fbLoginError);
-            }
-        });
-    };
+    $state.go("menu.home");
 })
 	 
 .controller('playListCtrl', function($scope, $state) {
@@ -657,14 +505,10 @@ angular.module('app.controllers', [])
 		});
 	}
 
-
-
 })
 	 
 .controller('cameraPhotosCtrl', function($scope, $cordovaCamera) {
-    $scope.items = [];   
-    
-    var img64
+
     //Opens the camera and the settings that it will be using to take the pictures
     $scope.takePhoto = function () {
         var options = {
@@ -690,6 +534,7 @@ angular.module('app.controllers', [])
             var authToken = 'EAAH1eElPZCI0BADZBlrZCbsZBWF5ig29gZBlmWMXD0I8jtP8fiXBRZCTOaxw0Qdo3haX6vqHlBLQEwRjsvaqTtb2DTCIJoW1jwV1Sn5ABsxH1ZA4xLJNZADarOGxo4kboMhpjZBDfKtD1lfDK1dJLcZBI4gRBOF2XGjOMZD';
 		    
 		    sendToCanvas(imgCanvas);
+		    //dataURItoBlob(imgCanvas);
 		    
 
         }, function (error) {
@@ -698,7 +543,7 @@ angular.module('app.controllers', [])
     }
 
     function sendToCanvas(imgURI){
-		var myCanvas = document.getElementById('canvas').getContext('2d');
+		var myCanvas = document.getElementById('c').getContext('2d');
 		var img = new Image();
 		img.onload = function(){
 			myCanvas.drawImage(img, 0,0);	
@@ -707,29 +552,48 @@ angular.module('app.controllers', [])
 		img.src = imgURI;
 	}
 
-	var conversions = {
-  		stringToBinaryArray: function(string) {
-    		return Array.prototype.map.call(string, function(c) {
-      		return c.charCodeAt(0) & 0xff;
-    		});
-  		},
-  		base64ToString: function(b64String) {
-    		return atob(b64String);
-  		}
-	};
+	(function() {
+		    $(document).ready(function () {
+            
+            alert('doc ready');
+            	
+               $.ajaxSetup({ cache: true });
+  				$.getScript('http://connect.facebook.net/en_US/sdk.js', function(){
+  				alert('get script');
+			    FB.init({
+			      appId: '551371951570061',
+			      cookie: true, // set sessions cookies to allow your server to access the session?
+                  xfbml: true, // parse XFBML tags on this page?
+                  frictionlessRequests: true,
+                  oauth: true,
+			      version: 'v2.5' // or v2.0, v2.1, v2.2, v2.3
+			    }); 
 
-	var getImageToBeSentToFacebook = function() {
-	  // get the reference to the canvas
-	  var canvas = document.getElementById('canvas').getContext('2d');
+			    FB.login(function (response) {
+                    alert('fb login');
+                    if (response.authResponse) {
+                    	var access_token =   FB.getAuthResponse()['accessToken'];
+     					console.log('Access Token = '+ access_token);
+                        window.authToken = response.authResponse.accessToken;
+                    } else {
+                        alert('no response');
+                    }
+                }, {
+                    scope: 'publish_actions'
+                });
 
-	  // extract its contents as a jpeg image
-	  var data = canvas.toDataURL('image/jpeg');
+            });
 
-	  // strip the base64 "header"
-	  data = data.replace(/^data:image\/(png|jpe?g);base64,/, '');
+            // Populate the canvas
+            var c = document.getElementById("c");
+            var ctx = c.getContext("2d");
 
-	  // convert the base64 string to string containing the binary data
-	  return conversions.base64ToString(data);
-	}
-    
+            ctx.font = "20px Georgia";
+            ctx.fillText("Posted to Facebook", 10, 50);
+
+            alert('token ' + access_token);
+
+			});
+	})();
+
 })
