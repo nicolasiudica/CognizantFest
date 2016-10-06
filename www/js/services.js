@@ -124,61 +124,63 @@ angular.module('app.services', ['ngCordova'])
 .service('loginFBService', [function(){
 
     return {
-        	
-    $.ajaxSetup({ cache: true });
-	$.getScript('js/sdk.js', function(){
-		//alert('get script');
-        FB.init({
-          appId: '551371951570061',
-          cookie: true, // set sessions cookies to allow your server to access the session?
-          xfbml: true, // parse XFBML tags on this page?
-          frictionlessRequests: true,
-          oauth: true,
-          version: 'v2.5' // or v2.0, v2.1, v2.2, v2.3
-        }); 
+        callLogin(){
 
-        FB.login(function (response) {
-            //alert('fb login');
-            if (response.authResponse) {
-            	var access_token = FB.getAuthResponse()['accessToken'];
-    			//console.log('Access Token = '+ access_token);
-                window.authToken = response.authResponse.accessToken;
-                //console.log('window.authToken ' + window.authToken);
-                this.supermistico = access_token;
-                FB.setToken = access_token;
-                console.log(FB.setToken);
-                console.log('supermistico' + supermistico);
-            } else {
-                //alert('no response');
-            }
-        }, {
-            scope: 'publish_actions'
-        });
 
-    })
+            $.ajaxSetup({ cache: true });
+        	$.getScript('js/sdk.js', function(){
+        		//alert('get script');
+                FB.init({
+                  appId: '551371951570061',
+                  cookie: true, // set sessions cookies to allow your server to access the session?
+                  xfbml: true, // parse XFBML tags on this page?
+                  frictionlessRequests: true,
+                  oauth: true,
+                  version: 'v2.5' // or v2.0, v2.1, v2.2, v2.3
+                }); 
 
-    // Populate the canvas
-    var c = document.getElementById("c");
-    var ctx = c.getContext("2d");
+                FB.login(function (response) {
+                    //alert('fb login');
+                    if (response.authResponse) {
+                    	var access_token = FB.getAuthResponse()['accessToken'];
+            			//console.log('Access Token = '+ access_token);
+                        window.authToken = response.authResponse.accessToken;
+                        //console.log('window.authToken ' + window.authToken);
+                        this.supermistico = access_token;
+                        FB.setToken = access_token;
+                        console.log(FB.setToken);
+                        console.log('supermistico' + supermistico);
+                    } else {
+                        //alert('no response');
+                    }
+                }, {
+                    scope: 'publish_actions'
+                });
 
-    ctx.font = "20px Georgia";
-    ctx.fillText("Posted to Facebook", 10, 50);
+            })
 
-    function setToken(){
+            // Populate the canvas
+            var c = document.getElementById("c");
+            var ctx = c.getContext("2d");
 
-        var lastAuthToken = supermistico;
-        console.log('lastAuthToken in service ' + supermistico);
-        return lastAuthToken;
+            ctx.font = "20px Georgia";
+            ctx.fillText("Posted to Facebook", 10, 50);
 
-    }    
+            function setToken(){
 
-    //setTimeout(setToken, 10000);
-    
-     
-    }   
+                var lastAuthToken = supermistico;
+                console.log('lastAuthToken in service ' + supermistico);
+                return lastAuthToken;
+
+            }    
+
+            //setTimeout(setToken, 10000);
+            
+             
+            }   
 
   
-
+    }   
     //alert('token ' + access_token);
 
 }])

@@ -554,11 +554,11 @@ angular.module('app.controllers', [])
 
 
 
-	loginFBService;
+	loginFBService.callLogin();
   setTimeout(function() {
     console.log("caca");
   }, 1000);
-  console.log('controller ' + loginFBService);
+  console.log('controller ' + loginFBService.callLogin());
 	$scope.photoPost = function(authToken){
 		PostImageToFacebook.postInFB(authToken);
 	}
