@@ -20,5 +20,6 @@ angular.module('app', ['ionic', 'ngCordova', 'ngCordovaOauth', 'app.controllers'
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
   });
 })
