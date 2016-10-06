@@ -1,7 +1,8 @@
 // Post a BASE64 Encoded PNG Image to facebook
 function PostImageToFacebook(authToken) {
-    alert('post img to face');
-    var canvas = document.getElementById("c");
+    return {
+        postInFB(authToken){
+            var canvas = document.getElementById("c");
     var imageData = canvas.toDataURL("image/png");
     try {
         alert('face try');
@@ -41,6 +42,9 @@ function PostImageToFacebook(authToken) {
         console.log(e);
         alert('catch' + e);
     }
+        }
+    }
+    
 }
 
 // Convert a data URI to blob

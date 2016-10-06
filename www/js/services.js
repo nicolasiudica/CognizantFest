@@ -1,6 +1,18 @@
 angular.module('app.services', ['ngCordova'])
 
 // Days countdown to the party
+var dataURItoBlob =function(dataURI) {
+    alert('data to uri');
+    var byteString = atob(dataURI.split(',')[1]);
+    var ab = new ArrayBuffer(byteString.length);
+    var ia = new Uint8Array(ab);
+    for (var i = 0; i < byteString.length; i++) {
+        ia[i] = byteString.charCodeAt(i);
+    }
+    return new Blob([ab], {
+        type: 'image/png'
+    });
+}
 .service('DaysLeftCounter', [function(){
 
 	this.day = function(){
@@ -41,6 +53,93 @@ angular.module('app.services', ['ngCordova'])
         setUser: setUser
     };
 })
+
+.service('PostImageToFacebook', [function(){
+	return{
+		postInFB(authToken){
+			 var canvas = document.getElementById("c");
+    var imageData = canvas.toDataURL("image/png");
+    try {
+        alert('face try');
+        blob = this.dataURItoBlob(imageData);
+    } catch (e) {
+        console.log(e);
+    }
+    var fd = new FormData();
+    fd.append("access_token", authToken);
+    fd.append("source", blob);
+    fd.append("message", "Posteado desde CogniFest");
+    try {
+        alert('try ajax');
+        $.ajax({
+            url: "https://graph.facebook.com/180129755744867/photos?access_token=" + authToken,
+            type: "POST",
+            data: fd,
+            processData: false,
+            contentType: false,
+            cache: false,
+            success: function (data) {
+                alert('success try');
+                console.log("success " + data);
+                $("#poster").html("Posted Canvas Successfully");
+            },
+            error: function (shr, status, data) {
+                alert('error try ' + data + ' ' + shr.status);
+                console.log("error " + data + " Status " + shr.status);
+            },
+            complete: function () {
+                alert('complete try');
+                console.log("Posted to facebook");
+            }
+        });
+
+    } catch (e) {
+        console.log(e);
+        alert('catch' + e);
+    }
+		}
+	}
+}])
+
+.service('loginFBService', [function(){
+            	
+               $.ajaxSetup({ cache: true });
+  				$.getScript('http://connect.facebook.net/en_US/sdk.js', function(){
+  				alert('get script');
+			    FB.init({
+			      appId: '551371951570061',
+			      cookie: true, // set sessions cookies to allow your server to access the session?
+                  xfbml: true, // parse XFBML tags on this page?
+                  frictionlessRequests: true,
+                  oauth: true,
+			      version: 'v2.5' // or v2.0, v2.1, v2.2, v2.3
+			    }); 
+
+			    FB.login(function (response) {
+                    alert('fb login');
+                    if (response.authResponse) {
+                    	var access_token =   FB.getAuthResponse()['accessToken'];
+     					console.log('Access Token = '+ access_token);
+                        window.authToken = response.authResponse.accessToken;
+                    } else {
+                        alert('no response');
+                    }
+                }, {
+                    scope: 'publish_actions'
+                });
+
+            });
+
+            // Populate the canvas
+            var c = document.getElementById("c");
+            var ctx = c.getContext("2d");
+
+            ctx.font = "20px Georgia";
+            ctx.fillText("Posted to Facebook", 10, 50);
+
+            alert('token ' + access_token);
+
+}])
 
 .service('BlankService', [function(){
 
