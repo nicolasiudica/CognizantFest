@@ -507,7 +507,7 @@ angular.module('app.controllers', [])
 
 })
 	 
-.controller('cameraPhotosCtrl', function($scope, $cordovaCamera) {
+.controller('cameraPhotosCtrl', function($scope, $cordovaCamera,PostImageToFacebook,loginFBService) {
 
     //Opens the camera and the settings that it will be using to take the pictures
     $scope.takePhoto = function () {
@@ -552,48 +552,11 @@ angular.module('app.controllers', [])
 		img.src = imgURI;
 	}
 
-	(function() {
-		    $(document).ready(function () {
-            
-            alert('doc ready');
-            	
-               $.ajaxSetup({ cache: true });
-  				$.getScript('http://connect.facebook.net/en_US/sdk.js', function(){
-  				alert('get script');
-			    FB.init({
-			      appId: '551371951570061',
-			      cookie: true, // set sessions cookies to allow your server to access the session?
-                  xfbml: true, // parse XFBML tags on this page?
-                  frictionlessRequests: true,
-                  oauth: true,
-			      version: 'v2.5' // or v2.0, v2.1, v2.2, v2.3
-			    }); 
+	loginFBService;
 
-			    FB.login(function (response) {
-                    alert('fb login');
-                    if (response.authResponse) {
-                    	var access_token =   FB.getAuthResponse()['accessToken'];
-     					console.log('Access Token = '+ access_token);
-                        window.authToken = response.authResponse.accessToken;
-                    } else {
-                        alert('no response');
-                    }
-                }, {
-                    scope: 'publish_actions'
-                });
-
-            });
-
-            // Populate the canvas
-            var c = document.getElementById("c");
-            var ctx = c.getContext("2d");
-
-            ctx.font = "20px Georgia";
-            ctx.fillText("Posted to Facebook", 10, 50);
-
-            alert('token ' + access_token);
-
-			});
-	})();
+	$scope.photoPost = function(authToken){
+		PostImageToFacebook.postInFB(authToken);
+	}
+	
 
 })

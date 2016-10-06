@@ -552,8 +552,13 @@ angular.module('app.controllers', [])
 		img.src = imgURI;
 	}
 
-	loginFBService;
 
+
+	loginFBService;
+  setTimeout(function() {
+    console.log("caca");
+  }, 1000);
+  console.log('controller ' + loginFBService);
 	$scope.photoPost = function(authToken){
 		PostImageToFacebook.postInFB(authToken);
 	}

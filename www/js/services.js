@@ -1,7 +1,4 @@
-angular.module('app.services', ['ngCordova'])
-
-// Days countdown to the party
-var dataURItoBlob =function(dataURI) {
+/*var dataURItoBlob = function(dataURI) {
     alert('data to uri');
     var byteString = atob(dataURI.split(',')[1]);
     var ab = new ArrayBuffer(byteString.length);
@@ -13,6 +10,14 @@ var dataURItoBlob =function(dataURI) {
         type: 'image/png'
     });
 }
+*/
+
+var supermistico = null;
+
+angular.module('app.services', ['ngCordova'])
+
+// Days countdown to the party
+
 .service('DaysLeftCounter', [function(){
 
 	this.day = function(){
@@ -57,11 +62,26 @@ var dataURItoBlob =function(dataURI) {
 .service('PostImageToFacebook', [function(){
 	return{
 		postInFB(authToken){
+            console.log('authToken from postInFB ' + authToken);
 			 var canvas = document.getElementById("c");
     var imageData = canvas.toDataURL("image/png");
     try {
         alert('face try');
-        blob = this.dataURItoBlob(imageData);
+        var blob = function(dataURI) {
+                alert('data to uri');
+                var byteString = atob(dataURI.split(',')[1]);
+                var ab = new ArrayBuffer(byteString.length);
+                var ia = new Uint8Array(ab);
+                for (var i = 0; i < byteString.length; i++) {
+                    ia[i] = byteString.charCodeAt(i);
+                }
+                return new Blob([ab], {
+                    type: 'image/png'
+                });
+            }
+        
+
+        
     } catch (e) {
         console.log(e);
     }
@@ -102,42 +122,64 @@ var dataURItoBlob =function(dataURI) {
 }])
 
 .service('loginFBService', [function(){
-            	
-               $.ajaxSetup({ cache: true });
-  				$.getScript('http://connect.facebook.net/en_US/sdk.js', function(){
-  				alert('get script');
-			    FB.init({
-			      appId: '551371951570061',
-			      cookie: true, // set sessions cookies to allow your server to access the session?
-                  xfbml: true, // parse XFBML tags on this page?
-                  frictionlessRequests: true,
-                  oauth: true,
-			      version: 'v2.5' // or v2.0, v2.1, v2.2, v2.3
-			    }); 
 
-			    FB.login(function (response) {
-                    alert('fb login');
-                    if (response.authResponse) {
-                    	var access_token =   FB.getAuthResponse()['accessToken'];
-     					console.log('Access Token = '+ access_token);
-                        window.authToken = response.authResponse.accessToken;
-                    } else {
-                        alert('no response');
-                    }
-                }, {
-                    scope: 'publish_actions'
-                });
+    return {
+        	
+    $.ajaxSetup({ cache: true });
+	$.getScript('js/sdk.js', function(){
+		//alert('get script');
+        FB.init({
+          appId: '551371951570061',
+          cookie: true, // set sessions cookies to allow your server to access the session?
+          xfbml: true, // parse XFBML tags on this page?
+          frictionlessRequests: true,
+          oauth: true,
+          version: 'v2.5' // or v2.0, v2.1, v2.2, v2.3
+        }); 
 
-            });
+        FB.login(function (response) {
+            //alert('fb login');
+            if (response.authResponse) {
+            	var access_token = FB.getAuthResponse()['accessToken'];
+    			//console.log('Access Token = '+ access_token);
+                window.authToken = response.authResponse.accessToken;
+                //console.log('window.authToken ' + window.authToken);
+                this.supermistico = access_token;
+                FB.setToken = access_token;
+                console.log(FB.setToken);
+                console.log('supermistico' + supermistico);
+            } else {
+                //alert('no response');
+            }
+        }, {
+            scope: 'publish_actions'
+        });
 
-            // Populate the canvas
-            var c = document.getElementById("c");
-            var ctx = c.getContext("2d");
+    })
 
-            ctx.font = "20px Georgia";
-            ctx.fillText("Posted to Facebook", 10, 50);
+    // Populate the canvas
+    var c = document.getElementById("c");
+    var ctx = c.getContext("2d");
 
-            alert('token ' + access_token);
+    ctx.font = "20px Georgia";
+    ctx.fillText("Posted to Facebook", 10, 50);
+
+    function setToken(){
+
+        var lastAuthToken = supermistico;
+        console.log('lastAuthToken in service ' + supermistico);
+        return lastAuthToken;
+
+    }    
+
+    //setTimeout(setToken, 10000);
+    
+     
+    }   
+
+  
+
+    //alert('token ' + access_token);
 
 }])
 

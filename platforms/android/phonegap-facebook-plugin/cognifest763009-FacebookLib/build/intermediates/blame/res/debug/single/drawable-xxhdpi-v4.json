@@ -12,11 +12,31 @@
         "source": "/Users/pablo/Documents/ctsFest2/CognizantFest/platforms/android/phonegap-facebook-plugin/cognifest763009-FacebookLib/res/drawable-xxhdpi/com_facebook_button_like_background.png"
     },
     {
+        "merged": "/Users/pablo/Documents/dante_fb/CognizantFest/platforms/android/phonegap-facebook-plugin/cognifest763009-FacebookLib/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/com_facebook_button_like_icon_selected.png",
+        "source": "/Users/pablo/Documents/dante_fb/CognizantFest/platforms/android/phonegap-facebook-plugin/cognifest763009-FacebookLib/res/drawable-xxhdpi/com_facebook_button_like_icon_selected.png"
+    },
+    {
+        "merged": "/Users/pablo/Documents/dante_fb/CognizantFest/platforms/android/phonegap-facebook-plugin/cognifest763009-FacebookLib/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/com_facebook_button_like_background.png",
+        "source": "/Users/pablo/Documents/dante_fb/CognizantFest/platforms/android/phonegap-facebook-plugin/cognifest763009-FacebookLib/res/drawable-xxhdpi/com_facebook_button_like_background.png"
+    },
+    {
         "merged": "/Users/pablo/Documents/ctsFest2/CognizantFest/platforms/android/phonegap-facebook-plugin/cognifest763009-FacebookLib/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/com_facebook_button_like_icon.png",
         "source": "/Users/pablo/Documents/ctsFest2/CognizantFest/platforms/android/phonegap-facebook-plugin/cognifest763009-FacebookLib/res/drawable-xxhdpi/com_facebook_button_like_icon.png"
     },
     {
         "merged": "/Users/pablo/Documents/ctsFest2/CognizantFest/platforms/android/phonegap-facebook-plugin/cognifest763009-FacebookLib/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/com_facebook_button_like_icon_selected.png",
         "source": "/Users/pablo/Documents/ctsFest2/CognizantFest/platforms/android/phonegap-facebook-plugin/cognifest763009-FacebookLib/res/drawable-xxhdpi/com_facebook_button_like_icon_selected.png"
+    },
+    {
+        "merged": "/Users/pablo/Documents/dante_fb/CognizantFest/platforms/android/phonegap-facebook-plugin/cognifest763009-FacebookLib/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/com_facebook_button_like_pressed.png",
+        "source": "/Users/pablo/Documents/dante_fb/CognizantFest/platforms/android/phonegap-facebook-plugin/cognifest763009-FacebookLib/res/drawable-xxhdpi/com_facebook_button_like_pressed.png"
+    },
+    {
+        "merged": "/Users/pablo/Documents/dante_fb/CognizantFest/platforms/android/phonegap-facebook-plugin/cognifest763009-FacebookLib/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/com_facebook_button_like_background_selected.png",
+        "source": "/Users/pablo/Documents/dante_fb/CognizantFest/platforms/android/phonegap-facebook-plugin/cognifest763009-FacebookLib/res/drawable-xxhdpi/com_facebook_button_like_background_selected.png"
+    },
+    {
+        "merged": "/Users/pablo/Documents/dante_fb/CognizantFest/platforms/android/phonegap-facebook-plugin/cognifest763009-FacebookLib/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/com_facebook_button_like_icon.png",
+        "source": "/Users/pablo/Documents/dante_fb/CognizantFest/platforms/android/phonegap-facebook-plugin/cognifest763009-FacebookLib/res/drawable-xxhdpi/com_facebook_button_like_icon.png"
     }
 ]
