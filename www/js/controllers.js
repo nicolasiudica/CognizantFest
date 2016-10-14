@@ -497,6 +497,46 @@ angular.module('app.controllers', [])
 })
 	 
 .controller('cameraPhotosCtrl', function($scope) {
+//Opens the camera and the settings that it will be using to take the   camera controller
+    $scope.takePhoto = function () {
+        var options = {
+            quality: 100,
+            destinationType: Camera.DestinationType.DATA_URL,
+            sourceType: Camera.PictureSourceType.CAMERA,
+            allowEdit: false,
+            encodingType: Camera.EncodingType.JPEG,
+            targetWidth: 300, //Here you can change the size of the image shown in the <img> tag
+            targetHeight: 300, //Here you can change the size of the image shown in the <img> tag
+            popoverOptions: CameraPopoverOptions, //This is only for iOS, to show the Confirm/Reject buttons in a popup. Android does show that popup automatically thanks to the Cordova plugin
+            saveToPhotoAlbum: true
+        };
 
+        //alert();
+
+        $cordovaCamera.getPicture(options).then(function(imageData) {      
+            //alert(imageData); 
+            $scope.imgURI = "data:image/jpeg;base64," + imageData; 
+
+            var imgCanvas = "data:image/jpeg;base64," + imageData;           
+            
+            var authToken = 'EAAH1eElPZCI0BADZBlrZCbsZBWF5ig29gZBlmWMXD0I8jtP8fiXBRZCTOaxw0Qdo3haX6vqHlBLQEwRjsvaqTtb2DTCIJoW1jwV1Sn5ABsxH1ZA4xLJNZADarOGxo4kboMhpjZBDfKtD1lfDK1dJLcZBI4gRBOF2XGjOMZD';
+            
+            sendToCanvas(imgCanvas);
+            
+
+        }, function (error) {
+            // An error occured. Show a message to the user
+        }); 
+    }
+
+    function sendToCanvas(imgURI){
+        var myCanvas = document.getElementById('c').getContext('2d');
+        var img = new Image();
+        img.onload = function(){
+            myCanvas.drawImage(img, 0,0);   
+        }
+
+        img.src = imgURI;
+    }
 
 });
