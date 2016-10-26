@@ -1,10 +1,14 @@
 {
-  "name": "HelloIonic",
+  "name": "helloionic",
   "private": "true",
   "devDependencies": {
-    "ionic": "driftyco/ionic-bower#1.3.1"
+    "ionic": "driftyco/ionic-bower#1.3.1",
+    "angularfire": "^2.0.2"
   },
   "dependencies": {
-    "angular-spotify": "^1.4.2"
+    "firebase": "firebase/firebase-bower#3.5.1",
+    "angularfire": "firebase/angularFire#2.0.2",
+    "jquery": "^3.1.1",
+    "lodash": "^4.16.4"
   }
 }

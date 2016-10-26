@@ -1,0 +1,56 @@
+@mixin flexbox() {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+
+.flex-wrapper {
+	@include flexbox();
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+}
+
+.swiper-container .swiper-slide > div,
+.swiper-container .swiper-slide > div img {
+	transition: all 800ms ease-in;
+	-webkit-transition: all 800ms ease-in;
+	-o-transition: all 800ms ease-in;
+	-moz-transition: all 800ms ease-in;
+}
+
+.swiper-container .swiper-slide > div {
+	padding: 40px 20px 20px;
+}
+
+.swiper-container .swiper-slide img {
+	margin-left: 65px;
+	width: 100%;
+}
+
+.swiper-container .swiper-slide-next + .swiper-slide img {
+	margin-left: -65px;
+}
+
+.swiper-container .swiper-slide.swiper-slide-prev img {
+	margin-left: 15px;
+}
+
+.swiper-container .swiper-slide.swiper-slide-next img {
+	margin-left: -15px;
+}
+
+.swiper-container .swiper-slide.swiper-slide-prev > div,
+.swiper-container .swiper-slide.swiper-slide-next > div {
+	padding: 20px 10px 10px;
+}
+
+.swiper-container .swiper-slide.swiper-slide-active > div {
+	padding: 0px;
+}
+
+.swiper-container .swiper-slide.swiper-slide-active img {
+	margin-left: 0px;
+}

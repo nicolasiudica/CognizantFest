@@ -1,7 +1,3 @@
 {
-  "directory": "library",
-  "registry": "http://bower.herokuapp.com",
-  "proxy":"http://<409560>:<c24!Arreras9>@<10.238.149.80>:<6050>/",
-  "https-proxy":"http://<409560>:<c24!Arreras9>@<10.238.149.80>:<6050>/",
-  "strict-ssl": false
+  "directory": "www/lib"
 }
