@@ -138,7 +138,7 @@ angular
 			$scope.data = {};
 
 			var popup = $ionicPopup.show({
-				title: $scope.message,
+				//title: $scope.message,
 				scope: $scope,
 				templateUrl: 'templates/games/bubbles/popup.html',
 				buttons: [{

@@ -8,8 +8,6 @@ angular.module('app.routes', [])
   // Each state's controller can be found in controllers.js
   $stateProvider
     
-  
-
   .state('menu.home', {
     url: '/index',
     views: {
@@ -44,7 +42,7 @@ angular.module('app.routes', [])
     controller: 'BubbleCtrl'
   })
 
-  .state('menu.drinks', {
+ .state('menu.drinks', {
     url: '/drinks',
     views: {
       'cognifest': {
@@ -54,6 +52,14 @@ angular.module('app.routes', [])
     }
   })
 
+  /*
+  .state('menu.drinks', {
+    url: '/drinks',
+    templateUrl: 'templates/drinks.html',
+    controller: 'drinksCtrl'
+  })
+  
+  */
   .state('menu', {
     url: '/cognifest',
     templateUrl: 'templates/menu.html',
