@@ -15,7 +15,7 @@ var config = {
 	messagingSenderId: "57670734851"
 };
 firebase.initializeApp(config);
-firebase.auth().signInAnonymously().catch(function(error) {
+firebase.auth().signInAnonymously().catch(function (error) {
 	// Handle Errors here.
 	var errorCode = error.code;
 	var errorMessage = error.message;
@@ -25,10 +25,16 @@ firebase.auth().signInAnonymously().catch(function(error) {
 var ref = firebase.database().ref("/photo");
 
 
-angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services', 'app.directives', 'ion-gallery', 'bubbles'])
+angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services', 'app.directives', 'ion-gallery', 'bubbles', 'drinks'])
 
-.run(function($ionicPlatform) {
-	$ionicPlatform.ready(function() {
+.config(['$ionicConfigProvider', function ($ionicConfigProvider) {
+
+	$ionicConfigProvider.tabs.position('bottom'); // other values: top
+
+}])
+
+.run(function ($ionicPlatform) {
+	$ionicPlatform.ready(function () {
 		// Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
 		// for form inputs)
 		if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {

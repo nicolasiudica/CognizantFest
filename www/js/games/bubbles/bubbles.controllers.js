@@ -39,9 +39,9 @@ angular
 				thisr = randomRadius(),
 			*/
 			var theOne = [{
-					x: randomScalingFactor(),
-					y: randomScalingFactor(),
-					r: randomRadius()
+				x: randomScalingFactor(),
+				y: randomScalingFactor(),
+				r: randomRadius()
 				}];
 			//console.log("The One: (x,y) = (" + thisx + "," + thisy + ")");
 			//console.log(thisr);
@@ -103,7 +103,7 @@ angular
 				}]);
 			}
 		}
-		
+
 		Chart.defaults.global.elements.point.hoverRadius = 0;
 
 		$scope.options = {
@@ -131,7 +131,7 @@ angular
 
 		createChart();
 		$interval(createChart, 3000);
-		
+
 		/****  ****/
 		/*********/
 		$scope.showPopup = function () {
@@ -183,43 +183,43 @@ angular
 
 				valid = validX && validY;
 
-				var bubbleResultMessages = [
-					{
-						message: 'One tequila, two tequila, three tequila, floor.',
-						img: '',
-						resultID: 0
+			var bubbleResultMessages = [
+				{
+					message: 'One tequila, two tequila, three tequila, floor.',
+					img: '',
+					resultID: 0
 					},
-					{
-						message: 'You didn´t fall, the floor just needed a hug',
-						img: '',
-						resultID: 1
+				{
+					message: 'You didn´t fall, the floor just needed a hug',
+					img: '',
+					resultID: 1
 					},
-					{
-						message: 'Go show those sweet moves on the dance floor, trust me... you can dance',
-						img: '',
-						resultID: 2
+				{
+					message: 'Go show those sweet moves on the dance floor, trust me... you can dance',
+					img: '',
+					resultID: 2
 					},
-					{
-						message: 'A man´s got to believe in something. I believe you need another drink.',
-						img: '',
-						resultID: 3
+				{
+					message: 'A man´s got to believe in something. I believe you need another drink.',
+					img: '',
+					resultID: 3
 					},
-					{
-						message: 'Yo mama´s so fat, the recursive function used to calculate her mass causes a stack overflow!',
-						img: '',
-						resultID: 4
+				{
+					message: 'Yo mama´s so fat, the recursive function used to calculate her mass causes a stack overflow!',
+					img: '',
+					resultID: 4
 					},
-					{
-						message: 'Really? All the bubbles? ALL??? put the phone down a go get a drink',
-						img: '',
-						resultID: 5
+				{
+					message: 'Really? All the bubbles? ALL??? put the phone down a go get a drink',
+					img: '',
+					resultID: 5
 					}
 				];
 
-				//console.log("Valid: x = " + validX + " and y = " + validY);
-				//console.log("TheOne: (x,y,r) = (" + theOne.x + "," + theOne.y + "," + theOne.r + ")");
-				//console.log("Valid: ([m < x < M] , [m < y < M]) = ([" + hitboxMinX + " < x < " + hitboxMaxX + "] , [" + hitboxMinY + " < y < " + hitboxMaxY + "])");
-				//console.log("Click: (x,y) = (" + clickX + "," + clickY + ")");
+			//console.log("Valid: x = " + validX + " and y = " + validY);
+			//console.log("TheOne: (x,y,r) = (" + theOne.x + "," + theOne.y + "," + theOne.r + ")");
+			//console.log("Valid: ([m < x < M] , [m < y < M]) = ([" + hitboxMinX + " < x < " + hitboxMaxX + "] , [" + hitboxMinY + " < y < " + hitboxMaxY + "])");
+			//console.log("Click: (x,y) = (" + clickX + "," + clickY + ")");
 
 			clicksCounter(valid);
 
@@ -229,25 +229,25 @@ angular
 
 			var totalClicks = badClickCounter + goodClickCounter;
 
-			if(totalClicks === 5){
+			if (totalClicks === 5) {
 				resetGame();
 			}
 		};
 
-		function clicksCounter(valid){
-			if(valid){
+		function clicksCounter(valid) {
+			if (valid) {
 				goodClickCounter += 1;
 				$scope.theOne = createTheOne();
 				createChart();
 				$state.reload('canvas');
-			}else{
+			} else {
 				badClickCounter += 1;
 				createChart();
 				$state.reload('canvas');
 			}
 		}
 
-		function sendResult(state){
+		function sendResult(state) {
 			//console.log(state);
 			$scope.message = state;
 			//$scope.resultID = state.resultID;
@@ -255,7 +255,7 @@ angular
 			$scope.goodClicks = goodClickCounter;
 		}
 
-		function resetGame(){
+		function resetGame() {
 			badClickCounter = 0;
 			goodClickCounter = 0;
 			$scope.badClicks = 0;
@@ -263,4 +263,3 @@ angular
 			$scope.showPopup();
 		}
 	}]);
-

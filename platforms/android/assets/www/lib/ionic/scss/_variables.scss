@@ -5,7 +5,7 @@
 $light:                           #fff !default;
 $stable:                          #f8f8f8 !default;
 $positive:                        #387ef5 !default;
-$calm:                            #11c1f3 !default;
+$calm:                            #50b3cf !default;
 $balanced:                        #33cd5f !default;
 $energized:                       #ffc900 !default;
 $assertive:                       #ef473a !default;
@@ -16,7 +16,7 @@ $dark:                            #444 !default;
 // Base
 // -------------------------------
 
-$font-family-sans-serif:           '-apple-system', "Helvetica Neue", "Roboto", "Segoe UI", sans-serif !default;
+$font-family-sans-serif:          '-apple-system', "Helvetica Neue", "Roboto", "Segoe UI", sans-serif !default;
 
 $font-family-light-sans-serif:    '-apple-system', "HelveticaNeue-Light", "Roboto-Light", "Segoe UI-Light", sans-serif-light !default;
 $font-family-serif:               serif !default;
@@ -171,7 +171,7 @@ $bar-subheader-height:            $bar-height !default;
 $bar-subfooter-height:            $bar-height !default;
 
 $bar-light-bg:                    rgba($button-light-bg, $bar-transparency) !default;
-$bar-light-text:                  $button-light-text !default;
+$bar-light-text:                  $button-calm-bg !default;
 $bar-light-border:                $button-light-border !default;
 $bar-light-active-bg:             $button-light-active-bg !default;
 $bar-light-active-border:         $button-light-active-border !default;
@@ -283,7 +283,7 @@ $tabs-default-text:               $tabs-stable-text !default;
 
 $tab-item-max-width:              150px !default;
 
-$tabs-off-opacity:                0.4 !default;
+$tabs-off-opacity:                0.9 !default;
 $tabs-striped-off-opacity:        $tabs-off-opacity !default;
 $tabs-striped-off-color:          #000 !default;
 $tabs-striped-border-width:       2px !default;

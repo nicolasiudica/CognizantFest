@@ -1,7 +1,7 @@
 angular.module('app.controllers', [])
 
 .controller('homeCtrl', function ($scope, $state, DaysLeftCounter) {
-	
+
 	$scope.daysLeft = DaysLeftCounter.day().daysLeft();
 
 	var counter = 1;
@@ -25,100 +25,26 @@ angular.module('app.controllers', [])
 
 })
 
-
-.controller('gamesCtrl', function ($scope, $state) {
-
-})
-
-.controller('drinksCtrl', function ($scope, $state, $ionicModal, $cordovaVibration, RandomImage) {
-
-	$scope.items = [{
-		name: 'Beer',
-		largeImg: 'img/beer_large.png',
-		src: 'img/beer.png',
-		sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
-	}, {
-		name: 'Cuba Libre',
-		largeImg: 'img/cubalibre_large.png',
-		src: 'img/cubalibre.png',
-		sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
-	}, {
-		name: 'Fernet',
-		largeImg: 'img/fernet_large.png',
-		src: 'img/fernet.png',
-		sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
-	}, {
-		name: 'Gintonic',
-		largeImg: 'img/gintonic_large.png',
-		src: 'img/gintonic.png',
-		sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
-	}, {
-		name: 'Daiquiri',
-		largeImg: 'img/daiquiri_large.png',
-		src: 'img/daiquiri.png',
-		sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
-	}, {
-		name: 'Screwdriver',
-		largeImg: 'img/screwdriver_large.png',
-		src: 'img/screwdriver.png',
-		sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
-	}, {
-		name: 'Margarita',
-		largeImg: 'img/margarita_large.png',
-		src: 'img/margarita.png',
-		sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
-	}, {
-		name: '',
-		largeImg: '',
-		src: '',
-		sub: ''
-	}];
-
-	
-	$ionicModal.fromTemplateUrl('templates/randomDrinkModal.html', {
-		scope: $scope,
-		animation: 'slide-in-up'
-	}).then(function(modal){
-		$scope.modal = modal;
-	});
-		$scope.closeModal = function(){
-			$scope.modal.hide();
-		//console.log('escondiendo la modal');
-	};
-
-	var onShake = function () {
-  		var randomNumber = Math.floor((Math.random() * 7));
-  		var itemsImages = RandomImage.items();
-      	$scope.randomDrink = itemsImages[randomNumber];
-  		//send selected drink object yo the scope
-		//$scope.randomDrink = $scope.items[randomNumber];
-		//open modal
-		$cordovaVibration.vibrate(300);
-		$scope.modal.show();
-	};
-
-	var onError = function () {
- 		alert('error');
-  		// Fired when there is an accelerometer error (optional)
-	};
-
-	// Start watching for shake gestures and call "onShake"
-	// with a shake sensitivity of 40 (optional, default 30)
-	if(window.shake) {
-		shake.startWatch(onShake, 40 , onError);
-	}
-
-})
-
-.controller('signupCtrl', function ($scope, $state) {
-
-})
-
-.controller('playListCtrl', function ($scope, $state) {
-
-})
-
 .controller('mapCtrl', function ($scope, $state, $cordovaGeolocation) {
+
+	$scope.callDialog = function () {
+		document.addEventListener("deviceready", function () {
+			cordova.dialogGPS("Your GPS is Disabled, this app needs to be enable to works.", //message
+				"Use GPS, with wifi or 3G.", //description
+				function (buttonIndex) { //callback
+					switch (buttonIndex) {
+					case 0:
+						break; //cancel
+					case 1:
+						break; //neutro option
+					case 2:
+						break; //user go to configuration
+					}
+				},
+				"Please Turn on GPS", //title
+				["Cancel", "Later", "Go"]); //buttons
+		});
+	}
 
 	$scope.getCallPermission = function () {
 		cordova.plugins.diagnostic.getPermissionAuthorizationStatus(function (status) {
@@ -130,13 +56,23 @@ angular.module('app.controllers', [])
 				$scope.setPhonePermission();
 				break;
 			}
-		}, function (error) {}, cordova.plugins.diagnostic.runtimePermission.ACCESS_FINE_LOCATION);
+		}, function (error) {
+			//			if (window.confirm("Failed to automatically set Location Mode to 'High Accuracy'. Would you like to switch to the Location Settings page and do this manually?")) {
+			//				$scope.callDialog();
+			//				cordova.plugins.diagnostic.switchToLocationSettings();
+			//				}
+		}, cordova.plugins.diagnostic.runtimePermission.ACCESS_FINE_LOCATION);
 	};
 
 	$scope.setPhonePermission = function () {
 		cordova.plugins.diagnostic.requestRuntimePermission(function (status) {
 			initMap();
-		}, function (error) {}, cordova.plugins.diagnostic.runtimePermission.ACCESS_FINE_LOCATION);
+		}, function (error) {
+			//			if (window.confirm("Failed to automatically set Location Mode to 'High Accuracy'. Would you like to switch to the Location Settings page and do this manually?")) {
+			//				$scope.callDialog();
+			//				cordova.plugins.diagnostic.switchToLocationSettings();
+			//			}
+		}, cordova.plugins.diagnostic.runtimePermission.ACCESS_FINE_LOCATION);
 	};
 
 	$scope.$on('$ionicView.enter', function () {
@@ -153,10 +89,10 @@ angular.module('app.controllers', [])
 	var directionsService;
 	var map = $scope.map;
 	var mapDIV = document.getElementById('map');
-	var partyLocation = "Avenida Presidente Figueroa Alcorta 7285, Ciudad Autónoma de Buenos Aires";
+	var partyLocation = "Av. Cnel. Niceto Vega 5350, 1414 CABA";
 	var partyLatLng = {
-		lat: -34.546459,
-		lng: -58.445475
+		lat: -34.588660,
+		lng: -58.436719
 	};
 	var destination = partyLatLng;
 	var destinationString = partyLocation;
@@ -367,6 +303,7 @@ angular.module('app.controllers', [])
 		}, function (error) {
 			console.log("Could not get location " + error.code);
 			$('#map').append("Could not get the location: " + error.message + error.code);
+			$scope.getCallPermission();
 		});
 	}
 
@@ -543,14 +480,11 @@ angular.module('app.controllers', [])
 			//infowindow.open(map, markerCognizant);
 		});
 	}
-
 })
 
-.controller('cameraPhotosCtrl', function ($scope, $cordovaCamera, DaysLeftCounter) {
+.controller('cameraCtrl', function ($scope, $cordovaCamera, DaysLeftCounter) {
 
 	$scope.items = [];
-
-	//Base64 image for testing purposes
 
 	//Opens the camera and the settings that it will be using to take the pictures
 	$scope.takePhoto = function () {
@@ -574,18 +508,18 @@ angular.module('app.controllers', [])
 			$scope.showPost = !($scope.showPostMessage = ($scope.showDiscardMessage = false));
 
 			$scope.imgURI = "data:image/jpeg;base64," + imageData;
-			
+
 			var img = new Image();
 			img.src = $scope.imgURI;
 			var imgH = img.height;
 			var imgW = img.width;
-			
-			if(imgH > imgW) {
+
+			if (imgH > imgW) {
 				$scope.class = "resize-vertical";
 			} else {
 				$scope.class = "resize-horizontal";
 			}
-			
+
 			$scope.height = document.getElementsByTagName('ion-content')[1].clientHeight * (2 / 3);
 
 			$scope.postPhoto = function () {
@@ -600,32 +534,7 @@ angular.module('app.controllers', [])
 			$scope.discardPhoto = function () {
 				$scope.showPost = !($scope.showDiscardMessage = true);
 			};
-		}, function (error) {
-
-		});
+		}, function (error) {});
 	};
-
-	//ref.push({src:imgData});
-	/* ref.on('child_added', function(snapshot) {
-		 $scope.items = [];
-		 console.log(snapshot.key)
-		 snapshot.forEach(function(childsnap){
-			 $scope.items.push({src:childsnap.child('src').val()});  
-		 })
-		 console.log("---> Gallery has", $scope.items.length, "images", $scope.items);
-	 });*/
-
-
-	// see firebase database images 
-	/*
-	ref.on('value', function(snapshot) {
-		$scope.items = [];
-		console.log(snapshot.key);
-		snapshot.forEach(function(childsnap){
-			$scope.items.push({src:childsnap.child('src').val()});  
-		});
-		console.log("---> Gallery has", $scope.items.length, "images", $scope.items);
-	});*/
-	
-
+	$scope.takePhoto();
 });
