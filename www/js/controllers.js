@@ -1,4 +1,37 @@
-angular.module('app.controllers', [])
+angular
+	.module('app.controllers', [])
+
+.controller('loginCtrl', [
+    '$scope', '$state', '$timeout', 'FirebaseDB',
+    function LoginCtrl($scope, $state, $timeout, FirebaseDB) {
+		console.log("Login Controller");
+		
+		$scope.doLoginAction = function (_credentials) {
+
+			FirebaseDB.login(_credentials).then(function (authData) {
+				console.log("Logged in as:", authData.uid);
+				$state.go('menu.home', {});
+			}).catch(function (error) {
+				// Handle Errors here.
+				var errorCode = error.code;
+				var errorMessage = error.message;
+				console.error("Authentication failed:", error);
+				// ...
+			});
+		};
+		
+		$scope.doCreateUserAction = function (_credentials) {
+			
+			FirebaseDB.createUser(_credentials).then(function (authData) {
+				console.log("Logged in as:", authData);
+				$state.go('menu.home', {});
+			}).catch(function (error) {
+				var errorCode = error.code;
+				var errorMessage = error.message;
+				console.error("Authentication failed:", error);
+			});
+		};
+    }])
 
 .controller('homeCtrl', function ($scope, $state, DaysLeftCounter) {
 

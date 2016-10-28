@@ -1,13 +1,31 @@
-angular.module('app.routes', [])
+angular
+	.module('app.routes', [])
 
 .config(function ($stateProvider, $urlRouterProvider) {
 
 	$stateProvider
 
+	.state('login', {
+		url: '/login',
+		templateUrl: 'templates/login.html',
+		controller: 'loginCtrl',
+		cache: false
+	})
+
 	.state('menu', {
 		url: '/cognifest',
 		abstract: true,
-		templateUrl: 'templates/menu.html'
+		templateUrl: 'templates/menu.html',
+		resolve: {
+			user: ['FirebaseDB', '$q',
+				function (FirebaseDB, $q) {
+					var authData = FirebaseDB.currentUser();
+					return $q(function (resolve, reject) {
+						authData ? resolve(authData) : reject("NO USER")
+					});
+				}
+			]
+		}
 	})
 
 	.state('menu.home', {

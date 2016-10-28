@@ -2,39 +2,36 @@
 
 angular.module('drinks.controllers', ['ionic', 'ngCordova'])
 
-.controller('drinksCtrl', function ($scope, $state, $ionicModal, $cordovaVibration, DrinksService) {
+.controller('drinksCtrl', function ($scope, $state, $ionicModal, $cordovaVibration, DrinksService, Modals) {
 
 	$scope.items = DrinksService.items();
 
-
-	$scope.closeModal = function () {
-		$scope.modal.hide();
-		//console.log('escondiendo la modal');
-	};
+	// Execute action on hide modal
+	$scope.$on('modal.hidden', function () {
+		// Execute action
+		console.log('Modal hidden');
+	});
+	// Execute action on remove modal
+	$scope.$on('modal.removed', function () {
+		// Execute action
+		console.log('Modal removed');
+	});
+	
+	$scope.closeModal = Modals.CloseModal();
 
 	var onShake = function () {
-		$scope.modal.hide();
 		$scope.randomDrink = DrinksService.random();
 		//send selected drink object yo the scope
 		//$scope.randomDrink = $scope.items[randomNumber];
 		//open modal
 		$cordovaVibration.vibrate(300);
-		$scope.modal.show();
+		Modals.openModal($scope);
 	};
 
 	var onError = function () {
-		alert('error');
-		// Fired when there is an accelerometer error (optional)
+		console.log('Shake error');
+		Modals.closeModal();
 	};
-
-	$ionicModal.fromTemplateUrl('templates/randomDrinkModal.html', function ($ionicModal) {
-		$scope.modal = $ionicModal;
-	}, {
-		// Use our scope for the scope of the modal to keep it simple
-		scope: $scope,
-		// The animation we want to use for the modal entrance
-		animation: 'slide-in-up'
-	});
 
 	// Start watching for shake gestures and call "onShake"
 	// with a shake sensitivity of 40 (optional, default 30)

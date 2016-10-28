@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('drinks.services', [])
+angular.module('drinks.services', ['ionic'])
 
 .service('DrinksService', function () {
 
@@ -56,4 +56,47 @@ angular.module('drinks.services', [])
 		return this.items()[randomNumber];
 	}
 
+})
+
+.factory('Modals', function ($ionicModal) {
+	var modals = [];
+
+	return {
+		openModal: function (scope) {
+			$ionicModal.fromTemplateUrl('templates/randomDrinkModal.html', {
+				scope: scope,
+				animation: 'slide-in-up'
+			}).then(function (modal) {
+				modals[modals.push(modal) - 1].show();
+			});
+		},
+		closeModal: function () {
+			var modal = this.modals.pop();
+			modal.hide();
+			modal.remove();
+		}
+	}
 });
+
+//.service('ModalService', function ($ionicModal) {
+//
+//	this.openModal = function (scope) {
+//		var _this = this;
+//
+//		$ionicModal.fromTemplateUrl('templates/randomDrinkModal.html', {
+//			scope: scope,
+//			animation: 'slide-in-up'
+//		}).then(function (modal) {
+//			_this.modal = modal;
+//			_this.modal.show();
+//		});
+//	};
+//
+//	this.closeModal = function () {
+//		var _this = this;
+//		if (!_this.modal) return;
+//		_this.modal.hide();
+//		_this.modal.remove();
+//	};
+//
+//});
