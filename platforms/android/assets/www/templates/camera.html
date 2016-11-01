@@ -1,12 +1,12 @@
 <ion-view title="Camera" id="page7" class="">
-	<ion-content class="padding">
-		<div ng-show="imgURI !== undefined">
+	<ion-content id="camera-content" class="padding">
+		<div ng-show="imageURI !== undefined">
 			<div class="text-center" ng-show="showPost">
-				<div class="image-container" style="max-height:{{height}}px;">
-					<img ng-src="{{imgURI}}" class="{{class}}">
-				</div>
 				<button class="button button-large button-assertive icon-left ion-close-round" ng-click="discardPhoto()" ng-show="showPost">Discard</button>
 				<button class="button button-large button-balanced icon-left ion-checkmark-round" ng-click="postPhoto()" ng-show="showPost">Upload</button>
+				<div class="image-container" style="max-height:{{imageHeight}}px;">
+					<img ng-src="{{imageURI}}" class="{{imageClass}}">
+				</div>
 			</div>
 			<div class="card text-center" ng-hide="showPost">
 				<div class="item item-text-wrap item-icon-left calm" ng-show="showPostMessage">

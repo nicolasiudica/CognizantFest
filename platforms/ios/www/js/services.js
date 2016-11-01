@@ -1,12 +1,12 @@
 angular.module('app.services', ['ngCordova'])
 
 // Days countdown to the party
-.service('DaysLeftCounter', [function(){
+.service('DaysLeftCounter', [function () {
 
-	this.day = function(){
+	this.day = function () {
 
 		var today = new Date();
-		var PartyDay = new Date("November 10, 2016");
+		var PartyDay = new Date("November 25, 2016");
 
 		// Milisegundos en un dia
 		const msDay = 24 * 60 * 60 * 1000;
@@ -15,13 +15,13 @@ angular.module('app.services', ['ngCordova'])
 		var daysLeft = Math.floor(timeLeft / msDay);
 
 		return {
-			daysLeft: function() {
-			  return daysLeft;
+			daysLeft: function () {
+				return daysLeft;
 			},
-			partyDay: function() {
+			partyDay: function () {
 				return PartyDay;
 			},
-			now: function() {
+			now: function () {
 				return today.getTime();
 			}
 		}
@@ -29,64 +29,82 @@ angular.module('app.services', ['ngCordova'])
 
 }])
 
-.service('RandomImage', function() {
+.factory('FileService', function () {
+	var images;
+	var IMAGE_STORAGE_KEY = 'CogniFest/photos';
 
-    this.items = function() {
+	function getImages() {
+		var img = window.localStorage.getItem(IMAGE_STORAGE_KEY);
+		if (img) {
+			images = JSON.parse(img);
+		} else {
+			images = [];
+		}
+		return images;
+	};
 
-    	return [
-		{
-			name: 'Beer',
-			largeImg: 'img/beer_large.png',
-			src: 'img/beer.png',
-			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
-	  	}, 
-		{
-			name: 'Cuba Libre',
-			largeImg: 'img/cubalibre_large.png',
-			src: 'img/cubalibre.png',
-			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
-	  	}, 
-		{
-			name: 'Fernet',
-			largeImg: 'img/fernet_large.png',
-			src: 'img/fernet.png',
-			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
-	  	}, 
-		{
-			name: 'Gintonic',
-			largeImg: 'img/gintonic_large.png',
-			src: 'img/gintonic.png',
-			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
-	  	}, 
-		{
-			name: 'Daiquiri',
-			largeImg: 'img/daiquiri_large.png',
-			src: 'img/daiquiri.png',
-			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
-	  	}, 
-		{
-			name: 'Screwdriver',
-			largeImg: 'img/screwdriver_large.png',
-			src: 'img/screwdriver.png',
-			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
-	  	}, 
-		{
-			name: 'Margarita',
-			largeImg: 'img/margarita_large.png',
-			src: 'img/margarita.png',
-			sub: '<b>Daikiri ingredients are rum, strawberry and sugar.</b>'
-	  	}, 
-		{
-			name: '',
-			largeImg: '',
-			src: '',
-			sub: ''
-	  	}
-	]};
+	function addImage(img) {
+		images.push(img);
+		window.localStorage.setItem(IMAGE_STORAGE_KEY, JSON.stringify(images));
+	};
 
+	return {
+		storeImage: addImage,
+		images: getImages
+	}
 })
 
-.service('BlankService', [function(){
+.factory('ImageService', function ($cordovaCamera, FileService, $q, $cordovaFile) {
+
+	function makeid() {
+		var text = '';
+		var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+		for (var i = 0; i < 5; i++) {
+			text += possible.charAt(Math.floor(Math.random() * possible.length));
+		}
+		return text;
+	};
+
+	function options() {
+		return {
+			quality: 90,
+			destinationType: Camera.DestinationType.FILE_URI,
+			sourceType: Camera.PictureSourceType.CAMERA,
+			allowEdit: false,
+			encodingType: Camera.EncodingType.JPEG,
+			mediaType: Camera.MediaType.PICTURE,
+			popoverOptions: CameraPopoverOptions,
+			saveToPhotoAlbum: true,
+			correctOrientation: true
+		};
+	}
+
+	function saveMedia() {
+		return $q(function (resolve, reject) {
+			var options = options();
+
+			$cordovaCamera
+				.getPicture(options)
+				.then(function (imageUrl) {
+					var name = imageUrl.substr(imageUrl.lastIndexOf('/') + 1);
+					var namePath = imageUrl.substr(0, imageUrl.lastIndexOf('/') + 1);
+					var newName = makeid() + name;
+					$cordovaFile.copyFile(namePath, name, cordova.file.dataDirectory, newName)
+						.then(function (info) {
+							FileService.storeImage(newName);
+							resolve();
+						}, function (e) {
+							reject();
+						});
+				});
+		})
+	}
+	return {
+		handleMediaDialog: saveMedia
+	}
+})
+
+.service('BlankService', [function () {
 
 }]);
-

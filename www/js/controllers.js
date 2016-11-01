@@ -5,7 +5,7 @@ angular
     '$scope', '$state', '$timeout', 'FirebaseDB',
     function LoginCtrl($scope, $state, $timeout, FirebaseDB) {
 		console.log("Login Controller");
-		
+
 		$scope.doLoginAction = function (_credentials) {
 
 			FirebaseDB.login(_credentials).then(function (authData) {
@@ -19,9 +19,9 @@ angular
 				// ...
 			});
 		};
-		
+
 		$scope.doCreateUserAction = function (_credentials) {
-			
+
 			FirebaseDB.createUser(_credentials).then(function (authData) {
 				console.log("Logged in as:", authData);
 				$state.go('menu.home', {});
@@ -515,59 +515,96 @@ angular
 	}
 })
 
-.controller('cameraCtrl', function ($scope, $cordovaCamera, DaysLeftCounter) {
+.controller('cameraCtrl', function ($scope, $cordovaCamera, $cordovaFile, FirebaseDB, DaysLeftCounter) {
 
-	$scope.items = [];
+	var imageResizing = function (imageURI) {
+		var img = new Image();
+		img.src = imageURI;
+		return (img.height > img.width) ? 'resize-vertical' : 'resize-horizontal';
+	};
+
+	$scope.showPost = false;
+	$scope.showPostMessage = false;
+	$scope.showDiscardMessage = false;
+
+	$scope.postPhoto = function () {
+		var owner = FirebaseDB.currentUser().uid;
+		var now = new Date().getTime();
+		var imageTitle = 'CogniFest.' + owner + '.' + now;
+
+		var name = $scope.imageURI.substr($scope.imageURI.lastIndexOf('/') + 1);
+		var file_path = $scope.imageURI.substr(0, $scope.imageURI.lastIndexOf('/') + 1);
+
+		$cordovaFile.readAsArrayBuffer(file_path, name)
+			.then(function (success) {
+				// success
+				console.log(success);
+
+				var blob = new Blob([success], {
+					type: "image/jpeg"
+				});
+
+				console.log(blob);
+
+				var uploadTask = FirebaseDB.storage().ref('CogniFest/photos/' + imageTitle + '.jpg').put(blob);
+
+				uploadTask.on('state_changed', function (snapshot) {
+					// Observe state change events such as progress, pause, and resume
+					var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+					console.log('Upload is ' + progress + '% done');
+				}, function (error) {
+					// Handle unsuccessful uploads
+					console.log("Error uploading: " + error)
+				}, function () {
+					// Handle successful uploads on complete
+					// For instance, get the download URL: https://firebasestorage.googleapis.com/...
+					var downloadURL = uploadTask.snapshot.downloadURL;
+					console.log("Success! ", downloadURL);
+
+					// save a reference to the image for listing purposes
+					var ref = FirebaseDB.database().ref('CogniFest/photos');
+					ref.push({
+						'src': downloadURL,
+						'owner': owner,
+						'time': now
+					});
+				});
+
+				$scope.showPost = !($scope.showPostMessage = true);
+
+			}, function (error) {
+				// error
+				console.log("Failed to read file from directory", error.code);
+			});
+	};
+
+	$scope.discardPhoto = function () {
+		$scope.showPost = !($scope.showDiscardMessage = true);
+	};
 
 	//Opens the camera and the settings that it will be using to take the pictures
 	$scope.takePhoto = function () {
 
 		var options = {
 			quality: 90,
-			destinationType: Camera.DestinationType.DATA_URL,
+			destinationType: Camera.DestinationType.NATIVE_URI,
 			sourceType: Camera.PictureSourceType.CAMERA,
-			allowEdit: false,
 			encodingType: Camera.EncodingType.JPEG,
-			// targetWidth: 300, //Here you can change the size of the image shown in the <img> tag
-			// targetHeight: 300, //Here you can change the size of the image shown in the <img> tag
-			popoverOptions: CameraPopoverOptions, //This is only for iOS, to show the Confirm/Reject buttons in a popup. Android does show that popup automatically thanks to the Cordova plugin
+			mediaType: Camera.MediaType.PICTURE,
+			allowEdit: false,
 			saveToPhotoAlbum: true,
 			correctOrientation: true
 		};
 
-		//Gets the picture encoded in base64 that will be shown in the <img> tag
-		$cordovaCamera.getPicture(options).then(function (imageData) {
-
-			$scope.showPost = !($scope.showPostMessage = ($scope.showDiscardMessage = false));
-
-			$scope.imgURI = "data:image/jpeg;base64," + imageData;
-
-			var img = new Image();
-			img.src = $scope.imgURI;
-			var imgH = img.height;
-			var imgW = img.width;
-
-			if (imgH > imgW) {
-				$scope.class = "resize-vertical";
-			} else {
-				$scope.class = "resize-horizontal";
-			}
-
-			$scope.height = document.getElementsByTagName('ion-content')[1].clientHeight * (2 / 3);
-
-			$scope.postPhoto = function () {
-				ref.push({
-					src: $scope.imgURI,
-					time: DaysLeftCounter.day().now()
-				});
-
-				$scope.showPost = !($scope.showPostMessage = true);
-			};
-
-			$scope.discardPhoto = function () {
-				$scope.showPost = !($scope.showDiscardMessage = true);
-			};
-		}, function (error) {});
+		$cordovaCamera
+			.getPicture(options)
+			.then(function (imageData) {
+				$scope.showPost = true;
+				$scope.imageURI = imageData;
+				$scope.imageClass = imageResizing(imageData);
+				$scope.imageHeight = $('#camera-content').clientHeight * (2 / 3);
+			}, function (error) {});
 	};
+
 	$scope.takePhoto();
 });

@@ -1,7 +1,7 @@
 {
   "name": "cognifest",
-  "version": "1.1.1",
-  "description": "CogniFest",
+  "version": "0.1.0",
+  "description": "An awesome app for the cognizant party",
   "dependencies": {
     "angular": "^1.5.8",
     "angularfire": "^2.0.2",
@@ -28,7 +28,8 @@
     "cordova.plugins.diagnostic",
     "cordova-plugin-device",
     "cordova-plugin-camera",
-    "cordova-plugin-shake"
+    "cordova-plugin-shake",
+    "cordova-plugin-file"
   ],
   "cordovaPlatforms": [
     "android",
