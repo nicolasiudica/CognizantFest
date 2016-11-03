@@ -32,6 +32,9 @@
         },
         "cordova-plugin-file": {
             "PACKAGE_NAME": "com.ionicframework.cognifest763009"
+        },
+        "cordova-plugin-crosswalk-webview": {
+            "PACKAGE_NAME": "com.cognizant.cognifest"
         }
     },
     "dependent_plugins": {

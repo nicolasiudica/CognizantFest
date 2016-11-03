@@ -6,7 +6,7 @@ angular
 angular
 	.module('firebase.services')
 
-.factory('FirebaseDB', function ($q, $state, $timeout) {
+.factory('FirebaseDB', ['$q', '$state', '$timeout', function ($q, $state, $timeout) {
 
 	var instance, storageInstance, unsubscribe, currentUser = null;
 	var initialized = false;
@@ -32,6 +32,8 @@ angular
 				currentUser = user;
 				console.log("got user..", currentUser);
 			});
+			
+			return (initialized = true);
 		},
 		/**
 		 * return database instance
@@ -45,7 +47,7 @@ angular
 		storage: function () {
 			return storageInstance;
 		},
-		isAuth: function () {
+		isAuthenticated: function () {
 			return $q(function (resolve, reject) {
 				return firebase.auth().currentUser ? resolve(true) : reject("NO USER");
 			});
@@ -82,9 +84,9 @@ angular
 					var ref = instance.database().ref('CogniFest/users');
 					return ref.child(authData.uid).set({
 						"provider": authData.providerData[0],
-						"displayName": _credentials.name
+						"displayName": _credentials.displayName
 					});
 				});
 		}
 	}
-});
+}]);

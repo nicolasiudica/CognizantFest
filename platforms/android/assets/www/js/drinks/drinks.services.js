@@ -52,7 +52,7 @@ angular.module('drinks.services', ['ionic'])
 				sub: '<b>Gancia ingredients are gancia, sugar and lemon juice.</b>'
 			}, {
 				name: 'Gangster',
-				largeImg: 'img/drinks/gansgster_large.png',
+				largeImg: 'img/drinks/gangster_large.png',
 				src: 'img/drinks/gangster.png',
 				sub: '<b>Gangster ingredients are vodka, gancia and grapefruit.</b>'
 			}, {
@@ -124,25 +124,26 @@ angular.module('drinks.services', ['ionic'])
 
 })
 
-.service('Modals', function ($ionicModal) {
-	var modals = [];
+.service('Modals', ['$ionicModal',
+					function ($ionicModal) {
+		var modals = [];
 
-	this.openModal = function (scope) {
-		$ionicModal.fromTemplateUrl('templates/randomDrinkModal.html', {
-			scope: scope,
-			animation: 'slide-in-up'
-		}).then(function (modal) {
-			modals[modals.push(modal) - 1].show();
-		});
-	};
-	this.closeModal = function () {
-		for (var i = modals.length; i > 0; i--) {
-			modals[i-1].hide();
-			modals[i-1].remove();
-		}
-		modals = [];
-	};
-});
+		this.openModal = function (scope) {
+			$ionicModal.fromTemplateUrl('templates/randomDrinkModal.html', {
+				scope: scope,
+				animation: 'slide-in-up'
+			}).then(function (modal) {
+				modals[modals.push(modal) - 1].show();
+			});
+		};
+		this.closeModal = function () {
+			for (var i = modals.length; i > 0; i--) {
+				modals[i - 1].hide();
+				modals[i - 1].remove();
+			}
+			modals = [];
+		};
+}]);
 
 //.service('ModalService', function ($ionicModal) {
 //

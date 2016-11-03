@@ -5,7 +5,7 @@ angular
 
 	$stateProvider
 
-	.state('login', {
+		.state('login', {
 		url: '/login',
 		templateUrl: 'templates/login.html',
 		controller: 'loginCtrl',
@@ -21,7 +21,7 @@ angular
 				function (FirebaseDB, $q) {
 					var authData = FirebaseDB.currentUser();
 					return $q(function (resolve, reject) {
-						authData ? resolve(authData) : reject("NO USER")
+						authData ? resolve(authData) : reject("NoAuth");
 					});
 				}
 			]

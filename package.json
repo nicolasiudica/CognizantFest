@@ -1,12 +1,10 @@
 {
   "name": "cognifest",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "An awesome app for the cognizant party",
   "dependencies": {
     "angular": "^1.5.8",
-    "angularfire": "^2.0.2",
     "bower-npm-resolver": "^0.7.0",
-    "firebase": "^3.5.1",
     "gulp": "^3.5.6",
     "gulp-concat": "^2.2.0",
     "gulp-minify-css": "^0.3.0",
@@ -29,7 +27,8 @@
     "cordova-plugin-device",
     "cordova-plugin-camera",
     "cordova-plugin-shake",
-    "cordova-plugin-file"
+    "cordova-plugin-file",
+    "cordova-plugin-crosswalk-webview"
   ],
   "cordovaPlatforms": [
     "android",

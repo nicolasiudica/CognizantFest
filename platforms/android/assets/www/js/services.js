@@ -1,7 +1,7 @@
 angular.module('app.services', ['ngCordova'])
 
 // Days countdown to the party
-.service('DaysLeftCounter', [function () {
+.service('DaysLeftCounter', function () {
 
 	this.day = function () {
 
@@ -24,10 +24,9 @@ angular.module('app.services', ['ngCordova'])
 			now: function () {
 				return today.getTime();
 			}
-		}
-	}
-
-}])
+		};
+	};
+})
 
 .factory('FileService', function () {
 	var images;
@@ -41,17 +40,17 @@ angular.module('app.services', ['ngCordova'])
 			images = [];
 		}
 		return images;
-	};
+	}
 
 	function addImage(img) {
 		images.push(img);
 		window.localStorage.setItem(IMAGE_STORAGE_KEY, JSON.stringify(images));
-	};
+	}
 
 	return {
 		storeImage: addImage,
 		images: getImages
-	}
+	};
 })
 
 .factory('ImageService', function ($cordovaCamera, FileService, $q, $cordovaFile) {

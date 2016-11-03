@@ -186,6 +186,9 @@
         },
         "cordova-plugin-file": {
             "PACKAGE_NAME": "com.ionicframework.cognifest763009"
+        },
+        "cordova-plugin-crosswalk-webview": {
+            "PACKAGE_NAME": "com.cognizant.cognifest"
         }
     },
     "dependent_plugins": {},
@@ -499,6 +502,7 @@
         "cordova-plugin-camera": "2.3.0",
         "cordova-plugin-device-motion": "1.2.2",
         "cordova-plugin-shake": "0.5.4",
-        "cordova-plugin-file": "4.3.0"
+        "cordova-plugin-file": "4.3.0",
+        "cordova-plugin-crosswalk-webview": "2.1.0"
     }
 }
