@@ -11,76 +11,47 @@ angular
 	.module('app')
 
 .config(['$ionicConfigProvider', function ($ionicConfigProvider) {
-
 	$ionicConfigProvider.tabs.position('bottom'); // other values: top
-
 }]);
 
 angular
 	.module('app')
 
-.run(['$ionicPlatform', 'FirebaseDB', '$rootScope', '$state', '$urlRouter',
-	  function ($ionicPlatform, FirebaseDB, $rootScope, $state, $urlRouter) {
+.run(['$ionicPlatform', function ($ionicPlatform) {
+	$ionicPlatform.ready(function () {
+		// Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+		// for form inputs)
+		if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
+			cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+			cordova.plugins.Keyboard.disableScroll(true);
+		}
+		if (window.StatusBar) {
+			// org.apache.cordova.statusbar required
+			StatusBar.styleDefault();
+		}
+	});
+}])
 
-		$ionicPlatform.ready(function () {
-			// Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-			// for form inputs)
-			if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-				cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-				cordova.plugins.Keyboard.disableScroll(true);
-			}
-			if (window.StatusBar) {
-				// org.apache.cordova.statusbar required
-				StatusBar.styleDefault();
-			}
-		});
+.run(['FirebaseDB', '$rootScope', '$state', '$urlRouter',
+	  function (FirebaseDB, $rootScope, $state, $urlRouter) {
 
-		FirebaseDB.initialize();
+		FirebaseDB.initialize()
+			.then(function () {
+				console.log("firebase init, check auth");
 
-		$rootScope.loginAttempts = 10;
-		// for authentication
-		$rootScope.$on('$stateChangeError',
-			function (event, toState, toParams, fromState, fromParams, error) {
-				// if the error is "noUser" the go to login state
-				if (error === "NoAuth" && $rootScope.loginAttempts === 0) {
-					event.preventDefault();
-					console.log("go to login state");
-					$state.go('login', {});
-				} else $rootScope.loginAttempts--;
-			}
-		);
+				FirebaseDB.onAuthStateChanged(function () {
+					var authUser = FirebaseDB.currentUser();
 
-
-		$rootScope.skipSomeAsync = false;
-
-		//		$rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState) {
-		//
-		//			if ($rootScope.skipSomeAsync) {
-		//				return;
-		//			}
-		//			
-		//			//console.log("$stateChangeStart fired by: ", event, toState, toParams, fromState);
-		//
-		//			// prevent navigation until async is finished
-		//			event.preventDefault();
-		//
-		//			// do async event
-		//			if (!FirebaseDB.isAuthenticated())
-		//				continueNavigation('login');
-		//			else
-		//				$urlRouter.sync();
-		//
-		//
-		//			function continueNavigation(authState) {
-		//				var params = angular.copy(toParams);
-		//				var nextState = toState.name;
-		//				$rootScope.skipSomeAsync = true;
-		//				if (authState)
-		//					nextState = authState;
-		//				$state.go(nextState, params);
-		//			}
-		//
-		//			$rootScope.skipSomeAsync = false;
-		//
-		//		});
+					if (authUser) {
+						console.log("firebase auth, go to home", authUser);
+						$state.go('menu.home');
+					} else {
+						console.log("firebase not auth, go to login", authUser);
+						$state.go('login');
+					}
+				}, this);
+			}, function () {
+				console.log("firebase didnt init, go to login");
+				$state.go('login');
+			});
 }]);

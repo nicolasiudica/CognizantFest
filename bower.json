@@ -2,13 +2,14 @@
   "name": "HelloIonic",
   "private": "true",
   "devDependencies": {
-    "ionic": "driftyco/ionic-bower#master",
-    "jquery": "^3.x",
-    "lodash": "^4.x",
-    "angularfire": "^2.x",
-    "chart.js": "chartjs#^2.x",
-    "ngCordova": "^0.1.27-alpha",
-    "angular": "^1.x",
-    "angular-chart.js": "^1.x"
+	"ionic": "driftyco/ionic-bower#master",
+	"jquery": "^3.x",
+	"lodash": "^4.x",
+	"angularfire": "^2.x",
+	"chart.js": "chartjs#^2.x",
+	"ngCordova": "^0.1.27-alpha",
+	"angular": "^1.x",
+	"angular-chart.js": "^1.x",
+	"ion-gallery": "^0.1.14"
   }
 }

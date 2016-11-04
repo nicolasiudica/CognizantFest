@@ -16,16 +16,16 @@ angular
 		url: '/cognifest',
 		abstract: true,
 		templateUrl: 'templates/menu.html',
-		resolve: {
-			user: ['FirebaseDB', '$q',
-				function (FirebaseDB, $q) {
-					var authData = FirebaseDB.currentUser();
-					return $q(function (resolve, reject) {
-						authData ? resolve(authData) : reject("NO USER");
-					});
-				}
-			]
-		}
+//		resolve: {
+//			user: ['FirebaseDB', '$q',
+//				function (FirebaseDB, $q) {
+//					var authData = FirebaseDB.currentUser();
+//					return $q(function (resolve, reject) {
+//						authData ? resolve(authData) : reject("NoAuth");
+//					});
+//				}
+//			]
+//		}
 	})
 
 	.state('menu.home', {

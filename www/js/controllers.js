@@ -38,9 +38,20 @@ angular
 				var errorCode = error.code;
 				var errorMessage = error.message;
 				console.error("Authentication failed:", error);
+
+				if (error.code === "auth/email-already-in-use") {
+					FirebaseDB.login(createCredentials(_credentials)).then(function (authData) {
+						console.log("Logged in as:", authData);
+						$state.go('menu.home', {});
+					}).catch(function (error) {
+						var errorCode = error.code;
+						var errorMessage = error.message;
+						console.error("Authentication failed:", error);
+					});
+				}
 			});
 		};
-    }])
+}])
 
 .controller('homeCtrl', ['$scope', '$state', 'DaysLeftCounter',
 						 function ($scope, $state, DaysLeftCounter) {
@@ -56,7 +67,7 @@ angular
 			console.log(timer);
 
 			if (counter >= 10) {
-				console.log('mayor que 20');
+				console.log("mayor que 20");
 				clearTimeout(timer);
 			}
 
@@ -501,7 +512,7 @@ angular
 			});
 		}
 
-		//MARKERS      
+		//MARKERS
 		function setMarker(pos) {
 			markerCognizant.setPosition(pos);
 			markerCognizant.setZIndex(99999);
