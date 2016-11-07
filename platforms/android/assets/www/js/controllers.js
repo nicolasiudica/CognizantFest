@@ -547,6 +547,7 @@ angular
 		};
 
 		$scope.showPost = false;
+		$scope.showDone = false;
 		$scope.showPostMessage = false;
 		$scope.showDiscardMessage = false;
 
@@ -573,17 +574,19 @@ angular
 
 					uploadTask.on('state_changed', function (snapshot) {
 						// Observe state change events such as progress, pause, and resume
-						var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-						console.log('Upload is ' + progress + '% done');
+						$scope.progress = Math.floor((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+						console.log('Upload is ' + $scope.progress + '% done');
 					}, function (error) {
 						// Handle unsuccessful uploads
-						console.log("Error uploading: " + error)
+						console.log("Error uploading: " + error);
+						$scope.showPost = !($scope.showErrorMessage = true);
 					}, function () {
 						// Handle successful uploads on complete
 						// For instance, get the download URL: https://firebasestorage.googleapis.com/...
 						var downloadURL = uploadTask.snapshot.downloadURL;
 						console.log("Success! ", downloadURL);
 
+						$scope.showDone = true;
 						// save a reference to the image for listing purposes
 						var ref = FirebaseDB.database().ref('CogniFest/photos');
 						ref.push({

@@ -9,11 +9,17 @@
 				</div>
 			</div>
 			<div class="card text-center" ng-hide="showPost">
-				<div class="item item-text-wrap item-icon-left calm" ng-show="showPostMessage">
-					<i class="icon ion-android-cloud-done"></i>Photo uploaded
+				<div class="item item-text-wrap item-icon-left calm" ng-show="showPostMessage && showDone">
+					<i class="icon ion-cloud"></i>Photo uploaded
+				</div>
+				<div class="item item-text-wrap item-icon-left calm" ng-show="showPostMessage && !showDone">
+					<ion-spinner></ion-spinner>Uploading...
 				</div>
 				<div class="item item-text-wrap item-icon-left assertive" ng-show="showDiscardMessage">
-					<i class="icon ion-android-alert"></i>Photo discarded
+					<i class="icon ion-minus-circled"></i>Photo discarded
+				</div>
+				<div class="item item-text-wrap item-icon-left energized" ng-show="showErrorMessage">
+					<i class="icon ion-close-circled"></i>Error uploading. Sorry!
 				</div>
 			</div>
 		</div>
