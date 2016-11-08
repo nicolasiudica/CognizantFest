@@ -79,27 +79,77 @@ angular
 
 }])
 
-.controller('mapCtrl', ['$scope', '$state', '$cordovaGeolocation',
-						function ($scope, $state, $cordovaGeolocation) {
+.controller('mapCtrl', ['$scope', '$state', '$cordovaGeolocation', '$ionicModal',
+						function ($scope, $state, $cordovaGeolocation, $ionicModal) {
 
-		$scope.callDialog = function () {
-			document.addEventListener("deviceready", function () {
-				cordova.dialogGPS("Your GPS is Disabled, this app needs to be enable to works.", //message
-					"Use GPS, with wifi or 3G.", //description
-					function (buttonIndex) { //callback
-						switch (buttonIndex) {
-						case 0:
-							break; //cancel
-						case 1:
-							break; //neutro option
-						case 2:
-							break; //user go to configuration
-						}
-					},
-					"Please Turn on GPS", //title
-				["Cancel", "Later", "Go"]); //buttons
+		var geocoder;
+		var directionsDisplay;
+		var directionsService;
+		var map = $scope.map;
+		var mapDIV = document.getElementById('map');
+		var partyLocation = "Calle Falsa 123"; //"Av. Cnel. Niceto Vega 5350, 1414 CABA";
+		var partyLatLng = {
+			lat: -34.588660,
+			lng: -58.436719
+		};
+		var destination = partyLatLng;
+		var destinationString = partyLocation;
+		var selectedMode = document.getElementsByClassName('option-button')[0].getAttribute('method');
+		var origin;
+		var origin_input = document.getElementById('origin-input');
+		var destination_input = document.getElementById('destination-input');
+		//var modes = document.getElementById('mode');
+		var switchButton = document.getElementById('switch-btn');
+		var isGoing = true;
+		var markerCognizant;
+		var markerImage = "img/cognizantLogo30x30.png";
+		var origin_place_id;
+		var destination_place_id;
+		var origin_autocomplete;
+		var destination_autocomplete;
+		var placesService;
+		var directionsPanel = document.getElementById('right-panel');
+		var travelMethodButtons = document.getElementsByClassName('option-button');
+
+		destination_input.disabled = true;
+
+		$scope.instructionsLoaded = false;
+
+		$ionicModal.fromTemplateUrl('templates/directionsModal.html', {
+			scope: $scope,
+			animation: 'slide-in-up'
+		}).then(function (modal) {
+			$scope.instructionsModal = modal;
+		});
+
+		$scope.disableTap = function () {
+			var container = document.getElementsByClassName('pac-container');
+			angular.element(container).attr('data-tap-disabled', 'true');
+			var backdrop = document.getElementsByClassName('backdrop');
+			angular.element(backdrop).attr('data-tap-disabled', 'true');
+			angular.element(container).on("click", function () {
+				document.getElementById('pac-input').blur();
 			});
 		};
+
+		//		$scope.callDialog = function () {
+		//			document.addEventListener("deviceready", function () {
+		//				cordova.dialogGPS("Your GPS is Disabled, this app needs to be enable to works.", //message
+		//					"Use GPS, with wifi or 3G.", //description
+		//					function (buttonIndex) { //callback
+		//						switch (buttonIndex) {
+		//						case 0:
+		//							break; //cancel
+		//						case 1:
+		//							break; //neutro option
+		//						case 2:
+		//							break; //user go to configuration
+		//						}
+		//					},
+		//					"Please Turn on GPS", //title
+		//				["Cancel", "Later", "Go"]); //buttons
+		//			});
+		//		};
 
 		$scope.getCallPermission = function () {
 			cordova.plugins.diagnostic.getPermissionAuthorizationStatus(function (status) {
@@ -138,47 +188,6 @@ angular
 				$scope.getCallPermission();
 			}
 		});
-
-		var geocoder;
-		var directionsDisplay;
-		var directionsService;
-		var map = $scope.map;
-		var mapDIV = document.getElementById('map');
-		var partyLocation = "Calle Falsa 123"; //"Av. Cnel. Niceto Vega 5350, 1414 CABA";
-		var partyLatLng = {
-			lat: -34.588660,
-			lng: -58.436719
-		};
-		var destination = partyLatLng;
-		var destinationString = partyLocation;
-		var selectedMode = document.getElementsByClassName('option-button')[0].getAttribute('method');
-		var origin;
-		var origin_input = document.getElementById('origin-input');
-		var destination_input = document.getElementById('destination-input');
-		//var modes = document.getElementById('mode');
-		var switchButton = document.getElementById('switch-btn');
-		var isGoing = true;
-		var markerCognizant;
-		var markerImage = "img/cognizantLogo30x30.png";
-		var origin_place_id;
-		var destination_place_id;
-		var origin_autocomplete;
-		var destination_autocomplete;
-		var placesService;
-		var directionsPanel = document.getElementById('right-panel');
-		var travelMethodButtons = document.getElementsByClassName('option-button');
-
-		destination_input.disabled = true;
-
-		$scope.disableTap = function () {
-			var container = document.getElementsByClassName('pac-container');
-			angular.element(container).attr('data-tap-disabled', 'true');
-			var backdrop = document.getElementsByClassName('backdrop');
-			angular.element(backdrop).attr('data-tap-disabled', 'true');
-			angular.element(container).on("click", function () {
-				document.getElementById('pac-input').blur();
-			});
-		};
 
 		$scope.onSwitch = function () {
 			console.log("SWITCHING ROUTES...");
@@ -229,6 +238,31 @@ angular
 				});
 			}
 		};
+
+		$scope.openInstructionsModal = function () {
+			$scope.instructionsModal.show();
+			$('#directions-panel').html($('#right-panel').html());
+		};
+
+		$scope.closeInstructionsModal = function () {
+			$scope.instructionsModal.hide();
+		};
+
+		// Cleanup the modal when we're done with it!
+		$scope.$on('$destroy', function () {
+			console.log("Destroy Instructions Modal");
+			$scope.instructionsModal.remove();
+		});
+		// Execute action on hide modal
+		$scope.$on('modal.hidden', function () {
+			// Execute action
+			console.log("Instructions Modal Hidden");
+		});
+		// Execute action on remove modal
+		$scope.$on('modal.removed', function () {
+			// Execute action
+			console.log("Instructions Modal Removed");
+		});
 
 		destination_input.value = partyLocation;
 		initMap();
@@ -389,6 +423,8 @@ angular
 							map.setCenter(pos);
 							getDirection(directionsDisplay);
 							setMarker(partyLatLng, map);
+							$scope.instructionsLoaded = true;
+							$scope.$apply();
 						} else {
 							console.log('***** Geocode was not successful for the following reason: ' + status);
 						}
@@ -409,15 +445,6 @@ angular
 				//'Error: The Geolocation service failed.' :
 				//'Error: Your browser doesn\'t support geolocation.');
 			}
-		}
-
-		//TRAVEL MODE LISTENER
-
-		for (var i = 0; i < travelMethodButtons.length; i++) {
-			travelMethodButtons[i].addEventListener('click', function () {
-				var travelMethod = this.getAttribute('method');
-				calculateAndDisplayRoute(directionsService, directionsDisplay, travelMethod);
-			});
 		}
 
 		/*
@@ -535,6 +562,14 @@ angular
 				//infowindow.open(map, markerCognizant);
 			});
 		}
+
+		//TRAVEL MODE LISTENER
+		for (var i = 0; i < travelMethodButtons.length; i++) {
+			travelMethodButtons[i].addEventListener('click', function () {
+				var travelMethod = this.getAttribute('method');
+				calculateAndDisplayRoute(directionsService, directionsDisplay, travelMethod);
+			});
+		}
 }])
 
 .controller('cameraCtrl', ['$scope', '$cordovaCamera', '$cordovaFile', 'FirebaseDB', 'DaysLeftCounter',
@@ -547,11 +582,13 @@ angular
 		};
 
 		$scope.showPost = false;
-		$scope.showDone = false;
-		$scope.showPostMessage = false;
+		$scope.showPostedMessage = false;
+		$scope.showPostingMessage = false;
 		$scope.showDiscardMessage = false;
 
 		$scope.postPhoto = function () {
+			$scope.showPost = false;
+
 			var owner = FirebaseDB.currentUser().uid;
 			var now = new Date().getTime();
 			var imageTitle = 'CogniFest.' + owner + '.' + now;
@@ -574,19 +611,37 @@ angular
 
 					uploadTask.on('state_changed', function (snapshot) {
 						// Observe state change events such as progress, pause, and resume
-						$scope.progress = Math.floor((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-						console.log('Upload is ' + $scope.progress + '% done');
+						var progress = Math.floor((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+						console.log('Upload is ' + progress + '% done');
+						$scope.showPostingMessage = true;
+						$scope.showPostedMessage = false;
+						$scope.showErrorMessage = false;
+						console.log($scope.showPostingMessage ? "Posting" : "Not posting");
+						console.log($scope.showPostedMessage ? "Posted" : "Not posted");
+						console.log($scope.showErrorMessage ? "Error" : "Not error");
+						$scope.$apply();
 					}, function (error) {
 						// Handle unsuccessful uploads
 						console.log("Error uploading: " + error);
-						$scope.showPost = !($scope.showErrorMessage = true);
+						$scope.showPostingMessage = false;
+						$scope.showPostedMessage = false;
+						$scope.showErrorMessage = true;
+						console.log($scope.showPostingMessage ? "Posting" : "Not posting");
+						console.log($scope.showPostedMessage ? "Posted" : "Not posted");
+						console.log($scope.showErrorMessage ? "Error" : "Not error");
+						$scope.$apply();
 					}, function () {
 						// Handle successful uploads on complete
 						// For instance, get the download URL: https://firebasestorage.googleapis.com/...
 						var downloadURL = uploadTask.snapshot.downloadURL;
 						console.log("Success! ", downloadURL);
-
-						$scope.showDone = true;
+						$scope.showPostingMessage = false;
+						$scope.showPostedMessage = true;
+						$scope.showErrorMessage = false;
+						console.log($scope.showPostingMessage ? "Posting" : "Not posting");
+						console.log($scope.showPostedMessage ? "Posted" : "Not posted");
+						console.log($scope.showErrorMessage ? "Error" : "Not error");
+						$scope.$apply();
 						// save a reference to the image for listing purposes
 						var ref = FirebaseDB.database().ref('CogniFest/photos');
 						ref.push({
@@ -595,9 +650,6 @@ angular
 							'time': now
 						});
 					});
-
-					$scope.showPost = !($scope.showPostMessage = true);
-
 				}, function (error) {
 					// error
 					console.log("Failed to read file from directory", error.code);
@@ -605,7 +657,9 @@ angular
 		};
 
 		$scope.discardPhoto = function () {
-			$scope.showPost = !($scope.showDiscardMessage = true);
+			$scope.showPost = false;
+			$scope.showDiscardMessage = true;
+			$scope.$apply();
 		};
 
 		//Opens the camera and the settings that it will be using to take the pictures
@@ -627,6 +681,7 @@ angular
 				.then(function (imageData) {
 					$scope.showPost = true;
 					$scope.imageURI = imageData;
+					console.log($scope.imageURI);
 					$scope.imageClass = imageResizing(imageData);
 					$scope.imageHeight = $('#camera-content').clientHeight * (2 / 3);
 				}, function (error) {});

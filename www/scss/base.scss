@@ -123,11 +123,7 @@
 	text-orientation: upright;
 }
 
-@each $deg in 30,
-45,
-60,
-90,
-180 {
+@each $deg in 30, 45, 60, 90, 180 {
 	.ion-rotate-#{$deg} {
 		@include rotate(#{$deg});
 	}

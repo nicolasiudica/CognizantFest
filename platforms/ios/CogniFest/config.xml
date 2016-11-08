@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.cognizant.cognifest" version="0.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="200" id="com.cognizant.cognifest" version="0.1.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <feature name="LocalStorage">
         <param name="ios-package" value="CDVLocalStorage" />
     </feature>
@@ -54,11 +54,11 @@
     </feature>
     <name>CogniFest</name>
     <description>
-		An awesome app for the cognizant party
-	</description>
-    <author email="you@example.com" href="http://example.com.com/">
-		Team Awesome
-	</author>
+			An awesome app for the cognizant party
+		</description>
+    <author email="cognifiesta@gmail.com" href="http://example.com.com/">
+			Team Awesome
+		</author>
     <content src="index.html" />
     <access origin="*" />
     <access origin="https://maps.google.com" />
@@ -91,12 +91,7 @@
     <splash height="1136" src="resources/ios/splash/Default-568h@2x~iphone.png" width="640" />
     <splash height="1334" src="resources/ios/splash/Default-667h.png" width="750" />
     <splash height="2208" src="resources/ios/splash/Default-736h.png" width="1242" />
-    <splash height="1242" src="resources/ios/splash/Default-Landscape-736h.png" width="2208" />
-    <splash height="1536" src="resources/ios/splash/Default-Landscape@2x~ipad.png" width="2048" />
-    <splash height="2048" src="resources/ios/splash/Default-Landscape@~ipadpro.png" width="2732" />
-    <splash height="768" src="resources/ios/splash/Default-Landscape~ipad.png" width="1024" />
     <splash height="2048" src="resources/ios/splash/Default-Portrait@2x~ipad.png" width="1536" />
-    <splash height="2732" src="resources/ios/splash/Default-Portrait@~ipadpro.png" width="2048" />
     <splash height="1024" src="resources/ios/splash/Default-Portrait~ipad.png" width="768" />
     <splash height="960" src="resources/ios/splash/Default@2x~iphone.png" width="640" />
     <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />

@@ -39,7 +39,7 @@
     "branch": "master",
     "commit": "f9b3fbe95e06e3db0a80af65b0c805348633c5e1"
   },
-  "_source": "git://github.com/driftyco/ionic-bower.git",
+  "_source": "https://github.com/driftyco/ionic-bower.git",
   "_target": "master",
   "_originalSource": "driftyco/ionic-bower"
 }

@@ -1,15 +1,14 @@
 {
-  "name": "HelloIonic",
+  "name": "CogniFest",
   "private": "true",
   "devDependencies": {
-	"ionic": "driftyco/ionic-bower#master",
-	"jquery": "^3.x",
-	"lodash": "^4.x",
-	"angularfire": "^2.x",
-	"chart.js": "chartjs#^2.x",
-	"ngCordova": "^0.1.27-alpha",
-	"angular": "^1.x",
-	"angular-chart.js": "^1.x",
-	"ion-gallery": "^0.1.14"
+    "ionic": "driftyco/ionic-bower#master",
+    "jquery": "^3.x",
+    "lodash": "^4.x",
+    "chart.js": "Chart.js#^2.x",
+    "ngCordova": "^0.1.27-alpha",
+    "angular-chart.js": "^1.x",
+    "ion-gallery": "^0.1.14",
+    "firebase": "^3.5.3"
   }
 }

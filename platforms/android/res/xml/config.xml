@@ -39,11 +39,11 @@
     </feature>
     <name>CogniFest</name>
     <description>
-		An awesome app for the cognizant party
-	</description>
-    <author email="you@example.com" href="http://example.com.com/">
-		Team Awesome
-	</author>
+			An awesome app for the cognizant party
+		</description>
+    <author email="cognifiesta@gmail.com" href="http://example.com.com/">
+			Team Awesome
+		</author>
     <content src="index.html" />
     <access origin="*" />
     <access origin="https://maps.google.com" />

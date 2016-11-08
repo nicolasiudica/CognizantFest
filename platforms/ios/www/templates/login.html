@@ -1,22 +1,18 @@
 <ion-view title="Login" hide-back-button="true">
 	<ion-content padding="true" class="has-header">
-		<form>
+		<form name="loginForm" novalidate="" ng-submit="doCreateUserAction(creds)">
 			<ion-list>
-				<label class="item item-input">
-					<span class="input-label">Name</span>
-					<input type="text" placeholder="Full name" ng-model="creds.name">
-				</label>
-				<label class="item item-input">
+				<label class="item item-input item-floating-label" ng-class="{ 'has-errors' : loginForm.email.$invalid && loginForm.email.$dirty, 'no-errors' : loginForm.email.$valid}">
 					<span class="input-label">E-Mail</span>
-					<input type="email" placeholder="Your Cognizant E-mail" ng-model="creds.email">
+					<input type="email" name="email" placeholder="Your Cognizant E-mail" ng-model="creds.email" ng-pattern="/^[_a-z0-9-]+(\.[_a-z0-9-]+)*(@cognizant\.com)$/i" ng-model-options="{ debounce: 500 }" required>
 				</label>
-				<label class="item item-input">
-					<span class="input-label">Password</span>
-					<input type="password" placeholder="Password" ng-model="creds.password">
-				</label>
+				<div class="error-container" ng-show="loginForm.email.$error && !loginForm.email.$valid && loginForm.email.$dirty">
+					<div class="error">
+						<i class="ion-information-circled"></i> Please, enter a valid Cognizant E-mail
+					</div>
+				</div>
 			</ion-list>
-			<a ng-click="doLoginAction(creds)" class="button button-calm button-block">Check In</a>
-			<a ng-click="doCreateUserAction(creds)" class="button button-balanced button-block">Or create an account</a>
+			<button class="button button-balanced button-block" type="submit" ng-disabled="loginForm.$invalid || loginForm.$pending">Go In!</button>
 		</form>
 	</ion-content>
 </ion-view>

@@ -2,18 +2,24 @@
 	<ion-content id="camera-content" class="padding">
 		<div ng-show="imageURI !== undefined">
 			<div class="text-center" ng-show="showPost">
-				<button class="button button-large button-assertive icon-left ion-close-round" ng-click="discardPhoto()" ng-show="showPost">Discard</button>
-				<button class="button button-large button-balanced icon-left ion-checkmark-round" ng-click="postPhoto()" ng-show="showPost">Upload</button>
+				<button class="button button-large button-assertive icon-left ion-close-round" ng-click="discardPhoto()">Discard</button>
+				<button class="button button-large button-balanced icon-left ion-checkmark-round" ng-click="postPhoto()">Upload</button>
 				<div class="image-container" style="max-height:{{imageHeight}}px;">
 					<img ng-src="{{imageURI}}" class="{{imageClass}}">
 				</div>
 			</div>
 			<div class="card text-center" ng-hide="showPost">
-				<div class="item item-text-wrap item-icon-left calm" ng-show="showPostMessage">
-					<i class="icon ion-android-cloud-done"></i>Photo uploaded
+				<div class="item item-text-wrap calm" ng-show="showPostingMessage">
+					<ion-spinner class="spinner-calm"></ion-spinner>
+				</div>
+				<div class="item item-text-wrap item-icon-left energized" ng-show="showErrorMessage">
+					<i class="icon ion-close-circled"></i>Error uploading. Sorry!
+				</div>
+				<div class="item item-text-wrap item-icon-left calm" ng-show="showPostedMessage">
+					<i class="icon ion-cloud"></i>Photo uploaded
 				</div>
 				<div class="item item-text-wrap item-icon-left assertive" ng-show="showDiscardMessage">
-					<i class="icon ion-android-alert"></i>Photo discarded
+					<i class="icon ion-minus-circled"></i>Photo discarded
 				</div>
 			</div>
 		</div>

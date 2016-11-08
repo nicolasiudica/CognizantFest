@@ -2,7 +2,7 @@
 
 angular
 	.module('app', [
-		'ionic', 'ion-gallery', 'ngCordova',
+		'ionic', 'ion-gallery', 'ngCordova', 'ui.router',
 		'app.controllers', 'app.routes', 'app.services', 'app.directives',
 		'bubbles', 'drinks', 'firebase'
 	]);
@@ -11,15 +11,13 @@ angular
 	.module('app')
 
 .config(['$ionicConfigProvider', function ($ionicConfigProvider) {
-
 	$ionicConfigProvider.tabs.position('bottom'); // other values: top
-
 }]);
 
 angular
 	.module('app')
 
-.run(function ($ionicPlatform, FirebaseDB, $rootScope, $state) {
+.run(['$ionicPlatform', function ($ionicPlatform) {
 	$ionicPlatform.ready(function () {
 		// Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
 		// for form inputs)
@@ -32,18 +30,28 @@ angular
 			StatusBar.styleDefault();
 		}
 	});
+}])
 
-	FirebaseDB.initialize();
+.run(['FirebaseDB', '$rootScope', '$state', '$urlRouter',
+	  function (FirebaseDB, $rootScope, $state, $urlRouter) {
 
-	// for authentication
-	$rootScope.$on('$stateChangeError',
-		function (event, toState, toParams, fromState, fromParams, error) {
-			// if the error is "noUser" the go to login state
-			if (error === "NO USER") {
-				event.preventDefault();
-				console.log("go to login state");
-				$state.go('login', {});
-			}
-		}
-	);
-});
+		FirebaseDB.initialize()
+			.then(function () {
+				console.log("firebase init, check auth");
+
+				FirebaseDB.onAuthStateChanged(function () {
+					var authUser = FirebaseDB.currentUser();
+
+					if (authUser) {
+						console.log("firebase auth, go to home", authUser);
+						$state.go('menu.home');
+					} else {
+						console.log("firebase not auth, go to login", authUser);
+						$state.go('login');
+					}
+				}, this);
+			}, function () {
+				console.log("firebase didnt init, go to login");
+				$state.go('login');
+			});
+}]);
