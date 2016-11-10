@@ -462,3 +462,35 @@ ion-list.manual-list-fullwidth div.list > .item,
 	letter-spacing: 5px;
 	text-transform: uppercase;
 }
+
+/* LOGIN */
+
+.login{
+	background: url('../img/cfest-login1.svg'), url('../img/cfest-login2.svg');
+	background-color:#323232;
+	background-repeat: no-repeat, no-repeat;
+	background-position: center top, center 90%;
+	width: 100%;
+	height: 100%;
+}
+
+.login>.scroll{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.login>.scroll form{
+	/*border: solid 1px red;*/
+	width: 70%;
+}
+/*
+.login .bg-image-02{
+	background:  no-repeat;
+	background-position: center bottom;
+	background-size: cover;
+	width: 100%;
+	height: 35%;
+	border: solid 1px red;
+}
+*/
