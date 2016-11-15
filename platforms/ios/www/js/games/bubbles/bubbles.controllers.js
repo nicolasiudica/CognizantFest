@@ -5,8 +5,33 @@ angular
 
 angular
 	.module('bubbles.controllers')
-	.controller('WelcomeCtrl', ['$scope',
-								function ($scope) {}]);
+	.controller('WelcomeCtrl', ['$scope', '$ionicModal',
+								function ($scope, $ionicModal) {
+			$ionicModal.fromTemplateUrl('templates/games/bubbles/instructions.html', {
+				scope: $scope
+			}).then(function (modal) {
+				$scope.instructions = modal;
+			});
+
+			$scope.openInstructionsModal = function () {
+				$scope.instructions.show();
+			};
+			$scope.closeInstructionsModal = function () {
+				$scope.instructions.hide();
+			};
+			//Cleanup the modal when we're done with it!
+			$scope.$on('$destroy', function () {
+				$scope.instructions.remove();
+			});
+			// Execute action on hidden modal
+			$scope.$on('modal.hidden', function () {
+				// Execute action
+			});
+			// Execute action on remove modal
+			$scope.$on('modal.removed', function () {
+				// Execute action
+			});
+}]);
 
 angular
 	.module('bubbles.controllers')
@@ -24,14 +49,14 @@ angular
 	.controller('BubbleCtrl', ['$scope', '$interval', '$state', '$ionicPopup',
 							   function ($scope, $interval, $state, $ionicPopup) {
 
-			shake.stopWatch();
+			//shake.stopWatch();
 
 			function randomScalingFactor() {
 				return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
 			}
 
 			function randomRadius() {
-				return Math.abs(randomScalingFactor()) / 3;
+				return Math.max(Math.abs(randomScalingFactor() / 2.5), 10);
 			}
 
 			function createTheOne() {
@@ -140,25 +165,25 @@ angular
 			$scope.showPopup = function () {
 				$scope.data = {};
 
-				var popup = $ionicPopup.show({
-					//title: $scope.message,
+				$ionicPopup.show({
+					title: $scope.result.alt,
 					scope: $scope,
 					templateUrl: 'templates/games/bubbles/popup.html',
 					buttons: [{
 						text: 'Replay',
-						type: 'button-default',
-						onTap: function (e) {
+						type: 'button-calm',
+						onTap: function () {
 							$scope.theOne = null;
 							$state.go('canvas');
 						}
-				}, {
+					}, {
 						text: 'Exit',
-						type: 'button-positive',
-						onTap: function (e) {
+						type: 'button-default',
+						onTap: function () {
 							$scope.theOne = null;
 							$state.go('bubbles');
 						}
-				}]
+					}]
 				});
 			};
 
@@ -166,8 +191,7 @@ angular
 			var goodClickCounter = 0;
 
 			$scope.whoClicked = function (points, event) {
-				var i = 0,
-					theOne = findTheOne(points, $scope),
+				var theOne = findTheOne(points, $scope),
 					hitboxX = theOne.x || 0,
 					hitboxY = theOne.y || 0,
 					hitboxR = theOne.r || 0,
@@ -188,34 +212,24 @@ angular
 
 				var bubbleResultMessages = [
 					{
-						message: 'One tequila, two tequila, three tequila, floor.',
-						img: '',
+						alt: 'You should get a cab home.',
+						img: 'img/03-drunk-bubble.jpg',
 						resultID: 0
 					},
 					{
-						message: 'You didn´t fall, the floor just needed a hug',
-						img: '',
+						alt: 'You are ready to dance.',
+						img: 'img/02-medium-bubble.jpg',
 						resultID: 1
 					},
 					{
-						message: 'Go show those sweet moves on the dance floor, trust me... you can dance',
-						img: '',
+						alt: 'You are sober!',
+						img: 'img/01-sober-bubble.jpg',
 						resultID: 2
 					},
 					{
-						message: 'A man´s got to believe in something. I believe you need another drink.',
-						img: '',
+						alt: 'You are sober!',
+						img: 'img/01-sober-bubble.jpg',
 						resultID: 3
-					},
-					{
-						message: 'Yo mama´s so fat, the recursive function used to calculate her mass causes a stack overflow!',
-						img: '',
-						resultID: 4
-					},
-					{
-						message: 'Really? All the bubbles? ALL??? put the phone down a go get a drink',
-						img: '',
-						resultID: 5
 					}
 				];
 
@@ -224,6 +238,7 @@ angular
 				//console.log("Valid: ([m < x < M] , [m < y < M]) = ([" + hitboxMinX + " < x < " + hitboxMaxX + "] , [" + hitboxMinY + " < y < " + hitboxMaxY + "])");
 				//console.log("Click: (x,y) = (" + clickX + "," + clickY + ")");
 
+				animateBackground(valid);
 				clicksCounter(valid);
 
 				var state = bubbleResultMessages[goodClickCounter];
@@ -232,10 +247,24 @@ angular
 
 				var totalClicks = badClickCounter + goodClickCounter;
 
-				if (totalClicks === 5) {
+				$scope.$apply();
+
+				if (totalClicks === 3) {
 					resetGame();
 				}
 			};
+
+			function animateBackground(valid) {
+				$scope.bubblesBg = '';
+				$('[view-title="Game"]').removeClass('redBg').removeClass('greenBg');
+				$scope.$apply();
+				if (valid) {
+					$scope.bubblesBg = 'greenBg';
+				} else {
+					$scope.bubblesBg = 'redBg';
+				}
+				$scope.$apply();
+			}
 
 			function clicksCounter(valid) {
 				if (valid) {
@@ -252,7 +281,7 @@ angular
 
 			function sendResult(state) {
 				//console.log(state);
-				$scope.message = state;
+				$scope.result = state;
 				//$scope.resultID = state.resultID;
 				$scope.badClicks = badClickCounter;
 				$scope.goodClicks = goodClickCounter;

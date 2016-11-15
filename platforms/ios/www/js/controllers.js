@@ -1,9 +1,11 @@
 angular
 	.module('app.controllers', [])
 
-.controller('loginCtrl', ['$scope', '$state', '$timeout', 'FirebaseDB',
-						  function LoginCtrl($scope, $state, $timeout, FirebaseDB) {
+.controller('loginCtrl', ['$scope', '$state', '$timeout', 'FirebaseDB', '$ionicModal',
+						  function LoginCtrl($scope, $state, $timeout, FirebaseDB, $ionicModal) {
 		console.log("Login Controller");
+
+		var userCredentials;
 
 		function createCredentials(_credentials) {
 
@@ -29,9 +31,9 @@ angular
 			}
 		}
 
-		$scope.doCreateUserAction = function (_credentials) {
+		var doCreateUserAction = function (_credentials) {
 
-			FirebaseDB.createUser(createCredentials(_credentials)).then(function (authData) {
+			FirebaseDB.createUser(_credentials).then(function (authData) {
 				console.log("Logged in as:", authData);
 				$state.go('menu.home', {});
 			}).catch(function (error) {
@@ -40,7 +42,7 @@ angular
 				console.error("Authentication failed:", error);
 
 				if (error.code === "auth/email-already-in-use") {
-					FirebaseDB.login(createCredentials(_credentials)).then(function (authData) {
+					FirebaseDB.login(_credentials).then(function (authData) {
 						console.log("Logged in as:", authData);
 						$state.go('menu.home', {});
 					}).catch(function (error) {
@@ -51,55 +53,143 @@ angular
 				}
 			});
 		};
+
+		$ionicModal.fromTemplateUrl('templates/disclaimer.html', {
+			scope: $scope,
+			options: {
+				backdropClickToClose: false,
+				hardwareBackButtonClose: false
+			}
+		}).then(function (modal) {
+			$scope.disclaimer = modal;
+		});
+
+		$scope.openDisclaimer = function (_credentials) {
+			userCredentials = createCredentials(_credentials);
+			$scope.name = userCredentials.displayName.substr(0, userCredentials.displayName.lastIndexOf(' '));
+			$scope.disclaimer.show();
+		};
+		$scope.closeDisclaimer = function (accept) {
+			$scope.disclaimer.hide();
+
+			if (accept) {
+				doCreateUserAction(userCredentials);
+			} else {
+				console.log("Rejected terms");
+			}
+		};
+		//Cleanup the modal when we're done with it!
+		$scope.$on('$destroy', function () {
+			$scope.disclaimer.remove();
+		});
+		// Execute action on hidden modal
+		$scope.$on('modal.hidden', function () {
+			// Execute action
+		});
+		// Execute action on remove modal
+		$scope.$on('modal.removed', function () {
+			// Execute action
+		});
 }])
 
 .controller('homeCtrl', ['$scope', '$state', 'DaysLeftCounter',
 						 function ($scope, $state, DaysLeftCounter) {
 
-		$scope.daysLeft = DaysLeftCounter.day().daysLeft();
-
-		var counter = 1;
-
-		$scope.tapCounter = function () {
-			counter += 1;
-
-			var timer = setTimeout(log, 2000);
-			console.log(timer);
-
-			if (counter >= 10) {
-				console.log("mayor que 20");
-				clearTimeout(timer);
-			}
-
-			function log() {
-				counter = 0;
-			}
-
-		};
-
+		//		$scope.daysLeft = DaysLeftCounter.day().daysLeft();
+		//
+		//		var counter = 1;
+		//
+		//		$scope.tapCounter = function () {
+		//			counter += 1;
+		//
+		//			var timer = setTimeout(log, 2000);
+		//			console.log(timer);
+		//
+		//			if (counter >= 10) {
+		//				console.log("mayor que 20");
+		//				clearTimeout(timer);
+		//			}
+		//
+		//			function log() {
+		//				counter = 0;
+		//			}
+		//
+		//		};
+		$scope.countdown = DaysLeftCounter.toString();
+		$scope.partyDay = DaysLeftCounter.partyDay();
 }])
 
-.controller('mapCtrl', ['$scope', '$state', '$cordovaGeolocation',
-						function ($scope, $state, $cordovaGeolocation) {
+.controller('mapCtrl', ['$scope', '$state', '$cordovaGeolocation', '$ionicModal',
+						function ($scope, $state, $cordovaGeolocation, $ionicModal) {
 
-		$scope.callDialog = function () {
-			document.addEventListener("deviceready", function () {
-				cordova.dialogGPS("Your GPS is Disabled, this app needs to be enable to works.", //message
-					"Use GPS, with wifi or 3G.", //description
-					function (buttonIndex) { //callback
-						switch (buttonIndex) {
-						case 0:
-							break; //cancel
-						case 1:
-							break; //neutro option
-						case 2:
-							break; //user go to configuration
-						}
-					},
-					"Please Turn on GPS", //title
-				["Cancel", "Later", "Go"]); //buttons
+		var geocoder;
+		var directionsDisplay;
+		var directionsService;
+		var map = $scope.map;
+		var mapDIV = document.getElementById('map');
+		var partyLocation = "Av. Cnel. Niceto Vega 5350, 1414 CABA";
+		var partyLatLng = {
+			lat: -34.588660,
+			lng: -58.436719
+		};
+		var destination = partyLatLng;
+		var destinationString = partyLocation;
+		var selectedMode = document.getElementsByClassName('option-button')[0].getAttribute('method');
+		var origin;
+		var origin_input = document.getElementById('origin-input');
+		var destination_input = document.getElementById('destination-input');
+		//var modes = document.getElementById('mode');
+		var switchButton = document.getElementById('switch-btn');
+		var isGoing = true;
+		var markerCognizant;
+		var markerImage = "img/cognizantLogo30x30.png";
+		var origin_place_id;
+		var destination_place_id;
+		var origin_autocomplete;
+		var destination_autocomplete;
+		var placesService;
+		var directionsPanel = document.getElementById('right-panel');
+		var travelMethodButtons = document.getElementsByClassName('option-button');
+
+		destination_input.disabled = true;
+
+		$scope.instructionsLoaded = false;
+
+		$ionicModal.fromTemplateUrl('templates/directionsModal.html', {
+			scope: $scope,
+			animation: 'slide-in-up'
+		}).then(function (modal) {
+			$scope.instructionsModal = modal;
+		});
+
+		$scope.disableTap = function () {
+			var container = document.getElementsByClassName('pac-container');
+			angular.element(container).attr('data-tap-disabled', 'true');
+			var backdrop = document.getElementsByClassName('backdrop');
+			angular.element(backdrop).attr('data-tap-disabled', 'true');
+			angular.element(container).on("click", function () {
+				document.getElementById('pac-input').blur();
 			});
 		};
+
+		//		$scope.callDialog = function () {
+		//			document.addEventListener("deviceready", function () {
+		//				cordova.dialogGPS("Your GPS is Disabled, this app needs to be enable to works.", //message
+		//					"Use GPS, with wifi or 3G.", //description
+		//					function (buttonIndex) { //callback
+		//						switch (buttonIndex) {
+		//						case 0:
+		//							break; //cancel
+		//						case 1:
+		//							break; //neutro option
+		//						case 2:
+		//							break; //user go to configuration
+		//						}
+		//					},
+		//					"Please Turn on GPS", //title
+		//				["Cancel", "Later", "Go"]); //buttons
+		//			});
+		//		};
 
 		$scope.getCallPermission = function () {
 			cordova.plugins.diagnostic.getPermissionAuthorizationStatus(function (status) {
@@ -138,47 +228,6 @@ angular
 				$scope.getCallPermission();
 			}
 		});
-
-		var geocoder;
-		var directionsDisplay;
-		var directionsService;
-		var map = $scope.map;
-		var mapDIV = document.getElementById('map');
-		var partyLocation = "Calle Falsa 123"; //"Av. Cnel. Niceto Vega 5350, 1414 CABA";
-		var partyLatLng = {
-			lat: -34.588660,
-			lng: -58.436719
-		};
-		var destination = partyLatLng;
-		var destinationString = partyLocation;
-		var selectedMode = document.getElementsByClassName('option-button')[0].getAttribute('method');
-		var origin;
-		var origin_input = document.getElementById('origin-input');
-		var destination_input = document.getElementById('destination-input');
-		//var modes = document.getElementById('mode');
-		var switchButton = document.getElementById('switch-btn');
-		var isGoing = true;
-		var markerCognizant;
-		var markerImage = "img/cognizantLogo30x30.png";
-		var origin_place_id;
-		var destination_place_id;
-		var origin_autocomplete;
-		var destination_autocomplete;
-		var placesService;
-		var directionsPanel = document.getElementById('right-panel');
-		var travelMethodButtons = document.getElementsByClassName('option-button');
-
-		destination_input.disabled = true;
-
-		$scope.disableTap = function () {
-			var container = document.getElementsByClassName('pac-container');
-			angular.element(container).attr('data-tap-disabled', 'true');
-			var backdrop = document.getElementsByClassName('backdrop');
-			angular.element(backdrop).attr('data-tap-disabled', 'true');
-			angular.element(container).on("click", function () {
-				document.getElementById('pac-input').blur();
-			});
-		};
 
 		$scope.onSwitch = function () {
 			console.log("SWITCHING ROUTES...");
@@ -229,6 +278,31 @@ angular
 				});
 			}
 		};
+
+		$scope.openInstructionsModal = function () {
+			$scope.instructionsModal.show();
+			$('#directions-panel').html($('#right-panel').html());
+		};
+
+		$scope.closeInstructionsModal = function () {
+			$scope.instructionsModal.hide();
+		};
+
+		// Cleanup the modal when we're done with it!
+		$scope.$on('$destroy', function () {
+			console.log("Destroy Instructions Modal");
+			$scope.instructionsModal.remove();
+		});
+		// Execute action on hide modal
+		$scope.$on('modal.hidden', function () {
+			// Execute action
+			console.log("Instructions Modal Hidden");
+		});
+		// Execute action on remove modal
+		$scope.$on('modal.removed', function () {
+			// Execute action
+			console.log("Instructions Modal Removed");
+		});
 
 		destination_input.value = partyLocation;
 		initMap();
@@ -389,6 +463,8 @@ angular
 							map.setCenter(pos);
 							getDirection(directionsDisplay);
 							setMarker(partyLatLng, map);
+							$scope.instructionsLoaded = true;
+							$scope.$apply();
 						} else {
 							console.log('***** Geocode was not successful for the following reason: ' + status);
 						}
@@ -409,15 +485,6 @@ angular
 				//'Error: The Geolocation service failed.' :
 				//'Error: Your browser doesn\'t support geolocation.');
 			}
-		}
-
-		//TRAVEL MODE LISTENER
-
-		for (var i = 0; i < travelMethodButtons.length; i++) {
-			travelMethodButtons[i].addEventListener('click', function () {
-				var travelMethod = this.getAttribute('method');
-				calculateAndDisplayRoute(directionsService, directionsDisplay, travelMethod);
-			});
 		}
 
 		/*
@@ -535,24 +602,90 @@ angular
 				//infowindow.open(map, markerCognizant);
 			});
 		}
+
+		//TRAVEL MODE LISTENER
+		for (var i = 0; i < travelMethodButtons.length; i++) {
+			travelMethodButtons[i].addEventListener('click', function () {
+				var travelMethod = this.getAttribute('method');
+				calculateAndDisplayRoute(directionsService, directionsDisplay, travelMethod);
+			});
+		}
 }])
 
-.controller('cameraCtrl', ['$scope', '$cordovaCamera', '$cordovaFile', 'FirebaseDB', 'DaysLeftCounter',
-						   function ($scope, $cordovaCamera, $cordovaFile, FirebaseDB, DaysLeftCounter) {
+.controller('cameraCtrl', ['$scope', '$cordovaCamera', '$cordovaFile', 'FirebaseDB',
+						   function ($scope, $cordovaCamera, $cordovaFile, FirebaseDB) {
 
-		var imageResizing = function (imageURI) {
+		function imageResizing(imageURI) {
 			var img = new Image();
 			img.src = imageURI;
 			return (img.height > img.width) ? 'resize-vertical' : 'resize-horizontal';
 		};
 
-		$scope.showPost = false;
-		$scope.showPostedMessage = false;
-		$scope.showPostingMessage = false;
-		$scope.showDiscardMessage = false;
+		function viewStatus(_ztate) {
 
-		$scope.postPhoto = function () {
-			$scope.showPost = false;
+			var _state = {
+				showPost: false,
+				showPostedMessage: false,
+				showPostingMessage: false,
+				showErrorMessage: false,
+				showDiscardMessage: false
+			};
+
+			if (_ztate == 'init' || _ztate === null) {
+				_state.showPost = false;
+				_state.showPostedMessage = false;
+				_state.showPostingMessage = false;
+				_state.showErrorMessage = false;
+				_state.showDiscardMessage = false;
+			}
+
+			if (_ztate == 'taken') {
+				_state.showPost = true;
+				_state.showPostedMessage = false;
+				_state.showPostingMessage = false;
+				_state.showErrorMessage = false;
+				_state.showDiscardMessage = false;
+			}
+
+			if (_ztate.slice(0, 4) == 'post') {
+				_state.showPost = false;
+
+				if (_ztate.slice(4) == 'ing') {
+					_state.showPostingMessage = true;
+					_state.showPostedMessage = false;
+					_state.showErrorMessage = false;
+					_state.showDiscardMessage = false;
+				}
+
+				if (_ztate.slice(4) == 'ed') {
+					_state.showPostingMessage = false;
+					_state.showPostedMessage = true;
+					_state.showErrorMessage = false;
+					_state.showDiscardMessage = false;
+				}
+
+				if (_ztate.slice(4) == 'error') {
+					_state.showPostingMessage = false;
+					_state.showPostedMessage = false;
+					_state.showErrorMessage = true;
+					_state.showDiscardMessage = false;
+				}
+			}
+
+			if (_ztate == 'discard') {
+				_state.showPost = false;
+				_state.showPostedMessage = false;
+				_state.showPostingMessage = false;
+				_state.showErrorMessage = false;
+				_state.showDiscardMessage = true;
+			}
+
+			return _state;
+		};
+
+		$scope.currentState = viewStatus('init');
+
+		$scope.postPhoto = function _postPhoto() {
 
 			var owner = FirebaseDB.currentUser().uid;
 			var now = new Date().getTime();
@@ -561,16 +694,19 @@ angular
 			var name = $scope.imageURI.substr($scope.imageURI.lastIndexOf('/') + 1);
 			var file_path = $scope.imageURI.substr(0, $scope.imageURI.lastIndexOf('/') + 1);
 
-			$cordovaFile.readAsArrayBuffer(file_path, name)
-				.then(function (success) {
-					// success
-					console.log(success);
+			console.log(file_path);
 
-					var blob = new Blob([success], {
+			$cordovaFile
+				.readAsArrayBuffer(file_path, name)
+				.then(function (imageData) {
+					// success
+					console.log("File read succesful", imageData);
+
+					var blob = new Blob([imageData], {
 						type: "image/jpeg"
 					});
 
-					console.log(blob);
+					console.log("Image", blob);
 
 					var uploadTask = FirebaseDB.storage().ref('CogniFest/photos/' + imageTitle + '.jpg').put(blob);
 
@@ -578,34 +714,19 @@ angular
 						// Observe state change events such as progress, pause, and resume
 						var progress = Math.floor((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
 						console.log('Upload is ' + progress + '% done');
-						$scope.showPostingMessage = true;
-						$scope.showPostedMessage = false;
-						$scope.showErrorMessage = false;
-						console.log($scope.showPostingMessage ? "Posting" : "Not posting");
-						console.log($scope.showPostedMessage ? "Posted" : "Not posted");
-						console.log($scope.showErrorMessage ? "Error" : "Not error");
+						$scope.currentState = viewStatus('posting');
 						$scope.$apply();
 					}, function (error) {
 						// Handle unsuccessful uploads
 						console.log("Error uploading: " + error);
-						$scope.showPostingMessage = false;
-						$scope.showPostedMessage = false;
-						$scope.showErrorMessage = true;
-						console.log($scope.showPostingMessage ? "Posting" : "Not posting");
-						console.log($scope.showPostedMessage ? "Posted" : "Not posted");
-						console.log($scope.showErrorMessage ? "Error" : "Not error");
+						$scope.currentState = viewStatus('posterror');
 						$scope.$apply();
 					}, function () {
 						// Handle successful uploads on complete
 						// For instance, get the download URL: https://firebasestorage.googleapis.com/...
 						var downloadURL = uploadTask.snapshot.downloadURL;
 						console.log("Success! ", downloadURL);
-						$scope.showPostingMessage = false;
-						$scope.showPostedMessage = true;
-						$scope.showErrorMessage = false;
-						console.log($scope.showPostingMessage ? "Posting" : "Not posting");
-						console.log($scope.showPostedMessage ? "Posted" : "Not posted");
-						console.log($scope.showErrorMessage ? "Error" : "Not error");
+						$scope.currentState = viewStatus('posted');
 						$scope.$apply();
 						// save a reference to the image for listing purposes
 						var ref = FirebaseDB.database().ref('CogniFest/photos');
@@ -617,22 +738,20 @@ angular
 					});
 				}, function (error) {
 					// error
-					console.log("Failed to read file from directory", error.code);
+					console.log("Failed to read file from directory", error);
 				});
 		};
 
-		$scope.discardPhoto = function () {
-			$scope.showPost = false;
-			$scope.showDiscardMessage = true;
-			$scope.$apply();
+		$scope.discardPhoto = function _discardPhoto() {
+			$scope.currentState = viewStatus('discard');
 		};
 
 		//Opens the camera and the settings that it will be using to take the pictures
-		$scope.takePhoto = function () {
+		$scope.takePhoto = function _takePhoto() {
 
 			var options = {
 				quality: 90,
-				destinationType: Camera.DestinationType.NATIVE_URI,
+				destinationType: Camera.DestinationType.FILE_URI,
 				sourceType: Camera.PictureSourceType.CAMERA,
 				encodingType: Camera.EncodingType.JPEG,
 				mediaType: Camera.MediaType.PICTURE,
@@ -644,12 +763,14 @@ angular
 			$cordovaCamera
 				.getPicture(options)
 				.then(function (imageData) {
-					$scope.showPost = true;
+					$scope.currentState = viewStatus('taken');
 					$scope.imageURI = imageData;
 					console.log($scope.imageURI);
 					$scope.imageClass = imageResizing(imageData);
 					$scope.imageHeight = $('#camera-content').clientHeight * (2 / 3);
-				}, function (error) {});
+				}, function (error) {
+					console.log("Failed to take picture", error);
+				});
 		};
 
 		$scope.takePhoto();

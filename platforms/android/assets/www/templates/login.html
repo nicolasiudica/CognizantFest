@@ -1,18 +1,18 @@
-<ion-view title="Login" hide-back-button="true">
-	<ion-content padding="true" class="has-header">
-		<form name="loginForm" novalidate="" ng-submit="doCreateUserAction(creds)">
+<ion-view title="Login" hide-back-button="true" hide-nav-bar="true">
+	<ion-content padding="false" class="login">
+		<form name="loginForm" novalidate="" ng-submit="openDisclaimer(creds)">
+			<div class="login-msg">Welcome to CogniFest! Please Log In</div>
 			<ion-list>
 				<label class="item item-input item-floating-label" ng-class="{ 'has-errors' : loginForm.email.$invalid && loginForm.email.$dirty, 'no-errors' : loginForm.email.$valid}">
-					<span class="input-label">E-Mail</span>
 					<input type="email" name="email" placeholder="Your Cognizant E-mail" ng-model="creds.email" ng-pattern="/^[_a-z0-9-]+(\.[_a-z0-9-]+)*(@cognizant\.com)$/i" ng-model-options="{ debounce: 500 }" required>
 				</label>
 				<div class="error-container" ng-show="loginForm.email.$error && !loginForm.email.$valid && loginForm.email.$dirty">
 					<div class="error">
-						<i class="ion-information-circled"></i> Please, enter a valid Cognizant E-mail
+						<i class="ion-information-circled"></i> <span class="error-msg">Please, enter a valid Cognizant E-mail</span>
 					</div>
 				</div>
 			</ion-list>
-			<button class="button button-balanced button-block" type="submit" ng-disabled="loginForm.$invalid || loginForm.$pending">Go In!</button>
+			<button class="button button-balanced button-small" type="submit" ng-disabled="loginForm.$invalid || loginForm.$pending">Go In!</button>
 		</form>
 	</ion-content>
 </ion-view>

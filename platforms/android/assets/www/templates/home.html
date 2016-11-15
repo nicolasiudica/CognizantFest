@@ -1,32 +1,26 @@
-<ion-view title="Home" id="page1" class=" ">
+<ion-view hide-back-button="true" title="Home" id="page1" class="">
 	<ion-content padding="true" class="has-header" on-swipe-left="onSwipeLeft()">
-		<div class="card main">
-			<div class="item item-icon-left item-diveder">
+		<div class="card main animated tada">
+			<div class="item item-icon-left">
 				<i class="icon ion-android-alarm-clock"></i>
-				<span class="card-title">COUNTDOWN TO THE PARTY</span>
+				<span class="card-title">
+					COUNTDOWN TO THE PARTY
+				</span>
 			</div>
 			<span class="item item-text-wrap">
-               <h2>{{ daysLeft }} DAYS LEFT</h2>
-            </span>
+<!--               <h2>{{ daysLeft }} DAYS LEFT</h2>-->
+				<h2>{{ countdown }}</h2>
+			</span>
 		</div>
-		<div class="card">
-			<div class="item item-icon-left item-diveder">
-				<i class="icon icon ion-tshirt"></i>
-				<span class="card-title">
-                    DRESS IN BLACK &amp; WHITE
-                </span>
-			</div>
-			<span class="item item-text-wrap">See the drinks available at the bar counter</span>
-		</div>
-		<div class="card" ui-sref="menu.map">
-			<div class="item item-icon-left item-diveder">
+		<div class="card animated" ui-sref="menu.map">
+			<div class="item item-icon-left">
 				<i class="icon ion-location"></i>
 				<span class="card-title">
-                    LUGAR FALSO<!--ESPACIO DARWIN-->
-                </span>
+					ESPACIO DARWIN
+				</span>
 			</div>
 			<div class="item item-text-wrap">
-				CALLE FALSA 123<!--Av. Cnel. Niceto Vega 5350 - CABA-->
+				Av. Cnel. Niceto Vega 5350 - PALERMO
 			</div>
 		</div>
 	</ion-content>

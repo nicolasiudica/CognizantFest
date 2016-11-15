@@ -9,10 +9,6 @@
                 "parents": {
                     "/*": [
                         {
-                            "xml": "<feature name=\"Console\"><param name=\"ios-package\" value=\"CDVLogger\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"SplashScreen\"><param name=\"ios-package\" value=\"CDVSplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
                         },
@@ -146,9 +142,6 @@
         }
     },
     "installed_plugins": {
-        "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.ionicframework.cognifest763009"
-        },
         "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "com.ionicframework.cognifest763009"
         },
@@ -186,29 +179,10 @@
         },
         "cordova-plugin-file": {
             "PACKAGE_NAME": "com.ionicframework.cognifest763009"
-        },
-        "cordova-plugin-crosswalk-webview": {
-            "PACKAGE_NAME": "com.cognizant.cognifest"
         }
     },
     "dependent_plugins": {},
     "modules": [
-        {
-            "file": "plugins/cordova-plugin-console/www/console-via-logger.js",
-            "id": "cordova-plugin-console.console",
-            "pluginId": "cordova-plugin-console",
-            "clobbers": [
-                "console"
-            ]
-        },
-        {
-            "file": "plugins/cordova-plugin-console/www/logger.js",
-            "id": "cordova-plugin-console.logger",
-            "pluginId": "cordova-plugin-console",
-            "clobbers": [
-                "cordova.logger"
-            ]
-        },
         {
             "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
             "id": "cordova-plugin-splashscreen.SplashScreen",
@@ -490,7 +464,6 @@
         }
     ],
     "plugin_metadata": {
-        "cordova-plugin-console": "1.0.4",
         "cordova-plugin-splashscreen": "4.0.0",
         "cordova-plugin-statusbar": "2.2.0",
         "cordova-plugin-vibration": "2.1.2",
@@ -502,7 +475,6 @@
         "cordova-plugin-camera": "2.3.0",
         "cordova-plugin-device-motion": "1.2.2",
         "cordova-plugin-shake": "0.5.4",
-        "cordova-plugin-file": "4.3.0",
-        "cordova-plugin-crosswalk-webview": "2.1.0"
+        "cordova-plugin-file": "4.3.0"
     }
 }

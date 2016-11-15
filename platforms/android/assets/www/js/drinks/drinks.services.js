@@ -120,7 +120,7 @@ angular.module('drinks.services', ['ionic'])
 	this.random = function () {
 		var randomNumber = Math.floor((Math.random() * 22));
 		return this.items()[randomNumber];
-	}
+	};
 
 })
 

@@ -1,4 +1,4 @@
-<ion-view title="Map" id="page5" class=" ">
+<ion-view hide-back-button="false" title="Map" id="page5" class=" ">
 	<ion-content padding="false" class="has-header">
 		<div id="controls-container">
 			<div class="left">
@@ -16,10 +16,10 @@
 				</div>
 			</div>
 		</div>
-		<div id="map"></div>
-		<div id="right-panel"></div>
-	</ion-content>
-		<button class="button icon-left icon-right button-balanced button-full button-small text-center map-fixed-right">
-			<i class="icon ion-chevron-down"></i> <b class="">Instructions</b> <i class="icon ion-chevron-down"></i>
+		<button class="button icon-left button-balanced button-full" ng-click="openInstructionsModal()" ng-disabled="!instructionsLoaded">
+			<i class="icon ion-map"></i><b class="">Detailed instructions</b>
 		</button>
+		<div id="map"></div>
+		<div ng-hide="true" id="right-panel"></div>
+	</ion-content>
 </ion-view>

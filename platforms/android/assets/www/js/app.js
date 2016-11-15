@@ -4,7 +4,7 @@ angular
 	.module('app', [
 		'ionic', 'ion-gallery', 'ngCordova', 'ui.router',
 		'app.controllers', 'app.routes', 'app.services', 'app.directives',
-		'bubbles', 'drinks', 'firebase'
+		'bubbles', 'drinks', 'firebase', 'templates'
 	]);
 
 angular
@@ -12,6 +12,7 @@ angular
 
 .config(['$ionicConfigProvider', function ($ionicConfigProvider) {
 	$ionicConfigProvider.tabs.position('bottom'); // other values: top
+	$ionicConfigProvider.views.transition('platform');
 }]);
 
 angular

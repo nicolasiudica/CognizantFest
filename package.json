@@ -1,21 +1,23 @@
 {
   "name": "cognifest",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "An awesome app for the cognizant party",
   "devDependencies": {
-    "shelljs": "^0.7",
     "angular": "^1.5",
+    "async": "^2.1.2",
     "bower": "^1.8",
     "bower-npm-resolver": "^0.7",
     "gulp": "^3.9",
+    "gulp-angular-templatecache": "^2.0.0",
+    "gulp-clean-css": "^2.0",
     "gulp-concat": "^2.6",
     "gulp-rename": "^1.2",
     "gulp-sass": "^2.3",
     "gulp-util": "^3",
-	"gulp-clean-css": "^2.0"
+    "jshint": "^2.9.4",
+    "shelljs": "^0.7"
   },
   "cordovaPlugins": [
-    "cordova-plugin-console",
     "cordova-plugin-whitelist",
     "cordova-plugin-splashscreen",
     "cordova-plugin-statusbar",
@@ -25,8 +27,7 @@
     "cordova-plugin-device",
     "cordova-plugin-camera",
     "cordova-plugin-shake",
-    "cordova-plugin-file",
-    "cordova-plugin-crosswalk-webview"
+    "cordova-plugin-file"
   ],
   "cordovaPlatforms": [
     "android",

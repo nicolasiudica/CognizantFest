@@ -180,11 +180,13 @@ angular
 					currentUser = authData;
 					return authData;
 				}).then(function (authData) {
+					console.log("Saving user data", authData);
 					// add the user to a seperate list
 					var ref = instance.database().ref('CogniFest/users');
 					return ref.child(authData.uid).set({
 						"provider": authData.providerData[0],
-						"displayName": _credentials.displayName
+						"displayName": _credentials.displayName,
+						"termsAccepted": true
 					});
 				});
 		}

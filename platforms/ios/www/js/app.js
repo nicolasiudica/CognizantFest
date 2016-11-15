@@ -12,6 +12,7 @@ angular
 
 .config(['$ionicConfigProvider', function ($ionicConfigProvider) {
 	$ionicConfigProvider.tabs.position('bottom'); // other values: top
+	$ionicConfigProvider.views.transition('platform');
 }]);
 
 angular

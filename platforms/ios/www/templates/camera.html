@@ -1,28 +1,28 @@
-<ion-view title="Camera" id="page7" class="">
+<ion-view hide-back-button="false" title="Camera" id="page7" class="">
 	<ion-content id="camera-content" class="padding">
 		<div ng-show="imageURI !== undefined">
-			<div class="text-center" ng-show="showPost">
+			<div class="text-center animate-show" ng-show="currentState.showPost">
 				<button class="button button-large button-assertive icon-left ion-close-round" ng-click="discardPhoto()">Discard</button>
 				<button class="button button-large button-balanced icon-left ion-checkmark-round" ng-click="postPhoto()">Upload</button>
 				<div class="image-container" style="max-height:{{imageHeight}}px;">
 					<img ng-src="{{imageURI}}" class="{{imageClass}}">
 				</div>
 			</div>
-			<div class="card text-center" ng-hide="showPost">
-				<div class="item item-text-wrap calm" ng-show="showPostingMessage">
+			<div class="card text-center animate-show" ng-hide="currentState.showPost">
+				<div class="item item-text-wrap calm animate-show" ng-show="currentState.showPostingMessage">
 					<ion-spinner class="spinner-calm"></ion-spinner>
 				</div>
-				<div class="item item-text-wrap item-icon-left energized" ng-show="showErrorMessage">
+				<div class="item item-text-wrap item-icon-left energized animate-show" ng-show="currentState.showErrorMessage">
 					<i class="icon ion-close-circled"></i>Error uploading. Sorry!
 				</div>
-				<div class="item item-text-wrap item-icon-left calm" ng-show="showPostedMessage">
+				<div class="item item-text-wrap item-icon-left calm animate-show" ng-show="currentState.showPostedMessage">
 					<i class="icon ion-cloud"></i>Photo uploaded
 				</div>
-				<div class="item item-text-wrap item-icon-left assertive" ng-show="showDiscardMessage">
+				<div class="item item-text-wrap item-icon-left assertive animate-show" ng-show="currentState.showDiscardMessage">
 					<i class="icon ion-minus-circled"></i>Photo discarded
 				</div>
 			</div>
 		</div>
-		<button class="button button-block button-calm" ng-hide="showPost" ng-click="takePhoto()">Take a pic!</button>
+		<button class="button button-block button-calm animate-show" ng-hide="currentState.showPost" ng-click="takePhoto()">Take a pic!</button>
 	</ion-content>
 </ion-view>

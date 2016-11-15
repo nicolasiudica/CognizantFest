@@ -436,7 +436,8 @@ ion-list.manual-list-fullwidth div.list > .item,
 	width: 61%;
 	line-height: 108px;
 	text-align: center;
-	color: #006b83;
+	/* font-weight: bold; */
+	color: #11c1f3;
 	font-size: 24px;
 }
 
@@ -457,7 +458,7 @@ ion-list.manual-list-fullwidth div.list > .item,
 }
 
 .bubbles-title {
-	color: #0087ff;
+	color: #11c1f3;
 	font-weight: lighter;
 	letter-spacing: 5px;
 	text-transform: uppercase;

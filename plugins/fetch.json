@@ -70,11 +70,11 @@
         },
         "is_top_level": true,
         "variables": {}
-    },
-    "cordova-plugin-crosswalk-webview": {
+    }
+}    "cordova-plugin-statusbar": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-crosswalk-webview@2.1.0"
+            "id": "cordova-plugin-statusbar@2.2.0"
         },
         "is_top_level": true,
         "variables": {}

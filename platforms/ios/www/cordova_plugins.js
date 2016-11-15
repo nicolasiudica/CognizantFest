@@ -311,8 +311,7 @@ module.exports.metadata =
     "cordova-plugin-camera": "2.3.0",
     "cordova-plugin-device-motion": "1.2.2",
     "cordova-plugin-shake": "0.5.4",
-    "cordova-plugin-file": "4.3.0",
-    "cordova-plugin-crosswalk-webview": "2.1.0"
+    "cordova-plugin-file": "4.3.0"
 }
 // BOTTOM OF METADATA
 });

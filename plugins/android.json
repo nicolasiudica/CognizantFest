@@ -8,53 +8,42 @@
     },
     "installed_plugins": {
         "cordova-plugin-camera": {
-            "PACKAGE_NAME": "com.ionicframework.cognifest763009"
+            "PACKAGE_NAME": "com.cognizant.cognifest"
         },
         "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.ionicframework.cognifest763009"
-        },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.ionicframework.cognifest763009"
-        },
-        "cordova-plugin-vibration": {
-            "PACKAGE_NAME": "com.ionicframework.cognifest763009"
-        },
-        "cordova-plugin-shake": {
-            "PACKAGE_NAME": "com.ionicframework.cognifest763009"
+            "PACKAGE_NAME": "com.cognizant.cognifest"
         },
         "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.ionicframework.cognifest763009"
+            "PACKAGE_NAME": "com.cognizant.cognifest"
         },
-        "cordova-plugin-crosswalk-webview": {
-            "XWALK_VERSION": "21+",
-            "XWALK_LITEVERSION": "xwalk_core_library_canary:17+",
-            "XWALK_COMMANDLINE": "--disable-pull-to-refresh-effect",
-            "XWALK_MODE": "embedded",
-            "XWALK_MULTIPLEAPK": "true",
+        "cordova-plugin-shake": {
+            "PACKAGE_NAME": "com.cognizant.cognifest"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.cognizant.cognifest"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.cognizant.cognifest"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.cognizant.cognifest"
+        },
+        "cordova-plugin-vibration": {
             "PACKAGE_NAME": "com.cognizant.cognifest"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.ionicframework.cognifest763009"
-        },
-        "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.ionicframework.cognifest763009"
-        },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.ionicframework.cognifest763009"
-        },
-        "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.ionicframework.cognifest763009"
-        },
-        "cordova.plugins.diagnostic": {
-            "PACKAGE_NAME": "com.ionicframework.cognifest763009"
-        },
-        "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "com.ionicframework.cognifest763009"
+            "PACKAGE_NAME": "com.cognizant.cognifest"
         },
         "cordova-plugin-device-motion": {
-            "PACKAGE_NAME": "com.ionicframework.cognifest763009"
+            "PACKAGE_NAME": "com.cognizant.cognifest"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.cognizant.cognifest"
+        },
+        "cordova.plugins.diagnostic": {
+            "PACKAGE_NAME": "com.cognizant.cognifest"
         }
     }
 }
