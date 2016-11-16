@@ -12,12 +12,12 @@ var pluginsDir = path.resolve(__dirname, '../../plugins');
 
 try {
   fs.mkdirSync(platformsDir, function(err) {
-    if (err) { console.error(err); }
+	if (err) { console.error(err); }
   });
 } catch (ex) {} // eslint-disable-line no-empty
 
 try {
   fs.mkdirSync(pluginsDir, function(err) {
-    if (err) { console.error(err); }
+	if (err) { console.error(err); }
   });
 } catch (ex) {} // eslint-disable-line no-empty

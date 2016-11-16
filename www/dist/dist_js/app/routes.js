@@ -1,7 +1,7 @@
 angular
 	.module('app.routes', [])
 
-.config(function ($stateProvider, $urlRouterProvider) {
+.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
 	$stateProvider
 
@@ -17,6 +17,16 @@ angular
 		abstract: true,
 		templateUrl: 'menu.html',
 		cache: true
+//		resolve: {
+//			user: ['FirebaseDB', '$q',
+//				function (FirebaseDB, $q) {
+//					var authData = FirebaseDB.currentUser();
+//					return $q(function (resolve, reject) {
+//						authData ? resolve(authData) : reject("NoAuth");
+//					});
+//				}
+//			]
+//		}
 	})
 
 	.state('menu.home', {
@@ -91,4 +101,4 @@ angular
 
 	$urlRouterProvider.otherwise('/cognifest/home');
 
-});
+}]);

@@ -2,8 +2,10 @@
   "name": "CogniFest",
   "app_id": "5d7249b7",
   "gulpStartupTasks": [
-    "sass",
-    "templatecache",
-    "watch"
+	"sass",
+	"templatecache",
+	"ng_annotate",
+	"useref",
+	"watch"
   ]
 }

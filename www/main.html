@@ -7,13 +7,16 @@
 	<title>CogniFest</title>
 
 	<!-- STYLESHEETS -->
+	<!-- build:css dist_js/styles.css -->
 	<link href="css/animate.css" rel="stylesheet">
 	<link href="css/ionic.app.min.css" rel="stylesheet">
 	<link href="lib/ion-gallery/dist/ion-gallery.css" rel="stylesheet">
 	<link href="css/main-custom.css" rel="stylesheet">
+	<!-- endbuild -->
 	<!-- /STYLESHEETS -->
 
 	<!-- CORE JAVASCRIPT LIBRARIES AND TOOLS -->
+	<!-- build:js dist_js/lib.js -->
 	<!-- jQuery -->
 	<script src="lib/jquery/dist/jquery.min.js"></script>
 	<!-- lodash -->
@@ -35,12 +38,13 @@
 	<script src="lib/angular-chart.js/dist/angular-chart.min.js"></script>
 	<!-- angularfire -->
 	<!--	<script src="lib/angularfire/dist/angularfire.js"></script>-->
+	<!-- endbuild -->
 	<!-- CORE JAVASCRIPT LIBRARIES AND TOOLS -->
 
 	<!-- cordova script (this will be a 404 during development) -->
 	<script src="cordova.js"></script>
 
-	<!-- IONIC APP -->
+	<!-- IONIC APP --
 	<script src="js/templates.js"></script>
 	<script src="js/app.js"></script>
 	<script src="js/routes.js"></script>
@@ -56,14 +60,34 @@
 	<script src="js/firebase/firebase.js"></script>
 	<script src="js/firebase/firebase.services.js"></script>
 	<script src="js/firebase/firebase.controllers.js"></script>
-	<!-- /IONIC APP -->
+	!-- /IONIC APP -->
+
+	<!-- NG-ANNOTATE - IONIC APP -->
+	<!-- build:js dist_js/app.js -->
+	<script src="dist/dist_js/app/templates.js"></script>
+	<script src="dist/dist_js/app/app.js"></script>
+	<script src="dist/dist_js/app/routes.js"></script>
+	<script src="dist/dist_js/app/services.js"></script>
+	<script src="dist/dist_js/app/directives.js"></script>
+	<script src="dist/dist_js/app/controllers.js"></script>
+	<script src="dist/dist_js/app/games/bubbles/bubbles.js"></script>
+	<script src="dist/dist_js/app/games/bubbles/bubbles.services.js"></script>
+	<script src="dist/dist_js/app/games/bubbles/bubbles.controllers.js"></script>
+	<script src="dist/dist_js/app/drinks/drinks.js"></script>
+	<script src="dist/dist_js/app/drinks/drinks.services.js"></script>
+	<script src="dist/dist_js/app/drinks/drinks.controllers.js"></script>
+	<script src="dist/dist_js/app/firebase/firebase.js"></script>
+	<script src="dist/dist_js/app/firebase/firebase.services.js"></script>
+	<script src="dist/dist_js/app/firebase/firebase.controllers.js"></script>
+	<!-- endbuild -->
+	<!-- /NG-ANNOTATE - IONIC APP -->
 
 	<!-- Google Map -->
 	<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBtMjHS55_1HtnAF4dBeVIg_lY7yw8ttY4" async defer></script>
 
 </head>
 
-<body ng-app="app">
+<body ng-app="app" ng-strict-di>
 
 	<ion-nav-bar class="nav-title-slide-ios7 bar-light">
 		<ion-nav-back-button class="button-icon button-clear button-calm">

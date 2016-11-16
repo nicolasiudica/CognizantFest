@@ -1,13 +1,8 @@
 {
-  "name": "CogniFest",
-  "app_id": "5d7249b7",
-  "gulpStartupTasks": [
-    "sass",
-    "templatecache",
-    "watch"
-  ],
-  "watchPatterns": [
-    "www/**/*",
-    "!www/lib/**/*"
-  ]
+	"name": "CogniFest",
+	"app_id": "5d7249b7",
+	"watchPatterns": [
+		"www/**/*",
+		"!www/lib/**/*"
+	]
 }

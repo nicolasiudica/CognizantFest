@@ -1,6 +1,17 @@
 {
-    "jscodehints.detectedExclusions": [
-        "/Users/pablo/Documents/nico_ionic/CognizantFest/www/js/games/bubbles/bubbles.controllers.js",
-        "chart.js"
-    ]
+	"jscodehints.detectedExclusions": [
+		"/Users/pablo/Documents/nico_ionic/CognizantFest/www/js/games/bubbles/bubbles.controllers.js",
+		"chart.js"
+	],
+	"dimitrk.exclude-indexing-filetree.excludeList": [
+		".git(?!ignore)",
+		"bower_components",
+		"node_modules",
+		"www/lib",
+		"platforms",
+		"plugins",
+		"hooks",
+		"res",
+		"resources"
+	]
 }

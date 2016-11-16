@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	<title>CogniFest</title>
+
+	<!-- STYLESHEETS -->
+	<link rel="stylesheet" href="dist_js/styles.css">
+	<!-- /STYLESHEETS -->
+
+	<!-- CORE JAVASCRIPT LIBRARIES AND TOOLS -->
+	<script src="dist_js/lib.js"></script>
+	<!-- CORE JAVASCRIPT LIBRARIES AND TOOLS -->
+
+	<!-- cordova script (this will be a 404 during development) -->
+	<script src="cordova.js"></script>
+
+	<!-- IONIC APP --
+	<script src="js/templates.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/routes.js"></script>
+	<script src="js/services.js"></script>
+	<script src="js/directives.js"></script>
+	<script src="js/controllers.js"></script>
+	<script src="js/games/bubbles/bubbles.js"></script>
+	<script src="js/games/bubbles/bubbles.services.js"></script>
+	<script src="js/games/bubbles/bubbles.controllers.js"></script>
+	<script src="js/drinks/drinks.js"></script>
+	<script src="js/drinks/drinks.services.js"></script>
+	<script src="js/drinks/drinks.controllers.js"></script>
+	<script src="js/firebase/firebase.js"></script>
+	<script src="js/firebase/firebase.services.js"></script>
+	<script src="js/firebase/firebase.controllers.js"></script>
+	!-- /IONIC APP -->
+
+	<!-- NG-ANNOTATE - IONIC APP -->
+	<script src="dist_js/app.js"></script>
+	<!-- /NG-ANNOTATE - IONIC APP -->
+
+	<!-- Google Map -->
+	<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBtMjHS55_1HtnAF4dBeVIg_lY7yw8ttY4" async defer></script>
+
+</head>
+
+<body ng-app="app" ng-strict-di>
+
+	<ion-nav-bar class="nav-title-slide-ios7 bar-light">
+		<ion-nav-back-button class="button-icon button-clear button-calm">
+			<i class="ion-arrow-left-b"></i> Back
+		</ion-nav-back-button>
+	</ion-nav-bar>
+
+	<ion-nav-view animation="slide-left-right"></ion-nav-view>
+
+</body>
+
+</html>
