@@ -1,0 +1,30 @@
+{
+  "extensions": {
+    "brackets-angularjs-codehints": true,
+    "angularui.angularjs": true,
+    "mikaeljorhult.brackets-autoprefixer": true,
+    "brackets-beautify": true,
+    "hirse.beautify": true,
+    "brackets-css-color-preview": true,
+    "dimitrk.exclude-indexing-filetree": true,
+    "lamo2k123.brackets-file-tree": true,
+    "zaggino.brackets-git": true,
+    "fdecampredon.brackets-tslint": true,
+    "fdecampredon.brackets-typescript": true,
+    "brackets-emmet": true,
+    "milosh86.extensions-bulk-installer": false,
+    "dnbard.extensions-rating": true,
+    "adobe.brackets.extract": true,
+    "jade-preprocessors": true,
+    "jade-snippets": true,
+    "camden.jshint": true,
+    "brackets-lorem-ipsum": true,
+    "brackets-nodejs": true,
+    "brackets-npm-registry": true,
+    "custom-work-for-brackets": true,
+    "enturn.quick-search": true,
+    "brackets-special-html-chars": true,
+    "camden.w3cvalidation": true,
+    "ws-sanitizer": true
+  }
+}
