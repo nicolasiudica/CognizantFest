@@ -1,63 +1,59 @@
-angular.module('app.controllers', [])
+angular
+	.module('app.controllers', []);
 
-.controller('photosCtrl', function ($scope, $timeout) {
-	$scope.data = {};
-	$scope.data.firebasePhotos = [];
+angular
+	.module('app.controllers')
 
-	// Initialize Firebase
-	$scope.data.firebaseConfig = {
-		apiKey: "AIzaSyAg3pKHvhfXu1xps06opGqcO05v5yfRS2E",
-		authDomain: "cognifest-b13f9.firebaseapp.com",
-		databaseURL: "https://cognifest-b13f9.firebaseio.com",
-		storageBucket: "cognifest-b13f9.appspot.com",
-		messagingSenderId: "57670734851"
-	};
+.controller('photosCtrl', ['FirebaseDB', '$scope', '$timeout',
+						   function (FirebaseDB, $scope, $timeout) {
 
-	firebase.initializeApp($scope.data.firebaseConfig);
+		var databaseRef = FirebaseDB.database().ref("CogniFest/photos");
 
-	$scope.firebaseRef = firebase.database().ref("/photo");
+		$scope.data = {};
+		$scope.data.firebasePhotos = [];
 
-	$scope.firebaseRef.on("value", function (snapshot) {
-		var firebasePhotos = [];
+		databaseRef.on("value", function (snapshot) {
+			var firebasePhotos = [];
 
-		snapshot.forEach(function (childsnap) {
-			firebasePhotos.push({
-				src: childsnap.child('src').val(),
-				time: childsnap.child('time').val()
+			snapshot.forEach(function (childsnap) {
+				firebasePhotos.push({
+					owner: childsnap.child('owner').val(),
+					src: childsnap.child('src').val(),
+					time: childsnap.child('time').val()
+				});
 			});
+
+			var newPhotos = _.differenceBy(firebasePhotos, $scope.data.firebasePhotos, 'src');
+
+			newPhotos.forEach(function (newPhoto) {
+				$scope.data.firebasePhotos.push(newPhoto);
+			});
+
+			$timeout($scope.$apply())
+				.then($scope.data.sliderDelegate.update())
+				.then($scope.data.sliderDelegate.slideTo(0))
+				.then($scope.data.sliderDelegate.slideNext());
+
+			console.log("---> Gallery has", $scope.data.firebasePhotos.length, "images", $scope.data.firebasePhotos);
 		});
 
-		var newPhotos = _.differenceBy(firebasePhotos, $scope.data.firebasePhotos, 'src');
+		$scope.data.sliderOptions = {
+			effect: 'coverflow',
+			grabCursor: true,
+			centeredSlides: true,
+			initialSlide: 0,
+			loop: true,
+			speed: 500,
+			autoplay: 1000,
+			autoplayDisableOnInteraction: false,
+			coverflow: {
+				rotate: 50,
+				stretch: 0,
+				depth: 100,
+				modifier: 1,
+				slideShadows: false
+			}
+		};
 
-		newPhotos.forEach(function (newPhoto) {
-			$scope.data.firebasePhotos.push(newPhoto);
-		});
-
-		$timeout($scope.$apply())
-			.then($scope.data.sliderDelegate.update())
-			.then($scope.data.sliderDelegate.slideTo(0))
-			.then($scope.data.sliderDelegate.slideNext());
-
-		console.log("---> Gallery has", $scope.data.firebasePhotos.length, "images", $scope.data.firebasePhotos);
-	});
-
-	$scope.data.sliderOptions = {
-		effect: 'coverflow',
-		grabCursor: true,
-		centeredSlides: true,
-		initialSlide: 0,
-		loop: true,
-		speed: 500,
-		autoplay: 1000,
-		autoplayDisableOnInteraction: false,
-		coverflow: {
-			rotate: 50,
-			stretch: 0,
-			depth: 100,
-			modifier: 1,
-			slideShadows: false
-		}
-	};
-
-	$scope.data.sliderDelegate = null;
-});
+		$scope.data.sliderDelegate = null;
+}]);

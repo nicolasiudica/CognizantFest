@@ -1,0 +1,13 @@
+{
+  "name": "CogniDisplay",
+  "app_id": "cea800cd",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+	"../scss/**/*.scss",
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}

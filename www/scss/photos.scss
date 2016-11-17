@@ -1,56 +1,93 @@
-@mixin flexbox() {
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
+/// Mixin to prefix several properties at once
+/// @param {Map} $declarations - Declarations to prefix
+/// @param {List} $prefixes (()) - List of prefixes to print
+@mixin prefix($declarations, $prefixes: ()) {
+	@each $property,
+	$value in $declarations {
+		@each $prefix in $prefixes {
+			#{'-' + $prefix + '-' + $property}: $value;
+		}
+		// Output standard non-prefixed declaration
+		#{$property}: $value;
+	}
 }
 
-.flex-wrapper {
-	@include flexbox();
-	justify-content: center;
-	align-content: center;
-	align-items: center;
+/// Mixin to suffix several properties at once
+/// @param {Map} $declarations - Declarations to suffix
+/// @param {List} $suffixes (()) - List of suffixes to print
+@mixin suffix($declarations, $suffixes: ()) {
+	@each $property,
+	$value in $declarations {
+		@each $suffix in $suffixes {
+			#{$property}: #{'-' + $suffix + '-' + $value};
+		}
+		// Output standard non-prefixed declaration
+		#{$property}: $value;
+	}
 }
 
-.swiper-container .swiper-slide > div,
-.swiper-container .swiper-slide > div img {
-	transition: all 800ms ease-in;
-	-webkit-transition: all 800ms ease-in;
-	-o-transition: all 800ms ease-in;
-	-moz-transition: all 800ms ease-in;
+
+/*
+* FLEX CENTER VERTICAL
+*/
+
+//.swiper {
+//	&-wrapper {
+//		@include suffix((display: inline-flex), webkit);
+//		display: -ms-inline-flexbox;
+//		@include prefix((flex-direction: column, flex-wrap: nowrap), webkit ms);
+//		@include prefix((justify-content: center, align-content: center, align-items: center), webkit);
+//		@include prefix((flex-pack: center, flex-line-pack: center, flex-align: center), ms);
+//	}
+//	&-slide {
+//		@include prefix(( flex: 0 1 auto), webkit ms);
+//		@include prefix(( order: 0, align-self: auto), webkit);
+//		@include prefix(( flex-order: 0, flex-item-align: auto), ms);
+//	}
+//}
+
+.swiper-container {
+	background: black;
 }
 
-.swiper-container .swiper-slide > div {
-	padding: 40px 20px 20px;
-}
-
-.swiper-container .swiper-slide img {
-	margin-left: 65px;
-	width: 100%;
-}
-
-.swiper-container .swiper-slide-next + .swiper-slide img {
-	margin-left: -65px;
-}
-
-.swiper-container .swiper-slide.swiper-slide-prev img {
-	margin-left: 15px;
-}
-
-.swiper-container .swiper-slide.swiper-slide-next img {
-	margin-left: -15px;
-}
-
-.swiper-container .swiper-slide.swiper-slide-prev > div,
-.swiper-container .swiper-slide.swiper-slide-next > div {
-	padding: 20px 10px 10px;
-}
-
-.swiper-container .swiper-slide.swiper-slide-active > div {
-	padding: 0px;
-}
-
-.swiper-container .swiper-slide.swiper-slide-active img {
-	margin-left: 0px;
-}
+//.swiper-container .swiper-slide > div,
+//.swiper-container .swiper-slide > div img {
+//	transition: all 800ms ease-in;
+//	-webkit-transition: all 800ms ease-in;
+//	-o-transition: all 800ms ease-in;
+//	-moz-transition: all 800ms ease-in;
+//}
+//
+//.swiper-container .swiper-slide > div {
+//	padding: 40px 20px 20px;
+//}
+//
+//.swiper-container .swiper-slide img {
+//	margin-left: 65px;
+//	width: 100%;
+//}
+//
+//.swiper-container .swiper-slide-next + .swiper-slide img {
+//	margin-left: -65px;
+//}
+//
+//.swiper-container .swiper-slide.swiper-slide-prev img {
+//	margin-left: 15px;
+//}
+//
+//.swiper-container .swiper-slide.swiper-slide-next img {
+//	margin-left: -15px;
+//}
+//
+//.swiper-container .swiper-slide.swiper-slide-prev > div,
+//.swiper-container .swiper-slide.swiper-slide-next > div {
+//	padding: 20px 10px 10px;
+//}
+//
+//.swiper-container .swiper-slide.swiper-slide-active > div {
+//	padding: 0px;
+//}
+//
+//.swiper-container .swiper-slide.swiper-slide-active img {
+//	margin-left: 0px;
+//}
