@@ -9816,7 +9816,35 @@ a.button {
   transition-duration: 0s; }
 
 /*
-* FLEX CENTER VERTICAL
+*FLEX CENTER VERTICAL
 */
+.slide-counter {
+  color: white;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 20px;
+  z-index: 1 !important; }
+
 .swiper-container {
   background: black; }
+
+.swiper-slide {
+  background-color: black;
+  background-position: center center;
+  background-repeat: no-repeat; }
+  .swiper-slide img {
+    -webkit-transition: opacity 0.4s;
+    -moz-transition: opacity 0.4s;
+    -ms-transition: opacity 0.4s;
+    transition: opacity 0.4s; }
+  .swiper-slide.is-loading {
+    background-color: black;
+    background-image: url("http://desandro.github.io/imagesloaded/assets/loading.gif"); }
+    .swiper-slide.is-loading img {
+      opacity: 0; }
+  .swiper-slide.is-broken {
+    background-image: url("http://desandro.github.io/imagesloaded/assets/broken.png");
+    background-color: #be3730; }
+    .swiper-slide.is-broken img {
+      opacity: 0; }

@@ -2,7 +2,13 @@
 	<ion-slides options="data.sliderOptions" slider="data.sliderDelegate">
 		<ion-slide-page class="padding text-center"></ion-slide-page>
 		<ion-slide-page ng-repeat="photo in data.firebasePhotos" class="padding text-center">
-				<img ng-src="{{photo.src}}">
+			<img class="is-loading" ng-src="{{photo.src}}" img-preload>
+			<div class="slide-poster">
+				{{photo.owner}}
+			</div>
 		</ion-slide-page>
 	</ion-slides>
+	<div class="slide-counter">
+		{{data.currentIndex}}/{{data.totalIndex}}
+	</div>
 </ion-view>
